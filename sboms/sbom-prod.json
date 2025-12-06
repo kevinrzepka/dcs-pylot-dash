@@ -1,0 +1,2147 @@
+{
+  "components": [
+    {
+      "bom-ref": "annotated-doc==0.0.4",
+      "description": "Document parameters, class attributes, return types, and variables inline, with Annotated.",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata Project-URL: Documentation",
+          "type": "documentation",
+          "url": "https://github.com/fastapi/annotated-doc"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Issues",
+          "type": "issue-tracker",
+          "url": "https://github.com/fastapi/annotated-doc/issues"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Changelog",
+          "type": "release-notes",
+          "url": "https://github.com/fastapi/annotated-doc/release-notes.md"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Repository",
+          "type": "vcs",
+          "url": "https://github.com/fastapi/annotated-doc"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Homepage",
+          "type": "website",
+          "url": "https://github.com/fastapi/annotated-doc"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "MIT"
+          }
+        }
+      ],
+      "name": "annotated-doc",
+      "purl": "pkg:pypi/annotated-doc@0.0.4",
+      "type": "library",
+      "version": "0.0.4"
+    },
+    {
+      "bom-ref": "annotated-types==0.7.0",
+      "description": "Reusable constraint types to use with typing.Annotated",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata Project-URL: Source",
+          "type": "other",
+          "url": "https://github.com/annotated-types/annotated-types"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Changelog",
+          "type": "release-notes",
+          "url": "https://github.com/annotated-types/annotated-types/releases"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Homepage",
+          "type": "website",
+          "url": "https://github.com/annotated-types/annotated-types"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "MIT"
+          }
+        }
+      ],
+      "name": "annotated-types",
+      "purl": "pkg:pypi/annotated-types@0.7.0",
+      "type": "library",
+      "version": "0.7.0"
+    },
+    {
+      "bom-ref": "anyio==4.12.0",
+      "description": "High-level concurrency and networking framework on top of asyncio or Trio",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata Project-URL: Documentation",
+          "type": "documentation",
+          "url": "https://anyio.readthedocs.io/en/latest/"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Issue tracker",
+          "type": "issue-tracker",
+          "url": "https://github.com/agronholm/anyio/issues"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Source code",
+          "type": "other",
+          "url": "https://github.com/agronholm/anyio"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Changelog",
+          "type": "release-notes",
+          "url": "https://anyio.readthedocs.io/en/stable/versionhistory.html"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "MIT"
+          }
+        }
+      ],
+      "name": "anyio",
+      "purl": "pkg:pypi/anyio@4.12.0",
+      "type": "library",
+      "version": "4.12.0"
+    },
+    {
+      "bom-ref": "arrow==1.4.0",
+      "description": "Better dates & times for Python",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata Project-URL: Documentation",
+          "type": "documentation",
+          "url": "https://arrow.readthedocs.io"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Issues",
+          "type": "issue-tracker",
+          "url": "https://github.com/arrow-py/arrow/issues"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Source",
+          "type": "other",
+          "url": "https://github.com/arrow-py/arrow"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "name": "License :: OSI Approved :: Apache Software License"
+          }
+        }
+      ],
+      "name": "arrow",
+      "purl": "pkg:pypi/arrow@1.4.0",
+      "type": "library",
+      "version": "1.4.0"
+    },
+    {
+      "bom-ref": "attrs==25.4.0",
+      "description": "Classes Without Boilerplate",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata Project-URL: Documentation",
+          "type": "documentation",
+          "url": "https://www.attrs.org/"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Funding",
+          "type": "other",
+          "url": "https://github.com/sponsors/hynek"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Tidelift",
+          "type": "other",
+          "url": "https://tidelift.com/subscription/pkg/pypi-attrs?utm_source=pypi-attrs&utm_medium=pypi"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Changelog",
+          "type": "release-notes",
+          "url": "https://www.attrs.org/en/stable/changelog.html"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: GitHub",
+          "type": "vcs",
+          "url": "https://github.com/python-attrs/attrs"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "MIT"
+          }
+        }
+      ],
+      "name": "attrs",
+      "purl": "pkg:pypi/attrs@25.4.0",
+      "type": "library",
+      "version": "25.4.0"
+    },
+    {
+      "bom-ref": "boolean.py==5.0",
+      "description": "Define boolean algebras, create and parse boolean expressions and create custom boolean DSL.",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata: Home-page",
+          "type": "website",
+          "url": "https://github.com/bastikr/boolean.py"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "BSD-2-Clause"
+          }
+        }
+      ],
+      "name": "boolean.py",
+      "purl": "pkg:pypi/boolean.py@5.0",
+      "type": "library",
+      "version": "5.0"
+    },
+    {
+      "bom-ref": "chardet==5.2.0",
+      "description": "Universal encoding detector for Python 3",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata Project-URL: Documentation",
+          "type": "documentation",
+          "url": "https://chardet.readthedocs.io/"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Issue Tracker",
+          "type": "issue-tracker",
+          "url": "https://github.com/chardet/chardet/issues"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: GitHub Project",
+          "type": "other",
+          "url": "https://github.com/chardet/chardet"
+        },
+        {
+          "comment": "from packaging metadata: Home-page",
+          "type": "website",
+          "url": "https://github.com/chardet/chardet"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "name": "License :: OSI Approved :: GNU Lesser General Public License v2 or later (LGPLv2+)"
+          }
+        },
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "name": "declared license file: LICENSE",
+            "text": {
+              "content": "ICAgICAgICAgICAgICAgICAgR05VIExFU1NFUiBHRU5FUkFMIFBVQkxJQyBMSUNFTlNFCiAgICAgICAgICAgICAgICAgICAgICAgVmVyc2lvbiAyLjEsIEZlYnJ1YXJ5IDE5OTkKCiBDb3B5cmlnaHQgKEMpIDE5OTEsIDE5OTkgRnJlZSBTb2Z0d2FyZSBGb3VuZGF0aW9uLCBJbmMuCiA1MSBGcmFua2xpbiBTdHJlZXQsIEZpZnRoIEZsb29yLCBCb3N0b24sIE1BICAwMjExMC0xMzAxICBVU0EKIEV2ZXJ5b25lIGlzIHBlcm1pdHRlZCB0byBjb3B5IGFuZCBkaXN0cmlidXRlIHZlcmJhdGltIGNvcGllcwogb2YgdGhpcyBsaWNlbnNlIGRvY3VtZW50LCBidXQgY2hhbmdpbmcgaXQgaXMgbm90IGFsbG93ZWQuCgpbVGhpcyBpcyB0aGUgZmlyc3QgcmVsZWFzZWQgdmVyc2lvbiBvZiB0aGUgTGVzc2VyIEdQTC4gIEl0IGFsc28gY291bnRzCiBhcyB0aGUgc3VjY2Vzc29yIG9mIHRoZSBHTlUgTGlicmFyeSBQdWJsaWMgTGljZW5zZSwgdmVyc2lvbiAyLCBoZW5jZQogdGhlIHZlcnNpb24gbnVtYmVyIDIuMS5dCgogICAgICAgICAgICAgICAgICAgICAgICAgICAgUHJlYW1ibGUKCiAgVGhlIGxpY2Vuc2VzIGZvciBtb3N0IHNvZnR3YXJlIGFyZSBkZXNpZ25lZCB0byB0YWtlIGF3YXkgeW91cgpmcmVlZG9tIHRvIHNoYXJlIGFuZCBjaGFuZ2UgaXQuICBCeSBjb250cmFzdCwgdGhlIEdOVSBHZW5lcmFsIFB1YmxpYwpMaWNlbnNlcyBhcmUgaW50ZW5kZWQgdG8gZ3VhcmFudGVlIHlvdXIgZnJlZWRvbSB0byBzaGFyZSBhbmQgY2hhbmdlCmZyZWUgc29mdHdhcmUtLXRvIG1ha2Ugc3VyZSB0aGUgc29mdHdhcmUgaXMgZnJlZSBmb3IgYWxsIGl0cyB1c2Vycy4KCiAgVGhpcyBsaWNlbnNlLCB0aGUgTGVzc2VyIEdlbmVyYWwgUHVibGljIExpY2Vuc2UsIGFwcGxpZXMgdG8gc29tZQpzcGVjaWFsbHkgZGVzaWduYXRlZCBzb2Z0d2FyZSBwYWNrYWdlcy0tdHlwaWNhbGx5IGxpYnJhcmllcy0tb2YgdGhlCkZyZWUgU29mdHdhcmUgRm91bmRhdGlvbiBhbmQgb3RoZXIgYXV0aG9ycyB3aG8gZGVjaWRlIHRvIHVzZSBpdC4gIFlvdQpjYW4gdXNlIGl0IHRvbywgYnV0IHdlIHN1Z2dlc3QgeW91IGZpcnN0IHRoaW5rIGNhcmVmdWxseSBhYm91dCB3aGV0aGVyCnRoaXMgbGljZW5zZSBvciB0aGUgb3JkaW5hcnkgR2VuZXJhbCBQdWJsaWMgTGljZW5zZSBpcyB0aGUgYmV0dGVyCnN0cmF0ZWd5IHRvIHVzZSBpbiBhbnkgcGFydGljdWxhciBjYXNlLCBiYXNlZCBvbiB0aGUgZXhwbGFuYXRpb25zIGJlbG93LgoKICBXaGVuIHdlIHNwZWFrIG9mIGZyZWUgc29mdHdhcmUsIHdlIGFyZSByZWZlcnJpbmcgdG8gZnJlZWRvbSBvZiB1c2UsCm5vdCBwcmljZS4gIE91ciBHZW5lcmFsIFB1YmxpYyBMaWNlbnNlcyBhcmUgZGVzaWduZWQgdG8gbWFrZSBzdXJlIHRoYXQKeW91IGhhdmUgdGhlIGZyZWVkb20gdG8gZGlzdHJpYnV0ZSBjb3BpZXMgb2YgZnJlZSBzb2Z0d2FyZSAoYW5kIGNoYXJnZQpmb3IgdGhpcyBzZXJ2aWNlIGlmIHlvdSB3aXNoKTsgdGhhdCB5b3UgcmVjZWl2ZSBzb3VyY2UgY29kZSBvciBjYW4gZ2V0Cml0IGlmIHlvdSB3YW50IGl0OyB0aGF0IHlvdSBjYW4gY2hhbmdlIHRoZSBzb2Z0d2FyZSBhbmQgdXNlIHBpZWNlcyBvZgppdCBpbiBuZXcgZnJlZSBwcm9ncmFtczsgYW5kIHRoYXQgeW91IGFyZSBpbmZvcm1lZCB0aGF0IHlvdSBjYW4gZG8KdGhlc2UgdGhpbmdzLgoKICBUbyBwcm90ZWN0IHlvdXIgcmlnaHRzLCB3ZSBuZWVkIHRvIG1ha2UgcmVzdHJpY3Rpb25zIHRoYXQgZm9yYmlkCmRpc3RyaWJ1dG9ycyB0byBkZW55IHlvdSB0aGVzZSByaWdodHMgb3IgdG8gYXNrIHlvdSB0byBzdXJyZW5kZXIgdGhlc2UKcmlnaHRzLiAgVGhlc2UgcmVzdHJpY3Rpb25zIHRyYW5zbGF0ZSB0byBjZXJ0YWluIHJlc3BvbnNpYmlsaXRpZXMgZm9yCnlvdSBpZiB5b3UgZGlzdHJpYnV0ZSBjb3BpZXMgb2YgdGhlIGxpYnJhcnkgb3IgaWYgeW91IG1vZGlmeSBpdC4KCiAgRm9yIGV4YW1wbGUsIGlmIHlvdSBkaXN0cmlidXRlIGNvcGllcyBvZiB0aGUgbGlicmFyeSwgd2hldGhlciBncmF0aXMKb3IgZm9yIGEgZmVlLCB5b3UgbXVzdCBnaXZlIHRoZSByZWNpcGllbnRzIGFsbCB0aGUgcmlnaHRzIHRoYXQgd2UgZ2F2ZQp5b3UuICBZb3UgbXVzdCBtYWtlIHN1cmUgdGhhdCB0aGV5LCB0b28sIHJlY2VpdmUgb3IgY2FuIGdldCB0aGUgc291cmNlCmNvZGUuICBJZiB5b3UgbGluayBvdGhlciBjb2RlIHdpdGggdGhlIGxpYnJhcnksIHlvdSBtdXN0IHByb3ZpZGUKY29tcGxldGUgb2JqZWN0IGZpbGVzIHRvIHRoZSByZWNpcGllbnRzLCBzbyB0aGF0IHRoZXkgY2FuIHJlbGluayB0aGVtCndpdGggdGhlIGxpYnJhcnkgYWZ0ZXIgbWFraW5nIGNoYW5nZXMgdG8gdGhlIGxpYnJhcnkgYW5kIHJlY29tcGlsaW5nCml0LiAgQW5kIHlvdSBtdXN0IHNob3cgdGhlbSB0aGVzZSB0ZXJtcyBzbyB0aGV5IGtub3cgdGhlaXIgcmlnaHRzLgoKICBXZSBwcm90ZWN0IHlvdXIgcmlnaHRzIHdpdGggYSB0d28tc3RlcCBtZXRob2Q6ICgxKSB3ZSBjb3B5cmlnaHQgdGhlCmxpYnJhcnksIGFuZCAoMikgd2Ugb2ZmZXIgeW91IHRoaXMgbGljZW5zZSwgd2hpY2ggZ2l2ZXMgeW91IGxlZ2FsCnBlcm1pc3Npb24gdG8gY29weSwgZGlzdHJpYnV0ZSBhbmQvb3IgbW9kaWZ5IHRoZSBsaWJyYXJ5LgoKICBUbyBwcm90ZWN0IGVhY2ggZGlzdHJpYnV0b3IsIHdlIHdhbnQgdG8gbWFrZSBpdCB2ZXJ5IGNsZWFyIHRoYXQKdGhlcmUgaXMgbm8gd2FycmFudHkgZm9yIHRoZSBmcmVlIGxpYnJhcnkuICBBbHNvLCBpZiB0aGUgbGlicmFyeSBpcwptb2RpZmllZCBieSBzb21lb25lIGVsc2UgYW5kIHBhc3NlZCBvbiwgdGhlIHJlY2lwaWVudHMgc2hvdWxkIGtub3cKdGhhdCB3aGF0IHRoZXkgaGF2ZSBpcyBub3QgdGhlIG9yaWdpbmFsIHZlcnNpb24sIHNvIHRoYXQgdGhlIG9yaWdpbmFsCmF1dGhvcidzIHJlcHV0YXRpb24gd2lsbCBub3QgYmUgYWZmZWN0ZWQgYnkgcHJvYmxlbXMgdGhhdCBtaWdodCBiZQppbnRyb2R1Y2VkIGJ5IG90aGVycy4KDAogIEZpbmFsbHksIHNvZnR3YXJlIHBhdGVudHMgcG9zZSBhIGNvbnN0YW50IHRocmVhdCB0byB0aGUgZXhpc3RlbmNlIG9mCmFueSBmcmVlIHByb2dyYW0uICBXZSB3aXNoIHRvIG1ha2Ugc3VyZSB0aGF0IGEgY29tcGFueSBjYW5ub3QKZWZmZWN0aXZlbHkgcmVzdHJpY3QgdGhlIHVzZXJzIG9mIGEgZnJlZSBwcm9ncmFtIGJ5IG9idGFpbmluZyBhCnJlc3RyaWN0aXZlIGxpY2Vuc2UgZnJvbSBhIHBhdGVudCBob2xkZXIuICBUaGVyZWZvcmUsIHdlIGluc2lzdCB0aGF0CmFueSBwYXRlbnQgbGljZW5zZSBvYnRhaW5lZCBmb3IgYSB2ZXJzaW9uIG9mIHRoZSBsaWJyYXJ5IG11c3QgYmUKY29uc2lzdGVudCB3aXRoIHRoZSBmdWxsIGZyZWVkb20gb2YgdXNlIHNwZWNpZmllZCBpbiB0aGlzIGxpY2Vuc2UuCgogIE1vc3QgR05VIHNvZnR3YXJlLCBpbmNsdWRpbmcgc29tZSBsaWJyYXJpZXMsIGlzIGNvdmVyZWQgYnkgdGhlCm9yZGluYXJ5IEdOVSBHZW5lcmFsIFB1YmxpYyBMaWNlbnNlLiAgVGhpcyBsaWNlbnNlLCB0aGUgR05VIExlc3NlcgpHZW5lcmFsIFB1YmxpYyBMaWNlbnNlLCBhcHBsaWVzIHRvIGNlcnRhaW4gZGVzaWduYXRlZCBsaWJyYXJpZXMsIGFuZAppcyBxdWl0ZSBkaWZmZXJlbnQgZnJvbSB0aGUgb3JkaW5hcnkgR2VuZXJhbCBQdWJsaWMgTGljZW5zZS4gIFdlIHVzZQp0aGlzIGxpY2Vuc2UgZm9yIGNlcnRhaW4gbGlicmFyaWVzIGluIG9yZGVyIHRvIHBlcm1pdCBsaW5raW5nIHRob3NlCmxpYnJhcmllcyBpbnRvIG5vbi1mcmVlIHByb2dyYW1zLgoKICBXaGVuIGEgcHJvZ3JhbSBpcyBsaW5rZWQgd2l0aCBhIGxpYnJhcnksIHdoZXRoZXIgc3RhdGljYWxseSBvciB1c2luZwphIHNoYXJlZCBsaWJyYXJ5LCB0aGUgY29tYmluYXRpb24gb2YgdGhlIHR3byBpcyBsZWdhbGx5IHNwZWFraW5nIGEKY29tYmluZWQgd29yaywgYSBkZXJpdmF0aXZlIG9mIHRoZSBvcmlnaW5hbCBsaWJyYXJ5LiAgVGhlIG9yZGluYXJ5CkdlbmVyYWwgUHVibGljIExpY2Vuc2UgdGhlcmVmb3JlIHBlcm1pdHMgc3VjaCBsaW5raW5nIG9ubHkgaWYgdGhlCmVudGlyZSBjb21iaW5hdGlvbiBmaXRzIGl0cyBjcml0ZXJpYSBvZiBmcmVlZG9tLiAgVGhlIExlc3NlciBHZW5lcmFsClB1YmxpYyBMaWNlbnNlIHBlcm1pdHMgbW9yZSBsYXggY3JpdGVyaWEgZm9yIGxpbmtpbmcgb3RoZXIgY29kZSB3aXRoCnRoZSBsaWJyYXJ5LgoKICBXZSBjYWxsIHRoaXMgbGljZW5zZSB0aGUgIkxlc3NlciIgR2VuZXJhbCBQdWJsaWMgTGljZW5zZSBiZWNhdXNlIGl0CmRvZXMgTGVzcyB0byBwcm90ZWN0IHRoZSB1c2VyJ3MgZnJlZWRvbSB0aGFuIHRoZSBvcmRpbmFyeSBHZW5lcmFsClB1YmxpYyBMaWNlbnNlLiAgSXQgYWxzbyBwcm92aWRlcyBvdGhlciBmcmVlIHNvZnR3YXJlIGRldmVsb3BlcnMgTGVzcwpvZiBhbiBhZHZhbnRhZ2Ugb3ZlciBjb21wZXRpbmcgbm9uLWZyZWUgcHJvZ3JhbXMuICBUaGVzZSBkaXNhZHZhbnRhZ2VzCmFyZSB0aGUgcmVhc29uIHdlIHVzZSB0aGUgb3JkaW5hcnkgR2VuZXJhbCBQdWJsaWMgTGljZW5zZSBmb3IgbWFueQpsaWJyYXJpZXMuICBIb3dldmVyLCB0aGUgTGVzc2VyIGxpY2Vuc2UgcHJvdmlkZXMgYWR2YW50YWdlcyBpbiBjZXJ0YWluCnNwZWNpYWwgY2lyY3Vtc3RhbmNlcy4KCiAgRm9yIGV4YW1wbGUsIG9uIHJhcmUgb2NjYXNpb25zLCB0aGVyZSBtYXkgYmUgYSBzcGVjaWFsIG5lZWQgdG8KZW5jb3VyYWdlIHRoZSB3aWRlc3QgcG9zc2libGUgdXNlIG9mIGEgY2VydGFpbiBsaWJyYXJ5LCBzbyB0aGF0IGl0IGJlY29tZXMKYSBkZS1mYWN0byBzdGFuZGFyZC4gIFRvIGFjaGlldmUgdGhpcywgbm9uLWZyZWUgcHJvZ3JhbXMgbXVzdCBiZQphbGxvd2VkIHRvIHVzZSB0aGUgbGlicmFyeS4gIEEgbW9yZSBmcmVxdWVudCBjYXNlIGlzIHRoYXQgYSBmcmVlCmxpYnJhcnkgZG9lcyB0aGUgc2FtZSBqb2IgYXMgd2lkZWx5IHVzZWQgbm9uLWZyZWUgbGlicmFyaWVzLiAgSW4gdGhpcwpjYXNlLCB0aGVyZSBpcyBsaXR0bGUgdG8gZ2FpbiBieSBsaW1pdGluZyB0aGUgZnJlZSBsaWJyYXJ5IHRvIGZyZWUKc29mdHdhcmUgb25seSwgc28gd2UgdXNlIHRoZSBMZXNzZXIgR2VuZXJhbCBQdWJsaWMgTGljZW5zZS4KCiAgSW4gb3RoZXIgY2FzZXMsIHBlcm1pc3Npb24gdG8gdXNlIGEgcGFydGljdWxhciBsaWJyYXJ5IGluIG5vbi1mcmVlCnByb2dyYW1zIGVuYWJsZXMgYSBncmVhdGVyIG51bWJlciBvZiBwZW9wbGUgdG8gdXNlIGEgbGFyZ2UgYm9keSBvZgpmcmVlIHNvZnR3YXJlLiAgRm9yIGV4YW1wbGUsIHBlcm1pc3Npb24gdG8gdXNlIHRoZSBHTlUgQyBMaWJyYXJ5IGluCm5vbi1mcmVlIHByb2dyYW1zIGVuYWJsZXMgbWFueSBtb3JlIHBlb3BsZSB0byB1c2UgdGhlIHdob2xlIEdOVQpvcGVyYXRpbmcgc3lzdGVtLCBhcyB3ZWxsIGFzIGl0cyB2YXJpYW50LCB0aGUgR05VL0xpbnV4IG9wZXJhdGluZwpzeXN0ZW0uCgogIEFsdGhvdWdoIHRoZSBMZXNzZXIgR2VuZXJhbCBQdWJsaWMgTGljZW5zZSBpcyBMZXNzIHByb3RlY3RpdmUgb2YgdGhlCnVzZXJzJyBmcmVlZG9tLCBpdCBkb2VzIGVuc3VyZSB0aGF0IHRoZSB1c2VyIG9mIGEgcHJvZ3JhbSB0aGF0IGlzCmxpbmtlZCB3aXRoIHRoZSBMaWJyYXJ5IGhhcyB0aGUgZnJlZWRvbSBhbmQgdGhlIHdoZXJld2l0aGFsIHRvIHJ1bgp0aGF0IHByb2dyYW0gdXNpbmcgYSBtb2RpZmllZCB2ZXJzaW9uIG9mIHRoZSBMaWJyYXJ5LgoKICBUaGUgcHJlY2lzZSB0ZXJtcyBhbmQgY29uZGl0aW9ucyBmb3IgY29weWluZywgZGlzdHJpYnV0aW9uIGFuZAptb2RpZmljYXRpb24gZm9sbG93LiAgUGF5IGNsb3NlIGF0dGVudGlvbiB0byB0aGUgZGlmZmVyZW5jZSBiZXR3ZWVuIGEKIndvcmsgYmFzZWQgb24gdGhlIGxpYnJhcnkiIGFuZCBhICJ3b3JrIHRoYXQgdXNlcyB0aGUgbGlicmFyeSIuICBUaGUKZm9ybWVyIGNvbnRhaW5zIGNvZGUgZGVyaXZlZCBmcm9tIHRoZSBsaWJyYXJ5LCB3aGVyZWFzIHRoZSBsYXR0ZXIgbXVzdApiZSBjb21iaW5lZCB3aXRoIHRoZSBsaWJyYXJ5IGluIG9yZGVyIHRvIHJ1bi4KDAogICAgICAgICAgICAgICAgICBHTlUgTEVTU0VSIEdFTkVSQUwgUFVCTElDIExJQ0VOU0UKICAgVEVSTVMgQU5EIENPTkRJVElPTlMgRk9SIENPUFlJTkcsIERJU1RSSUJVVElPTiBBTkQgTU9ESUZJQ0FUSU9OCgogIDAuIFRoaXMgTGljZW5zZSBBZ3JlZW1lbnQgYXBwbGllcyB0byBhbnkgc29mdHdhcmUgbGlicmFyeSBvciBvdGhlcgpwcm9ncmFtIHdoaWNoIGNvbnRhaW5zIGEgbm90aWNlIHBsYWNlZCBieSB0aGUgY29weXJpZ2h0IGhvbGRlciBvcgpvdGhlciBhdXRob3JpemVkIHBhcnR5IHNheWluZyBpdCBtYXkgYmUgZGlzdHJpYnV0ZWQgdW5kZXIgdGhlIHRlcm1zIG9mCnRoaXMgTGVzc2VyIEdlbmVyYWwgUHVibGljIExpY2Vuc2UgKGFsc28gY2FsbGVkICJ0aGlzIExpY2Vuc2UiKS4KRWFjaCBsaWNlbnNlZSBpcyBhZGRyZXNzZWQgYXMgInlvdSIuCgogIEEgImxpYnJhcnkiIG1lYW5zIGEgY29sbGVjdGlvbiBvZiBzb2Z0d2FyZSBmdW5jdGlvbnMgYW5kL29yIGRhdGEKcHJlcGFyZWQgc28gYXMgdG8gYmUgY29udmVuaWVudGx5IGxpbmtlZCB3aXRoIGFwcGxpY2F0aW9uIHByb2dyYW1zCih3aGljaCB1c2Ugc29tZSBvZiB0aG9zZSBmdW5jdGlvbnMgYW5kIGRhdGEpIHRvIGZvcm0gZXhlY3V0YWJsZXMuCgogIFRoZSAiTGlicmFyeSIsIGJlbG93LCByZWZlcnMgdG8gYW55IHN1Y2ggc29mdHdhcmUgbGlicmFyeSBvciB3b3JrCndoaWNoIGhhcyBiZWVuIGRpc3RyaWJ1dGVkIHVuZGVyIHRoZXNlIHRlcm1zLiAgQSAid29yayBiYXNlZCBvbiB0aGUKTGlicmFyeSIgbWVhbnMgZWl0aGVyIHRoZSBMaWJyYXJ5IG9yIGFueSBkZXJpdmF0aXZlIHdvcmsgdW5kZXIKY29weXJpZ2h0IGxhdzogdGhhdCBpcyB0byBzYXksIGEgd29yayBjb250YWluaW5nIHRoZSBMaWJyYXJ5IG9yIGEKcG9ydGlvbiBvZiBpdCwgZWl0aGVyIHZlcmJhdGltIG9yIHdpdGggbW9kaWZpY2F0aW9ucyBhbmQvb3IgdHJhbnNsYXRlZApzdHJhaWdodGZvcndhcmRseSBpbnRvIGFub3RoZXIgbGFuZ3VhZ2UuICAoSGVyZWluYWZ0ZXIsIHRyYW5zbGF0aW9uIGlzCmluY2x1ZGVkIHdpdGhvdXQgbGltaXRhdGlvbiBpbiB0aGUgdGVybSAibW9kaWZpY2F0aW9uIi4pCgogICJTb3VyY2UgY29kZSIgZm9yIGEgd29yayBtZWFucyB0aGUgcHJlZmVycmVkIGZvcm0gb2YgdGhlIHdvcmsgZm9yCm1ha2luZyBtb2RpZmljYXRpb25zIHRvIGl0LiAgRm9yIGEgbGlicmFyeSwgY29tcGxldGUgc291cmNlIGNvZGUgbWVhbnMKYWxsIHRoZSBzb3VyY2UgY29kZSBmb3IgYWxsIG1vZHVsZXMgaXQgY29udGFpbnMsIHBsdXMgYW55IGFzc29jaWF0ZWQKaW50ZXJmYWNlIGRlZmluaXRpb24gZmlsZXMsIHBsdXMgdGhlIHNjcmlwdHMgdXNlZCB0byBjb250cm9sIGNvbXBpbGF0aW9uCmFuZCBpbnN0YWxsYXRpb24gb2YgdGhlIGxpYnJhcnkuCgogIEFjdGl2aXRpZXMgb3RoZXIgdGhhbiBjb3B5aW5nLCBkaXN0cmlidXRpb24gYW5kIG1vZGlmaWNhdGlvbiBhcmUgbm90CmNvdmVyZWQgYnkgdGhpcyBMaWNlbnNlOyB0aGV5IGFyZSBvdXRzaWRlIGl0cyBzY29wZS4gIFRoZSBhY3Qgb2YKcnVubmluZyBhIHByb2dyYW0gdXNpbmcgdGhlIExpYnJhcnkgaXMgbm90IHJlc3RyaWN0ZWQsIGFuZCBvdXRwdXQgZnJvbQpzdWNoIGEgcHJvZ3JhbSBpcyBjb3ZlcmVkIG9ubHkgaWYgaXRzIGNvbnRlbnRzIGNvbnN0aXR1dGUgYSB3b3JrIGJhc2VkCm9uIHRoZSBMaWJyYXJ5IChpbmRlcGVuZGVudCBvZiB0aGUgdXNlIG9mIHRoZSBMaWJyYXJ5IGluIGEgdG9vbCBmb3IKd3JpdGluZyBpdCkuICBXaGV0aGVyIHRoYXQgaXMgdHJ1ZSBkZXBlbmRzIG9uIHdoYXQgdGhlIExpYnJhcnkgZG9lcwphbmQgd2hhdCB0aGUgcHJvZ3JhbSB0aGF0IHVzZXMgdGhlIExpYnJhcnkgZG9lcy4KCiAgMS4gWW91IG1heSBjb3B5IGFuZCBkaXN0cmlidXRlIHZlcmJhdGltIGNvcGllcyBvZiB0aGUgTGlicmFyeSdzCmNvbXBsZXRlIHNvdXJjZSBjb2RlIGFzIHlvdSByZWNlaXZlIGl0LCBpbiBhbnkgbWVkaXVtLCBwcm92aWRlZCB0aGF0CnlvdSBjb25zcGljdW91c2x5IGFuZCBhcHByb3ByaWF0ZWx5IHB1Ymxpc2ggb24gZWFjaCBjb3B5IGFuCmFwcHJvcHJpYXRlIGNvcHlyaWdodCBub3RpY2UgYW5kIGRpc2NsYWltZXIgb2Ygd2FycmFudHk7IGtlZXAgaW50YWN0CmFsbCB0aGUgbm90aWNlcyB0aGF0IHJlZmVyIHRvIHRoaXMgTGljZW5zZSBhbmQgdG8gdGhlIGFic2VuY2Ugb2YgYW55CndhcnJhbnR5OyBhbmQgZGlzdHJpYnV0ZSBhIGNvcHkgb2YgdGhpcyBMaWNlbnNlIGFsb25nIHdpdGggdGhlCkxpYnJhcnkuCgogIFlvdSBtYXkgY2hhcmdlIGEgZmVlIGZvciB0aGUgcGh5c2ljYWwgYWN0IG9mIHRyYW5zZmVycmluZyBhIGNvcHksCmFuZCB5b3UgbWF5IGF0IHlvdXIgb3B0aW9uIG9mZmVyIHdhcnJhbnR5IHByb3RlY3Rpb24gaW4gZXhjaGFuZ2UgZm9yIGEKZmVlLgoMCiAgMi4gWW91IG1heSBtb2RpZnkgeW91ciBjb3B5IG9yIGNvcGllcyBvZiB0aGUgTGlicmFyeSBvciBhbnkgcG9ydGlvbgpvZiBpdCwgdGh1cyBmb3JtaW5nIGEgd29yayBiYXNlZCBvbiB0aGUgTGlicmFyeSwgYW5kIGNvcHkgYW5kCmRpc3RyaWJ1dGUgc3VjaCBtb2RpZmljYXRpb25zIG9yIHdvcmsgdW5kZXIgdGhlIHRlcm1zIG9mIFNlY3Rpb24gMQphYm92ZSwgcHJvdmlkZWQgdGhhdCB5b3UgYWxzbyBtZWV0IGFsbCBvZiB0aGVzZSBjb25kaXRpb25zOgoKICAgIGEpIFRoZSBtb2RpZmllZCB3b3JrIG11c3QgaXRzZWxmIGJlIGEgc29mdHdhcmUgbGlicmFyeS4KCiAgICBiKSBZb3UgbXVzdCBjYXVzZSB0aGUgZmlsZXMgbW9kaWZpZWQgdG8gY2FycnkgcHJvbWluZW50IG5vdGljZXMKICAgIHN0YXRpbmcgdGhhdCB5b3UgY2hhbmdlZCB0aGUgZmlsZXMgYW5kIHRoZSBkYXRlIG9mIGFueSBjaGFuZ2UuCgogICAgYykgWW91IG11c3QgY2F1c2UgdGhlIHdob2xlIG9mIHRoZSB3b3JrIHRvIGJlIGxpY2Vuc2VkIGF0IG5vCiAgICBjaGFyZ2UgdG8gYWxsIHRoaXJkIHBhcnRpZXMgdW5kZXIgdGhlIHRlcm1zIG9mIHRoaXMgTGljZW5zZS4KCiAgICBkKSBJZiBhIGZhY2lsaXR5IGluIHRoZSBtb2RpZmllZCBMaWJyYXJ5IHJlZmVycyB0byBhIGZ1bmN0aW9uIG9yIGEKICAgIHRhYmxlIG9mIGRhdGEgdG8gYmUgc3VwcGxpZWQgYnkgYW4gYXBwbGljYXRpb24gcHJvZ3JhbSB0aGF0IHVzZXMKICAgIHRoZSBmYWNpbGl0eSwgb3RoZXIgdGhhbiBhcyBhbiBhcmd1bWVudCBwYXNzZWQgd2hlbiB0aGUgZmFjaWxpdHkKICAgIGlzIGludm9rZWQsIHRoZW4geW91IG11c3QgbWFrZSBhIGdvb2QgZmFpdGggZWZmb3J0IHRvIGVuc3VyZSB0aGF0LAogICAgaW4gdGhlIGV2ZW50IGFuIGFwcGxpY2F0aW9uIGRvZXMgbm90IHN1cHBseSBzdWNoIGZ1bmN0aW9uIG9yCiAgICB0YWJsZSwgdGhlIGZhY2lsaXR5IHN0aWxsIG9wZXJhdGVzLCBhbmQgcGVyZm9ybXMgd2hhdGV2ZXIgcGFydCBvZgogICAgaXRzIHB1cnBvc2UgcmVtYWlucyBtZWFuaW5nZnVsLgoKICAgIChGb3IgZXhhbXBsZSwgYSBmdW5jdGlvbiBpbiBhIGxpYnJhcnkgdG8gY29tcHV0ZSBzcXVhcmUgcm9vdHMgaGFzCiAgICBhIHB1cnBvc2UgdGhhdCBpcyBlbnRpcmVseSB3ZWxsLWRlZmluZWQgaW5kZXBlbmRlbnQgb2YgdGhlCiAgICBhcHBsaWNhdGlvbi4gIFRoZXJlZm9yZSwgU3Vic2VjdGlvbiAyZCByZXF1aXJlcyB0aGF0IGFueQogICAgYXBwbGljYXRpb24tc3VwcGxpZWQgZnVuY3Rpb24gb3IgdGFibGUgdXNlZCBieSB0aGlzIGZ1bmN0aW9uIG11c3QKICAgIGJlIG9wdGlvbmFsOiBpZiB0aGUgYXBwbGljYXRpb24gZG9lcyBub3Qgc3VwcGx5IGl0LCB0aGUgc3F1YXJlCiAgICByb290IGZ1bmN0aW9uIG11c3Qgc3RpbGwgY29tcHV0ZSBzcXVhcmUgcm9vdHMuKQoKVGhlc2UgcmVxdWlyZW1lbnRzIGFwcGx5IHRvIHRoZSBtb2RpZmllZCB3b3JrIGFzIGEgd2hvbGUuICBJZgppZGVudGlmaWFibGUgc2VjdGlvbnMgb2YgdGhhdCB3b3JrIGFyZSBub3QgZGVyaXZlZCBmcm9tIHRoZSBMaWJyYXJ5LAphbmQgY2FuIGJlIHJlYXNvbmFibHkgY29uc2lkZXJlZCBpbmRlcGVuZGVudCBhbmQgc2VwYXJhdGUgd29ya3MgaW4KdGhlbXNlbHZlcywgdGhlbiB0aGlzIExpY2Vuc2UsIGFuZCBpdHMgdGVybXMsIGRvIG5vdCBhcHBseSB0byB0aG9zZQpzZWN0aW9ucyB3aGVuIHlvdSBkaXN0cmlidXRlIHRoZW0gYXMgc2VwYXJhdGUgd29ya3MuICBCdXQgd2hlbiB5b3UKZGlzdHJpYnV0ZSB0aGUgc2FtZSBzZWN0aW9ucyBhcyBwYXJ0IG9mIGEgd2hvbGUgd2hpY2ggaXMgYSB3b3JrIGJhc2VkCm9uIHRoZSBMaWJyYXJ5LCB0aGUgZGlzdHJpYnV0aW9uIG9mIHRoZSB3aG9sZSBtdXN0IGJlIG9uIHRoZSB0ZXJtcyBvZgp0aGlzIExpY2Vuc2UsIHdob3NlIHBlcm1pc3Npb25zIGZvciBvdGhlciBsaWNlbnNlZXMgZXh0ZW5kIHRvIHRoZQplbnRpcmUgd2hvbGUsIGFuZCB0aHVzIHRvIGVhY2ggYW5kIGV2ZXJ5IHBhcnQgcmVnYXJkbGVzcyBvZiB3aG8gd3JvdGUKaXQuCgpUaHVzLCBpdCBpcyBub3QgdGhlIGludGVudCBvZiB0aGlzIHNlY3Rpb24gdG8gY2xhaW0gcmlnaHRzIG9yIGNvbnRlc3QKeW91ciByaWdodHMgdG8gd29yayB3cml0dGVuIGVudGlyZWx5IGJ5IHlvdTsgcmF0aGVyLCB0aGUgaW50ZW50IGlzIHRvCmV4ZXJjaXNlIHRoZSByaWdodCB0byBjb250cm9sIHRoZSBkaXN0cmlidXRpb24gb2YgZGVyaXZhdGl2ZSBvcgpjb2xsZWN0aXZlIHdvcmtzIGJhc2VkIG9uIHRoZSBMaWJyYXJ5LgoKSW4gYWRkaXRpb24sIG1lcmUgYWdncmVnYXRpb24gb2YgYW5vdGhlciB3b3JrIG5vdCBiYXNlZCBvbiB0aGUgTGlicmFyeQp3aXRoIHRoZSBMaWJyYXJ5IChvciB3aXRoIGEgd29yayBiYXNlZCBvbiB0aGUgTGlicmFyeSkgb24gYSB2b2x1bWUgb2YKYSBzdG9yYWdlIG9yIGRpc3RyaWJ1dGlvbiBtZWRpdW0gZG9lcyBub3QgYnJpbmcgdGhlIG90aGVyIHdvcmsgdW5kZXIKdGhlIHNjb3BlIG9mIHRoaXMgTGljZW5zZS4KCiAgMy4gWW91IG1heSBvcHQgdG8gYXBwbHkgdGhlIHRlcm1zIG9mIHRoZSBvcmRpbmFyeSBHTlUgR2VuZXJhbCBQdWJsaWMKTGljZW5zZSBpbnN0ZWFkIG9mIHRoaXMgTGljZW5zZSB0byBhIGdpdmVuIGNvcHkgb2YgdGhlIExpYnJhcnkuICBUbyBkbwp0aGlzLCB5b3UgbXVzdCBhbHRlciBhbGwgdGhlIG5vdGljZXMgdGhhdCByZWZlciB0byB0aGlzIExpY2Vuc2UsIHNvCnRoYXQgdGhleSByZWZlciB0byB0aGUgb3JkaW5hcnkgR05VIEdlbmVyYWwgUHVibGljIExpY2Vuc2UsIHZlcnNpb24gMiwKaW5zdGVhZCBvZiB0byB0aGlzIExpY2Vuc2UuICAoSWYgYSBuZXdlciB2ZXJzaW9uIHRoYW4gdmVyc2lvbiAyIG9mIHRoZQpvcmRpbmFyeSBHTlUgR2VuZXJhbCBQdWJsaWMgTGljZW5zZSBoYXMgYXBwZWFyZWQsIHRoZW4geW91IGNhbiBzcGVjaWZ5CnRoYXQgdmVyc2lvbiBpbnN0ZWFkIGlmIHlvdSB3aXNoLikgIERvIG5vdCBtYWtlIGFueSBvdGhlciBjaGFuZ2UgaW4KdGhlc2Ugbm90aWNlcy4KDAogIE9uY2UgdGhpcyBjaGFuZ2UgaXMgbWFkZSBpbiBhIGdpdmVuIGNvcHksIGl0IGlzIGlycmV2ZXJzaWJsZSBmb3IKdGhhdCBjb3B5LCBzbyB0aGUgb3JkaW5hcnkgR05VIEdlbmVyYWwgUHVibGljIExpY2Vuc2UgYXBwbGllcyB0byBhbGwKc3Vic2VxdWVudCBjb3BpZXMgYW5kIGRlcml2YXRpdmUgd29ya3MgbWFkZSBmcm9tIHRoYXQgY29weS4KCiAgVGhpcyBvcHRpb24gaXMgdXNlZnVsIHdoZW4geW91IHdpc2ggdG8gY29weSBwYXJ0IG9mIHRoZSBjb2RlIG9mCnRoZSBMaWJyYXJ5IGludG8gYSBwcm9ncmFtIHRoYXQgaXMgbm90IGEgbGlicmFyeS4KCiAgNC4gWW91IG1heSBjb3B5IGFuZCBkaXN0cmlidXRlIHRoZSBMaWJyYXJ5IChvciBhIHBvcnRpb24gb3IKZGVyaXZhdGl2ZSBvZiBpdCwgdW5kZXIgU2VjdGlvbiAyKSBpbiBvYmplY3QgY29kZSBvciBleGVjdXRhYmxlIGZvcm0KdW5kZXIgdGhlIHRlcm1zIG9mIFNlY3Rpb25zIDEgYW5kIDIgYWJvdmUgcHJvdmlkZWQgdGhhdCB5b3UgYWNjb21wYW55Cml0IHdpdGggdGhlIGNvbXBsZXRlIGNvcnJlc3BvbmRpbmcgbWFjaGluZS1yZWFkYWJsZSBzb3VyY2UgY29kZSwgd2hpY2gKbXVzdCBiZSBkaXN0cmlidXRlZCB1bmRlciB0aGUgdGVybXMgb2YgU2VjdGlvbnMgMSBhbmQgMiBhYm92ZSBvbiBhCm1lZGl1bSBjdXN0b21hcmlseSB1c2VkIGZvciBzb2Z0d2FyZSBpbnRlcmNoYW5nZS4KCiAgSWYgZGlzdHJpYnV0aW9uIG9mIG9iamVjdCBjb2RlIGlzIG1hZGUgYnkgb2ZmZXJpbmcgYWNjZXNzIHRvIGNvcHkKZnJvbSBhIGRlc2lnbmF0ZWQgcGxhY2UsIHRoZW4gb2ZmZXJpbmcgZXF1aXZhbGVudCBhY2Nlc3MgdG8gY29weSB0aGUKc291cmNlIGNvZGUgZnJvbSB0aGUgc2FtZSBwbGFjZSBzYXRpc2ZpZXMgdGhlIHJlcXVpcmVtZW50IHRvCmRpc3RyaWJ1dGUgdGhlIHNvdXJjZSBjb2RlLCBldmVuIHRob3VnaCB0aGlyZCBwYXJ0aWVzIGFyZSBub3QKY29tcGVsbGVkIHRvIGNvcHkgdGhlIHNvdXJjZSBhbG9uZyB3aXRoIHRoZSBvYmplY3QgY29kZS4KCiAgNS4gQSBwcm9ncmFtIHRoYXQgY29udGFpbnMgbm8gZGVyaXZhdGl2ZSBvZiBhbnkgcG9ydGlvbiBvZiB0aGUKTGlicmFyeSwgYnV0IGlzIGRlc2lnbmVkIHRvIHdvcmsgd2l0aCB0aGUgTGlicmFyeSBieSBiZWluZyBjb21waWxlZCBvcgpsaW5rZWQgd2l0aCBpdCwgaXMgY2FsbGVkIGEgIndvcmsgdGhhdCB1c2VzIHRoZSBMaWJyYXJ5Ii4gIFN1Y2ggYQp3b3JrLCBpbiBpc29sYXRpb24sIGlzIG5vdCBhIGRlcml2YXRpdmUgd29yayBvZiB0aGUgTGlicmFyeSwgYW5kCnRoZXJlZm9yZSBmYWxscyBvdXRzaWRlIHRoZSBzY29wZSBvZiB0aGlzIExpY2Vuc2UuCgogIEhvd2V2ZXIsIGxpbmtpbmcgYSAid29yayB0aGF0IHVzZXMgdGhlIExpYnJhcnkiIHdpdGggdGhlIExpYnJhcnkKY3JlYXRlcyBhbiBleGVjdXRhYmxlIHRoYXQgaXMgYSBkZXJpdmF0aXZlIG9mIHRoZSBMaWJyYXJ5IChiZWNhdXNlIGl0CmNvbnRhaW5zIHBvcnRpb25zIG9mIHRoZSBMaWJyYXJ5KSwgcmF0aGVyIHRoYW4gYSAid29yayB0aGF0IHVzZXMgdGhlCmxpYnJhcnkiLiAgVGhlIGV4ZWN1dGFibGUgaXMgdGhlcmVmb3JlIGNvdmVyZWQgYnkgdGhpcyBMaWNlbnNlLgpTZWN0aW9uIDYgc3RhdGVzIHRlcm1zIGZvciBkaXN0cmlidXRpb24gb2Ygc3VjaCBleGVjdXRhYmxlcy4KCiAgV2hlbiBhICJ3b3JrIHRoYXQgdXNlcyB0aGUgTGlicmFyeSIgdXNlcyBtYXRlcmlhbCBmcm9tIGEgaGVhZGVyIGZpbGUKdGhhdCBpcyBwYXJ0IG9mIHRoZSBMaWJyYXJ5LCB0aGUgb2JqZWN0IGNvZGUgZm9yIHRoZSB3b3JrIG1heSBiZSBhCmRlcml2YXRpdmUgd29yayBvZiB0aGUgTGlicmFyeSBldmVuIHRob3VnaCB0aGUgc291cmNlIGNvZGUgaXMgbm90LgpXaGV0aGVyIHRoaXMgaXMgdHJ1ZSBpcyBlc3BlY2lhbGx5IHNpZ25pZmljYW50IGlmIHRoZSB3b3JrIGNhbiBiZQpsaW5rZWQgd2l0aG91dCB0aGUgTGlicmFyeSwgb3IgaWYgdGhlIHdvcmsgaXMgaXRzZWxmIGEgbGlicmFyeS4gIFRoZQp0aHJlc2hvbGQgZm9yIHRoaXMgdG8gYmUgdHJ1ZSBpcyBub3QgcHJlY2lzZWx5IGRlZmluZWQgYnkgbGF3LgoKICBJZiBzdWNoIGFuIG9iamVjdCBmaWxlIHVzZXMgb25seSBudW1lcmljYWwgcGFyYW1ldGVycywgZGF0YQpzdHJ1Y3R1cmUgbGF5b3V0cyBhbmQgYWNjZXNzb3JzLCBhbmQgc21hbGwgbWFjcm9zIGFuZCBzbWFsbCBpbmxpbmUKZnVuY3Rpb25zICh0ZW4gbGluZXMgb3IgbGVzcyBpbiBsZW5ndGgpLCB0aGVuIHRoZSB1c2Ugb2YgdGhlIG9iamVjdApmaWxlIGlzIHVucmVzdHJpY3RlZCwgcmVnYXJkbGVzcyBvZiB3aGV0aGVyIGl0IGlzIGxlZ2FsbHkgYSBkZXJpdmF0aXZlCndvcmsuICAoRXhlY3V0YWJsZXMgY29udGFpbmluZyB0aGlzIG9iamVjdCBjb2RlIHBsdXMgcG9ydGlvbnMgb2YgdGhlCkxpYnJhcnkgd2lsbCBzdGlsbCBmYWxsIHVuZGVyIFNlY3Rpb24gNi4pCgogIE90aGVyd2lzZSwgaWYgdGhlIHdvcmsgaXMgYSBkZXJpdmF0aXZlIG9mIHRoZSBMaWJyYXJ5LCB5b3UgbWF5CmRpc3RyaWJ1dGUgdGhlIG9iamVjdCBjb2RlIGZvciB0aGUgd29yayB1bmRlciB0aGUgdGVybXMgb2YgU2VjdGlvbiA2LgpBbnkgZXhlY3V0YWJsZXMgY29udGFpbmluZyB0aGF0IHdvcmsgYWxzbyBmYWxsIHVuZGVyIFNlY3Rpb24gNiwKd2hldGhlciBvciBub3QgdGhleSBhcmUgbGlua2VkIGRpcmVjdGx5IHdpdGggdGhlIExpYnJhcnkgaXRzZWxmLgoMCiAgNi4gQXMgYW4gZXhjZXB0aW9uIHRvIHRoZSBTZWN0aW9ucyBhYm92ZSwgeW91IG1heSBhbHNvIGNvbWJpbmUgb3IKbGluayBhICJ3b3JrIHRoYXQgdXNlcyB0aGUgTGlicmFyeSIgd2l0aCB0aGUgTGlicmFyeSB0byBwcm9kdWNlIGEKd29yayBjb250YWluaW5nIHBvcnRpb25zIG9mIHRoZSBMaWJyYXJ5LCBhbmQgZGlzdHJpYnV0ZSB0aGF0IHdvcmsKdW5kZXIgdGVybXMgb2YgeW91ciBjaG9pY2UsIHByb3ZpZGVkIHRoYXQgdGhlIHRlcm1zIHBlcm1pdAptb2RpZmljYXRpb24gb2YgdGhlIHdvcmsgZm9yIHRoZSBjdXN0b21lcidzIG93biB1c2UgYW5kIHJldmVyc2UKZW5naW5lZXJpbmcgZm9yIGRlYnVnZ2luZyBzdWNoIG1vZGlmaWNhdGlvbnMuCgogIFlvdSBtdXN0IGdpdmUgcHJvbWluZW50IG5vdGljZSB3aXRoIGVhY2ggY29weSBvZiB0aGUgd29yayB0aGF0IHRoZQpMaWJyYXJ5IGlzIHVzZWQgaW4gaXQgYW5kIHRoYXQgdGhlIExpYnJhcnkgYW5kIGl0cyB1c2UgYXJlIGNvdmVyZWQgYnkKdGhpcyBMaWNlbnNlLiAgWW91IG11c3Qgc3VwcGx5IGEgY29weSBvZiB0aGlzIExpY2Vuc2UuICBJZiB0aGUgd29yawpkdXJpbmcgZXhlY3V0aW9uIGRpc3BsYXlzIGNvcHlyaWdodCBub3RpY2VzLCB5b3UgbXVzdCBpbmNsdWRlIHRoZQpjb3B5cmlnaHQgbm90aWNlIGZvciB0aGUgTGlicmFyeSBhbW9uZyB0aGVtLCBhcyB3ZWxsIGFzIGEgcmVmZXJlbmNlCmRpcmVjdGluZyB0aGUgdXNlciB0byB0aGUgY29weSBvZiB0aGlzIExpY2Vuc2UuICBBbHNvLCB5b3UgbXVzdCBkbyBvbmUKb2YgdGhlc2UgdGhpbmdzOgoKICAgIGEpIEFjY29tcGFueSB0aGUgd29yayB3aXRoIHRoZSBjb21wbGV0ZSBjb3JyZXNwb25kaW5nCiAgICBtYWNoaW5lLXJlYWRhYmxlIHNvdXJjZSBjb2RlIGZvciB0aGUgTGlicmFyeSBpbmNsdWRpbmcgd2hhdGV2ZXIKICAgIGNoYW5nZXMgd2VyZSB1c2VkIGluIHRoZSB3b3JrICh3aGljaCBtdXN0IGJlIGRpc3RyaWJ1dGVkIHVuZGVyCiAgICBTZWN0aW9ucyAxIGFuZCAyIGFib3ZlKTsgYW5kLCBpZiB0aGUgd29yayBpcyBhbiBleGVjdXRhYmxlIGxpbmtlZAogICAgd2l0aCB0aGUgTGlicmFyeSwgd2l0aCB0aGUgY29tcGxldGUgbWFjaGluZS1yZWFkYWJsZSAid29yayB0aGF0CiAgICB1c2VzIHRoZSBMaWJyYXJ5IiwgYXMgb2JqZWN0IGNvZGUgYW5kL29yIHNvdXJjZSBjb2RlLCBzbyB0aGF0IHRoZQogICAgdXNlciBjYW4gbW9kaWZ5IHRoZSBMaWJyYXJ5IGFuZCB0aGVuIHJlbGluayB0byBwcm9kdWNlIGEgbW9kaWZpZWQKICAgIGV4ZWN1dGFibGUgY29udGFpbmluZyB0aGUgbW9kaWZpZWQgTGlicmFyeS4gIChJdCBpcyB1bmRlcnN0b29kCiAgICB0aGF0IHRoZSB1c2VyIHdobyBjaGFuZ2VzIHRoZSBjb250ZW50cyBvZiBkZWZpbml0aW9ucyBmaWxlcyBpbiB0aGUKICAgIExpYnJhcnkgd2lsbCBub3QgbmVjZXNzYXJpbHkgYmUgYWJsZSB0byByZWNvbXBpbGUgdGhlIGFwcGxpY2F0aW9uCiAgICB0byB1c2UgdGhlIG1vZGlmaWVkIGRlZmluaXRpb25zLikKCiAgICBiKSBVc2UgYSBzdWl0YWJsZSBzaGFyZWQgbGlicmFyeSBtZWNoYW5pc20gZm9yIGxpbmtpbmcgd2l0aCB0aGUKICAgIExpYnJhcnkuICBBIHN1aXRhYmxlIG1lY2hhbmlzbSBpcyBvbmUgdGhhdCAoMSkgdXNlcyBhdCBydW4gdGltZSBhCiAgICBjb3B5IG9mIHRoZSBsaWJyYXJ5IGFscmVhZHkgcHJlc2VudCBvbiB0aGUgdXNlcidzIGNvbXB1dGVyIHN5c3RlbSwKICAgIHJhdGhlciB0aGFuIGNvcHlpbmcgbGlicmFyeSBmdW5jdGlvbnMgaW50byB0aGUgZXhlY3V0YWJsZSwgYW5kICgyKQogICAgd2lsbCBvcGVyYXRlIHByb3Blcmx5IHdpdGggYSBtb2RpZmllZCB2ZXJzaW9uIG9mIHRoZSBsaWJyYXJ5LCBpZgogICAgdGhlIHVzZXIgaW5zdGFsbHMgb25lLCBhcyBsb25nIGFzIHRoZSBtb2RpZmllZCB2ZXJzaW9uIGlzCiAgICBpbnRlcmZhY2UtY29tcGF0aWJsZSB3aXRoIHRoZSB2ZXJzaW9uIHRoYXQgdGhlIHdvcmsgd2FzIG1hZGUgd2l0aC4KCiAgICBjKSBBY2NvbXBhbnkgdGhlIHdvcmsgd2l0aCBhIHdyaXR0ZW4gb2ZmZXIsIHZhbGlkIGZvciBhdAogICAgbGVhc3QgdGhyZWUgeWVhcnMsIHRvIGdpdmUgdGhlIHNhbWUgdXNlciB0aGUgbWF0ZXJpYWxzCiAgICBzcGVjaWZpZWQgaW4gU3Vic2VjdGlvbiA2YSwgYWJvdmUsIGZvciBhIGNoYXJnZSBubyBtb3JlCiAgICB0aGFuIHRoZSBjb3N0IG9mIHBlcmZvcm1pbmcgdGhpcyBkaXN0cmlidXRpb24uCgogICAgZCkgSWYgZGlzdHJpYnV0aW9uIG9mIHRoZSB3b3JrIGlzIG1hZGUgYnkgb2ZmZXJpbmcgYWNjZXNzIHRvIGNvcHkKICAgIGZyb20gYSBkZXNpZ25hdGVkIHBsYWNlLCBvZmZlciBlcXVpdmFsZW50IGFjY2VzcyB0byBjb3B5IHRoZSBhYm92ZQogICAgc3BlY2lmaWVkIG1hdGVyaWFscyBmcm9tIHRoZSBzYW1lIHBsYWNlLgoKICAgIGUpIFZlcmlmeSB0aGF0IHRoZSB1c2VyIGhhcyBhbHJlYWR5IHJlY2VpdmVkIGEgY29weSBvZiB0aGVzZQogICAgbWF0ZXJpYWxzIG9yIHRoYXQgeW91IGhhdmUgYWxyZWFkeSBzZW50IHRoaXMgdXNlciBhIGNvcHkuCgogIEZvciBhbiBleGVjdXRhYmxlLCB0aGUgcmVxdWlyZWQgZm9ybSBvZiB0aGUgIndvcmsgdGhhdCB1c2VzIHRoZQpMaWJyYXJ5IiBtdXN0IGluY2x1ZGUgYW55IGRhdGEgYW5kIHV0aWxpdHkgcHJvZ3JhbXMgbmVlZGVkIGZvcgpyZXByb2R1Y2luZyB0aGUgZXhlY3V0YWJsZSBmcm9tIGl0LiAgSG93ZXZlciwgYXMgYSBzcGVjaWFsIGV4Y2VwdGlvbiwKdGhlIG1hdGVyaWFscyB0byBiZSBkaXN0cmlidXRlZCBuZWVkIG5vdCBpbmNsdWRlIGFueXRoaW5nIHRoYXQgaXMKbm9ybWFsbHkgZGlzdHJpYnV0ZWQgKGluIGVpdGhlciBzb3VyY2Ugb3IgYmluYXJ5IGZvcm0pIHdpdGggdGhlIG1ham9yCmNvbXBvbmVudHMgKGNvbXBpbGVyLCBrZXJuZWwsIGFuZCBzbyBvbikgb2YgdGhlIG9wZXJhdGluZyBzeXN0ZW0gb24Kd2hpY2ggdGhlIGV4ZWN1dGFibGUgcnVucywgdW5sZXNzIHRoYXQgY29tcG9uZW50IGl0c2VsZiBhY2NvbXBhbmllcwp0aGUgZXhlY3V0YWJsZS4KCiAgSXQgbWF5IGhhcHBlbiB0aGF0IHRoaXMgcmVxdWlyZW1lbnQgY29udHJhZGljdHMgdGhlIGxpY2Vuc2UKcmVzdHJpY3Rpb25zIG9mIG90aGVyIHByb3ByaWV0YXJ5IGxpYnJhcmllcyB0aGF0IGRvIG5vdCBub3JtYWxseQphY2NvbXBhbnkgdGhlIG9wZXJhdGluZyBzeXN0ZW0uICBTdWNoIGEgY29udHJhZGljdGlvbiBtZWFucyB5b3UgY2Fubm90CnVzZSBib3RoIHRoZW0gYW5kIHRoZSBMaWJyYXJ5IHRvZ2V0aGVyIGluIGFuIGV4ZWN1dGFibGUgdGhhdCB5b3UKZGlzdHJpYnV0ZS4KDAogIDcuIFlvdSBtYXkgcGxhY2UgbGlicmFyeSBmYWNpbGl0aWVzIHRoYXQgYXJlIGEgd29yayBiYXNlZCBvbiB0aGUKTGlicmFyeSBzaWRlLWJ5LXNpZGUgaW4gYSBzaW5nbGUgbGlicmFyeSB0b2dldGhlciB3aXRoIG90aGVyIGxpYnJhcnkKZmFjaWxpdGllcyBub3QgY292ZXJlZCBieSB0aGlzIExpY2Vuc2UsIGFuZCBkaXN0cmlidXRlIHN1Y2ggYSBjb21iaW5lZApsaWJyYXJ5LCBwcm92aWRlZCB0aGF0IHRoZSBzZXBhcmF0ZSBkaXN0cmlidXRpb24gb2YgdGhlIHdvcmsgYmFzZWQgb24KdGhlIExpYnJhcnkgYW5kIG9mIHRoZSBvdGhlciBsaWJyYXJ5IGZhY2lsaXRpZXMgaXMgb3RoZXJ3aXNlCnBlcm1pdHRlZCwgYW5kIHByb3ZpZGVkIHRoYXQgeW91IGRvIHRoZXNlIHR3byB0aGluZ3M6CgogICAgYSkgQWNjb21wYW55IHRoZSBjb21iaW5lZCBsaWJyYXJ5IHdpdGggYSBjb3B5IG9mIHRoZSBzYW1lIHdvcmsKICAgIGJhc2VkIG9uIHRoZSBMaWJyYXJ5LCB1bmNvbWJpbmVkIHdpdGggYW55IG90aGVyIGxpYnJhcnkKICAgIGZhY2lsaXRpZXMuICBUaGlzIG11c3QgYmUgZGlzdHJpYnV0ZWQgdW5kZXIgdGhlIHRlcm1zIG9mIHRoZQogICAgU2VjdGlvbnMgYWJvdmUuCgogICAgYikgR2l2ZSBwcm9taW5lbnQgbm90aWNlIHdpdGggdGhlIGNvbWJpbmVkIGxpYnJhcnkgb2YgdGhlIGZhY3QKICAgIHRoYXQgcGFydCBvZiBpdCBpcyBhIHdvcmsgYmFzZWQgb24gdGhlIExpYnJhcnksIGFuZCBleHBsYWluaW5nCiAgICB3aGVyZSB0byBmaW5kIHRoZSBhY2NvbXBhbnlpbmcgdW5jb21iaW5lZCBmb3JtIG9mIHRoZSBzYW1lIHdvcmsuCgogIDguIFlvdSBtYXkgbm90IGNvcHksIG1vZGlmeSwgc3VibGljZW5zZSwgbGluayB3aXRoLCBvciBkaXN0cmlidXRlCnRoZSBMaWJyYXJ5IGV4Y2VwdCBhcyBleHByZXNzbHkgcHJvdmlkZWQgdW5kZXIgdGhpcyBMaWNlbnNlLiAgQW55CmF0dGVtcHQgb3RoZXJ3aXNlIHRvIGNvcHksIG1vZGlmeSwgc3VibGljZW5zZSwgbGluayB3aXRoLCBvcgpkaXN0cmlidXRlIHRoZSBMaWJyYXJ5IGlzIHZvaWQsIGFuZCB3aWxsIGF1dG9tYXRpY2FsbHkgdGVybWluYXRlIHlvdXIKcmlnaHRzIHVuZGVyIHRoaXMgTGljZW5zZS4gIEhvd2V2ZXIsIHBhcnRpZXMgd2hvIGhhdmUgcmVjZWl2ZWQgY29waWVzLApvciByaWdodHMsIGZyb20geW91IHVuZGVyIHRoaXMgTGljZW5zZSB3aWxsIG5vdCBoYXZlIHRoZWlyIGxpY2Vuc2VzCnRlcm1pbmF0ZWQgc28gbG9uZyBhcyBzdWNoIHBhcnRpZXMgcmVtYWluIGluIGZ1bGwgY29tcGxpYW5jZS4KCiAgOS4gWW91IGFyZSBub3QgcmVxdWlyZWQgdG8gYWNjZXB0IHRoaXMgTGljZW5zZSwgc2luY2UgeW91IGhhdmUgbm90CnNpZ25lZCBpdC4gIEhvd2V2ZXIsIG5vdGhpbmcgZWxzZSBncmFudHMgeW91IHBlcm1pc3Npb24gdG8gbW9kaWZ5IG9yCmRpc3RyaWJ1dGUgdGhlIExpYnJhcnkgb3IgaXRzIGRlcml2YXRpdmUgd29ya3MuICBUaGVzZSBhY3Rpb25zIGFyZQpwcm9oaWJpdGVkIGJ5IGxhdyBpZiB5b3UgZG8gbm90IGFjY2VwdCB0aGlzIExpY2Vuc2UuICBUaGVyZWZvcmUsIGJ5Cm1vZGlmeWluZyBvciBkaXN0cmlidXRpbmcgdGhlIExpYnJhcnkgKG9yIGFueSB3b3JrIGJhc2VkIG9uIHRoZQpMaWJyYXJ5KSwgeW91IGluZGljYXRlIHlvdXIgYWNjZXB0YW5jZSBvZiB0aGlzIExpY2Vuc2UgdG8gZG8gc28sIGFuZAphbGwgaXRzIHRlcm1zIGFuZCBjb25kaXRpb25zIGZvciBjb3B5aW5nLCBkaXN0cmlidXRpbmcgb3IgbW9kaWZ5aW5nCnRoZSBMaWJyYXJ5IG9yIHdvcmtzIGJhc2VkIG9uIGl0LgoKICAxMC4gRWFjaCB0aW1lIHlvdSByZWRpc3RyaWJ1dGUgdGhlIExpYnJhcnkgKG9yIGFueSB3b3JrIGJhc2VkIG9uIHRoZQpMaWJyYXJ5KSwgdGhlIHJlY2lwaWVudCBhdXRvbWF0aWNhbGx5IHJlY2VpdmVzIGEgbGljZW5zZSBmcm9tIHRoZQpvcmlnaW5hbCBsaWNlbnNvciB0byBjb3B5LCBkaXN0cmlidXRlLCBsaW5rIHdpdGggb3IgbW9kaWZ5IHRoZSBMaWJyYXJ5CnN1YmplY3QgdG8gdGhlc2UgdGVybXMgYW5kIGNvbmRpdGlvbnMuICBZb3UgbWF5IG5vdCBpbXBvc2UgYW55IGZ1cnRoZXIKcmVzdHJpY3Rpb25zIG9uIHRoZSByZWNpcGllbnRzJyBleGVyY2lzZSBvZiB0aGUgcmlnaHRzIGdyYW50ZWQgaGVyZWluLgpZb3UgYXJlIG5vdCByZXNwb25zaWJsZSBmb3IgZW5mb3JjaW5nIGNvbXBsaWFuY2UgYnkgdGhpcmQgcGFydGllcyB3aXRoCnRoaXMgTGljZW5zZS4KDAogIDExLiBJZiwgYXMgYSBjb25zZXF1ZW5jZSBvZiBhIGNvdXJ0IGp1ZGdtZW50IG9yIGFsbGVnYXRpb24gb2YgcGF0ZW50CmluZnJpbmdlbWVudCBvciBmb3IgYW55IG90aGVyIHJlYXNvbiAobm90IGxpbWl0ZWQgdG8gcGF0ZW50IGlzc3VlcyksCmNvbmRpdGlvbnMgYXJlIGltcG9zZWQgb24geW91ICh3aGV0aGVyIGJ5IGNvdXJ0IG9yZGVyLCBhZ3JlZW1lbnQgb3IKb3RoZXJ3aXNlKSB0aGF0IGNvbnRyYWRpY3QgdGhlIGNvbmRpdGlvbnMgb2YgdGhpcyBMaWNlbnNlLCB0aGV5IGRvIG5vdApleGN1c2UgeW91IGZyb20gdGhlIGNvbmRpdGlvbnMgb2YgdGhpcyBMaWNlbnNlLiAgSWYgeW91IGNhbm5vdApkaXN0cmlidXRlIHNvIGFzIHRvIHNhdGlzZnkgc2ltdWx0YW5lb3VzbHkgeW91ciBvYmxpZ2F0aW9ucyB1bmRlciB0aGlzCkxpY2Vuc2UgYW5kIGFueSBvdGhlciBwZXJ0aW5lbnQgb2JsaWdhdGlvbnMsIHRoZW4gYXMgYSBjb25zZXF1ZW5jZSB5b3UKbWF5IG5vdCBkaXN0cmlidXRlIHRoZSBMaWJyYXJ5IGF0IGFsbC4gIEZvciBleGFtcGxlLCBpZiBhIHBhdGVudApsaWNlbnNlIHdvdWxkIG5vdCBwZXJtaXQgcm95YWx0eS1mcmVlIHJlZGlzdHJpYnV0aW9uIG9mIHRoZSBMaWJyYXJ5IGJ5CmFsbCB0aG9zZSB3aG8gcmVjZWl2ZSBjb3BpZXMgZGlyZWN0bHkgb3IgaW5kaXJlY3RseSB0aHJvdWdoIHlvdSwgdGhlbgp0aGUgb25seSB3YXkgeW91IGNvdWxkIHNhdGlzZnkgYm90aCBpdCBhbmQgdGhpcyBMaWNlbnNlIHdvdWxkIGJlIHRvCnJlZnJhaW4gZW50aXJlbHkgZnJvbSBkaXN0cmlidXRpb24gb2YgdGhlIExpYnJhcnkuCgpJZiBhbnkgcG9ydGlvbiBvZiB0aGlzIHNlY3Rpb24gaXMgaGVsZCBpbnZhbGlkIG9yIHVuZW5mb3JjZWFibGUgdW5kZXIgYW55CnBhcnRpY3VsYXIgY2lyY3Vtc3RhbmNlLCB0aGUgYmFsYW5jZSBvZiB0aGUgc2VjdGlvbiBpcyBpbnRlbmRlZCB0byBhcHBseSwKYW5kIHRoZSBzZWN0aW9uIGFzIGEgd2hvbGUgaXMgaW50ZW5kZWQgdG8gYXBwbHkgaW4gb3RoZXIgY2lyY3Vtc3RhbmNlcy4KCkl0IGlzIG5vdCB0aGUgcHVycG9zZSBvZiB0aGlzIHNlY3Rpb24gdG8gaW5kdWNlIHlvdSB0byBpbmZyaW5nZSBhbnkKcGF0ZW50cyBvciBvdGhlciBwcm9wZXJ0eSByaWdodCBjbGFpbXMgb3IgdG8gY29udGVzdCB2YWxpZGl0eSBvZiBhbnkKc3VjaCBjbGFpbXM7IHRoaXMgc2VjdGlvbiBoYXMgdGhlIHNvbGUgcHVycG9zZSBvZiBwcm90ZWN0aW5nIHRoZQppbnRlZ3JpdHkgb2YgdGhlIGZyZWUgc29mdHdhcmUgZGlzdHJpYnV0aW9uIHN5c3RlbSB3aGljaCBpcwppbXBsZW1lbnRlZCBieSBwdWJsaWMgbGljZW5zZSBwcmFjdGljZXMuICBNYW55IHBlb3BsZSBoYXZlIG1hZGUKZ2VuZXJvdXMgY29udHJpYnV0aW9ucyB0byB0aGUgd2lkZSByYW5nZSBvZiBzb2Z0d2FyZSBkaXN0cmlidXRlZAp0aHJvdWdoIHRoYXQgc3lzdGVtIGluIHJlbGlhbmNlIG9uIGNvbnNpc3RlbnQgYXBwbGljYXRpb24gb2YgdGhhdApzeXN0ZW07IGl0IGlzIHVwIHRvIHRoZSBhdXRob3IvZG9ub3IgdG8gZGVjaWRlIGlmIGhlIG9yIHNoZSBpcyB3aWxsaW5nCnRvIGRpc3RyaWJ1dGUgc29mdHdhcmUgdGhyb3VnaCBhbnkgb3RoZXIgc3lzdGVtIGFuZCBhIGxpY2Vuc2VlIGNhbm5vdAppbXBvc2UgdGhhdCBjaG9pY2UuCgpUaGlzIHNlY3Rpb24gaXMgaW50ZW5kZWQgdG8gbWFrZSB0aG9yb3VnaGx5IGNsZWFyIHdoYXQgaXMgYmVsaWV2ZWQgdG8KYmUgYSBjb25zZXF1ZW5jZSBvZiB0aGUgcmVzdCBvZiB0aGlzIExpY2Vuc2UuCgogIDEyLiBJZiB0aGUgZGlzdHJpYnV0aW9uIGFuZC9vciB1c2Ugb2YgdGhlIExpYnJhcnkgaXMgcmVzdHJpY3RlZCBpbgpjZXJ0YWluIGNvdW50cmllcyBlaXRoZXIgYnkgcGF0ZW50cyBvciBieSBjb3B5cmlnaHRlZCBpbnRlcmZhY2VzLCB0aGUKb3JpZ2luYWwgY29weXJpZ2h0IGhvbGRlciB3aG8gcGxhY2VzIHRoZSBMaWJyYXJ5IHVuZGVyIHRoaXMgTGljZW5zZSBtYXkgYWRkCmFuIGV4cGxpY2l0IGdlb2dyYXBoaWNhbCBkaXN0cmlidXRpb24gbGltaXRhdGlvbiBleGNsdWRpbmcgdGhvc2UgY291bnRyaWVzLApzbyB0aGF0IGRpc3RyaWJ1dGlvbiBpcyBwZXJtaXR0ZWQgb25seSBpbiBvciBhbW9uZyBjb3VudHJpZXMgbm90IHRodXMKZXhjbHVkZWQuICBJbiBzdWNoIGNhc2UsIHRoaXMgTGljZW5zZSBpbmNvcnBvcmF0ZXMgdGhlIGxpbWl0YXRpb24gYXMgaWYKd3JpdHRlbiBpbiB0aGUgYm9keSBvZiB0aGlzIExpY2Vuc2UuCgogIDEzLiBUaGUgRnJlZSBTb2Z0d2FyZSBGb3VuZGF0aW9uIG1heSBwdWJsaXNoIHJldmlzZWQgYW5kL29yIG5ldwp2ZXJzaW9ucyBvZiB0aGUgTGVzc2VyIEdlbmVyYWwgUHVibGljIExpY2Vuc2UgZnJvbSB0aW1lIHRvIHRpbWUuClN1Y2ggbmV3IHZlcnNpb25zIHdpbGwgYmUgc2ltaWxhciBpbiBzcGlyaXQgdG8gdGhlIHByZXNlbnQgdmVyc2lvbiwKYnV0IG1heSBkaWZmZXIgaW4gZGV0YWlsIHRvIGFkZHJlc3MgbmV3IHByb2JsZW1zIG9yIGNvbmNlcm5zLgoKRWFjaCB2ZXJzaW9uIGlzIGdpdmVuIGEgZGlzdGluZ3Vpc2hpbmcgdmVyc2lvbiBudW1iZXIuICBJZiB0aGUgTGlicmFyeQpzcGVjaWZpZXMgYSB2ZXJzaW9uIG51bWJlciBvZiB0aGlzIExpY2Vuc2Ugd2hpY2ggYXBwbGllcyB0byBpdCBhbmQKImFueSBsYXRlciB2ZXJzaW9uIiwgeW91IGhhdmUgdGhlIG9wdGlvbiBvZiBmb2xsb3dpbmcgdGhlIHRlcm1zIGFuZApjb25kaXRpb25zIGVpdGhlciBvZiB0aGF0IHZlcnNpb24gb3Igb2YgYW55IGxhdGVyIHZlcnNpb24gcHVibGlzaGVkIGJ5CnRoZSBGcmVlIFNvZnR3YXJlIEZvdW5kYXRpb24uICBJZiB0aGUgTGlicmFyeSBkb2VzIG5vdCBzcGVjaWZ5IGEKbGljZW5zZSB2ZXJzaW9uIG51bWJlciwgeW91IG1heSBjaG9vc2UgYW55IHZlcnNpb24gZXZlciBwdWJsaXNoZWQgYnkKdGhlIEZyZWUgU29mdHdhcmUgRm91bmRhdGlvbi4KDAogIDE0LiBJZiB5b3Ugd2lzaCB0byBpbmNvcnBvcmF0ZSBwYXJ0cyBvZiB0aGUgTGlicmFyeSBpbnRvIG90aGVyIGZyZWUKcHJvZ3JhbXMgd2hvc2UgZGlzdHJpYnV0aW9uIGNvbmRpdGlvbnMgYXJlIGluY29tcGF0aWJsZSB3aXRoIHRoZXNlLAp3cml0ZSB0byB0aGUgYXV0aG9yIHRvIGFzayBmb3IgcGVybWlzc2lvbi4gIEZvciBzb2Z0d2FyZSB3aGljaCBpcwpjb3B5cmlnaHRlZCBieSB0aGUgRnJlZSBTb2Z0d2FyZSBGb3VuZGF0aW9uLCB3cml0ZSB0byB0aGUgRnJlZQpTb2Z0d2FyZSBGb3VuZGF0aW9uOyB3ZSBzb21ldGltZXMgbWFrZSBleGNlcHRpb25zIGZvciB0aGlzLiAgT3VyCmRlY2lzaW9uIHdpbGwgYmUgZ3VpZGVkIGJ5IHRoZSB0d28gZ29hbHMgb2YgcHJlc2VydmluZyB0aGUgZnJlZSBzdGF0dXMKb2YgYWxsIGRlcml2YXRpdmVzIG9mIG91ciBmcmVlIHNvZnR3YXJlIGFuZCBvZiBwcm9tb3RpbmcgdGhlIHNoYXJpbmcKYW5kIHJldXNlIG9mIHNvZnR3YXJlIGdlbmVyYWxseS4KCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBOTyBXQVJSQU5UWQoKICAxNS4gQkVDQVVTRSBUSEUgTElCUkFSWSBJUyBMSUNFTlNFRCBGUkVFIE9GIENIQVJHRSwgVEhFUkUgSVMgTk8KV0FSUkFOVFkgRk9SIFRIRSBMSUJSQVJZLCBUTyBUSEUgRVhURU5UIFBFUk1JVFRFRCBCWSBBUFBMSUNBQkxFIExBVy4KRVhDRVBUIFdIRU4gT1RIRVJXSVNFIFNUQVRFRCBJTiBXUklUSU5HIFRIRSBDT1BZUklHSFQgSE9MREVSUyBBTkQvT1IKT1RIRVIgUEFSVElFUyBQUk9WSURFIFRIRSBMSUJSQVJZICJBUyBJUyIgV0lUSE9VVCBXQVJSQU5UWSBPRiBBTlkKS0lORCwgRUlUSEVSIEVYUFJFU1NFRCBPUiBJTVBMSUVELCBJTkNMVURJTkcsIEJVVCBOT1QgTElNSVRFRCBUTywgVEhFCklNUExJRUQgV0FSUkFOVElFUyBPRiBNRVJDSEFOVEFCSUxJVFkgQU5EIEZJVE5FU1MgRk9SIEEgUEFSVElDVUxBUgpQVVJQT1NFLiAgVEhFIEVOVElSRSBSSVNLIEFTIFRPIFRIRSBRVUFMSVRZIEFORCBQRVJGT1JNQU5DRSBPRiBUSEUKTElCUkFSWSBJUyBXSVRIIFlPVS4gIFNIT1VMRCBUSEUgTElCUkFSWSBQUk9WRSBERUZFQ1RJVkUsIFlPVSBBU1NVTUUKVEhFIENPU1QgT0YgQUxMIE5FQ0VTU0FSWSBTRVJWSUNJTkcsIFJFUEFJUiBPUiBDT1JSRUNUSU9OLgoKICAxNi4gSU4gTk8gRVZFTlQgVU5MRVNTIFJFUVVJUkVEIEJZIEFQUExJQ0FCTEUgTEFXIE9SIEFHUkVFRCBUTyBJTgpXUklUSU5HIFdJTEwgQU5ZIENPUFlSSUdIVCBIT0xERVIsIE9SIEFOWSBPVEhFUiBQQVJUWSBXSE8gTUFZIE1PRElGWQpBTkQvT1IgUkVESVNUUklCVVRFIFRIRSBMSUJSQVJZIEFTIFBFUk1JVFRFRCBBQk9WRSwgQkUgTElBQkxFIFRPIFlPVQpGT1IgREFNQUdFUywgSU5DTFVESU5HIEFOWSBHRU5FUkFMLCBTUEVDSUFMLCBJTkNJREVOVEFMIE9SCkNPTlNFUVVFTlRJQUwgREFNQUdFUyBBUklTSU5HIE9VVCBPRiBUSEUgVVNFIE9SIElOQUJJTElUWSBUTyBVU0UgVEhFCkxJQlJBUlkgKElOQ0xVRElORyBCVVQgTk9UIExJTUlURUQgVE8gTE9TUyBPRiBEQVRBIE9SIERBVEEgQkVJTkcKUkVOREVSRUQgSU5BQ0NVUkFURSBPUiBMT1NTRVMgU1VTVEFJTkVEIEJZIFlPVSBPUiBUSElSRCBQQVJUSUVTIE9SIEEKRkFJTFVSRSBPRiBUSEUgTElCUkFSWSBUTyBPUEVSQVRFIFdJVEggQU5ZIE9USEVSIFNPRlRXQVJFKSwgRVZFTiBJRgpTVUNIIEhPTERFUiBPUiBPVEhFUiBQQVJUWSBIQVMgQkVFTiBBRFZJU0VEIE9GIFRIRSBQT1NTSUJJTElUWSBPRiBTVUNICkRBTUFHRVMuCgogICAgICAgICAgICAgICAgICAgICBFTkQgT0YgVEVSTVMgQU5EIENPTkRJVElPTlMKDAogICAgICAgICAgIEhvdyB0byBBcHBseSBUaGVzZSBUZXJtcyB0byBZb3VyIE5ldyBMaWJyYXJpZXMKCiAgSWYgeW91IGRldmVsb3AgYSBuZXcgbGlicmFyeSwgYW5kIHlvdSB3YW50IGl0IHRvIGJlIG9mIHRoZSBncmVhdGVzdApwb3NzaWJsZSB1c2UgdG8gdGhlIHB1YmxpYywgd2UgcmVjb21tZW5kIG1ha2luZyBpdCBmcmVlIHNvZnR3YXJlIHRoYXQKZXZlcnlvbmUgY2FuIHJlZGlzdHJpYnV0ZSBhbmQgY2hhbmdlLiAgWW91IGNhbiBkbyBzbyBieSBwZXJtaXR0aW5nCnJlZGlzdHJpYnV0aW9uIHVuZGVyIHRoZXNlIHRlcm1zIChvciwgYWx0ZXJuYXRpdmVseSwgdW5kZXIgdGhlIHRlcm1zIG9mIHRoZQpvcmRpbmFyeSBHZW5lcmFsIFB1YmxpYyBMaWNlbnNlKS4KCiAgVG8gYXBwbHkgdGhlc2UgdGVybXMsIGF0dGFjaCB0aGUgZm9sbG93aW5nIG5vdGljZXMgdG8gdGhlIGxpYnJhcnkuICBJdCBpcwpzYWZlc3QgdG8gYXR0YWNoIHRoZW0gdG8gdGhlIHN0YXJ0IG9mIGVhY2ggc291cmNlIGZpbGUgdG8gbW9zdCBlZmZlY3RpdmVseQpjb252ZXkgdGhlIGV4Y2x1c2lvbiBvZiB3YXJyYW50eTsgYW5kIGVhY2ggZmlsZSBzaG91bGQgaGF2ZSBhdCBsZWFzdCB0aGUKImNvcHlyaWdodCIgbGluZSBhbmQgYSBwb2ludGVyIHRvIHdoZXJlIHRoZSBmdWxsIG5vdGljZSBpcyBmb3VuZC4KCiAgICA8b25lIGxpbmUgdG8gZ2l2ZSB0aGUgbGlicmFyeSdzIG5hbWUgYW5kIGEgYnJpZWYgaWRlYSBvZiB3aGF0IGl0IGRvZXMuPgogICAgQ29weXJpZ2h0IChDKSA8eWVhcj4gIDxuYW1lIG9mIGF1dGhvcj4KCiAgICBUaGlzIGxpYnJhcnkgaXMgZnJlZSBzb2Z0d2FyZTsgeW91IGNhbiByZWRpc3RyaWJ1dGUgaXQgYW5kL29yCiAgICBtb2RpZnkgaXQgdW5kZXIgdGhlIHRlcm1zIG9mIHRoZSBHTlUgTGVzc2VyIEdlbmVyYWwgUHVibGljCiAgICBMaWNlbnNlIGFzIHB1Ymxpc2hlZCBieSB0aGUgRnJlZSBTb2Z0d2FyZSBGb3VuZGF0aW9uOyBlaXRoZXIKICAgIHZlcnNpb24gMi4xIG9mIHRoZSBMaWNlbnNlLCBvciAoYXQgeW91ciBvcHRpb24pIGFueSBsYXRlciB2ZXJzaW9uLgoKICAgIFRoaXMgbGlicmFyeSBpcyBkaXN0cmlidXRlZCBpbiB0aGUgaG9wZSB0aGF0IGl0IHdpbGwgYmUgdXNlZnVsLAogICAgYnV0IFdJVEhPVVQgQU5ZIFdBUlJBTlRZOyB3aXRob3V0IGV2ZW4gdGhlIGltcGxpZWQgd2FycmFudHkgb2YKICAgIE1FUkNIQU5UQUJJTElUWSBvciBGSVRORVNTIEZPUiBBIFBBUlRJQ1VMQVIgUFVSUE9TRS4gIFNlZSB0aGUgR05VCiAgICBMZXNzZXIgR2VuZXJhbCBQdWJsaWMgTGljZW5zZSBmb3IgbW9yZSBkZXRhaWxzLgoKICAgIFlvdSBzaG91bGQgaGF2ZSByZWNlaXZlZCBhIGNvcHkgb2YgdGhlIEdOVSBMZXNzZXIgR2VuZXJhbCBQdWJsaWMKICAgIExpY2Vuc2UgYWxvbmcgd2l0aCB0aGlzIGxpYnJhcnk7IGlmIG5vdCwgd3JpdGUgdG8gdGhlIEZyZWUgU29mdHdhcmUKICAgIEZvdW5kYXRpb24sIEluYy4sIDUxIEZyYW5rbGluIFN0cmVldCwgRmlmdGggRmxvb3IsIEJvc3RvbiwgTUEgIDAyMTEwLTEzMDEgIFVTQQoKQWxzbyBhZGQgaW5mb3JtYXRpb24gb24gaG93IHRvIGNvbnRhY3QgeW91IGJ5IGVsZWN0cm9uaWMgYW5kIHBhcGVyIG1haWwuCgpZb3Ugc2hvdWxkIGFsc28gZ2V0IHlvdXIgZW1wbG95ZXIgKGlmIHlvdSB3b3JrIGFzIGEgcHJvZ3JhbW1lcikgb3IgeW91cgpzY2hvb2wsIGlmIGFueSwgdG8gc2lnbiBhICJjb3B5cmlnaHQgZGlzY2xhaW1lciIgZm9yIHRoZSBsaWJyYXJ5LCBpZgpuZWNlc3NhcnkuICBIZXJlIGlzIGEgc2FtcGxlOyBhbHRlciB0aGUgbmFtZXM6CgogIFlveW9keW5lLCBJbmMuLCBoZXJlYnkgZGlzY2xhaW1zIGFsbCBjb3B5cmlnaHQgaW50ZXJlc3QgaW4gdGhlCiAgbGlicmFyeSBgRnJvYicgKGEgbGlicmFyeSBmb3IgdHdlYWtpbmcga25vYnMpIHdyaXR0ZW4gYnkgSmFtZXMgUmFuZG9tIEhhY2tlci4KCiAgPHNpZ25hdHVyZSBvZiBUeSBDb29uPiwgMSBBcHJpbCAxOTkwCiAgVHkgQ29vbiwgUHJlc2lkZW50IG9mIFZpY2UKClRoYXQncyBhbGwgdGhlcmUgaXMgdG8gaXQhCg==",
+              "contentType": "text/plain",
+              "encoding": "base64"
+            }
+          }
+        },
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "name": "declared license of 'chardet'",
+            "text": {
+              "content": "LGPL",
+              "contentType": "text/plain"
+            }
+          }
+        }
+      ],
+      "name": "chardet",
+      "purl": "pkg:pypi/chardet@5.2.0",
+      "type": "library",
+      "version": "5.2.0"
+    },
+    {
+      "bom-ref": "click==8.3.1",
+      "description": "Composable command line interface toolkit",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata Project-URL: Chat",
+          "type": "chat",
+          "url": "https://discord.gg/pallets"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Documentation",
+          "type": "documentation",
+          "url": "https://click.palletsprojects.com/"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Source",
+          "type": "other",
+          "url": "https://github.com/pallets/click/"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Donate",
+          "type": "other",
+          "url": "https://palletsprojects.com/donate"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Changes",
+          "type": "release-notes",
+          "url": "https://click.palletsprojects.com/page/changes/"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "name": "click",
+      "purl": "pkg:pypi/click@8.3.1",
+      "type": "library",
+      "version": "8.3.1"
+    },
+    {
+      "bom-ref": "cyclonedx-bom==7.2.1",
+      "description": "CycloneDX Software Bill of Materials (SBOM) generator for Python projects and environments",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata Project-URL: Documentation",
+          "type": "documentation",
+          "url": "https://cyclonedx-bom-tool.readthedocs.io/"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Bug Tracker",
+          "type": "issue-tracker",
+          "url": "https://github.com/CycloneDX/cyclonedx-python/issues"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Funding",
+          "type": "other",
+          "url": "https://owasp.org/donate/?reponame=www-project-cyclonedx&title=OWASP+CycloneDX"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Changelog",
+          "type": "release-notes",
+          "url": "https://github.com/CycloneDX/cyclonedx-python/releases"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Repository",
+          "type": "vcs",
+          "url": "https://github.com/CycloneDX/cyclonedx-python/"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Homepage",
+          "type": "website",
+          "url": "https://github.com/CycloneDX/cyclonedx-python/#readme"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "Apache-2.0"
+          }
+        },
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "name": "License :: OSI Approved :: Apache Software License"
+          }
+        }
+      ],
+      "name": "cyclonedx-bom",
+      "purl": "pkg:pypi/cyclonedx-bom@7.2.1",
+      "type": "library",
+      "version": "7.2.1"
+    },
+    {
+      "bom-ref": "cyclonedx-python-lib==11.6.0",
+      "description": "Python library for CycloneDX",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata Project-URL: Documentation",
+          "type": "documentation",
+          "url": "https://cyclonedx-python-library.readthedocs.io/"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Bug Tracker",
+          "type": "issue-tracker",
+          "url": "https://github.com/CycloneDX/cyclonedx-python-lib/issues"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Funding",
+          "type": "other",
+          "url": "https://owasp.org/donate/?reponame=www-project-cyclonedx&title=OWASP+CycloneDX"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Changelog",
+          "type": "release-notes",
+          "url": "https://github.com/CycloneDX/cyclonedx-python-lib/releases"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Repository",
+          "type": "vcs",
+          "url": "https://github.com/CycloneDX/cyclonedx-python-lib"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Homepage",
+          "type": "website",
+          "url": "https://github.com/CycloneDX/cyclonedx-python-lib/#readme"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "Apache-2.0"
+          }
+        },
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "name": "License :: OSI Approved :: Apache Software License"
+          }
+        }
+      ],
+      "name": "cyclonedx-python-lib",
+      "properties": [
+        {
+          "name": "cdx:python:package:required-extra",
+          "value": "validation"
+        }
+      ],
+      "purl": "pkg:pypi/cyclonedx-python-lib@11.6.0",
+      "type": "library",
+      "version": "11.6.0"
+    },
+    {
+      "bom-ref": "defusedxml==0.7.1",
+      "description": "XML bomb protection for Python stdlib modules",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata: Download-URL",
+          "type": "distribution",
+          "url": "https://pypi.python.org/pypi/defusedxml"
+        },
+        {
+          "comment": "from packaging metadata: Home-page",
+          "type": "website",
+          "url": "https://github.com/tiran/defusedxml"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "Python-2.0"
+          }
+        },
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "name": "declared license of 'defusedxml'",
+            "text": {
+              "content": "PSFL",
+              "contentType": "text/plain"
+            }
+          }
+        }
+      ],
+      "name": "defusedxml",
+      "purl": "pkg:pypi/defusedxml@0.7.1",
+      "type": "library",
+      "version": "0.7.1"
+    },
+    {
+      "bom-ref": "fastapi==0.123.5",
+      "description": "FastAPI framework, high performance, easy to learn, fast to code, ready for production",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata Project-URL: Documentation",
+          "type": "documentation",
+          "url": "https://fastapi.tiangolo.com/"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Issues",
+          "type": "issue-tracker",
+          "url": "https://github.com/fastapi/fastapi/issues"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Changelog",
+          "type": "release-notes",
+          "url": "https://fastapi.tiangolo.com/release-notes/"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Repository",
+          "type": "vcs",
+          "url": "https://github.com/fastapi/fastapi"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Homepage",
+          "type": "website",
+          "url": "https://github.com/fastapi/fastapi"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "MIT"
+          }
+        }
+      ],
+      "name": "fastapi",
+      "purl": "pkg:pypi/fastapi@0.123.5",
+      "type": "library",
+      "version": "0.123.5"
+    },
+    {
+      "bom-ref": "fqdn==1.5.1",
+      "description": "Validates fully-qualified domain names against RFC 1123, so that they are acceptable to modern bowsers",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata: Home-page",
+          "type": "website",
+          "url": "https://github.com/ypcrts/fqdn"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "name": "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)"
+          }
+        },
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "name": "declared license of 'fqdn'",
+            "text": {
+              "content": "MPL 2.0",
+              "contentType": "text/plain"
+            }
+          }
+        }
+      ],
+      "name": "fqdn",
+      "purl": "pkg:pypi/fqdn@1.5.1",
+      "type": "library",
+      "version": "1.5.1"
+    },
+    {
+      "bom-ref": "h11==0.16.0",
+      "description": "A pure-Python, bring-your-own-I/O implementation of HTTP/1.1",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata: Home-page",
+          "type": "website",
+          "url": "https://github.com/python-hyper/h11"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "MIT"
+          }
+        }
+      ],
+      "name": "h11",
+      "purl": "pkg:pypi/h11@0.16.0",
+      "type": "library",
+      "version": "0.16.0"
+    },
+    {
+      "bom-ref": "idna==3.11",
+      "description": "Internationalized Domain Names in Applications (IDNA)",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata Project-URL: Issue tracker",
+          "type": "issue-tracker",
+          "url": "https://github.com/kjd/idna/issues"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Source",
+          "type": "other",
+          "url": "https://github.com/kjd/idna"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Changelog",
+          "type": "release-notes",
+          "url": "https://github.com/kjd/idna/blob/master/HISTORY.rst"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "name": "idna",
+      "purl": "pkg:pypi/idna@3.11",
+      "type": "library",
+      "version": "3.11"
+    },
+    {
+      "bom-ref": "isoduration==20.11.0",
+      "description": "Operations with ISO 8601 durations",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata Project-URL: Bug Reports",
+          "type": "issue-tracker",
+          "url": "https://github.com/bolsote/isoduration/issues"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Changelog",
+          "type": "release-notes",
+          "url": "https://github.com/bolsote/isoduration/blob/master/CHANGELOG"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Repository",
+          "type": "vcs",
+          "url": "https://github.com/bolsote/isoduration"
+        },
+        {
+          "comment": "from packaging metadata: Home-page",
+          "type": "website",
+          "url": "https://github.com/bolsote/isoduration"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "ISC"
+          }
+        },
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "name": "declared license of 'isoduration'",
+            "text": {
+              "content": "UNKNOWN",
+              "contentType": "text/plain"
+            }
+          }
+        }
+      ],
+      "name": "isoduration",
+      "purl": "pkg:pypi/isoduration@20.11.0",
+      "type": "library",
+      "version": "20.11.0"
+    },
+    {
+      "bom-ref": "jsonpointer==3.0.0",
+      "description": "Identify specific nodes in a JSON document (RFC 6901) ",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata: Home-page",
+          "type": "website",
+          "url": "https://github.com/stefankoegl/python-json-pointer"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "name": "License :: OSI Approved :: BSD License"
+          }
+        },
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "name": "declared license file: AUTHORS",
+            "text": {
+              "content": "U3RlZmFuIEvDtmdsIDxzdGVmYW5Ac2tvZWdsLm5ldD4KQWxleGFuZGVyIFNob3JpbiA8a3hlcGFsQGdtYWlsLmNvbT4KQ2hyaXN0b3BoZXIgSi4gV2hpdGUgPGNocmlzQGdyaWVyd2hpdGUuY29tPgo=",
+              "contentType": "text/plain",
+              "encoding": "base64"
+            }
+          }
+        },
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "name": "declared license file: LICENSE.txt",
+            "text": {
+              "content": "Q29weXJpZ2h0IChjKSAyMDExIFN0ZWZhbiBLw7ZnbCA8c3RlZmFuQHNrb2VnbC5uZXQ+CkFsbCByaWdodHMgcmVzZXJ2ZWQuCgpSZWRpc3RyaWJ1dGlvbiBhbmQgdXNlIGluIHNvdXJjZSBhbmQgYmluYXJ5IGZvcm1zLCB3aXRoIG9yIHdpdGhvdXQKbW9kaWZpY2F0aW9uLCBhcmUgcGVybWl0dGVkIHByb3ZpZGVkIHRoYXQgdGhlIGZvbGxvd2luZyBjb25kaXRpb25zCmFyZSBtZXQ6CgoxLiBSZWRpc3RyaWJ1dGlvbnMgb2Ygc291cmNlIGNvZGUgbXVzdCByZXRhaW4gdGhlIGFib3ZlIGNvcHlyaWdodAogICBub3RpY2UsIHRoaXMgbGlzdCBvZiBjb25kaXRpb25zIGFuZCB0aGUgZm9sbG93aW5nIGRpc2NsYWltZXIuCjIuIFJlZGlzdHJpYnV0aW9ucyBpbiBiaW5hcnkgZm9ybSBtdXN0IHJlcHJvZHVjZSB0aGUgYWJvdmUgY29weXJpZ2h0CiAgIG5vdGljZSwgdGhpcyBsaXN0IG9mIGNvbmRpdGlvbnMgYW5kIHRoZSBmb2xsb3dpbmcgZGlzY2xhaW1lciBpbiB0aGUKICAgZG9jdW1lbnRhdGlvbiBhbmQvb3Igb3RoZXIgbWF0ZXJpYWxzIHByb3ZpZGVkIHdpdGggdGhlIGRpc3RyaWJ1dGlvbi4KMy4gVGhlIG5hbWUgb2YgdGhlIGF1dGhvciBtYXkgbm90IGJlIHVzZWQgdG8gZW5kb3JzZSBvciBwcm9tb3RlIHByb2R1Y3RzCiAgIGRlcml2ZWQgZnJvbSB0aGlzIHNvZnR3YXJlIHdpdGhvdXQgc3BlY2lmaWMgcHJpb3Igd3JpdHRlbiBwZXJtaXNzaW9uLgoKVEhJUyBTT0ZUV0FSRSBJUyBQUk9WSURFRCBCWSBUSEUgQVVUSE9SIGBgQVMgSVMnJyBBTkQgQU5ZIEVYUFJFU1MgT1IKSU1QTElFRCBXQVJSQU5USUVTLCBJTkNMVURJTkcsIEJVVCBOT1QgTElNSVRFRCBUTywgVEhFIElNUExJRUQgV0FSUkFOVElFUwpPRiBNRVJDSEFOVEFCSUxJVFkgQU5EIEZJVE5FU1MgRk9SIEEgUEFSVElDVUxBUiBQVVJQT1NFIEFSRSBESVNDTEFJTUVELgpJTiBOTyBFVkVOVCBTSEFMTCBUSEUgQVVUSE9SIEJFIExJQUJMRSBGT1IgQU5ZIERJUkVDVCwgSU5ESVJFQ1QsCklOQ0lERU5UQUwsIFNQRUNJQUwsIEVYRU1QTEFSWSwgT1IgQ09OU0VRVUVOVElBTCBEQU1BR0VTIChJTkNMVURJTkcsIEJVVApOT1QgTElNSVRFRCBUTywgUFJPQ1VSRU1FTlQgT0YgU1VCU1RJVFVURSBHT09EUyBPUiBTRVJWSUNFUzsgTE9TUyBPRiBVU0UsCkRBVEEsIE9SIFBST0ZJVFM7IE9SIEJVU0lORVNTIElOVEVSUlVQVElPTikgSE9XRVZFUiBDQVVTRUQgQU5EIE9OIEFOWQpUSEVPUlkgT0YgTElBQklMSVRZLCBXSEVUSEVSIElOIENPTlRSQUNULCBTVFJJQ1QgTElBQklMSVRZLCBPUiBUT1JUCihJTkNMVURJTkcgTkVHTElHRU5DRSBPUiBPVEhFUldJU0UpIEFSSVNJTkcgSU4gQU5ZIFdBWSBPVVQgT0YgVEhFIFVTRSBPRgpUSElTIFNPRlRXQVJFLCBFVkVOIElGIEFEVklTRUQgT0YgVEhFIFBPU1NJQklMSVRZIE9GIFNVQ0ggREFNQUdFLgoK",
+              "contentType": "text/plain",
+              "encoding": "base64"
+            }
+          }
+        },
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "name": "declared license of 'jsonpointer'",
+            "text": {
+              "content": "Modified BSD License",
+              "contentType": "text/plain"
+            }
+          }
+        }
+      ],
+      "name": "jsonpointer",
+      "purl": "pkg:pypi/jsonpointer@3.0.0",
+      "type": "library",
+      "version": "3.0.0"
+    },
+    {
+      "bom-ref": "jsonschema==4.25.1",
+      "description": "An implementation of JSON Schema validation for Python",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata Project-URL: Documentation",
+          "type": "documentation",
+          "url": "https://python-jsonschema.readthedocs.io/"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Issues",
+          "type": "issue-tracker",
+          "url": "https://github.com/python-jsonschema/jsonschema/issues/"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Source",
+          "type": "other",
+          "url": "https://github.com/python-jsonschema/jsonschema"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Funding",
+          "type": "other",
+          "url": "https://github.com/sponsors/Julian"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Tidelift",
+          "type": "other",
+          "url": "https://tidelift.com/subscription/pkg/pypi-jsonschema?utm_source=pypi-jsonschema&utm_medium=referral&utm_campaign=pypi-link"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Changelog",
+          "type": "release-notes",
+          "url": "https://github.com/python-jsonschema/jsonschema/blob/main/CHANGELOG.rst"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Homepage",
+          "type": "website",
+          "url": "https://github.com/python-jsonschema/jsonschema"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "MIT"
+          }
+        }
+      ],
+      "name": "jsonschema",
+      "properties": [
+        {
+          "name": "cdx:python:package:required-extra",
+          "value": "format-nongpl"
+        }
+      ],
+      "purl": "pkg:pypi/jsonschema@4.25.1",
+      "type": "library",
+      "version": "4.25.1"
+    },
+    {
+      "bom-ref": "jsonschema-specifications==2025.9.1",
+      "description": "The JSON Schema meta-schemas and vocabularies, exposed as a Registry",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata Project-URL: Documentation",
+          "type": "documentation",
+          "url": "https://jsonschema-specifications.readthedocs.io/"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Issues",
+          "type": "issue-tracker",
+          "url": "https://github.com/python-jsonschema/jsonschema-specifications/issues/"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Source",
+          "type": "other",
+          "url": "https://github.com/python-jsonschema/jsonschema-specifications"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Funding",
+          "type": "other",
+          "url": "https://github.com/sponsors/Julian"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Tidelift",
+          "type": "other",
+          "url": "https://tidelift.com/subscription/pkg/pypi-jsonschema-specifications?utm_source=pypi-jsonschema-specifications&utm_medium=referral&utm_campaign=pypi-link"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Homepage",
+          "type": "website",
+          "url": "https://github.com/python-jsonschema/jsonschema-specifications"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "MIT"
+          }
+        }
+      ],
+      "name": "jsonschema-specifications",
+      "purl": "pkg:pypi/jsonschema-specifications@2025.9.1",
+      "type": "library",
+      "version": "2025.9.1"
+    },
+    {
+      "bom-ref": "lark==1.3.1",
+      "description": "a modern parsing library",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata Project-URL: Download",
+          "type": "distribution",
+          "url": "https://github.com/lark-parser/lark/tarball/master"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Homepage",
+          "type": "website",
+          "url": "https://github.com/lark-parser/lark"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "MIT"
+          }
+        }
+      ],
+      "name": "lark",
+      "purl": "pkg:pypi/lark@1.3.1",
+      "type": "library",
+      "version": "1.3.1"
+    },
+    {
+      "bom-ref": "license-expression==30.4.4",
+      "description": "license-expression is a comprehensive utility library to parse, compare, simplify and normalize license expressions (such as SPDX license expressions) using boolean logic.",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata: Home-page",
+          "type": "website",
+          "url": "https://github.com/aboutcode-org/license-expression"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "name": "license-expression",
+      "purl": "pkg:pypi/license-expression@30.4.4",
+      "type": "library",
+      "version": "30.4.4"
+    },
+    {
+      "bom-ref": "lxml==6.0.2",
+      "description": "Powerful and Pythonic XML processing library combining libxml2/libxslt with the ElementTree API.",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata Project-URL: Bug Tracker",
+          "type": "issue-tracker",
+          "url": "https://bugs.launchpad.net/lxml"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Source",
+          "type": "other",
+          "url": "https://github.com/lxml/lxml"
+        },
+        {
+          "comment": "from packaging metadata: Home-page",
+          "type": "website",
+          "url": "https://lxml.de/"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "name": "lxml",
+      "purl": "pkg:pypi/lxml@6.0.2",
+      "type": "library",
+      "version": "6.0.2"
+    },
+    {
+      "bom-ref": "packageurl-python==0.17.6",
+      "description": "A purl aka. Package URL parser and builder",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata: Home-page",
+          "type": "website",
+          "url": "https://github.com/package-url/packageurl-python"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "MIT"
+          }
+        }
+      ],
+      "name": "packageurl-python",
+      "purl": "pkg:pypi/packageurl-python@0.17.6",
+      "type": "library",
+      "version": "0.17.6"
+    },
+    {
+      "bom-ref": "packaging==25.0",
+      "description": "Core utilities for Python packages",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata Project-URL: Documentation",
+          "type": "documentation",
+          "url": "https://packaging.pypa.io/"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Source",
+          "type": "other",
+          "url": "https://github.com/pypa/packaging"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "name": "License :: OSI Approved :: Apache Software License"
+          }
+        },
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "name": "License :: OSI Approved :: BSD License"
+          }
+        }
+      ],
+      "name": "packaging",
+      "purl": "pkg:pypi/packaging@25.0",
+      "type": "library",
+      "version": "25.0"
+    },
+    {
+      "bom-ref": "pip-requirements-parser==32.0.1",
+      "description": "pip requirements parser - a mostly correct pip requirements parsing library because it uses pip's own code.",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata: Home-page",
+          "type": "website",
+          "url": "https://github.com/nexB/pip-requirements-parser"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "MIT"
+          }
+        },
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "name": "declared license file: AUTHORS.rst",
+            "text": {
+              "content": "VGhlIGZvbGxvd2luZyBvcmdhbml6YXRpb25zIG9yIGluZGl2aWR1YWxzIGhhdmUgY29udHJpYnV0ZWQgdG8gdGhpcyByZXBvOgoKLSAK",
+              "contentType": "text/prs.fallenstein.rst",
+              "encoding": "base64"
+            }
+          }
+        },
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "name": "declared license file: CHANGELOG.rst",
+            "text": {
+              "content": "Q2hhbmdlbG9nCj09PT09PT09PQoKCnYzMi4wLjEKLS0tLS0tLQoKRW5zdXJlIGFsbCB0ZXN0cyBwYXNzIGNvcnJlY3RseS4KQWRvcHQgbGF0ZXN0IHNrZWx0b24KCkFkZCBuZXcgUmVxdWlyZW1lbnRzRmlsZS5mcm9tX3N0cmluZygpIGNvbnZlbmllbmNlIGZhY3RvcnkgbWV0aG9kCgpWZW5kb3IgTGVnYWN5VmVyc2lvbiBmcm9tIHByZSBWMiBwYWNrYWdpbmcuIE90aGVyd2lzZSBwYWNrYWdpbmcgdjIgYnJva2UKdGhpcyBsaWJyYXJ5IGFuZCBpdHMgZGVwZW5kZW5jaWVzLgoKCnYzMi4wLjAKLS0tLS0tLQoKRW1lcmdlbmN5IHBpbiBvZiBwYWNrYWdpbmcgdG8gdmVyc2lvbiB1bmRlciAyMi4KVGhpcyBicmVha3MgdGhpcyBsaWJyYXJ5IGFuZCBpdHMgZGVwZW5kZW50cyBvdGhlcndpc2UKCgoKdjMxLjEuMQotLS0tLS0tCgpBZGQgbmV3IHRlc3RzLiBObyBvdGhlciBjaGFuZ2VzLgoKCnYzMS4xLjAKLS0tLS0tLQoKQWRkIG5ldyBjb252ZW5pZW5jZSBtZXRob2QgSW5zdGFsbFJlcXVpcmVtZW50LmdldF9waW5uZWRfdmVyc2lvbigpIHRvIHJldHVybgp0aGUgcGlubmVkIHZlcnNpb24gaWYgdGhlcmUgaXMgc3VjaCB0aGluZy4KCgp2MzEuMC4xCi0tLS0tLS0KCkZpeCB0d2luZSB3YXJuaW5nIHdydC4gbG9uZ19kZXNjcmlwdGlvbiBjb250ZW50IHR5cGUuCgoKdjMxLjAuMAotLS0tLS0tCgpJbmNsdWRlIGNvZGUgaW4gd2hlZWwuIFRoaXMgd2FzIG5vdCBpbmNsdWRlZCBvdGhlcndpc2UuCkltcHJvdmUgZG9jdW1lbnRhdGlvbgoKCnYzMC4wLjAKLS0tLS0tLQoKSW5pdGlhbCByZWxlYXNlIGJhc2VkIG9uIHBpcCBhdCBjb21taXQgNWNmOTg0MDhmNDhhMGVmOTFkNjFhZWE1NjQ4NWE3YTgzZjZiYmZhOAplLmcuLCBodHRwczovL2dpdGh1Yi5jb20vcHlwYS9waXAvdHJlZS81Y2Y5ODQwOGY0OGEwZWY5MWQ2MWFlYTU2NDg1YTdhODNmNmJiZmE4Cg==",
+              "contentType": "text/prs.fallenstein.rst",
+              "encoding": "base64"
+            }
+          }
+        },
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "name": "declared license file: README.rst",
+            "text": {
+              "content": "cGlwLXJlcXVpcmVtZW50cy1wYXJzZXIgLSBhIG1vc3RseSBjb3JyZWN0IHBpcCByZXF1aXJlbWVudHMgcGFyc2luZyBsaWJyYXJ5Cj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09CgpDb3B5cmlnaHQgKGMpIG5leEIgSW5jLiBhbmQgb3RoZXJzLgpDb3B5cmlnaHQgKGMpIFRoZSBwaXAgZGV2ZWxvcGVycyAoc2VlIEFVVEhPUlMucnN0IGZpbGUpClNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBNSVQKSG9tZXBhZ2U6IGh0dHBzOi8vZ2l0aHViLmNvbS9uZXhCL3BpcC1yZXF1aXJlbWVudHMgYW5kIGh0dHBzOi8vd3d3LmFib3V0Y29kZS5vcmcvCgoKYGBwaXAtcmVxdWlyZW1lbnRzLXBhcnNlcmBgIGlzIGEgbW9zdGx5IGNvcnJlY3QgcGlwIHJlcXVpcmVtZW50cyBwYXJzaW5nCmxpYnJhcnkgLi4uIGJlY2F1c2UgaXQgdXNlcyBwaXAncyBvd24gY29kZSEKCnBpcCBpcyB0aGUgYGBwYWNrYWdlIGluc3RhbGxlcmBgIGZvciBQeXRob24gdGhhdCBpcyB1c2luZyAicmVxdWlyZW1lbnRzIiB0ZXh0CmZpbGVzIGxpc3RpbmcgdGhlIHBhY2thZ2VzIHRvIGluc3RhbGwuCgpQZXIgaHR0cHM6Ly9waXAucHlwYS5pby9lbi9zdGFibGUvcmVmZXJlbmNlL3JlcXVpcmVtZW50cy1maWxlLWZvcm1hdC8gOgoKICAgICJUaGUgcmVxdWlyZW1lbnRzIGZpbGUgZm9ybWF0IGlzIGNsb3NlbHkgdGllZCB0byBhIG51bWJlciBvZiBpbnRlcm5hbAogICAgZGV0YWlscyBvZiBwaXAgKGUuZy4sIHBpcOKAmXMgY29tbWFuZCBsaW5lIG9wdGlvbnMpLiBUaGUgYmFzaWMgZm9ybWF0IGlzCiAgICByZWxhdGl2ZWx5IHN0YWJsZSBhbmQgcG9ydGFibGUgYnV0IHRoZSBmdWxsIHN5bnRheCwgYXMgZGVzY3JpYmVkIGhlcmUsCiAgICBpcyBvbmx5IGludGVuZGVkIGZvciBjb25zdW1wdGlvbiBieSBwaXAsIGFuZCBvdGhlciB0b29scyBzaG91bGQgdGFrZQogICAgdGhhdCBpbnRvIGFjY291bnQgYmVmb3JlIHVzaW5nIGl0IGZvciB0aGVpciBvd24gcHVycG9zZXMuIgoKQW5kIHBlciBodHRwczovL3BpcC5weXBhLmlvL2VuL3N0YWJsZS91c2VyX2d1aWRlLyN1c2luZy1waXAtZnJvbS15b3VyLXByb2dyYW0gOgoKICAgICJbLi5dIHBpcCBpcyBhIGNvbW1hbmQgbGluZSBwcm9ncmFtLiBXaGlsZSBpdCBpcyBpbXBsZW1lbnRlZCBpbiBQeXRob24sIGFuZAogICAgc28gaXMgYXZhaWxhYmxlIGZyb20geW91ciBQeXRob24gY29kZSB2aWEgaW1wb3J0IHBpcCwgeW91IG11c3Qgbm90IHVzZSBwaXDigJlzCiAgICBpbnRlcm5hbCBBUElzIGluIHRoaXMgd2F5LiIKICAgIAogICAgIldoYXQgdGhpcyBtZWFucyBpbiBwcmFjdGljZSBpcyB0aGF0IGV2ZXJ5dGhpbmcgaW5zaWRlIG9mIHBpcCBpcyBjb25zaWRlcmVkCiAgICBhbiBpbXBsZW1lbnRhdGlvbiBkZXRhaWwuIEV2ZW4gdGhlIGZhY3QgdGhhdCB0aGUgaW1wb3J0IG5hbWUgaXMgcGlwIGlzCiAgICBzdWJqZWN0IHRvIGNoYW5nZSB3aXRob3V0IG5vdGljZS4gV2hpbGUgd2UgZG8gdHJ5IG5vdCB0byBicmVhayB0aGluZ3MgYXMKICAgIG11Y2ggYXMgcG9zc2libGUsIGFsbCB0aGUgaW50ZXJuYWwgQVBJcyBjYW4gY2hhbmdlIGF0IGFueSB0aW1lLCBmb3IgYW55CiAgICByZWFzb24uIEl0IGFsc28gbWVhbnMgdGhhdCB3ZSBnZW5lcmFsbHkgd29u4oCZdCBmaXggaXNzdWVzIHRoYXQgYXJlIGEgcmVzdWx0CiAgICBvZiB1c2luZyBwaXAgaW4gYW4gdW5zdXBwb3J0ZWQgd2F5LiIKCgpCZWNhdXNlIG9mIGFsbCB0aGlzLCBwaXAgcmVxdWlyZW1lbnRzIGFyZSBub3RvcmlvdXNseSBkaWZmaWN1bHQgdG8gcGFyc2UgcmlnaHQKaW4gYWxsIHRoZWlyIGRpdmVyc2l0eSBiZWNhdXNlOgoKLSBwaXAgZG9lcyBub3QgaGF2ZSBhIHB1YmxpYyBBUEkgYW5kIHRoZXJlZm9yZSBjYW5ub3QgYmUgcmVsaWFibHkgdXNlZCBhcyBhCiAgc3RhYmxlIGxpYnJhcnkuIFNvbWUgbGlicmFyaWVzIGF0dGVtcHQgdG8gZG8gdGhpcyB0aG91Z2guIChTZWUgQWx0ZXJuYXRpdmUpCgotIFRoZSBwaXAgcmVxdWlyZW1lbnRzIGZpbGUgc3ludGF4IGlzIGNsb3NlbHkgYWxpZ25lZCB3aXRoIHBpcCdzIGNvbW1hbmQgbGluZQogIGludGVyZmFjZSBhbmQgY29tbWFuZCBsaW5lIG9wdGlvbnMuIEluIHNvbWUgd2F5cyBhIHBpcCByZXF1aXJlbWVudHMgZmlsZSBpcyBhCiAgbGlzdCBvZiBwaXAgY29tbWFuZCBsaW5lIG9wdGlvbnMgYW5kIGFyZ3VtZW50cy4gVGhlcmVmb3JlLCBpdCBpcyBoYXJkIHRvIHBhcnNlCiAgdGhlc2Ugc2hvcnQgb2YgcmVwcm9kdWNpbmcgdGhlIHBpcCBjb21tYW5kIGxpbmUgb3B0aW9ucyBwYXJzaW5nLiBBdCBsZWFzdCBvbmUKICBvdGhlciBsaWJyYXJ5IGlzIHVzaW5nIGEgY29tbWFuZCBsaW5lIG9wdGlvbiBwYXJzZXIgdG8gcGFyc2Ugb3B0aW9ucyBjb3JyZWN0bHkuCgoKVGhpcyBgYHBpcC1yZXF1aXJlbWVudHMtcGFyc2VyYGAgUHl0aG9uIGxpYnJhcnkgaXMgeWV0IGFub3RoZXIgcGlwIHJlcXVpcmVtZW50cwpmaWxlcyBwYXJzZXIsIGJ1dCB0aGlzIHRpbWUgZG9pbmcgaXQgaG9wZWZ1bGx5IGNvcnJlY3RseSBhbmQgZG9pbmcgYXMgd2VsbCBhcwpwaXAgZG9lcyBpdCwgYmVjYXVzZSB0aGlzIGlzIHVzaW5nIHBpcCdzIG93biBjb2RlLgoKClRoZSBgYHBpcC1yZXF1aXJlbWVudHMtcGFyc2VyYGAgbGlicmFyeSBvZmZlcnMgdGhlc2Uga2V5IGFkdmFudGFnZXM6CgotIE90aGVyIHJlcXVpcmVtZW50cyBwYXJzZXJzIHR5cGljYWxseSBkbyBub3Qgd29yayBpbiBhbGwgdGhlIGNhc2VzIHRoYXQgYGBwaXBgYAogIHN1cHBvcnRzOiBwYXJzaW5nIGFueSByZXF1aXJlbWVudCBhcyBzZWVuIGluIHRoZSB3aWxkIHdpbGwgZmFpbCBwYXJzaW5nIHNvbWUKICB2YWxpZCBwaXAgcmVxdWlyZW1lbnRzLiBTaW5jZSB0aGUgYGBwaXAtcmVxdWlyZW1lbnRzLXBhcnNlcmBgIGxpYnJhcnkgaXMgYmFzZWQKICBvbiBwaXAncyBvd24gY29kZSwgaXQgd29ya3MgKipleGFjdGx5KiogbGlrZSBwaXAgYW5kIHdpbGwgcGFyc2UgYWxsIHRoZQogIHJlcXVpcmVtZW50cyBmaWxlcyB0aGF0IHBpcCBjYW4gcGFyc2UuCgotIFRoZSBgYHBpcC1yZXF1aXJlbWVudHMtcGFyc2VyYGAgbGlicmFyeSBvZmZlcnMgYSBzaW1wbGUgYW5kIHN0YWJsZSBjb2RlIEFQSQogIHRoYXQgd2lsbCBub3QgY2hhbmdlIHdpdGhvdXQgbm90aWNlLgoKLSBUaGUgYGBwaXAtcmVxdWlyZW1lbnRzLXBhcnNlcmBgIGxpYnJhcnkgaXMgZGVzaWduZWQgdG8gd29yayBvZmZsaW5lIHdpdGhvdXQKICBtYWtpbmcgYW55IGV4dGVybmFsIG5ldHdvcmsgY2FsbCwgd2hpbGUgdGhlIG9yaWdpbmFsIHBpcCBjb2RlIG5lZWRzIG5ldHdvcmsKICBhY2Nlc3MuCgotIFRoZSBgYHBpcC1yZXF1aXJlbWVudHMtcGFyc2VyYGAgbGlicmFyeSBpcyBhIHNpbmdsZSBmaWxlIHRoYXQgY2FuIGVhc2lseSBiZQogIGNvcGllZCBhcm91bmQgYXMgbmVlZGVkIGZvciBlYXN5IHZlbmRvcmluZy4gVGhpcyBpcyB1c2VmdWwgYXMgcmVxdWlyZW1lbnRzCiAgcGFyc2luZyBpcyBvZnRlbiBuZWVkZWQgdG8gYm9vdHN0cmFwIGluIGEgY29uc3RyYWluZWQgZW52aXJvbm1lbnQuCgotIFRoZSBgYHBpcC1yZXF1aXJlbWVudHMtcGFyc2VyYGAgbGlicmFyeSBoYXMgb25seSBvbmUgZXh0ZXJuYWwgZGVwZW5kZW5jeSBvbgogIHRoZSBjb21tb24gInBhY2thZ2luZyIgcGFja2FnZS4gT3RoZXJ3aXNlIGl0IHVzZXMgb25seSB0aGUgc3RhbmRhcmQgbGlicmFyeS4KICBUaGUgYmVuZWZpdHMgYXJlIHRoZSBzYW1lIGFzIGJlaW5nIGEgc2luZ2xlIGZpbGU6IGZld2VyIG1vdmluZyBwYXJ0cyBoZWxwcyB3aXRoCiAgdXNpbmcgaXQgaW4gbW9yZSBjYXNlcy4KCi0gVGhlIGBgcGlwLXJlcXVpcmVtZW50cy1wYXJzZXJgYCBsaWJyYXJ5IHJldXNlcyBhbmQgcGFzc2VzIHRoZSBmdWxsIHN1YnNldCBvZgogIHRoZSBwaXAgdGVzdCBzdWl0ZSB0aGF0IGRlYWxzIHdpdGggcmVxdWlyZW1lbnRzLiBUaGlzIGlzIGEgbm90IHJlYWxseQogIHN1cnByaXNpbmcgc2luY2UgdGhpcyBpcyBwaXAncyBvd24gY29kZS4gVGhlIHN1aXRlIHN1aXRlIGhhcyBiZWVuIGNhcmVmdWxseQogIHBvcnRlZCBhbmQgYWRqdXN0ZWQgdG8gd29yayB3aXRoIHRoZSB1cGRhdGVkIGNvZGUgc3Vic2V0LgoKLSBUaGUgc3RhbmRhcmQgcGlwIHJlcXVpcmVtZW50cyBwYXJzZXIgZGVwZW5kcyBvbiB0aGUgYGByZXF1ZXN0c2BgIEhUVFAgbGlicmFyeQogIGFuZCBtYWtlcyBuZXR3b3JrIGNvbm5lY3Rpb24gdG8gUHlQSSBhbmQgb3RoZXIgcmVmZXJlbmNlZCByZXBvc2l0b3JpZXMgd2hlbgogIHBhcnNpbmcuIFRoZSBgYHBpcC1yZXF1aXJlbWVudHMtcGFyc2VyYGAgbGlicmFyeSB3b3JrcyBlbnRpcmVseSBvZmZsaW5lIGFuZCB0aGUKICByZXF1ZXN0cyBkZXBlbmRlbmN5IGFuZCBjYWxsaW5nIGhhcyBiZWVuIGVudGlyZWx5IHJlbW92ZWQuCgotIFRoZSBgYHBpcC1yZXF1aXJlbWVudHMtcGFyc2VyYGAgbGlicmFyeSBoYXMgcHJlc2VydmVkIHRoZSBjb21wbGV0ZSBwaXAgZ2l0CiAgaGlzdG9yeSBmb3IgdGhlIHN1YnNldCBvZiB0aGUgY29kZSB3ZSBrZXB0LiBUaGUgb3JpZ2luYWwgcGlwIGNvZGUgd2FzIG1lcmdlZAogIGZyb20gbXVsdGlwbGUgbW9kdWxlcyBrZWVwaW5nIGFsbCB0aGUgZ2l0IGhpc3RvcnkgYXQgdGhlIGxpbmUvYmxhbWUgbGV2ZWwgdXNpbmcKICBzb21lIGdpdCBmdSBhbmQgZ2l0IGZpbHRlciByZXBvLiBUaGUgYmVuZWZpdCBpcyB0aGF0IHdlIHdpbGwgYmUgYWJsZSB0byBtb3JlCiAgZWFzaWx5IHRyYWNrIGFuZCBtZXJnZSBmdXR1cmUgcGlwIHVwZGF0ZXMuCgotIFRoZSBgYHBpcC1yZXF1aXJlbWVudHMtcGFyc2VyYGAgbGlicmFyeSBoYXMgYW4gZXh0ZW5zaXZlIHRlc3Qgc3VpdGUgIG1hZGUgb2Y6CgogIC0gcGlwJ3Mgb3duIHRlc3RzCiAgLSBuZXcgdW5pdCB0ZXN0cwogIC0gbmV3IHJlcXVpcmVtZW50cyB0ZXN0IGZpbGVzIChvdmVyIDQwIG5ldyB0ZXN0IGZpbGVzKQogIC0gdGhlIHRlc3RzIHN1aXRlIG9mIHNvbWUgb2YgdGhlIG1haW4gb3RoZXIgcmVxdWlyZW1lbnQgcGFyc2VycyBpbmNsdWRpbmc6CgogICAgIC0gaHR0cDovL2dpdGh1Yi5jb20vZGkvcGlwLWFwaQogICAgIC0gaHR0cHM6Ly9naXRodWIuY29tL3B5dXBpby9kcGFyc2UKICAgICAtIGh0dHBzOi8vZ2l0aHViLmNvbS9sYW5kc2NhcGVpby9yZXF1aXJlbWVudHMtZGV0ZWN0b3IKICAgICAtIGh0dHBzOi8vZ2l0aHViLmNvbS9tYWRwYWgvcmVxdWlyZW1lbnRzLXBhcnNlcgoKQXMgYSByZXN1bHQsIGl0IGhhcyBsaWtlbHkgdGhlIG1vc3QgY29tcHJlaGVuc2l2ZSByZXF1aXJlbWVudGUgcGFyc2luZyB0ZXN0CnN1aXRlIGFyb3VuZC4KCgpVc2FnZQp+fn5+fn5+fn5+CgpUaGUgZW50cnkgcG9pbnQgaXMgdGhlIGBgUmVxdWlyZW1lbnRzRmlsZWBgIG9iamVjdDo6CgogICAgPj4+IGZyb20gcGlwX3JlcXVpcmVtZW50c19wYXJzZXIgaW1wb3J0IFJlcXVpcmVtZW50c0ZpbGUKICAgID4+PiByZiA9IFJlcXVpcmVtZW50c0ZpbGUuZnJvbV9maWxlKCJyZXF1aXJlbWVudHMudHh0IikKCkZyb20gdGhlcmUsIHlvdSBjYW4gZHVtcCB0byBhIGRpY3Q6OgogICAgPj4+IHJmLnRvX2RpY3QoKQoKT3IgYWNjZXNzIHRoZSByZXF1aXJlbWVudHMgKGVpdGhlciBJbnN0YWxsUmVxdWlyZW1lbnQgb3IgRWRpdGFibGVSZXF1aXJlbWVudApvYmplY3RzKTo6CgogICAgPj4+IGZvciByZXEgaW4gcmYucmVxdWlyZW1lbnRzOgogICAgLi4uICAgIHByaW50KHJlcS50b19kaWN0KCkpCiAgICAuLi4gICAgcHJpbnQocmVxLmR1bXBzKCkpCgpBbmQgdGhlIHZhcmlvdXMgb3RoZXIgcGFyc2VkIGVsZW1lbnRzIHN1Y2ggYXMgb3B0aW9ucywgY29tbWVuc3QgYW5kIGludmFsaWQgbGluZXMKdGhhdCBoYXZlIGEgcGFyc2luZyBlcnJvcjo6CgogICAgPj4+IHJmLm9wdGlvbnMKICAgID4+PiByZi5jb21tZW50X2xpbmVzCiAgICA+Pj4gcmYuaW52YWxpZF9saW5lcwoKRWFjaCBvZiB0aGVzZSBhbmQgdGhlIGBgcmVxdWlyZW1lbnRzYGAgaGFodmUgYSAicmVxdWlyZW1lbnRfbGluZSIgYXR0cmlidXRlCndpdGggdGhlIG9yaWdpbmFsIHRleHQuCgpGaW5hbGx5IHlvdSBjYW4gZ2V0IGEgcmVxdWlyZW1lbnRzIGZpbGUgYmFjayBhcyBhIHN0cmluZzo6CgogICAgPj4+IHJmLmR1bXBzKCkKCgpBbHRlcm5hdGl2ZQotLS0tLS0tLS0tLS0tLS0tLS0KClRoZXJlIGFyZSBzZXZlcmFsIG90aGVyIHBhcnNlcnMgdGhhdCBlaXRoZXI6CgotIEltcGxlbWVudCB0aGVpciBvd24gcGFyc2luZyBhbmQgY2FuIHRoZXJlZm9yZSBtaXNzIHNvbWUgc3VidGxlIGRpZmZlcmVuY2VzCi0gT3Igd3JhcCBhbmQgaW1wb3J0IHBpcCBhcyBhIGxpYnJhcnksIHdvcmtpbmcgYXJvdW5kIHRoZSBsYWNrIG9mIHBpcCBBUEkKCk5vbmUgb2YgdGhlc2UgdXNlIHRoZSBhcHByb2FjaCBvZiByZXVzaW5nIGFuZCBmb3JraW5nIHRoZSBzdWJzZXQgb2YgcGlwIHRoYXQgaXMKbmVlZGVkIHRvIHBhcnNlIHJlcXVpcmVtZW50cy4gIFRoZSBvbmVzIHRoYXQgd3JhcCBwaXAgcmVxdWlyZSBuZXR3b3JrIGFjY2VzcwpsaWtlIHBpcCBkb2VzLiBUaGV5IHBvdGVudGlhbGx5IG5lZWQgdXBkYXRpbmcgZWFjaCB0aW1lIHRoZXJlIGlzIGEgbmV3IHBpcApyZWxlYXNlLiBUaGUgb25lcyB0aGF0IHJlaW1wbGVtZW50IHBpcCBwYXJzaW5nIG1heSBub3Qgc3VwcG9ydCBhbGwgcGlwCnNwZWNpZmljcy4KCgpJbXBsZW1lbnQgYSBuZXcgcGlwIHBhcnNlcgp+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fgoKLSBwaXAtYXBpIGh0dHBzOi8vZ2l0aHViLmNvbS9kaS9waXAtYXBpIGRvZXMgbm90IHN1cHBvcnQgaGFzaGVzIGFuZCBjZXJ0YWluIHBpcCBvcHRpb25zLgogIEl0IGRvZXMgaG93ZXZlciB1c2UgYXJncGFyc2UgZm9yIHBhcnNpbmcgb3B0aW9ucyBhbmQgaXMgdGhlcmVmb3JlIGNvcnJlY3RseQogIGhhbmRsaW5nIG1vc3Qgb3B0aW9ucy4gVGhlIHBhcnNlciBpcyBhIHNpbmdsZSBzY3JpcHQgdGhhdCBvbmx5IGRlcGVuZHMgb24KICBwYWNrYWdpbmcgKHRoYXQgaXMgdmVuZG9yZWQpLiBJdCBpcyBub3QgZGVzaWduZWQgdG8gYmUgdXNlZCBhcyBhIHNpbmdsZSBzY3JpcHQKICB0aG91Z2ggYW5kIGBgcGlwYGAgaXMgYSBkZXBlbmRlbmN5LgoKLSByZXF1aXJlbWVudHMtcGFyc2VyIGh0dHBzOi8vZ2l0aHViLmNvbS9tYWRwYWgvcmVxdWlyZW1lbnRzLXBhcnNlIGRvZXMgbm90CiAgc3VwcG9ydCBoYXNoZXMgYW5kIGNlcnRhaW4gcGlwIG9wdGlvbnMKCi0gZHBhcnNlIGh0dHBzOi8vZ2l0aHViLmNvbS9weXVwaW8vZHBhcnNlCgotIGh0dHBzOi8vZ2l0aHViLmNvbS9Hb29nbGVDbG91ZFBsYXRmb3JtL2RqYW5nby1jbG91ZC1kZXBsb3kvYmxvYi9kMzE2YjFlNDUzNTc3NjFlMmIxMjQxNDNlNmUxMmNlMzRlZjZmOTc1L2RqYW5nb19jbG91ZF9kZXBsb3kvc2tlbGV0b24vcmVxdWlyZW1lbnRzX3BhcnNlci5weQoKClJldXNlIGFuZCB3cmFwIHBpcCdzIG93biBwYXJzZXIKfn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+CgotIHJlcXVpcmVtZW50c2xpYiBodHRwczovL2dpdGh1Yi5jb20vc2FydWdha3UvcmVxdWlyZW1lbnRzbGliIHVzZXMgcGlwLXNoaW0KICBodHRwczovL2dpdGh1Yi5jb20vc2FydWdha3UvcGlwLXNoaW1zIHdoaWNoIGlzIGEgc2V0IG9mICJzaGltcyIgYXJvdW5kIGVhY2gKICBwaXAgdmVyc2lvbnMgaW4gYW4gYXR0ZW1wdCB0byBvZmZlciBhbiBBUEkgdG8gcGlwLiBDb21lcyB3aXRoIDIwKyBkZXBlbmRlbmNpZXMsCgotIG1pY3JvcGlwZW52IGh0dHBzOi8vZ2l0aHViLmNvbS90aG90aC1zdGF0aW9uL21pY3JvcGlwZW52L2Jsb2IvZDBjMzdjMWJmMGFhZGY1MTQ5YWViZTJkZjBiZjFjYjEyZGVkNGM0MC9taWNyb3BpcGVudi5weSNMNTMKCi0gcGlwLXRvb2xzIGh0dHBzOi8vZ2l0aHViLmNvbS9qYXp6YmFuZC9waXAtdG9vbHMvYmxvYi85ZTFiZTA1Mzc1MTA0YzU2ZTA3Y2RiMDkwNGUxYjUwYjg2ZjhiNTUwL3BpcHRvb2xzL19jb21wYXQvcGlwX2NvbXBhdC5weQo=",
+              "contentType": "text/prs.fallenstein.rst",
+              "encoding": "base64"
+            }
+          }
+        },
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "name": "declared license file: mit.LICENSE",
+            "text": {
+              "content": "Q29weXJpZ2h0IChjKSBUaGUgcGlwIGRldmVsb3BlcnMgKHNlZSBBVVRIT1JTLnJzdCBmaWxlKQoKUGVybWlzc2lvbiBpcyBoZXJlYnkgZ3JhbnRlZCwgZnJlZSBvZiBjaGFyZ2UsIHRvIGFueSBwZXJzb24gb2J0YWluaW5nCmEgY29weSBvZiB0aGlzIHNvZnR3YXJlIGFuZCBhc3NvY2lhdGVkIGRvY3VtZW50YXRpb24gZmlsZXMgKHRoZQoiU29mdHdhcmUiKSwgdG8gZGVhbCBpbiB0aGUgU29mdHdhcmUgd2l0aG91dCByZXN0cmljdGlvbiwgaW5jbHVkaW5nCndpdGhvdXQgbGltaXRhdGlvbiB0aGUgcmlnaHRzIHRvIHVzZSwgY29weSwgbW9kaWZ5LCBtZXJnZSwgcHVibGlzaCwKZGlzdHJpYnV0ZSwgc3VibGljZW5zZSwgYW5kL29yIHNlbGwgY29waWVzIG9mIHRoZSBTb2Z0d2FyZSwgYW5kIHRvCnBlcm1pdCBwZXJzb25zIHRvIHdob20gdGhlIFNvZnR3YXJlIGlzIGZ1cm5pc2hlZCB0byBkbyBzbywgc3ViamVjdCB0bwp0aGUgZm9sbG93aW5nIGNvbmRpdGlvbnM6CgpUaGUgYWJvdmUgY29weXJpZ2h0IG5vdGljZSBhbmQgdGhpcyBwZXJtaXNzaW9uIG5vdGljZSBzaGFsbCBiZQppbmNsdWRlZCBpbiBhbGwgY29waWVzIG9yIHN1YnN0YW50aWFsIHBvcnRpb25zIG9mIHRoZSBTb2Z0d2FyZS4KClRIRSBTT0ZUV0FSRSBJUyBQUk9WSURFRCAiQVMgSVMiLCBXSVRIT1VUIFdBUlJBTlRZIE9GIEFOWSBLSU5ELApFWFBSRVNTIE9SIElNUExJRUQsIElOQ0xVRElORyBCVVQgTk9UIExJTUlURUQgVE8gVEhFIFdBUlJBTlRJRVMgT0YKTUVSQ0hBTlRBQklMSVRZLCBGSVRORVNTIEZPUiBBIFBBUlRJQ1VMQVIgUFVSUE9TRSBBTkQKTk9OSU5GUklOR0VNRU5ULiBJTiBOTyBFVkVOVCBTSEFMTCBUSEUgQVVUSE9SUyBPUiBDT1BZUklHSFQgSE9MREVSUyBCRQpMSUFCTEUgRk9SIEFOWSBDTEFJTSwgREFNQUdFUyBPUiBPVEhFUiBMSUFCSUxJVFksIFdIRVRIRVIgSU4gQU4gQUNUSU9OCk9GIENPTlRSQUNULCBUT1JUIE9SIE9USEVSV0lTRSwgQVJJU0lORyBGUk9NLCBPVVQgT0YgT1IgSU4gQ09OTkVDVElPTgpXSVRIIFRIRSBTT0ZUV0FSRSBPUiBUSEUgVVNFIE9SIE9USEVSIERFQUxJTkdTIElOIFRIRSBTT0ZUV0FSRS4K",
+              "contentType": "text/plain",
+              "encoding": "base64"
+            }
+          }
+        }
+      ],
+      "name": "pip-requirements-parser",
+      "purl": "pkg:pypi/pip-requirements-parser@32.0.1",
+      "type": "library",
+      "version": "32.0.1"
+    },
+    {
+      "bom-ref": "py-serializable==2.1.0",
+      "description": "Library for serializing and deserializing Python Objects to and from JSON and XML.",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata Project-URL: Documentation",
+          "type": "documentation",
+          "url": "https://py-serializable.readthedocs.io/"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Bug Tracker",
+          "type": "issue-tracker",
+          "url": "https://github.com/madpah/serializable/issues"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Repository",
+          "type": "vcs",
+          "url": "https://github.com/madpah/serializable"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Homepage",
+          "type": "website",
+          "url": "https://github.com/madpah/serializable#readme"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "Apache-2.0"
+          }
+        },
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "name": "License :: OSI Approved :: Apache Software License"
+          }
+        }
+      ],
+      "name": "py-serializable",
+      "purl": "pkg:pypi/py-serializable@2.1.0",
+      "type": "library",
+      "version": "2.1.0"
+    },
+    {
+      "bom-ref": "pydantic==2.12.5",
+      "description": "Data validation using Python type hints",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata Project-URL: Documentation",
+          "type": "documentation",
+          "url": "https://docs.pydantic.dev"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Source",
+          "type": "other",
+          "url": "https://github.com/pydantic/pydantic"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Funding",
+          "type": "other",
+          "url": "https://github.com/sponsors/samuelcolvin"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Changelog",
+          "type": "release-notes",
+          "url": "https://docs.pydantic.dev/latest/changelog/"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Homepage",
+          "type": "website",
+          "url": "https://github.com/pydantic/pydantic"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "MIT"
+          }
+        }
+      ],
+      "name": "pydantic",
+      "purl": "pkg:pypi/pydantic@2.12.5",
+      "type": "library",
+      "version": "2.12.5"
+    },
+    {
+      "bom-ref": "pydantic_core==2.41.5",
+      "description": "Core functionality for Pydantic validation and serialization",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata Project-URL: Source",
+          "type": "other",
+          "url": "https://github.com/pydantic/pydantic-core"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Funding",
+          "type": "other",
+          "url": "https://github.com/sponsors/samuelcolvin"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Homepage",
+          "type": "website",
+          "url": "https://github.com/pydantic/pydantic-core"
+        },
+        {
+          "comment": "from packaging metadata: Home-page",
+          "type": "website",
+          "url": "https://github.com/pydantic/pydantic-core"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "MIT"
+          }
+        }
+      ],
+      "name": "pydantic_core",
+      "purl": "pkg:pypi/pydantic-core@2.41.5",
+      "type": "library",
+      "version": "2.41.5"
+    },
+    {
+      "bom-ref": "pyparsing==3.2.5",
+      "description": "pyparsing - Classes and methods to define and execute parsing grammars",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata Project-URL: Homepage",
+          "type": "website",
+          "url": "https://github.com/pyparsing/pyparsing/"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "MIT"
+          }
+        }
+      ],
+      "name": "pyparsing",
+      "purl": "pkg:pypi/pyparsing@3.2.5",
+      "type": "library",
+      "version": "3.2.5"
+    },
+    {
+      "bom-ref": "python-dateutil==2.9.0.post0",
+      "description": "Extensions to the standard Python datetime module",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata Project-URL: Documentation",
+          "type": "documentation",
+          "url": "https://dateutil.readthedocs.io/en/stable/"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Source",
+          "type": "other",
+          "url": "https://github.com/dateutil/dateutil"
+        },
+        {
+          "comment": "from packaging metadata: Home-page",
+          "type": "website",
+          "url": "https://github.com/dateutil/dateutil"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "name": "License :: OSI Approved :: Apache Software License"
+          }
+        },
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "name": "License :: OSI Approved :: BSD License"
+          }
+        },
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "name": "declared license file: LICENSE",
+            "text": {
+              "content": "Q29weXJpZ2h0IDIwMTctIFBhdWwgR2Fuc3NsZSA8cGF1bEBnYW5zc2xlLmlvPgpDb3B5cmlnaHQgMjAxNy0gZGF0ZXV0aWwgY29udHJpYnV0b3JzIChzZWUgQVVUSE9SUyBmaWxlKQoKICAgTGljZW5zZWQgdW5kZXIgdGhlIEFwYWNoZSBMaWNlbnNlLCBWZXJzaW9uIDIuMCAodGhlICJMaWNlbnNlIik7CiAgIHlvdSBtYXkgbm90IHVzZSB0aGlzIGZpbGUgZXhjZXB0IGluIGNvbXBsaWFuY2Ugd2l0aCB0aGUgTGljZW5zZS4KICAgWW91IG1heSBvYnRhaW4gYSBjb3B5IG9mIHRoZSBMaWNlbnNlIGF0CgogICAgICAgaHR0cDovL3d3dy5hcGFjaGUub3JnL2xpY2Vuc2VzL0xJQ0VOU0UtMi4wCgogICBVbmxlc3MgcmVxdWlyZWQgYnkgYXBwbGljYWJsZSBsYXcgb3IgYWdyZWVkIHRvIGluIHdyaXRpbmcsIHNvZnR3YXJlCiAgIGRpc3RyaWJ1dGVkIHVuZGVyIHRoZSBMaWNlbnNlIGlzIGRpc3RyaWJ1dGVkIG9uIGFuICJBUyBJUyIgQkFTSVMsCiAgIFdJVEhPVVQgV0FSUkFOVElFUyBPUiBDT05ESVRJT05TIE9GIEFOWSBLSU5ELCBlaXRoZXIgZXhwcmVzcyBvciBpbXBsaWVkLgogICBTZWUgdGhlIExpY2Vuc2UgZm9yIHRoZSBzcGVjaWZpYyBsYW5ndWFnZSBnb3Zlcm5pbmcgcGVybWlzc2lvbnMgYW5kCiAgIGxpbWl0YXRpb25zIHVuZGVyIHRoZSBMaWNlbnNlLgoKVGhlIGFib3ZlIGxpY2Vuc2UgYXBwbGllcyB0byBhbGwgY29udHJpYnV0aW9ucyBhZnRlciAyMDE3LTEyLTAxLCBhcyB3ZWxsIGFzCmFsbCBjb250cmlidXRpb25zIHRoYXQgaGF2ZSBiZWVuIHJlLWxpY2Vuc2VkIChzZWUgQVVUSE9SUyBmaWxlIGZvciB0aGUgbGlzdCBvZgpjb250cmlidXRvcnMgd2hvIGhhdmUgcmUtbGljZW5zZWQgdGhlaXIgY29kZSkuCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCmRhdGV1dGlsIC0gRXh0ZW5zaW9ucyB0byB0aGUgc3RhbmRhcmQgUHl0aG9uIGRhdGV0aW1lIG1vZHVsZS4KCkNvcHlyaWdodCAoYykgMjAwMy0yMDExIC0gR3VzdGF2byBOaWVtZXllciA8Z3VzdGF2b0BuaWVtZXllci5uZXQ+CkNvcHlyaWdodCAoYykgMjAxMi0yMDE0IC0gVG9taSBQaWV2aWzDpGluZW4gPHRvbWkucGlldmlsYWluZW5AaWtpLmZpPgpDb3B5cmlnaHQgKGMpIDIwMTQtMjAxNiAtIFlhcm9uIGRlIExlZXV3IDxtZUBqYXJvbmRsLm5ldD4KQ29weXJpZ2h0IChjKSAyMDE1LSAgICAgLSBQYXVsIEdhbnNzbGUgPHBhdWxAZ2Fuc3NsZS5pbz4KQ29weXJpZ2h0IChjKSAyMDE1LSAgICAgLSBkYXRldXRpbCBjb250cmlidXRvcnMgKHNlZSBBVVRIT1JTIGZpbGUpCgpBbGwgcmlnaHRzIHJlc2VydmVkLgoKUmVkaXN0cmlidXRpb24gYW5kIHVzZSBpbiBzb3VyY2UgYW5kIGJpbmFyeSBmb3Jtcywgd2l0aCBvciB3aXRob3V0Cm1vZGlmaWNhdGlvbiwgYXJlIHBlcm1pdHRlZCBwcm92aWRlZCB0aGF0IHRoZSBmb2xsb3dpbmcgY29uZGl0aW9ucyBhcmUgbWV0OgoKICAgICogUmVkaXN0cmlidXRpb25zIG9mIHNvdXJjZSBjb2RlIG11c3QgcmV0YWluIHRoZSBhYm92ZSBjb3B5cmlnaHQgbm90aWNlLAogICAgICB0aGlzIGxpc3Qgb2YgY29uZGl0aW9ucyBhbmQgdGhlIGZvbGxvd2luZyBkaXNjbGFpbWVyLgogICAgKiBSZWRpc3RyaWJ1dGlvbnMgaW4gYmluYXJ5IGZvcm0gbXVzdCByZXByb2R1Y2UgdGhlIGFib3ZlIGNvcHlyaWdodCBub3RpY2UsCiAgICAgIHRoaXMgbGlzdCBvZiBjb25kaXRpb25zIGFuZCB0aGUgZm9sbG93aW5nIGRpc2NsYWltZXIgaW4gdGhlIGRvY3VtZW50YXRpb24KICAgICAgYW5kL29yIG90aGVyIG1hdGVyaWFscyBwcm92aWRlZCB3aXRoIHRoZSBkaXN0cmlidXRpb24uCiAgICAqIE5laXRoZXIgdGhlIG5hbWUgb2YgdGhlIGNvcHlyaWdodCBob2xkZXIgbm9yIHRoZSBuYW1lcyBvZiBpdHMKICAgICAgY29udHJpYnV0b3JzIG1heSBiZSB1c2VkIHRvIGVuZG9yc2Ugb3IgcHJvbW90ZSBwcm9kdWN0cyBkZXJpdmVkIGZyb20KICAgICAgdGhpcyBzb2Z0d2FyZSB3aXRob3V0IHNwZWNpZmljIHByaW9yIHdyaXR0ZW4gcGVybWlzc2lvbi4KClRISVMgU09GVFdBUkUgSVMgUFJPVklERUQgQlkgVEhFIENPUFlSSUdIVCBIT0xERVJTIEFORCBDT05UUklCVVRPUlMKIkFTIElTIiBBTkQgQU5ZIEVYUFJFU1MgT1IgSU1QTElFRCBXQVJSQU5USUVTLCBJTkNMVURJTkcsIEJVVCBOT1QKTElNSVRFRCBUTywgVEhFIElNUExJRUQgV0FSUkFOVElFUyBPRiBNRVJDSEFOVEFCSUxJVFkgQU5EIEZJVE5FU1MgRk9SCkEgUEFSVElDVUxBUiBQVVJQT1NFIEFSRSBESVNDTEFJTUVELiBJTiBOTyBFVkVOVCBTSEFMTCBUSEUgQ09QWVJJR0hUIE9XTkVSIE9SCkNPTlRSSUJVVE9SUyBCRSBMSUFCTEUgRk9SIEFOWSBESVJFQ1QsIElORElSRUNULCBJTkNJREVOVEFMLCBTUEVDSUFMLApFWEVNUExBUlksIE9SIENPTlNFUVVFTlRJQUwgREFNQUdFUyAoSU5DTFVESU5HLCBCVVQgTk9UIExJTUlURUQgVE8sClBST0NVUkVNRU5UIE9GIFNVQlNUSVRVVEUgR09PRFMgT1IgU0VSVklDRVM7IExPU1MgT0YgVVNFLCBEQVRBLCBPUgpQUk9GSVRTOyBPUiBCVVNJTkVTUyBJTlRFUlJVUFRJT04pIEhPV0VWRVIgQ0FVU0VEIEFORCBPTiBBTlkgVEhFT1JZIE9GCkxJQUJJTElUWSwgV0hFVEhFUiBJTiBDT05UUkFDVCwgU1RSSUNUIExJQUJJTElUWSwgT1IgVE9SVCAoSU5DTFVESU5HCk5FR0xJR0VOQ0UgT1IgT1RIRVJXSVNFKSBBUklTSU5HIElOIEFOWSBXQVkgT1VUIE9GIFRIRSBVU0UgT0YgVEhJUwpTT0ZUV0FSRSwgRVZFTiBJRiBBRFZJU0VEIE9GIFRIRSBQT1NTSUJJTElUWSBPRiBTVUNIIERBTUFHRS4KClRoZSBhYm92ZSBCU0QgTGljZW5zZSBBcHBsaWVzIHRvIGFsbCBjb2RlLCBldmVuIHRoYXQgYWxzbyBjb3ZlcmVkIGJ5IEFwYWNoZSAyLjAu",
+              "contentType": "text/plain",
+              "encoding": "base64"
+            }
+          }
+        },
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "name": "declared license of 'python-dateutil'",
+            "text": {
+              "content": "Dual License",
+              "contentType": "text/plain"
+            }
+          }
+        }
+      ],
+      "name": "python-dateutil",
+      "purl": "pkg:pypi/python-dateutil@2.9.0.post0",
+      "type": "library",
+      "version": "2.9.0.post0"
+    },
+    {
+      "bom-ref": "referencing==0.37.0",
+      "description": "JSON Referencing + Python",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata Project-URL: Documentation",
+          "type": "documentation",
+          "url": "https://referencing.readthedocs.io/"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Issues",
+          "type": "issue-tracker",
+          "url": "https://github.com/python-jsonschema/referencing/issues/"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Source",
+          "type": "other",
+          "url": "https://github.com/python-jsonschema/referencing"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Funding",
+          "type": "other",
+          "url": "https://github.com/sponsors/Julian"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Tidelift",
+          "type": "other",
+          "url": "https://tidelift.com/subscription/pkg/pypi-referencing?utm_source=pypi-referencing&utm_medium=referral&utm_campaign=pypi-link"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Changelog",
+          "type": "release-notes",
+          "url": "https://referencing.readthedocs.io/en/stable/changes/"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Homepage",
+          "type": "website",
+          "url": "https://github.com/python-jsonschema/referencing"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "MIT"
+          }
+        }
+      ],
+      "name": "referencing",
+      "purl": "pkg:pypi/referencing@0.37.0",
+      "type": "library",
+      "version": "0.37.0"
+    },
+    {
+      "bom-ref": "rfc3339-validator==0.1.4",
+      "description": "A pure python RFC3339 validator",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata: Home-page",
+          "type": "website",
+          "url": "https://github.com/naimetti/rfc3339-validator"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "MIT"
+          }
+        },
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "name": "declared license of 'rfc3339-validator'",
+            "text": {
+              "content": "MIT license",
+              "contentType": "text/plain"
+            }
+          }
+        }
+      ],
+      "name": "rfc3339-validator",
+      "purl": "pkg:pypi/rfc3339-validator@0.1.4",
+      "type": "library",
+      "version": "0.1.4"
+    },
+    {
+      "bom-ref": "rfc3986-validator==0.1.1",
+      "description": "Pure python rfc3986 validator",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata: Home-page",
+          "type": "website",
+          "url": "https://github.com/naimetti/rfc3986-validator"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "MIT"
+          }
+        },
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "name": "declared license of 'rfc3986-validator'",
+            "text": {
+              "content": "MIT license",
+              "contentType": "text/plain"
+            }
+          }
+        }
+      ],
+      "name": "rfc3986-validator",
+      "purl": "pkg:pypi/rfc3986-validator@0.1.1",
+      "type": "library",
+      "version": "0.1.1"
+    },
+    {
+      "bom-ref": "rfc3987-syntax==1.1.0",
+      "description": "Helper functions to syntactically validate strings according to RFC 3987.",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata Project-URL: Documentation",
+          "type": "documentation",
+          "url": "https://github.com/willynilly/rfc3987-syntax#readme"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Issues",
+          "type": "issue-tracker",
+          "url": "https://github.com/willynilly/rfc3987-syntax/issues"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Source",
+          "type": "other",
+          "url": "https://github.com/willynilly/rfc3987-syntax"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Homepage",
+          "type": "website",
+          "url": "https://github.com/willynilly/rfc3987-syntax"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "MIT"
+          }
+        }
+      ],
+      "name": "rfc3987-syntax",
+      "purl": "pkg:pypi/rfc3987-syntax@1.1.0",
+      "type": "library",
+      "version": "1.1.0"
+    },
+    {
+      "bom-ref": "rpds-py==0.30.0",
+      "description": "Python bindings to Rust's persistent data structures (rpds)",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata Project-URL: Documentation",
+          "type": "documentation",
+          "url": "https://rpds.readthedocs.io/"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Issues",
+          "type": "issue-tracker",
+          "url": "https://github.com/crate-py/rpds/issues/"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Source",
+          "type": "other",
+          "url": "https://github.com/crate-py/rpds"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Upstream",
+          "type": "other",
+          "url": "https://github.com/orium/rpds"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Funding",
+          "type": "other",
+          "url": "https://github.com/sponsors/Julian"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Tidelift",
+          "type": "other",
+          "url": "https://tidelift.com/subscription/pkg/pypi-rpds-py?utm_source=pypi-rpds-py&utm_medium=referral&utm_campaign=pypi-link"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Homepage",
+          "type": "website",
+          "url": "https://github.com/crate-py/rpds"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "MIT"
+          }
+        }
+      ],
+      "name": "rpds-py",
+      "purl": "pkg:pypi/rpds-py@0.30.0",
+      "type": "library",
+      "version": "0.30.0"
+    },
+    {
+      "bom-ref": "six==1.17.0",
+      "description": "Python 2 and 3 compatibility utilities",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata: Home-page",
+          "type": "website",
+          "url": "https://github.com/benjaminp/six"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "MIT"
+          }
+        },
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "name": "declared license file: LICENSE",
+            "text": {
+              "content": "Q29weXJpZ2h0IChjKSAyMDEwLTIwMjQgQmVuamFtaW4gUGV0ZXJzb24KClBlcm1pc3Npb24gaXMgaGVyZWJ5IGdyYW50ZWQsIGZyZWUgb2YgY2hhcmdlLCB0byBhbnkgcGVyc29uIG9idGFpbmluZyBhIGNvcHkgb2YKdGhpcyBzb2Z0d2FyZSBhbmQgYXNzb2NpYXRlZCBkb2N1bWVudGF0aW9uIGZpbGVzICh0aGUgIlNvZnR3YXJlIiksIHRvIGRlYWwgaW4KdGhlIFNvZnR3YXJlIHdpdGhvdXQgcmVzdHJpY3Rpb24sIGluY2x1ZGluZyB3aXRob3V0IGxpbWl0YXRpb24gdGhlIHJpZ2h0cyB0bwp1c2UsIGNvcHksIG1vZGlmeSwgbWVyZ2UsIHB1Ymxpc2gsIGRpc3RyaWJ1dGUsIHN1YmxpY2Vuc2UsIGFuZC9vciBzZWxsIGNvcGllcyBvZgp0aGUgU29mdHdhcmUsIGFuZCB0byBwZXJtaXQgcGVyc29ucyB0byB3aG9tIHRoZSBTb2Z0d2FyZSBpcyBmdXJuaXNoZWQgdG8gZG8gc28sCnN1YmplY3QgdG8gdGhlIGZvbGxvd2luZyBjb25kaXRpb25zOgoKVGhlIGFib3ZlIGNvcHlyaWdodCBub3RpY2UgYW5kIHRoaXMgcGVybWlzc2lvbiBub3RpY2Ugc2hhbGwgYmUgaW5jbHVkZWQgaW4gYWxsCmNvcGllcyBvciBzdWJzdGFudGlhbCBwb3J0aW9ucyBvZiB0aGUgU29mdHdhcmUuCgpUSEUgU09GVFdBUkUgSVMgUFJPVklERUQgIkFTIElTIiwgV0lUSE9VVCBXQVJSQU5UWSBPRiBBTlkgS0lORCwgRVhQUkVTUyBPUgpJTVBMSUVELCBJTkNMVURJTkcgQlVUIE5PVCBMSU1JVEVEIFRPIFRIRSBXQVJSQU5USUVTIE9GIE1FUkNIQU5UQUJJTElUWSwgRklUTkVTUwpGT1IgQSBQQVJUSUNVTEFSIFBVUlBPU0UgQU5EIE5PTklORlJJTkdFTUVOVC4gSU4gTk8gRVZFTlQgU0hBTEwgVEhFIEFVVEhPUlMgT1IKQ09QWVJJR0hUIEhPTERFUlMgQkUgTElBQkxFIEZPUiBBTlkgQ0xBSU0sIERBTUFHRVMgT1IgT1RIRVIgTElBQklMSVRZLCBXSEVUSEVSCklOIEFOIEFDVElPTiBPRiBDT05UUkFDVCwgVE9SVCBPUiBPVEhFUldJU0UsIEFSSVNJTkcgRlJPTSwgT1VUIE9GIE9SIElOCkNPTk5FQ1RJT04gV0lUSCBUSEUgU09GVFdBUkUgT1IgVEhFIFVTRSBPUiBPVEhFUiBERUFMSU5HUyBJTiBUSEUgU09GVFdBUkUuCg==",
+              "contentType": "text/plain",
+              "encoding": "base64"
+            }
+          }
+        }
+      ],
+      "name": "six",
+      "purl": "pkg:pypi/six@1.17.0",
+      "type": "library",
+      "version": "1.17.0"
+    },
+    {
+      "bom-ref": "sortedcontainers==2.4.0",
+      "description": "Sorted Containers -- Sorted List, Sorted Dict, Sorted Set",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata: Home-page",
+          "type": "website",
+          "url": "http://www.grantjenks.com/docs/sortedcontainers/"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "name": "License :: OSI Approved :: Apache Software License"
+          }
+        },
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "name": "declared license of 'sortedcontainers'",
+            "text": {
+              "content": "Apache 2.0",
+              "contentType": "text/plain"
+            }
+          }
+        }
+      ],
+      "name": "sortedcontainers",
+      "purl": "pkg:pypi/sortedcontainers@2.4.0",
+      "type": "library",
+      "version": "2.4.0"
+    },
+    {
+      "bom-ref": "starlette==0.50.0",
+      "description": "The little ASGI library that shines.",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata Project-URL: Documentation",
+          "type": "documentation",
+          "url": "https://starlette.dev/"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Source",
+          "type": "other",
+          "url": "https://github.com/Kludex/starlette"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Funding",
+          "type": "other",
+          "url": "https://github.com/sponsors/Kludex"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Changelog",
+          "type": "release-notes",
+          "url": "https://starlette.dev/release-notes/"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Homepage",
+          "type": "website",
+          "url": "https://github.com/Kludex/starlette"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "name": "starlette",
+      "purl": "pkg:pypi/starlette@0.50.0",
+      "type": "library",
+      "version": "0.50.0"
+    },
+    {
+      "bom-ref": "typing-inspection==0.4.2",
+      "description": "Runtime typing introspection tools",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata Project-URL: Documentation",
+          "type": "documentation",
+          "url": "https://pydantic.github.io/typing-inspection/dev/"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Source",
+          "type": "other",
+          "url": "https://github.com/pydantic/typing-inspection"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Changelog",
+          "type": "release-notes",
+          "url": "https://github.com/pydantic/typing-inspection/blob/main/HISTORY.md"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Homepage",
+          "type": "website",
+          "url": "https://github.com/pydantic/typing-inspection"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "MIT"
+          }
+        }
+      ],
+      "name": "typing-inspection",
+      "purl": "pkg:pypi/typing-inspection@0.4.2",
+      "type": "library",
+      "version": "0.4.2"
+    },
+    {
+      "bom-ref": "typing_extensions==4.15.0",
+      "description": "Backported and Experimental Type Hints for Python 3.9+",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata Project-URL: Documentation",
+          "type": "documentation",
+          "url": "https://typing-extensions.readthedocs.io/"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Bug Tracker",
+          "type": "issue-tracker",
+          "url": "https://github.com/python/typing_extensions/issues"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Q & A",
+          "type": "other",
+          "url": "https://github.com/python/typing/discussions"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Changes",
+          "type": "release-notes",
+          "url": "https://github.com/python/typing_extensions/blob/main/CHANGELOG.md"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Repository",
+          "type": "vcs",
+          "url": "https://github.com/python/typing_extensions"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Home",
+          "type": "website",
+          "url": "https://github.com/python/typing_extensions"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "PSF-2.0"
+          }
+        }
+      ],
+      "name": "typing_extensions",
+      "purl": "pkg:pypi/typing-extensions@4.15.0",
+      "type": "library",
+      "version": "4.15.0"
+    },
+    {
+      "bom-ref": "tzdata==2025.2",
+      "description": "Provider of IANA time zone data",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata Project-URL: Documentation",
+          "type": "documentation",
+          "url": "https://tzdata.readthedocs.io"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Bug Reports",
+          "type": "issue-tracker",
+          "url": "https://github.com/python/tzdata/issues"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Source",
+          "type": "other",
+          "url": "https://github.com/python/tzdata"
+        },
+        {
+          "comment": "from packaging metadata: Home-page",
+          "type": "website",
+          "url": "https://github.com/python/tzdata"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "Apache-2.0"
+          }
+        },
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "name": "License :: OSI Approved :: Apache Software License"
+          }
+        }
+      ],
+      "name": "tzdata",
+      "purl": "pkg:pypi/tzdata@2025.2",
+      "type": "library",
+      "version": "2025.2"
+    },
+    {
+      "bom-ref": "uri-template==1.3.0",
+      "description": "RFC 6570 URI Template Processor",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata Project-URL: homepage",
+          "type": "website",
+          "url": "https://gitlab.linss.com/open-source/python/uri-template"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "MIT"
+          }
+        },
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "name": "declared license file: LICENSE",
+            "text": {
+              "content": "TUlUIExpY2Vuc2UKCkNvcHlyaWdodCAoYykgMjAyMCBQZXRlciBMaW5zcwoKUGVybWlzc2lvbiBpcyBoZXJlYnkgZ3JhbnRlZCwgZnJlZSBvZiBjaGFyZ2UsIHRvIGFueSBwZXJzb24gb2J0YWluaW5nIGEgY29weQpvZiB0aGlzIHNvZnR3YXJlIGFuZCBhc3NvY2lhdGVkIGRvY3VtZW50YXRpb24gZmlsZXMgKHRoZSAiU29mdHdhcmUiKSwgdG8gZGVhbAppbiB0aGUgU29mdHdhcmUgd2l0aG91dCByZXN0cmljdGlvbiwgaW5jbHVkaW5nIHdpdGhvdXQgbGltaXRhdGlvbiB0aGUgcmlnaHRzCnRvIHVzZSwgY29weSwgbW9kaWZ5LCBtZXJnZSwgcHVibGlzaCwgZGlzdHJpYnV0ZSwgc3VibGljZW5zZSwgYW5kL29yIHNlbGwKY29waWVzIG9mIHRoZSBTb2Z0d2FyZSwgYW5kIHRvIHBlcm1pdCBwZXJzb25zIHRvIHdob20gdGhlIFNvZnR3YXJlIGlzCmZ1cm5pc2hlZCB0byBkbyBzbywgc3ViamVjdCB0byB0aGUgZm9sbG93aW5nIGNvbmRpdGlvbnM6CgpUaGUgYWJvdmUgY29weXJpZ2h0IG5vdGljZSBhbmQgdGhpcyBwZXJtaXNzaW9uIG5vdGljZSBzaGFsbCBiZSBpbmNsdWRlZCBpbiBhbGwKY29waWVzIG9yIHN1YnN0YW50aWFsIHBvcnRpb25zIG9mIHRoZSBTb2Z0d2FyZS4KClRIRSBTT0ZUV0FSRSBJUyBQUk9WSURFRCAiQVMgSVMiLCBXSVRIT1VUIFdBUlJBTlRZIE9GIEFOWSBLSU5ELCBFWFBSRVNTIE9SCklNUExJRUQsIElOQ0xVRElORyBCVVQgTk9UIExJTUlURUQgVE8gVEhFIFdBUlJBTlRJRVMgT0YgTUVSQ0hBTlRBQklMSVRZLApGSVRORVNTIEZPUiBBIFBBUlRJQ1VMQVIgUFVSUE9TRSBBTkQgTk9OSU5GUklOR0VNRU5ULiBJTiBOTyBFVkVOVCBTSEFMTCBUSEUKQVVUSE9SUyBPUiBDT1BZUklHSFQgSE9MREVSUyBCRSBMSUFCTEUgRk9SIEFOWSBDTEFJTSwgREFNQUdFUyBPUiBPVEhFUgpMSUFCSUxJVFksIFdIRVRIRVIgSU4gQU4gQUNUSU9OIE9GIENPTlRSQUNULCBUT1JUIE9SIE9USEVSV0lTRSwgQVJJU0lORyBGUk9NLApPVVQgT0YgT1IgSU4gQ09OTkVDVElPTiBXSVRIIFRIRSBTT0ZUV0FSRSBPUiBUSEUgVVNFIE9SIE9USEVSIERFQUxJTkdTIElOIFRIRQpTT0ZUV0FSRS4K",
+              "contentType": "text/plain",
+              "encoding": "base64"
+            }
+          }
+        },
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "name": "declared license of 'uri-template'",
+            "text": {
+              "content": "MIT License",
+              "contentType": "text/plain"
+            }
+          }
+        }
+      ],
+      "name": "uri-template",
+      "purl": "pkg:pypi/uri-template@1.3.0",
+      "type": "library",
+      "version": "1.3.0"
+    },
+    {
+      "bom-ref": "uvicorn==0.38.0",
+      "description": "The lightning-fast ASGI server.",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata Project-URL: Source",
+          "type": "other",
+          "url": "https://github.com/Kludex/uvicorn"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Funding",
+          "type": "other",
+          "url": "https://github.com/sponsors/encode"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Changelog",
+          "type": "release-notes",
+          "url": "https://uvicorn.dev/release-notes"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Homepage",
+          "type": "website",
+          "url": "https://uvicorn.dev/"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "name": "uvicorn",
+      "properties": [
+        {
+          "name": "cdx:python:package:required-extra",
+          "value": "standard"
+        }
+      ],
+      "purl": "pkg:pypi/uvicorn@0.38.0",
+      "type": "library",
+      "version": "0.38.0"
+    },
+    {
+      "bom-ref": "webcolors==25.10.0",
+      "description": "A library for working with the color formats defined by HTML and CSS.",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata Project-URL: Documentation",
+          "type": "documentation",
+          "url": "https://webcolors.readthedocs.io"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Source Code",
+          "type": "other",
+          "url": "https://github.com/ubernostrum/webcolors"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "BSD-3-Clause"
+          }
+        },
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "name": "License :: OSI Approved :: BSD License"
+          }
+        }
+      ],
+      "name": "webcolors",
+      "purl": "pkg:pypi/webcolors@25.10.0",
+      "type": "library",
+      "version": "25.10.0"
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "annotated-doc==0.0.4"
+    },
+    {
+      "dependsOn": [
+        "typing_extensions==4.15.0"
+      ],
+      "ref": "annotated-types==0.7.0"
+    },
+    {
+      "dependsOn": [
+        "idna==3.11",
+        "typing_extensions==4.15.0"
+      ],
+      "ref": "anyio==4.12.0"
+    },
+    {
+      "dependsOn": [
+        "python-dateutil==2.9.0.post0",
+        "tzdata==2025.2"
+      ],
+      "ref": "arrow==1.4.0"
+    },
+    {
+      "ref": "attrs==25.4.0"
+    },
+    {
+      "ref": "boolean.py==5.0"
+    },
+    {
+      "ref": "chardet==5.2.0"
+    },
+    {
+      "ref": "click==8.3.1"
+    },
+    {
+      "dependsOn": [
+        "chardet==5.2.0",
+        "cyclonedx-python-lib==11.6.0",
+        "packageurl-python==0.17.6",
+        "packaging==25.0",
+        "pip-requirements-parser==32.0.1"
+      ],
+      "ref": "cyclonedx-bom==7.2.1"
+    },
+    {
+      "dependsOn": [
+        "jsonschema==4.25.1",
+        "license-expression==30.4.4",
+        "lxml==6.0.2",
+        "packageurl-python==0.17.6",
+        "py-serializable==2.1.0",
+        "referencing==0.37.0",
+        "sortedcontainers==2.4.0",
+        "typing_extensions==4.15.0"
+      ],
+      "ref": "cyclonedx-python-lib==11.6.0"
+    },
+    {
+      "ref": "defusedxml==0.7.1"
+    },
+    {
+      "dependsOn": [
+        "annotated-doc==0.0.4",
+        "pydantic==2.12.5",
+        "starlette==0.50.0",
+        "typing_extensions==4.15.0",
+        "uvicorn==0.38.0"
+      ],
+      "ref": "fastapi==0.123.5"
+    },
+    {
+      "ref": "fqdn==1.5.1"
+    },
+    {
+      "ref": "h11==0.16.0"
+    },
+    {
+      "ref": "idna==3.11"
+    },
+    {
+      "dependsOn": [
+        "arrow==1.4.0"
+      ],
+      "ref": "isoduration==20.11.0"
+    },
+    {
+      "ref": "jsonpointer==3.0.0"
+    },
+    {
+      "dependsOn": [
+        "referencing==0.37.0"
+      ],
+      "ref": "jsonschema-specifications==2025.9.1"
+    },
+    {
+      "dependsOn": [
+        "attrs==25.4.0",
+        "fqdn==1.5.1",
+        "idna==3.11",
+        "isoduration==20.11.0",
+        "jsonpointer==3.0.0",
+        "jsonschema-specifications==2025.9.1",
+        "referencing==0.37.0",
+        "rfc3339-validator==0.1.4",
+        "rfc3986-validator==0.1.1",
+        "rfc3987-syntax==1.1.0",
+        "rpds-py==0.30.0",
+        "uri-template==1.3.0",
+        "webcolors==25.10.0"
+      ],
+      "ref": "jsonschema==4.25.1"
+    },
+    {
+      "ref": "lark==1.3.1"
+    },
+    {
+      "dependsOn": [
+        "boolean.py==5.0"
+      ],
+      "ref": "license-expression==30.4.4"
+    },
+    {
+      "ref": "lxml==6.0.2"
+    },
+    {
+      "ref": "packageurl-python==0.17.6"
+    },
+    {
+      "ref": "packaging==25.0"
+    },
+    {
+      "dependsOn": [
+        "packaging==25.0",
+        "pyparsing==3.2.5"
+      ],
+      "ref": "pip-requirements-parser==32.0.1"
+    },
+    {
+      "dependsOn": [
+        "defusedxml==0.7.1"
+      ],
+      "ref": "py-serializable==2.1.0"
+    },
+    {
+      "dependsOn": [
+        "annotated-types==0.7.0",
+        "pydantic_core==2.41.5",
+        "typing-inspection==0.4.2",
+        "typing_extensions==4.15.0",
+        "tzdata==2025.2"
+      ],
+      "ref": "pydantic==2.12.5"
+    },
+    {
+      "dependsOn": [
+        "typing_extensions==4.15.0"
+      ],
+      "ref": "pydantic_core==2.41.5"
+    },
+    {
+      "ref": "pyparsing==3.2.5"
+    },
+    {
+      "dependsOn": [
+        "six==1.17.0"
+      ],
+      "ref": "python-dateutil==2.9.0.post0"
+    },
+    {
+      "dependsOn": [
+        "attrs==25.4.0",
+        "rpds-py==0.30.0",
+        "typing_extensions==4.15.0"
+      ],
+      "ref": "referencing==0.37.0"
+    },
+    {
+      "dependsOn": [
+        "six==1.17.0"
+      ],
+      "ref": "rfc3339-validator==0.1.4"
+    },
+    {
+      "ref": "rfc3986-validator==0.1.1"
+    },
+    {
+      "dependsOn": [
+        "lark==1.3.1"
+      ],
+      "ref": "rfc3987-syntax==1.1.0"
+    },
+    {
+      "ref": "rpds-py==0.30.0"
+    },
+    {
+      "ref": "six==1.17.0"
+    },
+    {
+      "ref": "sortedcontainers==2.4.0"
+    },
+    {
+      "dependsOn": [
+        "anyio==4.12.0",
+        "typing_extensions==4.15.0"
+      ],
+      "ref": "starlette==0.50.0"
+    },
+    {
+      "dependsOn": [
+        "typing_extensions==4.15.0"
+      ],
+      "ref": "typing-inspection==0.4.2"
+    },
+    {
+      "ref": "typing_extensions==4.15.0"
+    },
+    {
+      "ref": "tzdata==2025.2"
+    },
+    {
+      "ref": "uri-template==1.3.0"
+    },
+    {
+      "dependsOn": [
+        "click==8.3.1",
+        "h11==0.16.0",
+        "typing_extensions==4.15.0"
+      ],
+      "ref": "uvicorn==0.38.0"
+    },
+    {
+      "ref": "webcolors==25.10.0"
+    }
+  ],
+  "metadata": {
+    "timestamp": "2025-12-04T10:48:26.247579+00:00",
+    "tools": {
+      "components": [
+        {
+          "description": "CycloneDX Software Bill of Materials (SBOM) generator for Python projects and environments",
+          "externalReferences": [
+            {
+              "type": "build-system",
+              "url": "https://github.com/CycloneDX/cyclonedx-python/actions"
+            },
+            {
+              "type": "distribution",
+              "url": "https://pypi.org/project/cyclonedx-bom/"
+            },
+            {
+              "type": "documentation",
+              "url": "https://cyclonedx-bom-tool.readthedocs.io/"
+            },
+            {
+              "type": "issue-tracker",
+              "url": "https://github.com/CycloneDX/cyclonedx-python/issues"
+            },
+            {
+              "type": "license",
+              "url": "https://github.com/CycloneDX/cyclonedx-python/blob/main/LICENSE"
+            },
+            {
+              "type": "release-notes",
+              "url": "https://github.com/CycloneDX/cyclonedx-python/blob/main/CHANGELOG.md"
+            },
+            {
+              "type": "vcs",
+              "url": "https://github.com/CycloneDX/cyclonedx-python/"
+            },
+            {
+              "type": "website",
+              "url": "https://github.com/CycloneDX/cyclonedx-python/#readme"
+            }
+          ],
+          "group": "CycloneDX",
+          "licenses": [
+            {
+              "license": {
+                "acknowledgement": "declared",
+                "id": "Apache-2.0"
+              }
+            }
+          ],
+          "name": "cyclonedx-py",
+          "type": "application",
+          "version": "7.2.1"
+        },
+        {
+          "description": "Python library for CycloneDX",
+          "externalReferences": [
+            {
+              "type": "build-system",
+              "url": "https://github.com/CycloneDX/cyclonedx-python-lib/actions"
+            },
+            {
+              "type": "distribution",
+              "url": "https://pypi.org/project/cyclonedx-python-lib/"
+            },
+            {
+              "type": "documentation",
+              "url": "https://cyclonedx-python-library.readthedocs.io/"
+            },
+            {
+              "type": "issue-tracker",
+              "url": "https://github.com/CycloneDX/cyclonedx-python-lib/issues"
+            },
+            {
+              "type": "license",
+              "url": "https://github.com/CycloneDX/cyclonedx-python-lib/blob/main/LICENSE"
+            },
+            {
+              "type": "release-notes",
+              "url": "https://github.com/CycloneDX/cyclonedx-python-lib/blob/main/CHANGELOG.md"
+            },
+            {
+              "type": "vcs",
+              "url": "https://github.com/CycloneDX/cyclonedx-python-lib"
+            },
+            {
+              "type": "website",
+              "url": "https://github.com/CycloneDX/cyclonedx-python-lib/#readme"
+            }
+          ],
+          "group": "CycloneDX",
+          "licenses": [
+            {
+              "license": {
+                "acknowledgement": "declared",
+                "id": "Apache-2.0"
+              }
+            }
+          ],
+          "name": "cyclonedx-python-lib",
+          "type": "library",
+          "version": "11.6.0"
+        }
+      ]
+    }
+  },
+  "serialNumber": "urn:uuid:38c30248-5fd9-466f-a333-fc39f25b6464",
+  "version": 1,
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6"
+}

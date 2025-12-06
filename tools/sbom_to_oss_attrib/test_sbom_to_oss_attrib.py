@@ -1,0 +1,25 @@
+#  Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
+#  SPDX-License-Identifier: MIT
+#  License-Filename: LICENSE
+import os
+from pathlib import Path
+
+import pytest
+
+from sbom_to_oss_attrib.attribution import OssAttributionGenerator
+
+
+@pytest.fixture
+def sbom_path() -> Path:
+    return Path(__file__).parent.parent.parent / "sboms" / "sbom.json"
+
+
+@pytest.mark.asyncio
+async def test_build(sbom_path: Path):
+    license_api_token: str = os.getenv("LICENSE_API_TOKEN")
+    sbom = OssAttributionGenerator().parse_sbom(sbom_path)
+    no_id = [c for c in sbom.components if not c.licenses_with_id]
+    multi_text = [c for c in sbom.components if len(c.licenses_with_text) > 1]
+    multi_id = [c for c in sbom.components if len(c.licenses_with_id) > 1]
+    attribution = await OssAttributionGenerator(github_api_token=license_api_token).build_attribution(sbom_path)
+    assert attribution
