@@ -1,4 +1,5 @@
 #file: noinspection YAMLSchemaValidation
+# see: https://pre-commit.com/#pre-commit-configyaml---hooks
 repos:
   - repo: local
     hooks:
@@ -6,4 +7,5 @@ repos:
         name: Update Copyright Headers
         description: This hook ensures copyright headers are present in all source files.
         language: python
+        verbose: true
         entry: python tools/copyright_header/main.py --update-existing --no-dry-run --num-lines-to-scan 10
