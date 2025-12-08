@@ -23,4 +23,4 @@ repos:
         name: Black
         description: Format python files
         language: python
-        entry: .venv/bin/python -m black -l 120
+        entry: .venv/bin/python -m black

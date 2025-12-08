@@ -108,7 +108,7 @@ class CopyrightHeaderGenerator:
 
         updated_file_content: str = ""
         search_offset: int = 0
-        if lines[0].startswith("#!/"):
+        if len(lines) > 0 and lines[0].startswith("#!/"):
             self._LOGGER.info(f"shebang found at top of file '{file_path}': {lines[0]}, preserving it")
             search_offset = 1
             updated_file_content = lines[0] + "\n"
