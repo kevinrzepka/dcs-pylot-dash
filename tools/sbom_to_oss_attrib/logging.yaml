@@ -9,7 +9,6 @@ handlers:
     level: DEBUG
     formatter: default
     stream: ext://sys.stdout
-
 loggers:
   sbom_to_oss_attrib:
     level: DEBUG

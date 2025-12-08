@@ -1,6 +1,7 @@
 #  Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
 #  SPDX-License-Identifier: MIT
 #  License-Filename: LICENSE
+import argparse
 import dataclasses
 import logging.config
 import re
@@ -36,11 +37,12 @@ class CopyrightHeaderGenerator:
         self._contents = self._load_contents()
 
     def _load_contents(self) -> dict[str, str]:
-        self._LOGGER.info(f"loading copyright contents from {self._settings.contents_dir_path}")
+        self._LOGGER.info(f"loading copyright contents from '{self._settings.contents_dir_path}'")
         contents: dict[str, str] = {}
         for extension_file_path in self._settings.contents_dir_path.iterdir():
             extension_name: str = extension_file_path.stem
-            self._LOGGER.info(f"loading copyright content for extension {extension_name} from {extension_file_path}")
+            self._LOGGER.info(
+                f"loading copyright content for extension '{extension_name}' from '{extension_file_path}'")
             contents[extension_name] = extension_file_path.read_text()
         return contents
 
@@ -76,24 +78,24 @@ class CopyrightHeaderGenerator:
         :rtype: str | None
         """
         if not file_path.exists() or len(file_path.suffix) == 0:
-            self._LOGGER.debug(f"skipping file {file_path} because it does not exist or has no suffix")
+            self._LOGGER.debug(f"skipping file '{file_path}' because it does not exist or has no suffix")
             return None
 
         file_content: str = file_path.read_text()
         lines: list[str] = file_content.splitlines()
         if len(file_content) == 0 or len(lines) == 0:
-            self._LOGGER.debug(f"skipping file {file_path} because it is empty")
+            self._LOGGER.debug(f"skipping file '{file_path}' because it is empty")
             return None
 
         file_extension: str = file_path.suffix[1:]
         if len(self._settings.enabled_extensions) > 0 and file_extension not in self._settings.enabled_extensions:
             self._LOGGER.debug(
-                f"skipping file {file_path} because its extension is not enabled (Enabled: {self._settings.enabled_extensions}, File: {file_extension})")
+                f"skipping file '{file_path}' because its extension is not enabled (Enabled extensions are: {self._settings.enabled_extensions})")
             return None
 
         copyright_content: str | None = self._contents.get(file_extension)
         if copyright_content is None:
-            self._LOGGER.warning(f"no copyright found for extension {file_extension}, skipping file {file_path}")
+            self._LOGGER.warning(f"no copyright found for extension '{file_extension}', skipping file '{file_path}'")
             return None
         comment_char: str = copyright_content[0]
         copyright_content_first_line: str = copyright_content.splitlines()[0]
@@ -102,7 +104,7 @@ class CopyrightHeaderGenerator:
         updated_file_content: str = ""
         search_offset: int = 0
         if lines[0].startswith("#!/"):
-            self._LOGGER.info(f"shebang found at top of file {file_path}: {lines[0]}, preserving it")
+            self._LOGGER.info(f"shebang found at top of file '{file_path}': {lines[0]}, preserving it")
             search_offset = 1
             updated_file_content = lines[0] + "\n"
 
@@ -147,7 +149,8 @@ if __name__ == "__main__":
                         help="Comma-separated list of file extensions (without dot, e.g., 'py,sh') to handle")
     parser.add_argument("--update-existing", required=False, default=False, type=bool,
                         help="Whether existing notices shall be updated")
-    namespace: Namespace = parser.parse_args(sys.argv[1:])
+    parser.add_argument("files", nargs="+", help="Files to update")
+    namespace: Namespace = parser.parse_args()
     settings: CopyrightHeaderGeneratorSettings = CopyrightHeaderGeneratorSettings()
     if namespace.num_lines is not None:
         settings.num_lines = int(namespace.num_lines)
@@ -161,3 +164,11 @@ if __name__ == "__main__":
         logging.config.dictConfig(yaml.safe_load(f))
 
     print(settings)
+    print(sys.argv)
+    print(argparse.REMAINDER)
+
+    copyright_header_generator: CopyrightHeaderGenerator = CopyrightHeaderGenerator(settings)
+    for file_path in namespace.files:
+        updated_file_content: str | None = copyright_header_generator.update_file_content(Path(file_path))
+        if updated_file_content is not None:
+            print(f"Updated file {file_path}")
