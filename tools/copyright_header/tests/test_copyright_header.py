@@ -21,8 +21,7 @@ CASES_DIR: Final[Path] = Path(__file__).parent / "resources" / "cases"
 @pytest.fixture
 def generator() -> CopyrightHeaderGenerator:
     generator_settings: CopyrightHeaderGeneratorSettings = CopyrightHeaderGeneratorSettings(
-        contents_dir_path=Path(__file__).parent / "resources" / "extensions",
-        update_existing=True
+        contents_dir_path=Path(__file__).parent / "resources" / "extensions", update_existing=True
     )
     return CopyrightHeaderGenerator(generator_settings)
 

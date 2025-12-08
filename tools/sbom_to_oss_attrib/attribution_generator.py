@@ -87,7 +87,7 @@ class OssAttributionGenerator:
             license_id=license_id or "UNKNOWN",
             license_text=license_text or "UNKNOWN",
             homepage=component.probable_website_url,
-            source=component
+            source=component,
         )
 
     async def build_attribution(self, input_file: Path) -> Attribution:

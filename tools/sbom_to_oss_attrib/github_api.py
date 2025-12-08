@@ -25,8 +25,8 @@ class GetLicenseResponse(BaseModel):
 
     @property
     def plain_text(self) -> str | None:
-        if self.encoding == 'base64':
-            return b64decode(self.content.encode('utf-8')).decode('utf-8')
+        if self.encoding == "base64":
+            return b64decode(self.content.encode("utf-8")).decode("utf-8")
         return self.content
 
 

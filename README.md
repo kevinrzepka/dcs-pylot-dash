@@ -15,11 +15,11 @@
 
 # About
 
-## Formatting
-
-https://black.readthedocs.io/en/stable/usage_and_configuration/the_basics.html
-
 # Usage
+
+# Development
+
+run all pre-commit hooks: `uv run pre-commit run --all-files`
 
 # Building from source
 

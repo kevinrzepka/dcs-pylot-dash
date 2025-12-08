@@ -13,7 +13,8 @@ repos:
         name: Update Copyright Headers
         description: This hook ensures copyright headers are present in all source files.
         language: python
-        verbose: true
+        verbose: false
+        require_serial: true  # IO-bound
         entry: python tools/copyright_header/main.py --update-existing --no-dry-run --num-lines-to-scan 10
       - id: black
         # python target version should be determined from pyproject.toml:
@@ -22,4 +23,4 @@ repos:
         name: Black
         description: Format python files
         language: python
-        entry: python -m black -l 120 -v
+        entry: .venv/bin/python -m black -l 120

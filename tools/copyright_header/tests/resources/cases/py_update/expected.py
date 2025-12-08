@@ -4,6 +4,7 @@
 #  SPDX-License-Identifier: MIT
 #  License-Filename: LICENSE
 
+
 # this is a comment that should be preserved
 def foo():
     return 42

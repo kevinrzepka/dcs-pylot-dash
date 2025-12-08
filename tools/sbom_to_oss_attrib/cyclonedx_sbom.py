@@ -17,8 +17,8 @@ class SbomLicenseText(BaseModel):
 
     @property
     def plain_text(self) -> str | None:
-        if self.encoding == 'base64':
-            return b64decode(self.content.encode('utf-8')).decode('utf-8')
+        if self.encoding == "base64":
+            return b64decode(self.content.encode("utf-8")).decode("utf-8")
         return self.content
 
 
@@ -129,8 +129,9 @@ class SbomComponent(BaseModel):
 
     @property
     def probable_website_url(self) -> str | None:
-        website_urls: list[str] = [ref.url for ref in self.external_references if
-                                   ref.type == ExternalReferenceType.WEBSITE]
+        website_urls: list[str] = [
+            ref.url for ref in self.external_references if ref.type == ExternalReferenceType.WEBSITE
+        ]
         website_urls.sort(key=lambda u: len(u))
         if len(website_urls) > 0:
             return website_urls[0]

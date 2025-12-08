@@ -52,5 +52,3 @@ num_components_dev=$(cat $sbom_file | jq -r '.components | length')
 
 # ensure regular venv is used again
 source .venv/bin/activate
-
-

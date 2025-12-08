@@ -18,8 +18,9 @@ from typing import Any
 class CopyrightHeaderGeneratorSettings:
     num_lines_to_scan: int = 5
     update_existing: bool = False
+    include_empty_files: bool = False
     # will be matched against lower-cased lines
-    copyright_pattern: str = r'(.*copyright.*?(\d{4}).*)'
+    copyright_pattern: str = r"(.*copyright.*?(\d{4}).*)"
     # if empty: All
     enabled_extensions: set[str] = dataclasses.field(default_factory=set)
     contents_dir_path: Path = Path(__file__).parent / "extensions"
@@ -42,7 +43,8 @@ class CopyrightHeaderGenerator:
         for extension_file_path in self._settings.contents_dir_path.iterdir():
             extension_name: str = extension_file_path.stem
             self._LOGGER.info(
-                f"loading copyright content for extension '{extension_name}' from '{extension_file_path}'")
+                f"loading copyright content for extension '{extension_name}' from '{extension_file_path}'"
+            )
             contents[extension_name] = extension_file_path.read_text()
         return contents
 
@@ -81,16 +83,11 @@ class CopyrightHeaderGenerator:
             self._LOGGER.debug(f"skipping file '{file_path}' because it does not exist or has no suffix")
             return None
 
-        file_content: str = file_path.read_text()
-        lines: list[str] = file_content.splitlines()
-        if len(file_content) == 0 or len(lines) == 0:
-            self._LOGGER.debug(f"skipping file '{file_path}' because it is empty")
-            return None
-
         file_extension: str = file_path.suffix[1:]
         if len(self._settings.enabled_extensions) > 0 and file_extension not in self._settings.enabled_extensions:
             self._LOGGER.debug(
-                f"skipping file '{file_path}' because its extension is not enabled (Enabled extensions are: {self._settings.enabled_extensions})")
+                f"skipping file '{file_path}' because its extension is not enabled (Enabled extensions are: {self._settings.enabled_extensions})"
+            )
             return None
 
         copyright_content: str | None = self._contents.get(file_extension)
@@ -101,6 +98,14 @@ class CopyrightHeaderGenerator:
         copyright_content_first_line: str = copyright_content.splitlines()[0]
         copyright_pattern: Pattern = re.compile(self._settings.copyright_pattern)
 
+        file_content: str = file_path.read_text()
+        lines: list[str] = file_content.splitlines()
+        if len(file_content) == 0 and not self._settings.include_empty_files:
+            self._LOGGER.debug(
+                f"skipping file '{file_path}' because it is empty (and empty files shall not be updated)"
+            )
+            return None
+
         updated_file_content: str = ""
         search_offset: int = 0
         if lines[0].startswith("#!/"):
@@ -110,7 +115,7 @@ class CopyrightHeaderGenerator:
 
         existing_copyright_start_line_index: int = -1
         existing_copyright_end_line_index: int = -1
-        for i in range(search_offset, self._settings.num_lines_to_scan):
+        for i in range(search_offset, min(self._settings.num_lines_to_scan, len(lines))):
             line: str = lines[i]
             copyright_pattern_matches: list[Any] = copyright_pattern.findall(line.lower())
             if line.startswith(copyright_content_first_line):  # existing perfect match
@@ -119,7 +124,8 @@ class CopyrightHeaderGenerator:
             elif len(copyright_pattern_matches) > 0:
                 if not self._settings.update_existing:  # existing partial match, no update -> nothing to do
                     self._LOGGER.info(
-                        f"file {file_path} has some copyright header, but updating is disabled: Lower-case version of '{line}' matched '{self._settings.copyright_pattern}': {copyright_pattern_matches}")
+                        f"file {file_path} has some copyright header, but updating is disabled: Lower-case version of '{line}' matched '{self._settings.copyright_pattern}': {copyright_pattern_matches}"
+                    )
                     return None
                 existing_copyright_start_line_index = i
                 for j in range(i, len(lines)):
@@ -127,7 +133,8 @@ class CopyrightHeaderGenerator:
                         existing_copyright_end_line_index = j
                     else:
                         self._LOGGER.info(
-                            f"existing copyright of file '{file_path}' will be updated from line {i + 1} to line {j}")
+                            f"existing copyright of file '{file_path}' will be updated from line {i + 1} to line {j}"
+                        )
                         self._LOGGER.debug(f"replacing \n{'\n'.join(lines[i:j])}\nwith:\n{copyright_content}")
                         break
                 break
@@ -144,17 +151,40 @@ class CopyrightHeaderGenerator:
 
 if __name__ == "__main__":
     parser: ArgumentParser = ArgumentParser(
-        prog='Copyright Header Generator',
-        description='Ensures copyright headers are present (and optionally updated) in source files.'
+        prog="Copyright Header Generator",
+        description="Ensures copyright headers are present (and optionally updated) in source files.",
     )
-    parser.add_argument("--num-lines-to-scan", required=False, default=None, type=int,
-                        help="Number of lines to scan for an existing copyright header")
-    parser.add_argument("--extensions", required=False, type=str,
-                        help="Comma-separated list of file extensions (without dot, e.g., 'py,sh') to handle")
-    parser.add_argument("--update-existing", action=argparse.BooleanOptionalAction, default=False,
-                        help="Whether existing notices shall be updated")
-    parser.add_argument("--dry-run", action=argparse.BooleanOptionalAction, default=True,
-                        help="Whether to actually modify files on disk")
+    parser.add_argument(
+        "--num-lines-to-scan",
+        required=False,
+        default=None,
+        type=int,
+        help="Number of lines to scan for an existing copyright header",
+    )
+    parser.add_argument(
+        "--extensions",
+        required=False,
+        type=str,
+        help="Comma-separated list of file extensions (without dot, e.g., 'py,sh') to handle",
+    )
+    parser.add_argument(
+        "--update-existing",
+        action=argparse.BooleanOptionalAction,
+        default=False,
+        help="Whether existing notices shall be updated",
+    )
+    parser.add_argument(
+        "--include-empty-files",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="Whether copyright notices shall be added to empty files",
+    )
+    parser.add_argument(
+        "--dry-run",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="Whether to actually modify files on disk",
+    )
     parser.add_argument("files", nargs="+", help="Files to update")
     namespace: Namespace = parser.parse_args()
     settings: CopyrightHeaderGeneratorSettings = CopyrightHeaderGeneratorSettings()
@@ -164,11 +194,9 @@ if __name__ == "__main__":
         settings.update_existing = bool(namespace.update_existing)
     if namespace.extensions is not None and len(namespace.extensions) > 0:
         settings.enabled_extensions = set(namespace.extensions.split(","))
+    settings.include_empty_files = namespace.include_empty_files
 
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)-8s %(name)-15s %(message)s")
-    # logging_config_path: Path = Path(__file__).parent / "logging.yaml"
-    # with logging_config_path.open() as f:
-    #     logging.config.dictConfig(yaml.safe_load(f))
     logger: Logger = logging.getLogger("copyright_header")
 
     dry_run: bool = namespace.dry_run is not False
@@ -178,14 +206,20 @@ if __name__ == "__main__":
 
     copyright_header_generator: CopyrightHeaderGenerator = CopyrightHeaderGenerator(settings)
     changed: bool = False
+    failed: bool = False
     for file_path in namespace.files:
-        updated_file_content: str | None = copyright_header_generator.update_file_content(Path(file_path))
-        if updated_file_content is not None:
-            logger.info(f"updated copyright of file '{file_path}'")
-            if not dry_run:
-                changed = True
-                logger.info(f"writing file '{file_path}'")
-                Path(file_path).write_text(updated_file_content)
+        try:
+            updated_file_content: str | None = copyright_header_generator.update_file_content(Path(file_path))
+            if updated_file_content is not None:
+                logger.info(f"updated copyright of file '{file_path}'")
+                if not dry_run:
+                    changed = True
+                    logger.info(f"writing file '{file_path}'")
+                    Path(file_path).write_text(updated_file_content)
+        except Exception as e:
+            logger.exception(f"failed to update file {file_path}: {e}")
+            failed = True
 
     exit_code: int = 1 if changed else 0
+    exit_code = 2 if failed else 0
     sys.exit(exit_code)
