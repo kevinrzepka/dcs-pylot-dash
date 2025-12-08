@@ -1,0 +1,9 @@
+#file: noinspection YAMLSchemaValidation
+repos:
+  - repo: local
+    hooks:
+      - id: copyright-headers
+        name: Update Copyright Headers
+        description: This hook ensures copyright headers are present in all source files.
+        language: python
+        entry: python tools/copyright_header/main.py --update-existing --no-dry-run --num-lines-to-scan 10

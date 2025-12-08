@@ -5,14 +5,13 @@ import argparse
 import dataclasses
 import logging.config
 import re
+import sys
 from argparse import ArgumentParser, Namespace
 from dataclasses import dataclass
 from logging import Logger
 from pathlib import Path
 from re import Pattern
 from typing import Any
-
-import yaml
 
 
 @dataclass
@@ -27,7 +26,7 @@ class CopyrightHeaderGeneratorSettings:
 
 
 class CopyrightHeaderGenerator:
-    _LOGGER: logging.Logger = logging.getLogger(__name__)
+    _LOGGER: logging.Logger = logging.getLogger("copyright_header")
 
     _settings: CopyrightHeaderGeneratorSettings
     # Key: File extension without dot, e.g., "py"
@@ -166,10 +165,11 @@ if __name__ == "__main__":
     if namespace.extensions is not None and len(namespace.extensions) > 0:
         settings.enabled_extensions = set(namespace.extensions.split(","))
 
-    logging_config_path: Path = Path(__file__).parent / "logging.yaml"
-    with logging_config_path.open() as f:
-        logging.config.dictConfig(yaml.safe_load(f))
-    logger: Logger = logging.getLogger(__name__)
+    logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)-8s %(name)-15s %(message)s")
+    # logging_config_path: Path = Path(__file__).parent / "logging.yaml"
+    # with logging_config_path.open() as f:
+    #     logging.config.dictConfig(yaml.safe_load(f))
+    logger: Logger = logging.getLogger("copyright_header")
 
     dry_run: bool = namespace.dry_run is not False
     logger.info(f"Running in dry-run mode: {dry_run}")
@@ -177,10 +177,15 @@ if __name__ == "__main__":
     logger.info(f"Processing files: {namespace.files}")
 
     copyright_header_generator: CopyrightHeaderGenerator = CopyrightHeaderGenerator(settings)
+    changed: bool = False
     for file_path in namespace.files:
         updated_file_content: str | None = copyright_header_generator.update_file_content(Path(file_path))
         if updated_file_content is not None:
             logger.info(f"updated copyright of file '{file_path}'")
             if not dry_run:
+                changed = True
                 logger.info(f"writing file '{file_path}'")
                 Path(file_path).write_text(updated_file_content)
+
+    exit_code: int = 1 if changed else 0
+    sys.exit(exit_code)
