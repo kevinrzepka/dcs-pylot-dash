@@ -15,6 +15,10 @@
 
 # About
 
+## Formatting
+
+https://black.readthedocs.io/en/stable/usage_and_configuration/the_basics.html
+
 # Usage
 
 # Building from source

@@ -1,11 +1,25 @@
 #file: noinspection YAMLSchemaValidation
 # see: https://pre-commit.com/#pre-commit-configyaml---hooks
 repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
   - repo: local
     hooks:
       - id: copyright-headers
+        types: [ file ]
         name: Update Copyright Headers
         description: This hook ensures copyright headers are present in all source files.
         language: python
         verbose: true
         entry: python tools/copyright_header/main.py --update-existing --no-dry-run --num-lines-to-scan 10
+      - id: black
+        # python target version should be determined from pyproject.toml:
+        # https://black.readthedocs.io/en/stable/usage_and_configuration/the_basics.html#t-target-version
+        types: [ file, python ]
+        name: Black
+        description: Format python files
+        language: python
+        entry: python -m black -l 120 -v
