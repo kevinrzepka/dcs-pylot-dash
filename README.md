@@ -1,4 +1,4 @@
-# TOOD
+# TODO
 
 - oss attribution
 - privacy policy
@@ -9,6 +9,9 @@
   encoding=None)))
 - non-affiliation notice
 - warning for generated scripts, e.g., with MIT license
+- uv test instructions for tools
+- fix duplicate log lines
+- add pre-commit
 
 # About
 
@@ -31,6 +34,11 @@ Problems:
 - `uv pip list` also does not include license or URL
 
 The best approach is currently to include cyclonedx-py in the SBOM, by running `uv run cyclonedx-py`
+
+# Third-party licenses
+
+This software uses third-party components that may be copyrighted by others.
+See [third_party_licenses.txt](./third_party_licenses.txt) for details.
 
 # License
 
