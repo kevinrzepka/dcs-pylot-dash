@@ -1,0 +1,7 @@
+.idea/
+.git/
+.venv
+**/node_modules/
+__pycache__/
+.pytest_cache/
+tests/
