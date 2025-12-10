@@ -6,8 +6,11 @@ import time
 from base64 import b64decode
 from logging import Logger
 from pathlib import Path
+from typing import Final
 
 from pydantic import BaseModel
+
+from sbom_to_oss_attrib.utils import SbomToAttributionError
 
 
 class GithubLicenseInfo(BaseModel):
@@ -43,15 +46,15 @@ class GetLicenseResponseCacheContainer(BaseModel):
 
 
 class GetLicenseResponseCache:
+    _LOGGER: Final[Logger] = logging.getLogger(__name__)
+
     # key: url
     _container: GetLicenseResponseCacheContainer
+    _cache_file_path: Path | None
 
-    _LOGGER: Logger = logging.getLogger(__name__)
-
-    FILE_NAME_DEFAULT = ".github-license-api-cache.json"
-
-    def __init__(self):
+    def __init__(self, cache_file_path: Path | None = None):
         self._container = GetLicenseResponseCacheContainer()
+        self._cache_file_path = cache_file_path
 
     def put(self, url: str, response: GetLicenseResponse):
         self._container.entries[url] = GetLicenseResponseCacheEntry(response=response, timestamp=time.time())
@@ -62,17 +65,17 @@ class GetLicenseResponseCache:
             return entry.response
         return None
 
-    def persist(self, file_path: Path | None = None) -> Path:
-        file_path = file_path or Path(self.FILE_NAME_DEFAULT)
-        self._LOGGER.info(f"persisting cache to {file_path}")
-        file_path.write_text(self._container.model_dump_json(indent=2))
-        return file_path
+    def persist(self) -> Path:
+        if self._cache_file_path is None:
+            raise SbomToAttributionError("cache file path is not set, cannot persist cache")
+        self._LOGGER.info(f"persisting cache to {self._cache_file_path}")
+        self._cache_file_path.write_text(self._container.model_dump_json(indent=2))
+        return self._cache_file_path
 
-    def load(self, file_path: Path | None = None) -> None:
-        file_path = file_path or Path(self.FILE_NAME_DEFAULT)
-        self._LOGGER.info(f"loading cache from {file_path}")
-        if file_path.exists():
-            container_json_str: str = file_path.read_text()
+    def load(self) -> None:
+        self._LOGGER.info(f"loading cache from {self._cache_file_path}")
+        if self._cache_file_path.exists():
+            container_json_str: str = self._cache_file_path.read_text()
             self._container = GetLicenseResponseCacheContainer.model_validate_json(container_json_str)
         else:
-            self._LOGGER.info(f"cache file {file_path} does not exist")
+            self._LOGGER.info(f"cache file {self._cache_file_path} does not exist")

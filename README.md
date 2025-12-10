@@ -1,7 +1,8 @@
 # TODO
 
-- oss attribution
-- privacy policy
+- oss attribution: Add best-effort approach for libraries with odd license file names
+- privacy policy, e.g. from https://foundation.wikimedia.org/wiki/Policy:Privacy_policy#introduction
+- terms of use, e.g from: https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use#introduction
 - ui
 - package isoduration: SbomLicenseContainer(license=SbomLicense(name="declared license of 'isoduration'", id=None,
   url=None, acknowledgement='declared', text=SbomLicenseText(content='UNKNOWN', content_type='text/plain',
@@ -10,9 +11,7 @@
 - warning for generated scripts, e.g., with MIT license
 - uv test instructions for tools
 - fix duplicate log lines
-- test image content:
-    - no dev packages
-    - file permissions work
+- add security.txt?
 
 # About
 
@@ -25,6 +24,54 @@ https://uvicorn.dev/settings/
 # Development
 
 ## Environment setup
+
+This section describes how to install all required tools to test, build and run this software.
+
+### Docker
+
+See https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository
+
+### Python
+
+https://launchpad.net/~deadsnakes/+archive/ubuntu/ppa
+
+```shell
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt update
+sudo apt install python3.14 python3.14-dev python3.14-venv
+```
+
+### uv
+
+https://docs.astral.sh/uv/getting-started/installation/#standalone-installer
+
+```shell
+curl -LsSf https://astral.sh/uv/install.sh | sh
+uv self update
+echo 'eval "$(uv generate-shell-completion bash)"' >> ~/.bashrc
+```
+
+### pnpm
+
+https://pnpm.io/installation
+
+- install:
+
+```shell
+curl -fsSL https://get.pnpm.io/install.sh | env PNPM_VERSION="10.24.0" bash -
+source /home/vbox/.bashrc
+```
+
+- configure:
+
+```shell
+pnpm env list --remote
+pnpm env add -g 24.11.1
+pnpm env use -g 24.11.1
+npm config set ignore-scripts true --global
+pnpm config set -g minimumReleaseAge 10080
+pnpm config get
+```
 
 ### Trivy
 
@@ -39,8 +86,9 @@ sudo apt update && sudo apt install trivy -y
 
 ### Pre-Commit
 
-run all pre-commit hooks: `uv run pre-commit run --all-files`
-create venv from lockfile: `uv sync --frozen`
+- install hooks: `pre-commit install`
+- run all pre-commit hooks: `uv run pre-commit run --all-files`
+- create venv from lockfile: `uv sync --frozen`
 
 # Building from source
 
@@ -48,22 +96,22 @@ create venv from lockfile: `uv sync --frozen`
 
 https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html
 
-list of capabilities: https://docs.docker.com/engine/containers/run/#runtime-privilege-and-linux-capabilities
-set ulimits: https://ss64.com/bash/ulimit.html,
-but: http://docs.docker.com/reference/cli/docker/container/run/#for-nproc-usage
+- list of capabilities: https://docs.docker.com/engine/containers/run/#runtime-privilege-and-linux-capabilities
+- set ulimits: https://ss64.com/bash/ulimit.html,
+    - but: http://docs.docker.com/reference/cli/docker/container/run/#for-nproc-usage
 
 Build and run with shell:
 
 ```bash
-sudo docker build -t dcs-pylot-dash . && \
-sudo docker run --rm -it --read-only --memory-swappiness=0 --security-opt=no-new-privileges --cap-drop all -m=1g --cpus=1 --entrypoint /bin/bash dcs-pylot-dash
+sudo docker build -t kevinrzepka/dcs-pylot-dash . && \
+sudo docker run --rm -it --read-only --memory-swappiness=0 --security-opt=no-new-privileges --cap-drop all -m=1g --cpus=1 --entrypoint /bin/bash kevinrzepka/dcs-pylot-dash
 ```
 
 Build and run with regular entrypoint:
 
 ```bash
-sudo docker build -t dcs-pylot-dash . && \
-sudo docker run --rm -it --read-only --memory-swappiness=0 --security-opt=no-new-privileges --cap-drop all -m=1g --cpus=1
+sudo docker build -t kevinrzepka/dcs-pylot-dash . && \
+sudo docker run --rm -it --read-only --memory-swappiness=0 --security-opt=no-new-privileges --cap-drop all -m=1g --cpus=1 kevinrzepka/dcs-pylot-dash
 ```
 
 ### Check image
@@ -72,7 +120,7 @@ sudo docker run --rm -it --read-only --memory-swappiness=0 --security-opt=no-new
 
 https://trivy.dev/docs/latest/guide/target/sbom/#cyclonedx
 
-- image: `sudo trivy --disable-telemetry image dcs-pylot-dash`
+- image: `sudo trivy image --disable-telemetry dcs-pylot-dash`
 - SBOM: `trivy sbom --disable-telemetry sboms/sbom.json`
 - just `uv.lock`: `trivy fs --disable-telemetry --include-dev-deps uv.lock`
 - repository (finds `uv.lock`): `trivy repo --disable-telemetry --include-dev-deps .`
@@ -102,3 +150,11 @@ See [third_party_licenses.txt](./third_party_licenses.txt) for details.
 # License
 
 See [LICENSE](./LICENSE)
+
+# Disclaimer
+
+This private, non-commercial project is not affiliated with, associated with, authorized by, endorsed by, approved by,
+or in any other way officially connected with "DCS World", "Eagle Dynamics SA" and/or any of its subsidiaries,
+affiliates, and
+related entities.
+The official website of "DCS World" can be found at https://www.digitalcombatsimulator.com/

@@ -1,12 +1,11 @@
 #  Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
 #  SPDX-License-Identifier: MIT
 #  License-Filename: LICENSE
-import argparse
 import dataclasses
 import logging.config
 import re
 import sys
-from argparse import ArgumentParser, Namespace
+from argparse import ArgumentParser, Namespace, BooleanOptionalAction
 from dataclasses import dataclass
 from logging import Logger
 from pathlib import Path
@@ -169,19 +168,19 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--update-existing",
-        action=argparse.BooleanOptionalAction,
+        action=BooleanOptionalAction,
         default=False,
         help="Whether existing notices shall be updated",
     )
     parser.add_argument(
         "--include-empty-files",
-        action=argparse.BooleanOptionalAction,
+        action=BooleanOptionalAction,
         default=True,
         help="Whether copyright notices shall be added to empty files",
     )
     parser.add_argument(
         "--dry-run",
-        action=argparse.BooleanOptionalAction,
+        action=BooleanOptionalAction,
         default=True,
         help="Whether to actually modify files on disk",
     )

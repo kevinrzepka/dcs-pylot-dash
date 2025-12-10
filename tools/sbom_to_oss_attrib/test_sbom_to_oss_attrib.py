@@ -26,9 +26,6 @@ def sbom_path() -> Path:
 async def test_build(sbom_path: Path):
     license_api_token: str = os.getenv("LICENSE_API_TOKEN")
     sbom = OssAttributionGenerator().parse_sbom(sbom_path)
-    no_id = [c for c in sbom.components if not c.licenses_with_id]
-    multi_text = [c for c in sbom.components if len(c.licenses_with_text) > 1]
-    multi_id = [c for c in sbom.components if len(c.licenses_with_id) > 1]
     attribution = await OssAttributionGenerator(github_api_token=license_api_token).build_attribution(sbom_path)
     AttributionTextFileBuilder().output_to_file(attribution, Path("third_party_licenses.txt"))
     assert attribution

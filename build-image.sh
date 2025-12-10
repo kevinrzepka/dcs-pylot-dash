@@ -7,6 +7,7 @@
 
 set -euo pipefail
 
+# Build and tag the image with the git commit first, then tag it with 'latest'
 commit_id=$(git rev-parse HEAD)
 base_image_name=kevinrzepka/dcs-pylot-dash
 full_image_name="$base_image_name:$commit_id"
@@ -23,9 +24,9 @@ sudo docker run --rm -it --read-only \
 """
 # shellcheck disable=SC2090
 $run_cmd 'find .venv -name fastapi' > tmp.txt
-num_prod_packages=$(($(cat tmp.txt | wc -l)))
+num_prod_packages=$(($(wc -l < tmp.txt)))
 $run_cmd 'find .venv -name pytest' > tmp.txt
-num_dev_packages=$(($(cat tmp.txt | wc -l)))
+num_dev_packages=$(($(wc -l < tmp.txt)))
 rm -f tmp.txt
 
 if  [[ num_prod_packages -eq 0 ]]; then
