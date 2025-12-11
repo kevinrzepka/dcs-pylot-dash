@@ -90,6 +90,20 @@ sudo apt update && sudo apt install trivy -y
 - run all pre-commit hooks: `uv run pre-commit run --all-files`
 - create venv from lockfile: `uv sync --frozen`
 
+## UI
+
+https://angular.dev/installation
+
+- install Angular CLI: `pnpm install -g @angular/cli@21.0.2`
+- create project with `pnpm`, this respects the min age policy:
+  `ng new  dcs-pylot-dash-ui --package-manager pnpm --skip-git true --skip-tests true --ssr false --style css --routing true --ai-config none`
+- check dependencies:
+    - `pnpm list`
+    - `pnpm audit`
+    - `pnpm outdated`
+- start: `pnpm start`
+- add packages: ``
+
 # Building from source
 
 ## Build Docker image
@@ -113,8 +127,6 @@ Build and run with regular entrypoint:
 sudo docker build -t kevinrzepka/dcs-pylot-dash . && \
 sudo docker run --rm -it --read-only --memory-swappiness=0 --security-opt=no-new-privileges --cap-drop all -m=1g --cpus=1 kevinrzepka/dcs-pylot-dash
 ```
-
-### Check image
 
 ## Vulnerability Scan (Trivy)
 
