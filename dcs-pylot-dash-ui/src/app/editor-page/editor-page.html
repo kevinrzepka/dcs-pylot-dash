@@ -3,4 +3,19 @@ Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
 SPDX-License-Identifier: MIT
 License-Filename: LICENSE
 -->
-<p>editor-page works!</p>
+<div>
+  @for (dataPointRow of dataPointRows; track dataPointRow.rowIndex) {
+    <p-card>
+      <div class="data-point-row">
+        @for (dataPoint of dataPointRow.dataPoints; track dataPoint.column) {
+          <app-data-point-editor
+            [dataPoint]="dataPoint"
+            (onDeleteDataPoint)="removeDataPoint(dataPointRow, $event)"
+          ></app-data-point-editor>
+        }
+        <p-button icon="pi pi-plus" label="Add Data Point" (click)="addDataPoint(dataPointRow)" />
+      </div>
+    </p-card>
+  }
+  <p-button icon="pi pi-plus" label="Add Row" (click)="addDataPointRow()" />
+</div>

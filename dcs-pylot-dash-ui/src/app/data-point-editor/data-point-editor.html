@@ -3,4 +3,35 @@ Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
 SPDX-License-Identifier: MIT
 License-Filename: LICENSE
 -->
-<p>data-point-editor works!</p>
+<p-card>
+  <ng-template #header>
+    <div class="headerGroup">
+      <p-iftalabel>
+        <label for="inputDisplayName">Display Name</label>
+        <input id="inputDisplayName" type="text" pInputText [(ngModel)]="dataPoint.displayName" />
+      </p-iftalabel>
+      <p-button icon="pi pi-trash" severity="danger" (click)="deleteDataPoint()" />
+    </div>
+    <p-iftalabel>
+      <p-autocomplete
+        inputId="inputSourceDataPoint"
+        [(ngModel)]="sourceDataPoint"
+        [dropdown]="true"
+        [suggestions]="sourceDataPointSuggestions"
+        [forceSelection]="true"
+        (completeMethod)="searchSourceDataPoints($event)"
+        optionLabel="displayName"
+      >
+        <ng-template let-item #item>
+          <div
+            pTooltip="this is some tooltip for {{ item.internalFieldName }}"
+            [style]="{ width: '100%' }"
+          >
+            <span [innerText]="item.displayName"></span>
+          </div>
+        </ng-template>
+      </p-autocomplete>
+      <label for="inputSourceDataPoint">Source Data Point</label>
+    </p-iftalabel>
+  </ng-template>
+</p-card>
