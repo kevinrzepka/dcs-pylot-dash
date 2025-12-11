@@ -12,6 +12,8 @@
 - uv test instructions for tools
 - fix duplicate log lines
 - add security.txt?
+- add CSP and nonce: https://angular.dev/best-practices/security#content-security-policy
+- https://angular.dev/best-practices/security#enforcing-trusted-types?
 
 # About
 
@@ -92,7 +94,7 @@ sudo apt update && sudo apt install trivy -y
 
 ## UI
 
-### Setup Angular project
+### Set up Angular project
 
 https://angular.dev/installation
 
@@ -105,7 +107,15 @@ https://angular.dev/installation
     - `pnpm outdated`
 - start: `pnpm start`
 
-### Setup PrimeNG
+### Set up Prettier
+
+https://prettier.io/docs/install
+
+- install: `pnpm add --save-dev --save-exact prettier@3.7.4`
+- dry-run: `npx prettier . --check`
+- run: `pnpm exec prettier . --write`
+
+### Set up PrimeNG
 
 https://primeng.org/installation
 
