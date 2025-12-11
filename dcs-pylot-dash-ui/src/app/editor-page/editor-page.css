@@ -7,3 +7,6 @@ License-Filename: LICENSE
   display: flex;
   flex-direction: row;
 }
+
+.example-custom-placeholder {
+}

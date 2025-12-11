@@ -8,6 +8,15 @@ import { Button } from 'primeng/button';
 import { DataPointEditor } from '../data-point-editor/data-point-editor';
 import { DataPoint } from '../editor-model';
 import { Card } from 'primeng/card';
+import {
+  CdkDrag,
+  CdkDragDrop,
+  CdkDragPlaceholder,
+  CdkDropList,
+  CdkDropListGroup,
+  moveItemInArray,
+  transferArrayItem,
+} from '@angular/cdk/drag-drop';
 
 export class DataPointRow {
   dataPoints: DataPoint[] = [];
@@ -45,7 +54,15 @@ export class DataPointRow {
 
 @Component({
   selector: 'app-editor-page',
-  imports: [Button, DataPointEditor, Card],
+  imports: [
+    Button,
+    DataPointEditor,
+    Card,
+    CdkDrag,
+    CdkDropList,
+    CdkDragPlaceholder,
+    CdkDropListGroup,
+  ],
   templateUrl: './editor-page.html',
   styleUrl: './editor-page.css',
 })
@@ -63,5 +80,24 @@ export class EditorPage {
 
   removeDataPoint(dataPointRow: DataPointRow, dataPoint: DataPoint) {
     dataPointRow.removeDataPoint(dataPoint);
+  }
+
+  protected droppedWithinRow(dataPointRow: DataPointRow, event: CdkDragDrop<any, any>) {
+    console.log('droppedWithinRow', event);
+    moveItemInArray(dataPointRow.dataPoints, event.previousIndex, event.currentIndex);
+  }
+
+  protected droppedAcrossRows(dataPointRow: DataPointRow, event: CdkDragDrop<any, any>) {
+    console.log('droppedAcrossRows', dataPointRow, event);
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex,
+      );
+    }
   }
 }

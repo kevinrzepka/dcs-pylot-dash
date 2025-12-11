@@ -102,9 +102,9 @@ https://angular.dev/installation
 - create project with `pnpm`, this respects the min age policy:
   `ng new  dcs-pylot-dash-ui --package-manager pnpm --skip-git true --skip-tests true --ssr false --style css --routing true --ai-config none`
 - check dependencies:
-    - `pnpm list`
-    - `pnpm audit`
-    - `pnpm outdated`
+  - `pnpm list`
+  - `pnpm audit`
+  - `pnpm outdated`
 - start: `pnpm start`
 
 ### Set up Prettier
@@ -134,6 +134,10 @@ https://primeng.org/icons#list
 
 - add component: `ng generate component hello --skip-tests true`
 
+### Add drag and drop
+
+https://angular.dev/guide/drag-drop
+
 # Building from source
 
 ## Build Docker image
@@ -142,7 +146,7 @@ https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html
 
 - list of capabilities: https://docs.docker.com/engine/containers/run/#runtime-privilege-and-linux-capabilities
 - set ulimits: https://ss64.com/bash/ulimit.html,
-    - but: http://docs.docker.com/reference/cli/docker/container/run/#for-nproc-usage
+  - but: http://docs.docker.com/reference/cli/docker/container/run/#for-nproc-usage
 
 Build and run with shell:
 
@@ -166,7 +170,7 @@ https://trivy.dev/docs/latest/guide/target/sbom/#cyclonedx
 - SBOM: `trivy sbom --disable-telemetry sboms/sbom.json`
 - just `uv.lock`: `trivy fs --disable-telemetry --include-dev-deps uv.lock`
 - repository (finds `uv.lock`): `trivy repo --disable-telemetry --include-dev-deps .`
-    - can add `.trivyignore`, but that does not work
+  - can add `.trivyignore`, but that does not work
 
 ## Generate SBOMs
 

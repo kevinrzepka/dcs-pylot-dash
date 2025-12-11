@@ -4,18 +4,29 @@ SPDX-License-Identifier: MIT
 License-Filename: LICENSE
 -->
 <div>
-  @for (dataPointRow of dataPointRows; track dataPointRow.rowIndex) {
-    <p-card>
-      <div class="data-point-row">
-        @for (dataPoint of dataPointRow.dataPoints; track dataPoint.column) {
-          <app-data-point-editor
-            [dataPoint]="dataPoint"
-            (onDeleteDataPoint)="removeDataPoint(dataPointRow, $event)"
-          ></app-data-point-editor>
-        }
-        <p-button icon="pi pi-plus" label="Add Data Point" (click)="addDataPoint(dataPointRow)" />
-      </div>
-    </p-card>
-  }
+  <div cdkDropListGroup>
+    @for (dataPointRow of dataPointRows; track dataPointRow) {
+      <p-card>
+        <div
+          class="data-point-row"
+          cdkDropList
+          cdkDropListOrientation="horizontal"
+          [cdkDropListData]="dataPointRow.dataPoints"
+          (cdkDropListDropped)="droppedAcrossRows(dataPointRow, $event)"
+        >
+          @for (dataPoint of dataPointRow.dataPoints; track dataPoint) {
+            <app-data-point-editor
+              cdkDrag
+              [dataPoint]="dataPoint"
+              (onDeleteDataPoint)="removeDataPoint(dataPointRow, $event)"
+            >
+              <p-card class="example-custom-placeholder" *cdkDragPlaceholder></p-card>
+            </app-data-point-editor>
+          }
+          <p-button icon="pi pi-plus" label="Add Data Point" (click)="addDataPoint(dataPointRow)" />
+        </div>
+      </p-card>
+    }
+  </div>
   <p-button icon="pi pi-plus" label="Add Row" (click)="addDataPointRow()" />
 </div>
