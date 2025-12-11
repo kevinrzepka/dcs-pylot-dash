@@ -1,1 +1,54 @@
 /* You can add global styles to this file, and also import other style files */
+@import "primeicons/primeicons.css";
+
+/* Define Roboto Variable Font */
+@font-face {
+  font-family: 'Roboto';
+  src: url('assets/fonts/Roboto/Roboto-VariableFont_wdth,wght.ttf') format('truetype');
+  font-weight: 100 900; /* Supports weights from Thin to Black */
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('assets/fonts/Roboto/Roboto-Italic-VariableFont_wdth,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Define Roboto Mono Variable Font */
+@font-face {
+  font-family: 'Roboto Mono';
+  src: url('assets/fonts/Roboto_Mono/RobotoMono-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Mono';
+  src: url('assets/fonts/Roboto_Mono/RobotoMono-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Set default font for the entire application */
+html, body {
+  font-family: 'Roboto', "Helvetica Neue", sans-serif;
+  margin: 0;
+  height: 100%;
+}
+
+/* Utility class for Monospace font */
+.font-mono {
+  font-family: 'Roboto Mono', monospace;
+}
+
+app-root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}

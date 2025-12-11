@@ -1,0 +1,43 @@
+/**
+* Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
+* SPDX-License-Identifier: MIT
+* License-Filename: LICENSE
+*/
+import {Component, Input} from '@angular/core';
+import {MenuItem} from 'primeng/api';
+import {Toolbar} from 'primeng/toolbar';
+import {ButtonModule} from 'primeng/button';
+import {SplitButton} from 'primeng/splitbutton';
+import {InputTextModule} from 'primeng/inputtext';
+import {IconField} from 'primeng/iconfield';
+import {InputIcon} from 'primeng/inputicon';
+import {MenuSidebar} from '../menu-sidebar/menu-sidebar';
+
+@Component({
+  selector: 'app-header-toolbar',
+  imports: [Toolbar, ButtonModule, SplitButton, InputTextModule, IconField, InputIcon],
+  templateUrl: './header-toolbar.html',
+  styleUrl: './header-toolbar.css',
+})
+export class HeaderToolbar {
+
+  items: MenuItem[] | undefined;
+  @Input() menuSidebar!: MenuSidebar;
+
+  ngOnInit() {
+    this.items = [
+      {
+        label: 'Update',
+        icon: 'pi pi-refresh'
+      },
+      {
+        label: 'Delete',
+        icon: 'pi pi-times'
+      }
+    ];
+  }
+
+  protected toggleSidebar() {
+    this.menuSidebar.visible = !this.menuSidebar.visible;
+  }
+}

@@ -92,6 +92,8 @@ sudo apt update && sudo apt install trivy -y
 
 ## UI
 
+### Setup Angular project
+
 https://angular.dev/installation
 
 - install Angular CLI: `pnpm install -g @angular/cli@21.0.2`
@@ -102,7 +104,25 @@ https://angular.dev/installation
     - `pnpm audit`
     - `pnpm outdated`
 - start: `pnpm start`
-- add packages: ``
+
+### Setup PrimeNG
+
+https://primeng.org/installation
+
+- add packages: `pnpm add pnpm add primeng@21.0.1 @primeuix/themes@2.0.2`
+-
+
+#### Add icons
+
+https://primeng.org/icons
+https://primeng.org/icons#list
+
+- `pnpm add primeicons@7.0.0`
+- `styles.css`: `@import "primeicons/primeicons.css";`
+
+### Add Angular component
+
+- add component: `ng generate component hello --skip-tests true`
 
 # Building from source
 
