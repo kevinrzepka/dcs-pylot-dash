@@ -9,7 +9,7 @@ repos:
   - repo: local
     hooks:
       - id: copyright-headers
-        types: [file]
+        types: [ file ]
         name: Update Copyright Headers
         description: This hook ensures copyright headers are present in all source files.
         language: python
@@ -19,13 +19,14 @@ repos:
       - id: black
         # python target version should be determined from pyproject.toml:
         # https://black.readthedocs.io/en/stable/usage_and_configuration/the_basics.html#t-target-version
-        types: [file, python]
+        types: [ file, python ]
         name: Black
         description: Format python files
         language: python
         entry: .venv/bin/python -m black
       - id: prettier
-        types: [file]
+        types: [ file ]
+        files: ^dcs-pylot-dash-ui/
         name: Prettier
         description: Format UI files
         language: node

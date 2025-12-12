@@ -6,7 +6,7 @@
 import { Component } from '@angular/core';
 import { Button } from 'primeng/button';
 import { DataPointEditor } from '../data-point-editor/data-point-editor';
-import { DataPoint } from '../editor-model';
+import { DataPoint, DataPointRow } from '../editor-model';
 import { Card } from 'primeng/card';
 import {
   CdkDrag,
@@ -17,40 +17,6 @@ import {
   moveItemInArray,
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
-
-export class DataPointRow {
-  dataPoints: DataPoint[] = [];
-  rowIndex: number = 0;
-
-  constructor(rowIndex: number) {
-    this.rowIndex = rowIndex;
-  }
-
-  get lastColumnIndex(): number {
-    return this.dataPoints.length - 1;
-  }
-
-  get nextColumnIndex(): number {
-    return this.lastColumnIndex + 1;
-  }
-
-  public addDataPoint(dataPoint: DataPoint) {
-    dataPoint.row = this.rowIndex;
-    dataPoint.column = this.nextColumnIndex;
-    this.dataPoints.push(dataPoint);
-  }
-
-  public removeDataPoint(dataPoint: DataPoint) {
-    this.dataPoints = this.dataPoints.filter((dp) => dp !== dataPoint);
-    this.restoreIndices();
-  }
-
-  public restoreIndices() {
-    this.dataPoints.forEach((value: DataPoint, index: number) => {
-      value.column = index;
-    });
-  }
-}
 
 @Component({
   selector: 'app-editor-page',
@@ -70,11 +36,11 @@ export class EditorPage {
   dataPointRows: DataPointRow[] = [];
 
   addDataPointRow() {
-    this.dataPointRows.push(new DataPointRow(this.dataPointRows.length));
+    this.dataPointRows.push(new DataPointRow());
   }
 
   addDataPoint(dataPointRow: DataPointRow) {
-    const dataPoint: DataPoint = new DataPoint('New Data Point', 'new_data_point', 0, 0);
+    const dataPoint: DataPoint = new DataPoint('New Data Point', 'new_data_point');
     dataPointRow.addDataPoint(dataPoint);
   }
 
@@ -82,19 +48,18 @@ export class EditorPage {
     dataPointRow.removeDataPoint(dataPoint);
   }
 
-  protected droppedWithinRow(dataPointRow: DataPointRow, event: CdkDragDrop<any, any>) {
-    console.log('droppedWithinRow', event);
-    moveItemInArray(dataPointRow.dataPoints, event.previousIndex, event.currentIndex);
-  }
-
-  protected droppedAcrossRows(dataPointRow: DataPointRow, event: CdkDragDrop<any, any>) {
-    console.log('droppedAcrossRows', dataPointRow, event);
-    if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+  protected dataPointDropped(event: CdkDragDrop<any, any>) {
+    console.log('dataPointDropped', event);
+    const previousDataPointRow: DataPointRow = event.previousContainer.data;
+    const currentDataPointRow: DataPointRow = event.container.data;
+    if (previousDataPointRow === currentDataPointRow) {
+      if (event.previousIndex !== event.currentIndex) {
+        moveItemInArray(previousDataPointRow.dataPoints, event.previousIndex, event.currentIndex);
+      }
     } else {
       transferArrayItem(
-        event.previousContainer.data,
-        event.container.data,
+        previousDataPointRow.dataPoints,
+        currentDataPointRow.dataPoints,
         event.previousIndex,
         event.currentIndex,
       );

@@ -37,8 +37,10 @@ export class DataPointEditor {
       query = '';
     }
     this.sourceDataPointService.sourceDataPoints.subscribe((next: SourceDataPoint[]) => {
-      this.sourceDataPointSuggestions = next.filter((sourceDataPoint: SourceDataPoint) =>
-        sourceDataPoint.displayName.toLowerCase().includes(query.toLowerCase()),
+      this.sourceDataPointSuggestions = next.filter(
+        (sourceDataPoint: SourceDataPoint) =>
+          sourceDataPoint.displayName.toLowerCase().includes(query.toLowerCase()) ||
+          sourceDataPoint.internalFieldName.toLowerCase().includes(query?.toLowerCase()),
       );
     });
   }

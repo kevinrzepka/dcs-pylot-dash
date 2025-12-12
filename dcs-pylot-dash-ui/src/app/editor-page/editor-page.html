@@ -11,8 +11,8 @@ License-Filename: LICENSE
           class="data-point-row"
           cdkDropList
           cdkDropListOrientation="horizontal"
-          [cdkDropListData]="dataPointRow.dataPoints"
-          (cdkDropListDropped)="droppedAcrossRows(dataPointRow, $event)"
+          [cdkDropListData]="dataPointRow"
+          (cdkDropListDropped)="dataPointDropped($event)"
         >
           @for (dataPoint of dataPointRow.dataPoints; track dataPoint) {
             <app-data-point-editor

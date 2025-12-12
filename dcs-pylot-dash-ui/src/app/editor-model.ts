@@ -3,25 +3,40 @@
  * SPDX-License-Identifier: MIT
  * License-Filename: LICENSE
  */
+
+export class EditorModel {
+  dataPointRows: DataPointRow[] = [];
+}
+
+export class DataPointRow {
+  dataPoints: DataPoint[] = [];
+
+  get lastColumnIndex(): number {
+    return this.dataPoints.length - 1;
+  }
+
+  get nextColumnIndex(): number {
+    return this.lastColumnIndex + 1;
+  }
+
+  public addDataPoint(dataPoint: DataPoint) {
+    this.dataPoints.push(dataPoint);
+  }
+
+  public removeDataPoint(dataPoint: DataPoint) {
+    this.dataPoints = this.dataPoints.filter((dp) => dp !== dataPoint);
+  }
+}
+
 export class DataPoint {
   displayName: string;
-  internalFieldName: string;
-  row: number;
-  column: number;
-  outputUnit: string | null;
+  sourceFieldName: string;
+  outputUnitId: string | null;
 
-  constructor(
-    displayName: string,
-    internalFieldName: string,
-    row: number,
-    column: number,
-    outputUnitOverride: string | null = null,
-  ) {
+  constructor(displayName: string, sourceFieldName: string, outputUnitId: string | null = null) {
     this.displayName = displayName;
-    this.internalFieldName = internalFieldName;
-    this.row = row;
-    this.column = column;
-    this.outputUnit = outputUnitOverride;
+    this.sourceFieldName = sourceFieldName;
+    this.outputUnitId = outputUnitId;
   }
 }
 

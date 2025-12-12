@@ -14,6 +14,7 @@
 - add security.txt?
 - add CSP and nonce: https://angular.dev/best-practices/security#content-security-policy
 - https://angular.dev/best-practices/security#enforcing-trusted-types?
+- start "add datapoint" with selection of source field
 
 # About
 
