@@ -3,24 +3,40 @@ Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
 SPDX-License-Identifier: MIT
 License-Filename: LICENSE
 -->
-<div>
-  <div cdkDropListGroup>
+<div class="editorFrame">
+  <div
+    class="dataPointRow"
+    cdkDropListGroup
+    cdkDropList
+    [cdkDropListData]="dataPointRows"
+    (cdkDropListDropped)="dataPointRowDropped($event)"
+  >
     @for (dataPointRow of dataPointRows; track dataPointRow) {
       <p-card>
         <div
           class="data-point-row"
+          cdkDrag
           cdkDropList
           cdkDropListOrientation="horizontal"
           [cdkDropListData]="dataPointRow"
           (cdkDropListDropped)="dataPointDropped($event)"
         >
+          <div class="row-drag-placeholder" *cdkDragPlaceholder></div>
+          <div class="row-controls">
+            <i class="pi pi-arrows-v" cdkDragHandle></i>
+            <p-button
+              icon="pi pi-trash"
+              severity="danger"
+              (click)="removeDataPointRow(dataPointRow)"
+            />
+          </div>
           @for (dataPoint of dataPointRow.dataPoints; track dataPoint) {
             <app-data-point-editor
               cdkDrag
               [dataPoint]="dataPoint"
               (onDeleteDataPoint)="removeDataPoint(dataPointRow, $event)"
             >
-              <p-card class="example-custom-placeholder" *cdkDragPlaceholder></p-card>
+              <div class="data-point-drag-placeholder" *cdkDragPlaceholder></div>
             </app-data-point-editor>
           }
           <p-button icon="pi pi-plus" label="Add Data Point" (click)="addDataPoint(dataPointRow)" />

@@ -11,6 +11,7 @@ import { Card } from 'primeng/card';
 import {
   CdkDrag,
   CdkDragDrop,
+  CdkDragHandle,
   CdkDragPlaceholder,
   CdkDropList,
   CdkDropListGroup,
@@ -28,6 +29,7 @@ import {
     CdkDropList,
     CdkDragPlaceholder,
     CdkDropListGroup,
+    CdkDragHandle,
   ],
   templateUrl: './editor-page.html',
   styleUrl: './editor-page.css',
@@ -42,6 +44,10 @@ export class EditorPage {
   addDataPoint(dataPointRow: DataPointRow) {
     const dataPoint: DataPoint = new DataPoint('New Data Point', 'new_data_point');
     dataPointRow.addDataPoint(dataPoint);
+  }
+
+  protected removeDataPointRow(dataPointRow: DataPointRow) {
+    this.dataPointRows = this.dataPointRows.filter((row: DataPointRow) => row !== dataPointRow);
   }
 
   removeDataPoint(dataPointRow: DataPointRow, dataPoint: DataPoint) {
@@ -63,6 +69,12 @@ export class EditorPage {
         event.previousIndex,
         event.currentIndex,
       );
+    }
+  }
+
+  protected dataPointRowDropped(event: CdkDragDrop<any, any>) {
+    if (event.previousIndex !== event.currentIndex) {
+      moveItemInArray(this.dataPointRows, event.previousIndex, event.currentIndex);
     }
   }
 }

@@ -8,5 +8,37 @@ License-Filename: LICENSE
   flex-direction: row;
 }
 
-.example-custom-placeholder {
+.row-drag-placeholder {
+  border: 0.5rem dashed;
+  /*despite showing an error, this var reference works*/
+  border-color: var(--p-primary-color);
+  width: 100%;
+  min-height: 10rem;
+}
+
+.data-point-drag-placeholder {
+  border: 0.5rem dashed;
+  /*despite showing an error, this var reference works*/
+  border-color: var(--p-primary-color);
+  min-height: 10rem;
+  min-width: 15rem;
+}
+
+.editorFrame {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 100%;
+}
+
+.row-controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 1rem;
+
+  * {
+    margin: 0.5rem;
+  }
 }
