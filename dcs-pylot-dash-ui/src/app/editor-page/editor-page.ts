@@ -6,7 +6,7 @@
 import { Component } from '@angular/core';
 import { Button } from 'primeng/button';
 import { DataPointEditor } from '../data-point-editor/data-point-editor';
-import { DataPoint, DataPointRow } from '../editor-model';
+import { DataPoint, DataPointRow, SourceDataPoint } from '../editor-model';
 import { Card } from 'primeng/card';
 import {
   CdkDrag,
@@ -18,6 +18,8 @@ import {
   moveItemInArray,
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
+import { SourceDataPointService } from '../source-data-point-service';
+import { SourceDataPointChooser } from '../source-data-point-chooser/source-data-point-chooser';
 
 @Component({
   selector: 'app-editor-page',
@@ -30,6 +32,7 @@ import {
     CdkDragPlaceholder,
     CdkDropListGroup,
     CdkDragHandle,
+    SourceDataPointChooser,
   ],
   templateUrl: './editor-page.html',
   styleUrl: './editor-page.css',
@@ -37,14 +40,7 @@ import {
 export class EditorPage {
   dataPointRows: DataPointRow[] = [];
 
-  addDataPointRow() {
-    this.dataPointRows.push(new DataPointRow());
-  }
-
-  addDataPoint(dataPointRow: DataPointRow) {
-    const dataPoint: DataPoint = new DataPoint('New Data Point', 'new_data_point');
-    dataPointRow.addDataPoint(dataPoint);
-  }
+  constructor(private sourceDataPointService: SourceDataPointService) {}
 
   protected removeDataPointRow(dataPointRow: DataPointRow) {
     this.dataPointRows = this.dataPointRows.filter((row: DataPointRow) => row !== dataPointRow);
@@ -75,6 +71,22 @@ export class EditorPage {
   protected dataPointRowDropped(event: CdkDragDrop<any, any>) {
     if (event.previousIndex !== event.currentIndex) {
       moveItemInArray(this.dataPointRows, event.previousIndex, event.currentIndex);
+    }
+  }
+
+  protected addDataPointInRow(
+    sourceDataPoint: SourceDataPoint | null,
+    dataPointRow: DataPointRow | null = null,
+  ) {
+    if (sourceDataPoint) {
+      const dataPoint: DataPoint = new DataPoint(sourceDataPoint.displayName, sourceDataPoint);
+      if (dataPointRow !== null) {
+        dataPointRow.addDataPoint(dataPoint);
+      } else {
+        const dataPointRow: DataPointRow = new DataPointRow();
+        dataPointRow.addDataPoint(dataPoint);
+        this.dataPointRows.push(dataPointRow);
+      }
     }
   }
 }

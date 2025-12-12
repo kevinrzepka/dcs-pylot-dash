@@ -30,12 +30,16 @@ export class DataPointRow {
 
 export class DataPoint {
   displayName: string;
-  sourceFieldName: string;
+  sourceDataPoint: SourceDataPoint;
   outputUnitId: string | null;
 
-  constructor(displayName: string, sourceFieldName: string, outputUnitId: string | null = null) {
+  constructor(
+    displayName: string,
+    sourceDataPoint: SourceDataPoint,
+    outputUnitId: string | null = null,
+  ) {
     this.displayName = displayName;
-    this.sourceFieldName = sourceFieldName;
+    this.sourceDataPoint = sourceDataPoint;
     this.outputUnitId = outputUnitId;
   }
 }

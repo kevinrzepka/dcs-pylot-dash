@@ -39,10 +39,18 @@ License-Filename: LICENSE
               <div class="data-point-drag-placeholder" *cdkDragPlaceholder></div>
             </app-data-point-editor>
           }
-          <p-button icon="pi pi-plus" label="Add Data Point" (click)="addDataPoint(dataPointRow)" />
+          <app-source-data-point-chooser
+            [label]="'Add Data Point'"
+            [clearAfterEmit]="true"
+            (onSourceDataPointChange)="addDataPointInRow($event, dataPointRow)"
+          />
         </div>
       </p-card>
     }
   </div>
-  <p-button icon="pi pi-plus" label="Add Row" (click)="addDataPointRow()" />
+  <app-source-data-point-chooser
+    [label]="'Add Data Point'"
+    [clearAfterEmit]="true"
+    (onSourceDataPointChange)="addDataPointInRow($event)"
+  />
 </div>

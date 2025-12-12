@@ -12,26 +12,10 @@ License-Filename: LICENSE
       </p-iftalabel>
       <p-button icon="pi pi-trash" severity="danger" (click)="deleteDataPoint()" />
     </div>
-    <p-iftalabel>
-      <p-autocomplete
-        inputId="inputSourceDataPoint"
-        [(ngModel)]="sourceDataPoint"
-        [dropdown]="true"
-        [suggestions]="sourceDataPointSuggestions"
-        [forceSelection]="true"
-        (completeMethod)="searchSourceDataPoints($event)"
-        optionLabel="displayName"
-      >
-        <ng-template let-item #item>
-          <div
-            pTooltip="this is some tooltip for {{ item.internalFieldName }}"
-            [style]="{ width: '100%' }"
-          >
-            <span [innerText]="item.displayName"></span>
-          </div>
-        </ng-template>
-      </p-autocomplete>
-      <label for="inputSourceDataPoint">Source Data Point</label>
-    </p-iftalabel>
+    <app-source-data-point-chooser
+      [label]="'Source Data Point'"
+      [initialValue]="dataPoint.sourceDataPoint"
+      (onSourceDataPointChange)="handleSourceDataPointChange($event)"
+    />
   </ng-template>
 </p-card>

@@ -1,0 +1,26 @@
+<!--
+Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
+SPDX-License-Identifier: MIT
+License-Filename: LICENSE
+-->
+<p-iftalabel>
+  <p-autocomplete
+    inputId="inputSourceDataPoint"
+    [formControl]="fcSourceDataPoint"
+    [dropdown]="true"
+    [forceSelection]="true"
+    [suggestions]="sourceDataPointSuggestions"
+    (completeMethod)="searchSourceDataPoints($event)"
+    optionLabel="displayName"
+  >
+    <ng-template let-item #item>
+      <div
+        pTooltip="this is some tooltip for {{ item.internalFieldName }}"
+        [style]="{ width: '100%' }"
+      >
+        <span [innerText]="item.displayName"></span>
+      </div>
+    </ng-template>
+  </p-autocomplete>
+  <label for="inputSourceDataPoint" [innerText]="label"></label>
+</p-iftalabel>
