@@ -50,7 +50,6 @@ body {
 
 app-root {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
   height: 100%;
 }
