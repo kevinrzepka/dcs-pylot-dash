@@ -4,16 +4,17 @@ SPDX-License-Identifier: MIT
 License-Filename: LICENSE
 */
 app-header-toolbar {
+  flex: 1 1 100%;
   align-self: flex-start;
-  width: 100%;
+  width: fit-content;
 }
 
 app-editor-page {
-  margin: auto;
-  flex: 1 1 auto;
-  width: 100%;
+  flex: 1 1 100%;
+  align-self: flex-start;
 }
 
 app-footer-toolbar {
-  width: 100%;
+  flex: 1 1 100%;
+  align-self: flex-end;
 }
