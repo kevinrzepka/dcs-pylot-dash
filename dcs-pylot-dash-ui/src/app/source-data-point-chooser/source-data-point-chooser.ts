@@ -28,6 +28,9 @@ export class SourceDataPointChooser implements OnInit {
   label: string = 'Source Data Point';
 
   @Input()
+  tooltip: string | null = null;
+
+  @Input()
   initialValue: SourceDataPoint | null = null;
 
   @Output()

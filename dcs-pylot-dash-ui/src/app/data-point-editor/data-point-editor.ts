@@ -11,10 +11,11 @@ import { DataPoint, SourceDataPoint } from '../editor-model';
 import { IftaLabel } from 'primeng/iftalabel';
 import { Button } from 'primeng/button';
 import { SourceDataPointChooser } from '../source-data-point-chooser/source-data-point-chooser';
+import { Tooltip } from 'primeng/tooltip';
 
 @Component({
   selector: 'app-data-point-editor',
-  imports: [Card, FormsModule, InputText, IftaLabel, Button, SourceDataPointChooser],
+  imports: [Card, FormsModule, InputText, IftaLabel, Button, SourceDataPointChooser, Tooltip],
   templateUrl: './data-point-editor.html',
   styleUrl: './data-point-editor.css',
 })

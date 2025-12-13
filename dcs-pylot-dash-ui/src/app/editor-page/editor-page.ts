@@ -20,6 +20,7 @@ import {
 } from '@angular/cdk/drag-drop';
 import { SourceDataPointService } from '../source-data-point-service';
 import { SourceDataPointChooser } from '../source-data-point-chooser/source-data-point-chooser';
+import { Tooltip } from 'primeng/tooltip';
 
 @Component({
   selector: 'app-editor-page',
@@ -33,6 +34,7 @@ import { SourceDataPointChooser } from '../source-data-point-chooser/source-data
     CdkDropListGroup,
     CdkDragHandle,
     SourceDataPointChooser,
+    Tooltip,
   ],
   templateUrl: './editor-page.html',
   styleUrl: './editor-page.css',

@@ -11,6 +11,7 @@ License-Filename: LICENSE
     [forceSelection]="true"
     [suggestions]="sourceDataPointSuggestions"
     (completeMethod)="searchSourceDataPoints($event)"
+    [pTooltip]="tooltip ? tooltip : ''"
     optionLabel="displayName"
   >
     <ng-template let-item #item>

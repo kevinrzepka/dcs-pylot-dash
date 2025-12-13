@@ -42,3 +42,7 @@ License-Filename: LICENSE
     margin: 0.5rem;
   }
 }
+
+.add-data-point-row {
+  margin: 1rem;
+}

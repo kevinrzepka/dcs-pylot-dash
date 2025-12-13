@@ -10,10 +10,16 @@ License-Filename: LICENSE
         <label for="inputDisplayName">Display Name</label>
         <input id="inputDisplayName" type="text" pInputText [(ngModel)]="dataPoint.displayName" />
       </p-iftalabel>
-      <p-button icon="pi pi-trash" severity="danger" (click)="deleteDataPoint()" />
+      <p-button
+        icon="pi pi-trash"
+        severity="danger"
+        [pTooltip]="'Remove this data point'"
+        (click)="deleteDataPoint()"
+      />
     </div>
     <app-source-data-point-chooser
       [label]="'Source Data Point'"
+      [tooltip]="'Change the source for this data point'"
       [initialValue]="dataPoint.sourceDataPoint"
       (onSourceDataPointChange)="handleSourceDataPointChange($event)"
     />
