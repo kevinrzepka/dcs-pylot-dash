@@ -81,7 +81,7 @@ export class SourceDataPointChooser implements OnInit {
       this.sourceDataPointSuggestions = next.filter(
         (sourceDataPoint: SourceDataPoint) =>
           sourceDataPoint.displayName.toLowerCase().includes(query.toLowerCase()) ||
-          sourceDataPoint.internalFieldName.toLowerCase().includes(query?.toLowerCase()),
+          sourceDataPoint.internalName.toLowerCase().includes(query?.toLowerCase()),
       );
     });
   }

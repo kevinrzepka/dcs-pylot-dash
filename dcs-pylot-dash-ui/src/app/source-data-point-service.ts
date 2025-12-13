@@ -6,15 +6,55 @@
 import { Injectable } from '@angular/core';
 import { DataPointUnit, SourceDataPoint } from './editor-model';
 import { ReplaySubject } from 'rxjs';
+import { ApiSourceModelService } from './api-source-model-service';
+import { APISourceModel, APIUnit } from './api-model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SourceDataPointService {
   sourceDataPoints: ReplaySubject<SourceDataPoint[]> = new ReplaySubject(1);
+  sourceDataPoints2: ReplaySubject<SourceDataPoint[]> = new ReplaySubject(1);
 
-  constructor() {
+  constructor(private apiService: ApiSourceModelService) {
     this.loadSourceDataPoints();
+    this.loadSourceDataPoints2();
+  }
+
+  loadSourceDataPoints2() {
+    this.apiService.apiSourceModel.subscribe((apiModel: APISourceModel) => {
+      const sourceDataPoints: SourceDataPoint[] = this.buildSourceDataPointsFromAPIModel(apiModel);
+      this.sourceDataPoints2.next(sourceDataPoints);
+    });
+  }
+
+  private buildSourceDataPointsFromAPIModel(apiModel: APISourceModel): SourceDataPoint[] {
+    const apiUnitsById: Map<string, APIUnit> = new Map<string, APIUnit>();
+    for (const apiUnit of apiModel.units) {
+      apiUnitsById.set(apiUnit.unitId, apiUnit);
+    }
+    const sourceDataPoints: SourceDataPoint[] = [];
+    for (const apiField of apiModel.fields) {
+      const defaultApiUnit: APIUnit = apiUnitsById.get(apiField.defaultUnitId)!;
+      const fieldDefaultUnit: DataPointUnit = this.createDataPointUnitFromAPIUnit(defaultApiUnit);
+      const availableUnits: DataPointUnit[] = apiField.availableUnitIds.map((unitId: string) => {
+        const apiUnit: APIUnit = apiUnitsById.get(unitId)!;
+        return this.createDataPointUnitFromAPIUnit(apiUnit);
+      });
+
+      const sourceDataPoint: SourceDataPoint = new SourceDataPoint(
+        apiField.displayName,
+        apiField.internalName,
+        fieldDefaultUnit,
+        availableUnits,
+      );
+      sourceDataPoints.push(sourceDataPoint);
+    }
+    return sourceDataPoints;
+  }
+
+  private createDataPointUnitFromAPIUnit(apiUnit: APIUnit): DataPointUnit {
+    return new DataPointUnit(apiUnit.displayName, apiUnit.unitId, apiUnit.symbol);
   }
 
   loadSourceDataPoints() {

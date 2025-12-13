@@ -106,6 +106,7 @@ https://angular.dev/installation
     - `pnpm list`
     - `pnpm audit`
     - `pnpm outdated`
+- set up dev proxy: https://angular.dev/tools/cli/serve#proxying-to-a-backend-server
 - start: `pnpm start`
 
 ### Set up Prettier

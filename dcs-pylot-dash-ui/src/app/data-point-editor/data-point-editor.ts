@@ -35,7 +35,7 @@ export class DataPointEditor {
   protected handleSourceDataPointChange(sourceDataPoint: SourceDataPoint | null) {
     if (sourceDataPoint) {
       this.dataPoint.sourceDataPoint = sourceDataPoint;
-      this.dataPoint.outputUnitId = sourceDataPoint.defaultUnit.internalName;
+      this.dataPoint.outputUnit = sourceDataPoint.defaultUnit;
     }
   }
 }

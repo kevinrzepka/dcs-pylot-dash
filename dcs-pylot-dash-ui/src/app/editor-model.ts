@@ -31,33 +31,33 @@ export class DataPointRow {
 export class DataPoint {
   displayName: string;
   sourceDataPoint: SourceDataPoint;
-  outputUnitId: string | null;
+  outputUnit: DataPointUnit;
 
   constructor(
     displayName: string,
     sourceDataPoint: SourceDataPoint,
-    outputUnitId: string | null = null,
+    outputUnit: DataPointUnit | null = null,
   ) {
     this.displayName = displayName;
     this.sourceDataPoint = sourceDataPoint;
-    this.outputUnitId = outputUnitId;
+    this.outputUnit = outputUnit ? outputUnit : sourceDataPoint.defaultUnit;
   }
 }
 
 export class SourceDataPoint {
   displayName: string;
-  internalFieldName: string;
+  internalName: string;
   defaultUnit: DataPointUnit;
   availableUnits: DataPointUnit[];
 
   constructor(
     displayName: string,
-    internalFieldName: string,
+    internalName: string,
     defaultUnit: DataPointUnit,
     availableUnits: DataPointUnit[],
   ) {
     this.displayName = displayName;
-    this.internalFieldName = internalFieldName;
+    this.internalName = internalName;
     this.defaultUnit = defaultUnit;
     this.availableUnits = availableUnits;
   }
@@ -65,12 +65,12 @@ export class SourceDataPoint {
 
 export class DataPointUnit {
   displayName: string;
-  internalName: string;
+  unitId: string;
   symbol: string;
 
-  constructor(displayName: string, internalName: string, symbol: string) {
+  constructor(displayName: string, unitId: string, symbol: string) {
     this.displayName = displayName;
-    this.internalName = internalName;
+    this.unitId = unitId;
     this.symbol = symbol;
   }
 }
