@@ -55,6 +55,7 @@ export class SourceDataPointChooser implements OnInit {
           this.lastSelectedSourceDataPoint = value;
           this.onSourceDataPointChange.emit(value);
           if (this.clearAfterEmit) {
+            this.lastSelectedSourceDataPoint = null;
             this.fcSourceDataPoint.setValue(null);
           }
         }

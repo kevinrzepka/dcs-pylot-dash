@@ -30,4 +30,4 @@ repos:
         name: Prettier
         description: Format UI files
         language: node
-        entry: pnpm exec ./dcs-pylot-dash-ui/node_modules/.bin/prettier ./dcs-pylot-dash-ui --write
+        entry: ./dcs-pylot-dash-ui/node_modules/.bin/prettier ./dcs-pylot-dash-ui --write
