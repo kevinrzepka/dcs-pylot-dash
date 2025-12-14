@@ -1,6 +1,6 @@
-#  Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
-#  SPDX-License-Identifier: MIT
-#  License-Filename: LICENSE
+# Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
+# SPDX-License-Identifier: MIT
+# License-Filename: LICENSE
 from pathlib import Path
 
 from sbom_to_oss_attrib.attribution_generator import Attribution, AttributionEntry

@@ -1,3 +1,3 @@
-#  Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
-#  SPDX-License-Identifier: MIT
-#  License-Filename: LICENSE
+# Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
+# SPDX-License-Identifier: MIT
+# License-Filename: LICENSE
