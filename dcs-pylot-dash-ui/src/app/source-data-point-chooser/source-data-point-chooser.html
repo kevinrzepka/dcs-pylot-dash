@@ -15,10 +15,7 @@ License-Filename: LICENSE
     optionLabel="displayName"
   >
     <ng-template let-item #item>
-      <div
-        pTooltip="this is some tooltip for {{ item.internalFieldName }}"
-        [style]="{ width: '100%' }"
-      >
+      <div pTooltip="this is some tooltip for {{ item.internalName }}" [style]="{ width: '100%' }">
         <span [innerText]="item.displayName"></span>
       </div>
     </ng-template>

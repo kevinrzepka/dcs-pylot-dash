@@ -9,7 +9,7 @@ from pydantic import BaseModel
 
 from dcs_pylot_dash.service.dcs_common_data_types import LoReturnType
 from dcs_pylot_dash.service.export_model import ExportModel, Color
-from dcs_pylot_dash.service.resource_provider import ResourceProvider
+from dcs_pylot_dash.utils.resource_provider import ResourceProvider
 
 LOGGER = logging.getLogger(__name__)
 

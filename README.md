@@ -1,23 +1,21 @@
 # TODO
 
 - oss attribution: Add best-effort approach for libraries with odd license file names
-- privacy policy, e.g. from https://foundation.wikimedia.org/wiki/Policy:Privacy_policy#introduction
-- terms of use, e.g from: https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use#introduction
-- ui
+- ui and api:
+    - privacy policy, e.g. from https://foundation.wikimedia.org/wiki/Policy:Privacy_policy#introduction
+    - terms of use, e.g from: https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use#introduction
 - package isoduration: SbomLicenseContainer(license=SbomLicense(name="declared license of 'isoduration'", id=None,
   url=None, acknowledgement='declared', text=SbomLicenseText(content='UNKNOWN', content_type='text/plain',
   encoding=None)))
-- non-affiliation notice
 - warning for generated scripts, e.g., with MIT license
 - uv test instructions for tools
-- fix duplicate log lines
 - add security.txt?
 - add CSP and nonce: https://angular.dev/best-practices/security#content-security-policy
 - https://angular.dev/best-practices/security#enforcing-trusted-types?
-- start "add datapoint" with selection of source field
 - disable swagger ui, docs etc.
 - adjust name
 - copyright, license in generated files
+- include ui libs in sbom and attribution
 
 # About
 

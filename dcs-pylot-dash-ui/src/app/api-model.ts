@@ -4,16 +4,16 @@
  * License-Filename: LICENSE
  */
 export type APIUnit = {
-  displayName: string;
-  unitId: string;
+  display_name: string;
+  unit_id: string;
   symbol: string;
 };
 
 export type APISourceField = {
-  displayName: string;
-  fieldId: string;
-  defaultUnitId: string;
-  availableUnitIds: string[];
+  display_name: string;
+  field_id: string;
+  default_unit_id: string;
+  available_unit_ids: string[];
 };
 
 export type APISourceModel = {

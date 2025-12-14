@@ -10,7 +10,7 @@ from dcs_pylot_dash.service.dcs_model_internal import InternalModel
 from dcs_pylot_dash.service.export_model import ExportModel
 from dcs_pylot_dash.service.html_ui_generator import HtmlUIGenerator, HtmlUiGeneratorSettings, HtmlUIGeneratorOutput
 from dcs_pylot_dash.service.lua_generator import LuaGenerator, LuaGeneratorSettings
-from dcs_pylot_dash.service.resource_provider import ResourceProvider
+from dcs_pylot_dash.utils.resource_provider import ResourceProvider
 
 
 @pytest.fixture

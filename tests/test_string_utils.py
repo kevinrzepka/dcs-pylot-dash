@@ -22,6 +22,6 @@ import pytest
     ],
 )
 def test_first_non_empty(test_input, expected):
-    from dcs_pylot_dash.service.string_utils import StringUtils
+    from dcs_pylot_dash.utils.string_utils import StringUtils
 
     assert StringUtils.first_non_empty(*test_input) == expected

@@ -8,6 +8,8 @@ from typing import Final
 from fastapi import APIRouter
 
 from dcs_pylot_dash.api.api_model import APISourceModel
+from dcs_pylot_dash.service.source_model_service import SourceModelService
+from dcs_pylot_dash.utils.resource_provider import ResourceProvider
 
 
 class APIRoutes:
@@ -20,6 +22,10 @@ class MainRouter:
 
     @classmethod
     async def create_router(cls) -> APIRouter:
+
+        resource_provider: ResourceProvider = ResourceProvider()
+        source_model_service: SourceModelService = SourceModelService(resource_provider)
+
         api_router: APIRouter = APIRouter()
 
         @api_router.get("/")
@@ -28,7 +34,7 @@ class MainRouter:
 
         @api_router.get(APIRoutes.SOURCE_MODEL)
         async def get_source_model() -> APISourceModel:
-            return APISourceModel()
+            return source_model_service.api_source_model
 
         cls.LOGGER.info("MainRouter created")
         return api_router

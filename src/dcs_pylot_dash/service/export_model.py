@@ -9,8 +9,8 @@ from typing import ClassVar, Self
 from pydantic import BaseModel, model_validator
 
 from dcs_pylot_dash.service.dcs_model_internal import InternalModelField
-from dcs_pylot_dash.service.string_utils import StringUtils
 from dcs_pylot_dash.service.units import Unit, UnitLabels
+from dcs_pylot_dash.utils.string_utils import StringUtils
 
 LOGGER = logging.getLogger(__name__)
 

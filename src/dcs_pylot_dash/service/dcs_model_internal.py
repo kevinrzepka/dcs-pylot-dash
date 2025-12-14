@@ -7,8 +7,8 @@ from typing import Self
 
 from dcs_pylot_dash.service.dcs_common_data_types import LoReturnType
 from dcs_pylot_dash.service.dcs_model_external import ExternalModel, ExternalModelField
-from dcs_pylot_dash.service.string_utils import StringUtils
 from dcs_pylot_dash.service.units import Unit
+from dcs_pylot_dash.utils.string_utils import StringUtils
 
 LOGGER = logging.getLogger(__name__)
 
@@ -89,6 +89,10 @@ class InternalModelField:
     @property
     def has_function(self) -> bool:
         return self.lo_function is not None
+
+    @property
+    def is_leaf(self) -> bool:
+        return len(self.fields) == 0 and len(self.list_fields) == 0
 
     def copy_as_instance_from_prototype(self, parent_instance: Self | None = None) -> Self:
         instance: InternalModelField = InternalModelField(
@@ -198,7 +202,7 @@ class InternalModel:
             # must add all children to the fields, if not present
             int_field = prototype_field.copy_as_instance_from_prototype()
 
-        # If it's a list field referencing a prototype, construct an instance of th prototype and assign
+        # If it's a list field referencing a prototype, construct an instance of the prototype and assign
         # its fields to this field. The name of the prototype field becomes transparent in this case.
         if ext_field.is_list_field and ext_field.references_prototype:
             proto_instance: InternalModelField = prototype_field.copy_as_instance_from_prototype(int_field)
@@ -237,3 +241,7 @@ class InternalModel:
         if field is None:
             LOGGER.warning(f"field {dotted_name} not found")
         return field
+
+    @property
+    def leaf_fields(self) -> list[InternalModelField]:
+        return [f for f in self._fields.values() if f.is_leaf]

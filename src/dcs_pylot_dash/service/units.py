@@ -1,6 +1,7 @@
 # Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
 # SPDX-License-Identifier: MIT
 # License-Filename: LICENSE
+import itertools
 import logging
 import math
 from collections import defaultdict
@@ -48,6 +49,26 @@ class UnitLabels:
     }
 
 
+class UnitDisplayNames:
+
+    default: dict[Unit, str] = {
+        Unit.METERS: "meters",
+        Unit.MILES: "nautical miles",
+        Unit.FEET: "feet",
+        Unit.MS: "meters per second",
+        Unit.KMH: "kilometers per hour",
+        Unit.MPH: "miles per hour",
+        Unit.FTS: "feet per second",
+        Unit.KNOTS: "knots",
+        Unit.POUNDS: "pounds",
+        Unit.RADIANS: "radians",
+        Unit.DEGREES: "degrees",
+        Unit.SECONDS: "seconds",
+        Unit.KILOGRAMS: "kilograms",
+        Unit.DELTA_T_S: "delta seconds",
+    }
+
+
 class MissingConverterError(Exception):
     def __init__(self, src: Unit, dst: Unit) -> None:
         super().__init__(f"Missing converter from {src} to {dst}")
@@ -68,6 +89,10 @@ class UnitConverter:
     _factors[Unit.KNOTS][Unit.MPH] = 1.15078
     _factors[Unit.KILOGRAMS][Unit.POUNDS] = 2.20462
     _factors[Unit.RADIANS][Unit.DEGREES] = 180 / math.pi
+
+    @classmethod
+    def get_convertable_units(cls, src: Unit) -> list[Unit]:
+        return list(itertools.chain(cls._factors[src].keys(), [src]))
 
     @classmethod
     def get_conversion_factor(cls, src: Unit, dst: Unit) -> float | None:

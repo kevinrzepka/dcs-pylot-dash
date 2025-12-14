@@ -17,8 +17,8 @@ from dcs_pylot_dash.service.export_model import (
     ExportModelTreeNode,
     HttpServerSettings,
 )
-from dcs_pylot_dash.service.resource_provider import ResourceProvider
 from dcs_pylot_dash.service.units import UnitConverter
+from dcs_pylot_dash.utils.resource_provider import ResourceProvider
 
 LOGGER = logging.getLogger(__name__)
 

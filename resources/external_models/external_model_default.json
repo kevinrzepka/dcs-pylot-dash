@@ -17,40 +17,48 @@
   },
   "fields": {
     "mach": {
+      "display_name": "Mach number",
       "lo_function": "LoGetMachNumber",
       "lo_return_type": "number",
       "unit": "none"
     },
     "airspeed": {
+      "display_name": "Indicated Airspeed",
       "lo_function": "LoGetIndicatedAirSpeed",
       "lo_return_type": "number",
       "unit": "ms"
     },
     "tas": {
+      "display_name": "True Airspeed",
       "lo_function": "LoGetTrueAirSpeed",
       "lo_return_type": "number",
       "unit": "ms"
     },
     "pilot_name": {
+      "display_name": "Pilot Name",
       "lo_function": "LoGetPilotName",
       "lo_return_type": "string"
     },
     "altitude_msl": {
+      "display_name": "Altitude (MSL)",
       "lo_function": "LoGetAltitudeAboveSeaLevel",
       "lo_return_type": "number",
       "unit": "meters"
     },
     "altitude_agl": {
+      "display_name": "Altitude (AGL)",
       "lo_function": "LoGetAltitudeAboveGroundLevel",
       "lo_return_type": "number",
       "unit": "meters"
     },
     "heading": {
+      "display_name": "Heading",
       "lo_function": "LoGetMagneticYaw",
       "lo_return_type": "number",
       "unit": "radians"
     },
     "aoa": {
+      "display_name": "Angle of Attack",
       "lo_function": "LoGetAngleOfAttack",
       "lo_return_type": "number",
       "unit": "radians"
@@ -60,6 +68,7 @@
       "lo_return_type": "table",
       "fields": {
         "fuel_internal": {
+          "display_name": "Fuel (total)",
           "lo_return_type": "number",
           "unit": "pounds",
           "abs_base_value": 12000,
@@ -75,6 +84,7 @@
           "lo_return_type": "table",
           "fields": {
             "shells": {
+              "display_name": "Gun Rounds",
               "lo_return_type": "number"
             }
           }
