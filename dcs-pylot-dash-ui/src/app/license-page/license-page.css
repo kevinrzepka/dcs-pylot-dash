@@ -1,7 +1,9 @@
-<!--
+/*
 Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
 SPDX-License-Identifier: MIT
 License-Filename: LICENSE
--->
-<!--<app-entry-consent></app-entry-consent>-->
-<router-outlet></router-outlet>
+*/
+.license-text {
+  display: block;
+  max-width: 50rem;
+}

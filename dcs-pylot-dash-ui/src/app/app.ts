@@ -4,15 +4,11 @@
  * License-Filename: LICENSE
  */
 import { Component, signal } from '@angular/core';
-import { HeaderToolbar } from './header-toolbar/header-toolbar';
-import { MenuSidebar } from './menu-sidebar/menu-sidebar';
-import { FooterToolbar } from './footer-toolbar/footer-toolbar';
-import { EntryConsent } from './entry-consent/entry-consent';
-import { EditorPage } from './editor-page/editor-page';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [HeaderToolbar, MenuSidebar, FooterToolbar, EntryConsent, EditorPage],
+  imports: [RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

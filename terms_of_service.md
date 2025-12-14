@@ -23,7 +23,7 @@ laws.
 
 ## Privacy Policy
 
-By using our services, you consent to our [Privacy Policy](./privacy_policy.md).
+By using our services, you consent to our Privacy Policy.
 
 ## Non-commercial use only
 
@@ -32,13 +32,13 @@ You may not use this website, including its API and connected infrastructure, fo
 ## Intended use
 
 You may use this website through its graphical web user interface only. Direct usage of the API is not permitted unless
-permissions is explicitly granted.
+permission was explicitly granted by the operator of the API.
 
 ## Refraining from Certain Activities
 
 Certain activities, whether legal or illegal under the applicable law, may be harmful to other users and violate our
 rules, and some activities may also subject you to liability. Therefore, for your own protection and for that of other
-users, you may not engage in such activities on, or otherwise using, our Projects. These activities include:
+users, you may not engage in such activities. These activities include:
 
 ### Violating the Privacy of Others
 

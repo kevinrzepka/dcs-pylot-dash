@@ -18,8 +18,8 @@ import { marked } from 'marked';
 export class NoticesService {
   licenseTxt: ReplaySubject<string> = new ReplaySubject(1);
   thirdPartyLicensesTxt: ReplaySubject<string> = new ReplaySubject(1);
-  termsOfServiceHtml: ReplaySubject<unknown> = new ReplaySubject(1);
-  privacyPolicyHtml: ReplaySubject<unknown> = new ReplaySubject(1);
+  termsOfServiceHtml: ReplaySubject<string> = new ReplaySubject(1);
+  privacyPolicyHtml: ReplaySubject<string> = new ReplaySubject(1);
 
   constructor(private httpClient: HttpClient) {
     this.loadNotices();

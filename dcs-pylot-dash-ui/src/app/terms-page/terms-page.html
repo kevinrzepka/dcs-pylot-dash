@@ -3,5 +3,6 @@ Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
 SPDX-License-Identifier: MIT
 License-Filename: LICENSE
 -->
-<!--<app-entry-consent></app-entry-consent>-->
-<router-outlet></router-outlet>
+<p-card>
+  <div class="tos-content" [innerHTML]="termsOfServiceContent()"></div>
+</p-card>

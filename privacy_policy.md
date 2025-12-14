@@ -8,18 +8,18 @@ All data you actively enter and submit to our services is processed. However, th
 us.
 We specifically ask you to please not enter any personally identifiable information (like your name or email address)
 into our services.
-Please also see our [Terms of Service](terms_of_service.md).
+Please also see our Terms of Service.
 
 ### IP Addresses
 
-By using our services, we automatically receive the IP address of the device (or your proxy server) you are using to
-access the Internet, which could be used to infer your geographical location.
+By using our services, we automatically receive the IP address of the device (or the proxy server) you are using to
+access the Internet, which could be used to infer your approximate geographical location.
 
 ### Browser HTTP request data
 
 Because of how browsers work, we receive some information automatically when you visit our website. This
-information includes the type of device you are using (possibly including unique device identification numbers, for some
-beta versions of our mobile applications), the type and version of your browser, your browser's language preference, the
+information includes the type of device you are using (possibly including unique device identification data), the type
+and version of your browser, your browser's language preference, the
 type and version of your device's operating system, in some cases the name of your internet service provider or mobile
 carrier, the website that referred you to our website, which pages you request and visit, and the date and time
 of each request you make to our services.

@@ -1,0 +1,23 @@
+/*
+Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
+SPDX-License-Identifier: MIT
+License-Filename: LICENSE
+*/
+app-header-toolbar {
+  flex: 0 0 auto;
+}
+
+app-editor-page {
+  flex: auto;
+  display: flex;
+
+  min-width: 0;
+  width: 100%;
+
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+app-footer-toolbar {
+  flex: 0 0 auto;
+}
