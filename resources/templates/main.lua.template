@@ -1,0 +1,120 @@
+--[[
+%copyright%
+]]
+
+local function debug_lua_environment()
+    log.write(%log_prefix%, log.INFO, log.INFO, "=== Lua Environment Debug ===")
+    log.write(%log_prefix%, log.INFO, log.INFO, "Lua version:" .. _VERSION)
+    log.write(%log_prefix%, log.INFO, log.INFO, "Package path:" .. package.path)
+    log.write(%log_prefix%, log.INFO, log.INFO, "Package cpath:" .. package.cpath)
+end
+debug_lua_environment()
+
+-- Add Scripts folder in DCS installation path to lua path, otherwise modules are not found (anymore)
+local dcs_scripts_path = ".\\Scripts"
+package.path = package.path .. ";" .. dcs_scripts_path .. "\\?.lua"
+package.path = package.path .. ";" .. dcs_scripts_path .. "\\?\\init.lua"
+package.cpath = package.cpath .. ";" .. dcs_scripts_path .. "\\?.dll"
+package.cpath = package.cpath .. ";" .. dcs_scripts_path .. "\\lua-?.dll"
+
+debug_lua_environment()
+
+
+local socket = require("socket")
+local JSON = require("json")
+
+-- HTTP Server Configuration
+local server_host = %bind_address%
+local server_port = %bind_port%
+
+-- Global Variables
+local server = nil
+local clients = {}
+
+-- Helper function to safely get data
+local function safe_get(func, default)
+    local success, result = pcall(func)
+    if success and result ~= nil then
+        return result
+    else
+        return default or 0
+    end
+end
+
+-- Initialize HTTP Server
+function LuaExportStart()
+    -- Create TCP server socket
+    server = socket.tcp()
+    if server then
+        server:setoption("reuseaddr", true)
+        server:bind(server_host, server_port)
+        server:listen(%max_connections%)
+        server:settimeout(%socket_timeout%) -- Non-blocking
+        log.write(%log_prefix%, log.INFO, "HTTP Server started on " .. server_host .. ":" .. server_port)
+    else
+        log.write(%log_prefix%, log.ERROR, "Failed to create server socket")
+    end
+end
+
+-- Handle HTTP requests
+local function handle_http_request(client_socket)
+    local request, err = client_socket:receive()
+    if not request then
+        client_socket:close()
+        return
+    end
+
+    -- Simple HTTP GET response
+    local response_body = generate_json_data()
+    local response = "HTTP/1.1 200 OK\r\n" ..
+                    "Content-Type: application/json\r\n" ..
+                    "Access-Control-Allow-Origin: *\r\n" ..
+                    "Access-Control-Allow-Methods: GET, POST, OPTIONS\r\n" ..
+                    "Access-Control-Allow-Headers: Content-Type\r\n" ..
+                    "Content-Length: " .. string.len(response_body) .. "\r\n" ..
+                    "Connection: close\r\n\r\n" ..
+                    response_body
+
+    client_socket:send(response)
+    client_socket:close()
+end
+
+-- Generate JSON data from DCS
+function generate_json_data()
+    local data = {}
+
+    %data_content%
+
+    return JSON:encode(data)
+end
+
+-- Main export function called every frame
+function LuaExportAfterNextFrame()
+    if not server then
+        return
+    end
+
+    -- Accept new connections
+    local client_socket = server:accept()
+    if client_socket then
+        client_socket:settimeout(%socket_timeout%)
+        handle_http_request(client_socket)
+    end
+end
+
+-- Cleanup on mission end
+function LuaExportStop()
+    if server then
+        server:close()
+        server = nil
+        log.write(%log_prefix%, log.INFO, "HTTP Server stopped")
+    end
+
+    -- Close any remaining client connections
+    for i, client in ipairs(clients) do
+        if client then
+            client:close()
+        end
+    end
+    clients = {}
+end

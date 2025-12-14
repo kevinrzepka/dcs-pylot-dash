@@ -3,13 +3,13 @@
 # License-Filename: LICENSE
 import logging
 from enum import StrEnum, auto
-from pathlib import Path
 from typing import ClassVar
 
 from pydantic import BaseModel
 
 from dcs_pylot_dash.service.dcs_common_data_types import LoReturnType
 from dcs_pylot_dash.service.export_model import ExportModel, Color
+from dcs_pylot_dash.service.resource_provider import ResourceProvider
 
 LOGGER = logging.getLogger(__name__)
 
@@ -26,8 +26,8 @@ class HtmlTemplateVar(StrEnum):
     UNIT_MAP_ENTRIES = auto()
     DECIMAL_DIGITS_MAP_ENTRIES = auto()
     POSITION_MAP_ENTRIES = auto()
-    COLORSCALE_MAP_ENTRIES = auto()
-    COLORSCALE_CLASSES_ENTRIES = auto()
+    COLOR_SCALE_MAP_ENTRIES = auto()
+    COLOR_SCALE_CLASSES_ENTRIES = auto()
     APP_TITLE = auto()
     APP_VERSION = auto()
 
@@ -41,9 +41,7 @@ class HtmlUiGeneratorSettings(BaseModel):
     Settings for the HtmlUIGenerator, regardless of a specific export model
     """
 
-    # TODO: fix paths
-    TEMPLATES_DIR_PATH_DEFAULT: ClassVar[Path] = Path(__file__).parent.parent.parent / "resources" / "templates"
-    MAIN_TEMPLATE_PATH_DEFAULT: ClassVar[Path] = TEMPLATES_DIR_PATH_DEFAULT / "template.main.html"
+    MAIN_TEMPLATE_NAME_DEFAULT: ClassVar[str] = "template.main.html"
     TEMPLATE_VAR_DELIMITER_DEFAULT: ClassVar[str] = "%"
     SCRIPT_INDENTATION_DEFAULT: ClassVar[int] = 4
     TITLE_MAP_VAR_NAME_DEFAULT: ClassVar[str] = "titleMap"
@@ -53,7 +51,7 @@ class HtmlUiGeneratorSettings(BaseModel):
     COLOR_SCALE_MAP_VAR_NAME_DEFAULT: ClassVar[str] = "colorScaleMap"
     COLOR_SCALE_CLASSES_VAR_NAME_DEFAULT: ClassVar[str] = "colorScaleClasses"
 
-    main_template_path: Path = MAIN_TEMPLATE_PATH_DEFAULT
+    main_template_name: str = MAIN_TEMPLATE_NAME_DEFAULT
     template_var_delimiter: str = TEMPLATE_VAR_DELIMITER_DEFAULT
     script_indentation: int = SCRIPT_INDENTATION_DEFAULT
     title_map_var_name: str = TITLE_MAP_VAR_NAME_DEFAULT
@@ -70,14 +68,16 @@ class HtmlUIGenerator:
     """
 
     _settings: HtmlUiGeneratorSettings
+    _resource_provider: ResourceProvider
 
-    def __init__(self, settings: HtmlUiGeneratorSettings) -> None:
+    def __init__(self, settings: HtmlUiGeneratorSettings, resource_provider: ResourceProvider) -> None:
         self._settings = settings
+        self._resource_provider = resource_provider
         self._read_template()
 
     def _read_template(self) -> None:
-        LOGGER.info(f"Reading main template from: {self._settings.main_template_path}")
-        self._main_template = self._settings.main_template_path.read_text()
+        LOGGER.info(f"Reading main template: {self._settings.main_template_name}")
+        self._main_template = self._resource_provider.read_template_file(self._settings.main_template_name)
 
     def _add_line(self, content: str, line: str, *, indent_factor: int = 1) -> str:
         return content + "\n" + (self._settings.script_indentation * indent_factor) * " " + line
@@ -114,7 +114,7 @@ class HtmlUIGenerator:
                 content = self._add_line(content, f"{var_name}.set('data.{field.name}', {map_value});")
         return content
 
-    def _create_colorscale_map_entries(self, export_model: ExportModel) -> str:
+    def _create_color_scale_map_entries(self, export_model: ExportModel) -> str:
         var_name: str = self._settings.color_scale_map_var_name
         content: str = ""
         for field in export_model.fields:
@@ -127,7 +127,7 @@ class HtmlUIGenerator:
                     content = self._add_line(content, f"{var_name}.get('data.{field.name}').push({list_entry});")
         return content
 
-    def create_colorscale_classes_entries(self, export_model: ExportModel) -> str:
+    def create_color_scale_classes_entries(self, export_model: ExportModel) -> str:
         var_name: str = self._settings.color_scale_classes_var_name
         content: str = ""
         for c in Color:
@@ -139,8 +139,8 @@ class HtmlUIGenerator:
         unit_map_entries: str = self._create_unit_map_entries(export_model)
         decimal_digits_map_entries: str = self._create_decimal_digits_map_entries(export_model)
         position_map_entries: str = self._create_position_map_entries(export_model)
-        color_scale_map_entries: str = self._create_colorscale_map_entries(export_model)
-        color_scale_classes_entries: str = self.create_colorscale_classes_entries(export_model)
+        color_scale_map_entries: str = self._create_color_scale_map_entries(export_model)
+        color_scale_classes_entries: str = self.create_color_scale_classes_entries(export_model)
 
         html: str = self._main_template
         http_settings = export_model.http_server_settings
@@ -152,8 +152,8 @@ class HtmlUIGenerator:
         html = self._fill(html, HtmlTemplateVar.UNIT_MAP_ENTRIES, unit_map_entries, comment=True)
         html = self._fill(html, HtmlTemplateVar.DECIMAL_DIGITS_MAP_ENTRIES, decimal_digits_map_entries, comment=True)
         html = self._fill(html, HtmlTemplateVar.POSITION_MAP_ENTRIES, position_map_entries, comment=True)
-        html = self._fill(html, HtmlTemplateVar.COLORSCALE_MAP_ENTRIES, color_scale_map_entries, comment=True)
-        html = self._fill(html, HtmlTemplateVar.COLORSCALE_CLASSES_ENTRIES, color_scale_classes_entries, comment=True)
+        html = self._fill(html, HtmlTemplateVar.COLOR_SCALE_MAP_ENTRIES, color_scale_map_entries, comment=True)
+        html = self._fill(html, HtmlTemplateVar.COLOR_SCALE_CLASSES_ENTRIES, color_scale_classes_entries, comment=True)
 
         html = self._fill(
             html,

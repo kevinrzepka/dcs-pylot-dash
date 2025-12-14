@@ -1,0 +1,390 @@
+<!--
+  ~ # SPDX-FileCopyrightText: 2025-present
+  ~ #
+  ~ # SPDX-License-Identifier: MIT
+  -->
+
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PyDCS data exporter</title>
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+        [data-bs-theme=dark] {
+            color-scheme: dark;
+            --bs-body-color: #dee2e6;
+            --bs-body-color-rgb: 222, 226, 230;
+            --bs-body-bg: #212529;
+            --bs-body-bg-rgb: 33, 37, 41;
+            --bs-emphasis-color: #fff;
+            --bs-emphasis-color-rgb: 255, 255, 255;
+            --bs-secondary-color: rgba(222, 226, 230, 0.75);
+            --bs-secondary-color-rgb: 222, 226, 230;
+            --bs-secondary-bg: #343a40;
+            --bs-secondary-bg-rgb: 52, 58, 64;
+            --bs-tertiary-color: rgba(222, 226, 230, 0.5);
+            --bs-tertiary-color-rgb: 222, 226, 230;
+            --bs-tertiary-bg: #2b3035;
+            --bs-tertiary-bg-rgb: 43, 48, 53;
+            --bs-primary-text-emphasis: #6ea8fe;
+            --bs-secondary-text-emphasis: #a7acb1;
+            --bs-success-text-emphasis: #75b798;
+            --bs-info-text-emphasis: #6edff6;
+            --bs-warning-text-emphasis: #ffda6a;
+            --bs-danger-text-emphasis: #ea868f;
+            --bs-light-text-emphasis: #f8f9fa;
+            --bs-dark-text-emphasis: #dee2e6;
+            --bs-primary-bg-subtle: #031633;
+            --bs-secondary-bg-subtle: #161719;
+            --bs-success-bg-subtle: #051b11;
+            --bs-info-bg-subtle: #032830;
+            --bs-warning-bg-subtle: #332701;
+            --bs-danger-bg-subtle: #2c0b0e;
+            --bs-light-bg-subtle: #343a40;
+            --bs-dark-bg-subtle: #1a1d20;
+            --bs-primary-border-subtle: #084298;
+            --bs-secondary-border-subtle: #41464b;
+            --bs-success-border-subtle: #0f5132;
+            --bs-info-border-subtle: #087990;
+            --bs-warning-border-subtle: #997404;
+            --bs-danger-border-subtle: #842029;
+            --bs-light-border-subtle: #495057;
+            --bs-dark-border-subtle: #343a40;
+            --bs-heading-color: inherit;
+            --bs-link-color: #6ea8fe;
+            --bs-link-hover-color: #8bb9fe;
+            --bs-link-color-rgb: 110, 168, 254;
+            --bs-link-hover-color-rgb: 139, 185, 254;
+            --bs-code-color: #e685b5;
+            --bs-highlight-color: #dee2e6;
+            --bs-highlight-bg: #664d03;
+            --bs-border-color: #495057;
+            --bs-border-color-translucent: rgba(255, 255, 255, 0.15);
+            --bs-form-valid-color: #75b798;
+            --bs-form-valid-border-color: #75b798;
+            --bs-form-invalid-color: #ea868f;
+            --bs-form-invalid-border-color: #ea868f;
+        }
+
+        body {
+            font-family: 'Roboto Mono', monospace;
+            background: radial-gradient(circle at 20% 80%, rgba(0, 255, 0, 0.05) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(0, 221, 255, 0.05) 0%, transparent 50%),
+            #0a0a0a;
+        }
+
+        .card-title, .card-subtitle {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .data-value {
+            font-size: 3rem;
+            font-weight: bold;
+            font-family: 'Roboto Mono', monospace;
+            letter-spacing: 0.2rem;
+        }
+
+        .data-unit {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body data-bs-theme="dark">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+<div id="root-container" class="container-fluid py-4">
+    <div class="row" id="row-header">
+        <h2 id="appTitle" class="text-center text-secondary data-value">PyDCS Data Exporter</h2>
+    </div>
+
+    <div class="row g-4 m-2" id="row-default">
+    </div>
+</div>
+
+<script>
+    const dataHost = 'http://%bind_address%';
+    const dataPort = '%bind_port%';
+    const dataUrl = `${dataHost}:${dataPort}`;
+
+    const appTitle = '%app_title%';
+    const appVersion = '%app_version%';
+    document.title = `${appTitle} v${appVersion}`;
+    document.getElementById('appTitle').innerText = `${appTitle} v${appVersion}`;
+
+    const ID_ROOT_CONTAINER = 'root-container';
+    const ID_ROW_DEFAULT = 'row-default';
+    const ID_ROW_HEADER = 'row-header';
+
+    /**
+     *
+     * @type {Map<any, any>}
+     */
+    const titleMap = new Map();
+    //%title_map_entries%
+
+    /**
+     * For fields without a unit, this map should contain an entry with value ''
+     * @type {Map<any, any>}
+     */
+    const unitMap = new Map();
+    //%unit_map_entries%
+
+    /**
+     * Key: Dotted field name. Value: Number of fractional digits
+     *
+     * @type {Map<any, any>}
+     */
+    const decimalDigitsMap = new Map();
+    //%decimal_digits_map_entries%
+
+    const positionMap = new Map();
+    //%position_map_entries%
+
+    /**
+     * Key: Dotted field name. Value: Array of: {min: number, max: number, color: string}
+     * @type {Map<any, any>}
+     */
+    const colorscaleMap = new Map();
+    //%colorscale_map_entries%
+
+    const colorscaleClasses = [];
+    //%colorscale_classes_entries%
+
+    let busy = false;
+
+    async function fetchData() {
+        let data = null;
+        const response = await fetch(dataUrl);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        data = await response.json();
+        return data;
+    }
+
+    async function updateData() {
+        if (busy) {
+            return;
+        }
+        busy = true;
+        try {
+            const data = await fetchData();
+            processData(data);
+        } catch (e) {
+            console.error(e);
+        } finally {
+            busy = false;
+        }
+    }
+
+    function createContainer(id, title) {
+        const container = document.createElement('div');
+        container.classList.add('col', 'col-md-6', 'col-lg-4', 'col-xl-3');
+        const card = document.createElement('div');
+        card.classList.add('card', 'h-100');
+        const cardBody = document.createElement('div');
+        cardBody.classList.add('card-body', 'text-center');
+        const cardTitle = document.createElement('h4');
+        cardTitle.classList.add('card-title', 'mb-2', 'text-body-secondary', 'text-uppercase');
+        cardTitle.innerText = title;
+        const cardValue = document.createElement('div');
+        cardValue.classList.add('data-value', 'text-success', 'mb-1');
+        cardValue.id = id;
+        const cardUnit = document.createElement('small');
+        cardUnit.classList.add('data-unit', 'text-body-secondary');
+        cardUnit.innerText = getContainerUnit(id);
+
+        container.appendChild(card);
+        card.appendChild(cardBody);
+        cardBody.appendChild(cardTitle);
+        cardBody.appendChild(cardValue);
+        cardBody.appendChild(cardUnit);
+        return container
+    }
+
+    function createRow(id) {
+        const row = document.createElement('div');
+        row.id = id;
+        row.classList.add('row', 'g-4', 'm-2');
+        // const separator = document.createElement('hr');
+        // separator.classList.add('m-1');
+        // row.appendChild(separator);
+        return row;
+    }
+
+    function getContainerName(id) {
+        const plainId = getIdWithoutIndices(id);
+        return titleMap.has(plainId) ? titleMap.get(plainId) : id;
+    }
+
+    function getContainerUnit(id) {
+        const plainId = getIdWithoutIndices(id);
+        return unitMap.has(plainId) ? unitMap.get(plainId) : 'N/A';
+    }
+
+    function getIdWithoutIndices(id) {
+        const resultChunks = [];
+        const chunks = id.split('.')
+        for (const c of chunks) {
+            if (!/^\d+$/.test(c)) {
+                resultChunks.push(c);
+            }
+        }
+        return resultChunks.join('.');
+    }
+
+    function elementExists(id) {
+        return document.getElementById(id) !== null;
+    }
+
+    function appendToElement(elementId, child) {
+        const element = document.getElementById(elementId);
+        element.appendChild(child);
+    }
+
+    function createCard(fullName) {
+        const title = getContainerName(fullName);
+        return createContainer(fullName, title);
+    }
+
+    function createRowAndAppendToElement(parentFullName, rowId) {
+        const row = createRow(rowId);
+        appendToElement(parentFullName, row);
+        return row;
+    }
+
+    function ensureDataRowsExistUpTo(row) {
+        const rootContainer = document.getElementById(ID_ROOT_CONTAINER);
+        const defaultRowElement = document.getElementById(ID_ROW_DEFAULT);
+        let rowElement = null;
+        for (let i = 0; i <= row; i++) {
+            const rowId = `row-${i}`;
+            if (!elementExists(rowId)) {
+                rowElement = createRow(rowId);
+                rootContainer.insertBefore(rowElement, defaultRowElement);
+            } else {
+                rowElement = document.getElementById(rowId);
+            }
+        }
+        return rowElement;
+    }
+
+    function isEmpty(value) {
+        if (value === null || value === undefined) {
+            return true;
+        }
+        if (value instanceof Array) {
+            return value.length === 0;
+        }
+        if (value instanceof String) {
+            return value.length === 0;
+        }
+        return false;
+    }
+
+    function getColorscaleColor(fieldName, fieldValue) {
+        if (!colorscaleMap.has(fieldName)) {
+            return null;
+        }
+        if (fieldValue === null || fieldValue === undefined || !fieldValue instanceof Number) {
+            console.warn(`Field value ${fieldValue} is not a valid colorscale value for field ${fieldName}`);
+            return null;
+        }
+        const colorscale = colorscaleMap.get(fieldName);
+        for (const entry of colorscale) {
+            const min = entry.min;
+            const max = entry.max;
+            if (isEmpty(min) && fieldValue < max) {
+                return entry.color;
+            } else if (isEmpty(max) && fieldValue >= min) {
+                return entry.color;
+            } else if (!isEmpty(min) && !isEmpty(max) && fieldValue >= min && fieldValue < max) {
+                return entry.color;
+            }
+        }
+        return colorscale[0].color;
+    }
+
+    function processData(data) {
+        processDataNode(data, null, 'data', ID_ROW_DEFAULT);
+        // for (let [key, value] of Object.entries(data)) {
+        //     processDataNode(value, 'data', key, ID_ROW_DEFAULT);
+        // }
+    }
+
+    function processDataNode(node, parentFullName, localName, appendToElementId) {
+        let fullName = `${localName}`;
+        if (!isEmpty(parentFullName)) {
+            fullName = `${parentFullName}.${fullName}`;
+        }
+        for (let [key, value] of Object.entries(node)) {
+            if (value instanceof Array) {
+                const arrayFullName = `${fullName}.${key}`;
+                for (let i = 0; i < value.length; i++) {
+                    const rowId = `${arrayFullName}.${i}`;
+                    if (!elementExists(rowId)) {
+                        createRowAndAppendToElement(appendToElementId, rowId);
+                    }
+                    processDataNode(value[i], arrayFullName, i, rowId);
+                }
+            } else if (typeof value === 'object') {
+                processDataNode(value, fullName, key, appendToElementId);
+            } else {
+                const leafFullName = `${fullName}.${key}`;
+                if (!elementExists(leafFullName)) {
+                    let row = document.getElementById(ID_ROW_DEFAULT);
+                    const card = createCard(leafFullName);
+                    if (positionMap.has(leafFullName)) {
+                        const position = positionMap.get(leafFullName);
+                        row = ensureDataRowsExistUpTo(position[0])
+                        if (row.childElementCount > position[1]) {
+                            const child = row.children[position[1]];
+                            row.insertBefore(card, child);
+                        } else {
+                            appendToElement(row.id, card)
+                        }
+                    } else {
+                        appendToElement(row.id, card);
+                    }
+                }
+                const element = document.getElementById(leafFullName);
+                if (element) {
+                    let finalValue = value;
+                    if (decimalDigitsMap.has(leafFullName)) {
+                        finalValue = value.toFixed(decimalDigitsMap.get(leafFullName));
+                    }
+                    element.innerText = `${finalValue}`;
+                    const color = getColorscaleColor(leafFullName, finalValue);
+                    colorscaleClasses.forEach(c => element.classList.remove(c));
+                    let colorClassName = 'text-body-primary';
+                    if (!isEmpty(color)) {
+                        colorClassName = `text-${color}`;
+                    }
+                    element.classList.add(colorClassName);
+                } else {
+                    console.warn(`Element with id ${fullName} not found`);
+                }
+            }
+        }
+    }
+
+
+    //%set_interval_call%;
+
+</script>
+
+</body>
+</html>

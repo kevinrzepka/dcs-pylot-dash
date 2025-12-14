@@ -17,6 +17,7 @@
 - start "add datapoint" with selection of source field
 - disable swagger ui, docs etc.
 - adjust name
+- copyright, license in generated files
 
 # About
 

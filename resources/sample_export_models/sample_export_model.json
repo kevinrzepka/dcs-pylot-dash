@@ -1,0 +1,101 @@
+{
+  "fields": [
+    {
+      "name": "ias.kts",
+      "internal_field_name": "airspeed",
+      "output_unit_override": "knots",
+      "display_name_override": "Airspeed",
+      "row": 0,
+      "col": 0,
+      "color_scale": [
+        {
+          "max": 400,
+          "color": "danger"
+        },
+        {
+          "min": 400,
+          "max": 420,
+          "color": "warning"
+        },
+        {
+          "min": 420,
+          "max": 460,
+          "color": "success"
+        },
+        {
+          "min": 460,
+          "color": "info"
+        }
+      ]
+    },
+    {
+      "name": "mach",
+      "internal_field_name": "mach",
+      "display_name_override": "Mach number",
+      "decimal_digits": 2,
+      "row": 0,
+      "col": 1
+    },
+    {
+      "name": "tas.kts",
+      "internal_field_name": "tas",
+      "output_unit_override": "knots",
+      "display_name_override": "True airspeed",
+      "row": 0,
+      "col": 2
+    },
+    {
+      "name": "heading.degrees",
+      "internal_field_name": "heading",
+      "output_unit_override": "degrees",
+      "display_name_override": "Heading (Degrees)",
+      "row": 1,
+      "col": 0
+    },
+    {
+      "name": "altitude.msl.ft",
+      "internal_field_name": "altitude_msl",
+      "output_unit_override": "feet",
+      "display_name_override": "Altitude (MSL)",
+      "row": 1,
+      "col": 1
+    },
+    {
+      "name": "altitude.agl.ft",
+      "internal_field_name": "altitude_agl",
+      "output_unit_override": "feet",
+      "display_name_override": "Altitude (AGL)",
+      "row": 1,
+      "col": 2
+    },
+    {
+      "name": "fuel.internal.lbs",
+      "internal_field_name": "engine_info.fuel_internal",
+      "display_name_override": "Fuel (total)",
+      "row": 3,
+      "col": 0,
+      "color_scale": [
+        {
+          "max": 2000,
+          "color": "danger"
+        },
+        {
+          "min": 2000,
+          "max": 4000,
+          "color": "warning"
+        },
+        {
+          "min": 4000,
+          "color": "success"
+        }
+      ]
+    },
+    {
+      "name": "arms.gun_rounds",
+      "display_name_override": "Gun rounds",
+      "internal_field_name": "payload_info.Cannon.shells",
+      "row": 4,
+      "col": 0
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "field_prototypes": {
+    "station": {
+      "lo_return_type": "table",
+      "fields": {
+        "CLSID": {
+          "lo_return_type": "string"
+        },
+        "container": {
+          "lo_return_type": "boolean"
+        },
+        "count": {
+          "lo_return_type": "number"
+        }
+      }
+    }
+  },
+  "fields": {
+    "mach": {
+      "lo_function": "LoGetMachNumber",
+      "lo_return_type": "number",
+      "unit": "none"
+    },
+    "airspeed": {
+      "lo_function": "LoGetIndicatedAirSpeed",
+      "lo_return_type": "number",
+      "unit": "ms"
+    },
+    "tas": {
+      "lo_function": "LoGetTrueAirSpeed",
+      "lo_return_type": "number",
+      "unit": "ms"
+    },
+    "pilot_name": {
+      "lo_function": "LoGetPilotName",
+      "lo_return_type": "string"
+    },
+    "altitude_msl": {
+      "lo_function": "LoGetAltitudeAboveSeaLevel",
+      "lo_return_type": "number",
+      "unit": "meters"
+    },
+    "altitude_agl": {
+      "lo_function": "LoGetAltitudeAboveGroundLevel",
+      "lo_return_type": "number",
+      "unit": "meters"
+    },
+    "heading": {
+      "lo_function": "LoGetMagneticYaw",
+      "lo_return_type": "number",
+      "unit": "radians"
+    },
+    "aoa": {
+      "lo_function": "LoGetAngleOfAttack",
+      "lo_return_type": "number",
+      "unit": "radians"
+    },
+    "engine_info": {
+      "lo_function": "LoGetEngineInfo",
+      "lo_return_type": "table",
+      "fields": {
+        "fuel_internal": {
+          "lo_return_type": "number",
+          "unit": "pounds",
+          "abs_base_value": 12000,
+          "is_portion": true
+        }
+      }
+    },
+    "payload_info": {
+      "lo_function": "LoGetPayloadInfo",
+      "lo_return_type": "table",
+      "fields": {
+        "Cannon": {
+          "lo_return_type": "table",
+          "fields": {
+            "shells": {
+              "lo_return_type": "number"
+            }
+          }
+        },
+        "Stations": {
+          "lo_return_type": "list",
+          "prototype_ref": "station"
+        }
+      }
+    }
+  }
+}

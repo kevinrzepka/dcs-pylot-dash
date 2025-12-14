@@ -3,7 +3,6 @@
 # License-Filename: LICENSE
 import logging
 from enum import StrEnum, auto
-from pathlib import Path
 from typing import ClassVar, Any
 
 from pydantic import BaseModel
@@ -18,6 +17,7 @@ from dcs_pylot_dash.service.export_model import (
     ExportModelTreeNode,
     HttpServerSettings,
 )
+from dcs_pylot_dash.service.resource_provider import ResourceProvider
 from dcs_pylot_dash.service.units import UnitConverter
 
 LOGGER = logging.getLogger(__name__)
@@ -38,18 +38,18 @@ class LuaGeneratorSettings(BaseModel):
     Internal settings for the LuaGenerator
     """
 
-    TEMPLATES_DIR_PATH_DEFAULT: ClassVar[Path] = Path(__file__).parent.parent.parent / "resources" / "templates"
-    MAIN_TEMPLATE_PATH_DEFAULT: ClassVar[Path] = TEMPLATES_DIR_PATH_DEFAULT / "main.lua.template"
-    EXPORT_TEMPLATE_PATH_DEFAULT: ClassVar[Path] = TEMPLATES_DIR_PATH_DEFAULT / "export.lua.template"
+    MAIN_TEMPLATE_NAME_DEFAULT: ClassVar[str] = "main.lua.template"
+    EXPORT_TEMPLATE_NAME_DEFAULT: ClassVar[str] = "export.lua.template"
     TEMPLATE_VAR_DELIMITER_DEFAULT: ClassVar[str] = "%"
 
-    main_template_path: Path = MAIN_TEMPLATE_PATH_DEFAULT
-    export_template_path: Path = EXPORT_TEMPLATE_PATH_DEFAULT
+    main_template_name: str = MAIN_TEMPLATE_NAME_DEFAULT
+    export_template_name: str = EXPORT_TEMPLATE_NAME_DEFAULT
     template_var_delimiter: str = TEMPLATE_VAR_DELIMITER_DEFAULT
 
 
 class LuaGenerator:
     _settings: LuaGeneratorSettings
+    _resource_provider: ResourceProvider
     _main_template: str
     _export_template: str
 
@@ -63,15 +63,16 @@ class LuaGenerator:
         LoReturnType.LIST: "{}",
     }
 
-    def __init__(self, settings: LuaGeneratorSettings) -> None:
+    def __init__(self, settings: LuaGeneratorSettings, resource_provider: ResourceProvider) -> None:
         self._settings = settings
+        self._resource_provider = resource_provider
         self._read_templates()
 
     def _read_templates(self) -> None:
-        LOGGER.info(f"Reading main template from: {self._settings.main_template_path}")
-        self._main_template = self._settings.main_template_path.read_text()
-        LOGGER.info(f"Reading export template from: {self._settings.main_template_path}")
-        self._export_template = self._settings.export_template_path.read_text()
+        LOGGER.info(f"Reading main template: {self._settings.main_template_name}")
+        self._main_template = self._resource_provider.read_template_file(self._settings.main_template_name)
+        LOGGER.info(f"Reading export template: {self._settings.main_template_name}")
+        self._export_template = self._resource_provider.read_template_file(self._settings.export_template_name)
 
     def _fill(self, template: str, template_var: LuaTemplateVar, value: str) -> str:
         delimiter = self._settings.template_var_delimiter
