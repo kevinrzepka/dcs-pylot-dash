@@ -11,7 +11,7 @@ export type APIUnit = {
 
 export type APISourceField = {
   displayName: string;
-  internalName: string;
+  fieldId: string;
   defaultUnitId: string;
   availableUnitIds: string[];
 };

@@ -44,7 +44,7 @@ export class SourceDataPointService {
 
       const sourceDataPoint: SourceDataPoint = new SourceDataPoint(
         apiField.displayName,
-        apiField.internalName,
+        apiField.fieldId,
         fieldDefaultUnit,
         availableUnits,
       );
