@@ -5,12 +5,16 @@
  */
 import { Component } from '@angular/core';
 import { Toolbar } from 'primeng/toolbar';
-import { Button } from 'primeng/button';
+import { RouterLink } from '@angular/router';
+import { AppRoutes } from '../app.routes';
+import { Card } from 'primeng/card';
 
 @Component({
   selector: 'app-footer-toolbar',
-  imports: [Toolbar, Button],
+  imports: [Toolbar, RouterLink, Card],
   templateUrl: './footer-toolbar.html',
   styleUrl: './footer-toolbar.css',
 })
-export class FooterToolbar {}
+export class FooterToolbar {
+  protected appRoutes = AppRoutes;
+}

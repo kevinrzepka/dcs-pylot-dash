@@ -5,11 +5,13 @@ License-Filename: LICENSE
 -->
 <p-toolbar>
   <!--  start and end must be there, otherwise the footer is not centered-->
-  <ng-template #start> </ng-template>
+  <ng-template #start></ng-template>
   <ng-template #center>
-    <p-button link label="Terms of Service" />
-    <p-button link label="Privacy Policy" />
-    <p-button link label="Third-party Licenses" />
+    <div class="footer-links">
+      <a [routerLink]="appRoutes.PRIVACY_POLICY" target="_blank">Privacy Policy</a>
+      <a [routerLink]="appRoutes.TERMS_OF_SERVICE" target="_blank">Terms of Service</a>
+      <a [routerLink]="appRoutes.THIRD_PARTY_LICENSES" target="_blank">Third-party Licenses</a>
+    </div>
   </ng-template>
-  <ng-template #end> </ng-template>
+  <ng-template #end></ng-template>
 </p-toolbar>
