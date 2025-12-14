@@ -20,3 +20,10 @@ export type APISourceModel = {
   units: APIUnit[];
   fields: APISourceField[];
 };
+
+export type APINotices = {
+  third_party_licenses_txt: string;
+  license_txt: string;
+  privacy_policy_md: string;
+  terms_of_service_md: string;
+};

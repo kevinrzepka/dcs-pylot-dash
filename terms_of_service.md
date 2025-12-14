@@ -29,6 +29,11 @@ By using our services, you consent to our [Privacy Policy](./privacy_policy.md).
 
 You may not use this website, including its API and connected infrastructure, for commercial purposes.
 
+## Intended use
+
+You may use this website through its graphical web user interface only. Direct usage of the API is not permitted unless
+permissions is explicitly granted.
+
 ## Refraining from Certain Activities
 
 Certain activities, whether legal or illegal under the applicable law, may be harmful to other users and violate our

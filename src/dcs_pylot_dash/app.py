@@ -3,17 +3,13 @@
 # License-Filename: LICENSE
 import logging
 from logging import Logger
+from pathlib import Path
 from typing import Final
 
 from fastapi import FastAPI
-from pydantic_settings import BaseSettings
 
 from dcs_pylot_dash.api.main_router import MainRouter
-
-
-class DCSPylotDashAppSettings(BaseSettings):
-    app_name: str = "DCSPylotDashAPI"
-    app_version: str = "v1.0.0"
+from dcs_pylot_dash.app_settings import DCSPylotDashAppSettings, DCSPylotDashAppMetaSettings
 
 
 class DcsPylotDash:
@@ -22,8 +18,18 @@ class DcsPylotDash:
 
     @staticmethod
     async def create_app() -> FastAPI:
-        app_settings: DCSPylotDashAppSettings = DCSPylotDashAppSettings()
+        env_settings_file_path_str: str | None = None
+        meta_settings: DCSPylotDashAppMetaSettings = DCSPylotDashAppMetaSettings()
+        if meta_settings.settings_file_path is not None:
+            env_settings_file_path: Path = Path(meta_settings.settings_file_path).resolve(strict=True)
+            env_settings_file_path_str = str(env_settings_file_path.absolute())
+            DcsPylotDash.LOGGER.info(f"Loading settings from: {env_settings_file_path}")
+        app_settings: DCSPylotDashAppSettings = DCSPylotDashAppSettings(
+            settings_file_path=env_settings_file_path_str, _env_file=env_settings_file_path_str
+        )
+        DcsPylotDash.LOGGER.info(f"App settings: {app_settings}")
+
         fast_api: FastAPI = FastAPI(title=app_settings.app_name, version=app_settings.app_version)
-        fast_api.include_router(await MainRouter.create_router(), prefix="/api/v1")
+        fast_api.include_router(await MainRouter.create_router(app_settings), prefix="/api/v1")
         DcsPylotDash.LOGGER.info(f"mounted routes: {fast_api.routes}")
         return fast_api

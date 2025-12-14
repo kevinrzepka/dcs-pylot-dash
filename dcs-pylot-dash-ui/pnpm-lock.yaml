@@ -31,6 +31,12 @@ importers:
       '@primeuix/themes':
         specifier: 2.0.2
         version: 2.0.2
+      dompurify:
+        specifier: 3.3.0
+        version: 3.3.0
+      marked:
+        specifier: 17.0.1
+        version: 17.0.1
       primeicons:
         specifier: 7.0.0
         version: 7.0.0
@@ -2186,6 +2192,12 @@ packages:
         integrity: sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w==,
       }
 
+  '@types/trusted-types@2.0.7':
+    resolution:
+      {
+        integrity: sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==,
+      }
+
   '@vitejs/plugin-basic-ssl@2.1.0':
     resolution:
       {
@@ -2575,6 +2587,12 @@ packages:
         integrity: sha512-cgwlv/1iFQiFnU96XXgROh8xTeetsnJiDsTc7TYCLFd9+/WNkIqPTxiM/8pSd8VIrhXGTf1Ny1q1hquVqDJB5w==,
       }
     engines: { node: '>= 4' }
+
+  dompurify@3.3.0:
+    resolution:
+      {
+        integrity: sha512-r+f6MYR1gGN1eJv0TVQbhA7if/U7P87cdPl3HN5rikqaBSBxLiCb/b9O+2eG0cxz0ghyU+mU1QkbsOwERMYlWQ==,
+      }
 
   domutils@3.2.2:
     resolution:
@@ -3211,6 +3229,14 @@ packages:
         integrity: sha512-iyyEpDty1mwW3dGlYXAJqC/azFn5PPvgKVwXayOGBSmKLxhKZ9fg4qIan2ePpp1vJIwfFiO34LAPZgq9SZW9Aw==,
       }
     engines: { node: ^20.17.0 || >=22.9.0 }
+
+  marked@17.0.1:
+    resolution:
+      {
+        integrity: sha512-boeBdiS0ghpWcSwoNm/jJBwdpFaMnZWRzjA6SkUMYb40SVaN1x7mmfGKp0jvexGcx+7y2La5zRZsYFZI6Qpypg==,
+      }
+    engines: { node: '>= 20' }
+    hasBin: true
 
   math-intrinsics@1.1.0:
     resolution:
@@ -5461,6 +5487,9 @@ snapshots:
 
   '@types/estree@1.0.8': {}
 
+  '@types/trusted-types@2.0.7':
+    optional: true
+
   '@vitejs/plugin-basic-ssl@2.1.0(vite@7.2.2(sass@1.93.2))':
     dependencies:
       vite: 7.2.2(sass@1.93.2)
@@ -5689,6 +5718,10 @@ snapshots:
   domhandler@5.0.3:
     dependencies:
       domelementtype: 2.3.0
+
+  dompurify@3.3.0:
+    optionalDependencies:
+      '@types/trusted-types': 2.0.7
 
   domutils@3.2.2:
     dependencies:
@@ -6110,6 +6143,8 @@ snapshots:
       ssri: 13.0.0
     transitivePeerDependencies:
       - supports-color
+
+  marked@17.0.1: {}
 
   math-intrinsics@1.1.0: {}
 
