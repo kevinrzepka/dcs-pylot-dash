@@ -16,7 +16,7 @@
 - input validation
     - test
 - copy resources to docker image
-- option to remove versions in attribution (default)
+- add version and build data to API and UI
 
 # About
 

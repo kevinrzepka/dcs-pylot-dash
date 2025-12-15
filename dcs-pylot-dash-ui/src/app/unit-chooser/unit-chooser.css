@@ -1,0 +1,22 @@
+/*
+Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
+SPDX-License-Identifier: MIT
+License-Filename: LICENSE
+*/
+p-select {
+  width: 100%;
+}
+
+.unit-container {
+  display: flex;
+  width: 100%;
+
+  .symbol {
+    flex: auto;
+  }
+
+  .name {
+    align-self: flex-end;
+    color: var(--p-secondary-color);
+  }
+}

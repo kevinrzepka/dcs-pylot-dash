@@ -42,6 +42,10 @@ export class DataPoint {
     this.sourceDataPoint = sourceDataPoint;
     this.outputUnit = outputUnit ? outputUnit : sourceDataPoint.defaultUnit;
   }
+
+  public setOutputUnit(unit: DataPointUnit) {
+    this.outputUnit = unit;
+  }
 }
 
 export class SourceDataPoint {

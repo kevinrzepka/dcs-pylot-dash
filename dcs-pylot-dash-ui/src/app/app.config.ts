@@ -53,6 +53,6 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
-    providePrimeNG(themeAura),
+    providePrimeNG(themeNora),
   ],
 };

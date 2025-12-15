@@ -1,0 +1,30 @@
+<!--
+Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
+SPDX-License-Identifier: MIT
+License-Filename: LICENSE
+-->
+<p-iftalabel class="w-full md:w-56">
+  <p-select
+    inputId="unit-select"
+    [options]="availableUnits"
+    [formControl]="fcChosenUnit"
+    [filter]="true"
+    filterBy="name,symbol"
+    [showClear]="false"
+    [required]="true"
+  >
+    <ng-template let-selectedUnit #selectedItem>
+      <div class="unit-container">
+        <span class="symbol">{{ selectedUnit.symbol }}</span>
+        <span class="name">({{ selectedUnit.displayName }})</span>
+      </div>
+    </ng-template>
+    <ng-template let-availableUnit #item>
+      <div class="unit-container">
+        <span class="symbol">{{ availableUnit.symbol }}</span>
+        <span class="name">({{ availableUnit.displayName }})</span>
+      </div>
+    </ng-template>
+  </p-select>
+  <label for="unit-select">Unit</label>
+</p-iftalabel>

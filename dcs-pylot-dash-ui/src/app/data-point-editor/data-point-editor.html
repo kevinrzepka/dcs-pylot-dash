@@ -23,5 +23,6 @@ License-Filename: LICENSE
       [initialValue]="dataPoint.sourceDataPoint"
       (onSourceDataPointChange)="handleSourceDataPointChange($event)"
     />
+    <app-unit-chooser [dataPoint]="dataPoint" (onUnitChange)="handleUnitChange($event)" />
   </ng-template>
 </p-card>
