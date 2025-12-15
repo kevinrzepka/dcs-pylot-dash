@@ -4,6 +4,7 @@
 from pathlib import Path
 
 from sbom_to_oss_attrib.attribution_generator import Attribution, AttributionEntry
+from sbom_to_oss_attrib.utils import StringUtils
 
 
 class AttributionTextFileBuilder:
@@ -32,14 +33,14 @@ class AttributionTextFileBuilder:
         return text
 
     def generate_text_for_entry(self, entry: AttributionEntry) -> str:
-        text: str = f"{self.SEPARATOR_CHAR * self.SEPARATOR_LENGTH}\n" f"Name:                       {entry.name}\n"
-        if self._output_versions:
+        text: str = f"\n{self.SEPARATOR_CHAR * self.SEPARATOR_LENGTH}\n"
+        text += f"Name:                       {entry.name}\n" f"SPDX-License-Identifier:    {entry.license_id}\n"
+        if self._output_versions and StringUtils.is_not_empty(entry.version):
             text += f"Version:                    {entry.version}\n"
-        text += (
-            f"Homepage:                   {entry.homepage}\n"
-            f"SPDX-License-Identifier:    {entry.license_id}\n"
-            "License text:\n"
-            "\n"
-            f"{entry.license_text}\n\n\n"
-        )
+        if StringUtils.is_not_empty(entry.homepage):
+            text += f"Homepage:                   {entry.homepage}\n"
+        if StringUtils.is_not_empty(entry.authors):
+            text += f"Authors:                    {entry.authors}\n"
+        if StringUtils.is_not_empty(entry.license_text):
+            text += "License text:\n" "\n" f"{entry.license_text}\n\n"
         return text

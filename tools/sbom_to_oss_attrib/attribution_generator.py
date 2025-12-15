@@ -7,11 +7,14 @@ from http import HTTPStatus
 from pathlib import Path
 from typing import Any, Final
 
-from httpx import AsyncClient, Response
+from httpx import AsyncClient, Response, HTTPStatusError
 from pydantic import BaseModel
 
-from sbom_to_oss_attrib.cyclonedx_sbom import Sbom, SbomComponent
-from sbom_to_oss_attrib.github_api import GetLicenseResponse, GetLicenseResponseCache
+from sbom_to_oss_attrib.cyclonedx_sbom import SBOM, SBOMComponent
+from sbom_to_oss_attrib.github_api import (
+    GetLicenseResponse,
+    GetLicenseResponseCache,
+)
 from sbom_to_oss_attrib.utils import StringUtils
 
 
@@ -22,6 +25,7 @@ class AttributionEntry(BaseModel):
     version: str | None = None
     license_text: str | None = None
     homepage: str | None = None
+    authors: str | None = None
     source: object = None
 
 
@@ -53,13 +57,13 @@ class OssAttributionGenerator:
         self._get_license_cache = GetLicenseResponseCache(cache_file_path) if cache_github_responses else None
         self._persist_cache = persist_cache
 
-    def parse_sbom(self, input_file: Path) -> Sbom:
+    def parse_sbom(self, input_file: Path) -> SBOM:
         self.LOGGER.info(f"Building OSS attribution for SBOM {input_file}")
         input_content_str: str = input_file.read_text()
         input_content_json: dict[str, Any] = json.loads(input_content_str)
-        return Sbom.model_validate(input_content_json)
+        return SBOM.model_validate(input_content_json)
 
-    async def _fetch_license_info_from_github(self, component: SbomComponent) -> GetLicenseResponse | None:
+    async def _fetch_license_info_from_github(self, component: SBOMComponent) -> GetLicenseResponse | None:
         license_url: str = component.probable_github_api_license_url
         cached_response: GetLicenseResponse | None = None
         if self._get_license_cache is not None:
@@ -67,23 +71,33 @@ class OssAttributionGenerator:
         if cached_response is not None:
             return cached_response
 
-        self.LOGGER.warning(f"GitHub API rate limit exceeded, skipping {component.qualified_name}")
         if self._github_rate_limit_exceeded:
+            self.LOGGER.warning(f"GitHub API rate limit exceeded, skipping {component.qualified_name}")
             return None
         self.LOGGER.info(f"fetching license for {component.qualified_name} from {license_url}")
         response: Response = await self._http_client.get(license_url)
         try:
             if response.status_code == HTTPStatus.FORBIDDEN:
                 self._github_rate_limit_exceeded = True
-            response.raise_for_status()
-            get_license_response: GetLicenseResponse = GetLicenseResponse.model_validate(response.json())
-            if self._get_license_cache is not None:
-                self._get_license_cache.put(license_url, get_license_response)
-            return get_license_response
-        except Exception as e:
-            self.LOGGER.error(f"failed to load license from {license_url}: {e}", exc_info=True)
+            github_response: GetLicenseResponse | None = None
+            if response.status_code == HTTPStatus.NOT_FOUND:
+                github_response = GetLicenseResponse()
+            elif response.status_code == HTTPStatus.OK:
+                github_response = GetLicenseResponse.model_validate(response.json())
 
-    async def build_attribution_entry_for_component(self, component: SbomComponent) -> AttributionEntry:
+            if self._get_license_cache is not None and github_response is not None:
+                self._get_license_cache.put(license_url, github_response)
+
+            response.raise_for_status()
+            return github_response
+        except Exception as e:
+            if isinstance(e, HTTPStatusError) and e.response.status_code == HTTPStatus.NOT_FOUND:
+                self.LOGGER.warning(f"No GitHub license information found for component {component.qualified_name}")
+            else:
+                self.LOGGER.error(f"failed to load license from {license_url}: {e}", exc_info=True)
+            return None
+
+    async def build_attribution_entry_for_component(self, component: SBOMComponent) -> AttributionEntry:
         license_text: str | None = component.probable_license_text
         license_id: str | None = component.accurate_or_probable_license_id
         # TODO: Could also be that the information is trash and github has better quality
@@ -92,9 +106,15 @@ class OssAttributionGenerator:
         if StringUtils.is_empty(license_text) or StringUtils.is_empty(license_id):
             if StringUtils.is_not_empty(component.probable_github_api_license_url):
                 api_response: GetLicenseResponse | None = await self._fetch_license_info_from_github(component)
-                if api_response is not None:
+                if api_response is not None and api_response.license is not None:
                     license_id = license_id or api_response.license.key
                     license_text = license_text or api_response.plain_text
+
+        if StringUtils.is_empty(license_text) and StringUtils.is_empty(license_id):
+            for l in component.licenses:
+                if l.expression is not None:
+                    self.LOGGER.info(f"Using expression {l.expression} as license text for {component.qualified_name}")
+                    license_text = l.expression
 
         if StringUtils.is_empty(license_text) and StringUtils.is_empty(license_id):
             self.LOGGER.warning(f"Could not find any license information for {component.qualified_name}")
@@ -103,13 +123,14 @@ class OssAttributionGenerator:
             name=component.qualified_name,
             version=component.version,
             license_id=license_id or "UNKNOWN LICENSE ID",
-            license_text=license_text or "UNKNOWN LICENSE TEXT",
+            license_text=license_text,
             homepage=component.probable_website_url,
+            authors=component.authors_str,
             source=component,
         )
 
     async def build_attribution(self, input_file: Path) -> Attribution:
-        sbom: Sbom = self.parse_sbom(input_file)
+        sbom: SBOM = self.parse_sbom(input_file)
         attribution: Attribution = Attribution()
         if self._get_license_cache is not None:
             self._get_license_cache.load()

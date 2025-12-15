@@ -57,11 +57,12 @@ source .venv/bin/activate
 # generate UI SBOM
 sbom_ui_full_file_name="sbom-ui.json"
 sbom_file="$SBOM_DIR/$sbom_ui_full_file_name"
-trivy fs --format cyclonedx --output "$sbom_file" ./dcs-pylot-dash-ui/pnpm-lock.yaml
+#trivy fs --format cyclonedx --output "$sbom_file" ./dcs-pylot-dash-ui/pnpm-lock.yaml
+# generate UI SBOM with cdxgen
+pnpm -C ./dcs-pylot-dash-ui exec cdxgen -t pnpm --json-pretty -o ../"$sbom_file"
 
 # merge full SBOM
-# --group "kevinrzepka" --name "dcs-pylot-dash" --version "1.0.0"
 sudo docker run --rm -t -v ./"$SBOM_DIR":/"$SBOM_DIR" cyclonedx/cyclonedx-cli@sha256:4c42a0f3f24a62aee3c914f5a0c2f5cbf50cdf61093e250c3dd952c4efa012d0 \
-merge --name "dcs-pylot-dash" --version "1.0.0" \
+merge --group "kevinrzepka" --name "dcs-pylot-dash" --version "1.0.0" \
 --input-files "$SBOM_DIR/$sbom_python_full_file_name" --input-files "$SBOM_DIR/$sbom_ui_full_file_name" \
 --output-file $SBOM_DIR/sbom.json

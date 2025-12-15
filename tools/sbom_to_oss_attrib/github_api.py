@@ -21,7 +21,6 @@ class GithubLicenseInfo(BaseModel):
 
 
 class GetLicenseResponse(BaseModel):
-    url: str | None = None
     content: str | None = None
     encoding: str | None = None
     license: GithubLicenseInfo | None = None
