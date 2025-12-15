@@ -11,18 +11,19 @@ License-Filename: LICENSE
   <p [innerText]="disclaimerText"></p>
   <p>
     This software uses third-party libraries, whose licenses can be found in
-    <a href="#">third_party_licenses.txt</a>
+    <a [routerLink]="appRoutes.THIRD_PARTY_LICENSES" target="_blank">Third-party Licenses</a>
   </p>
   <p>
     By using this website you confirm that you have read and agree with our
-    <a href="#">Terms of Service</a> and our <a href="#">Privacy Policy</a>.
+    <a [routerLink]="appRoutes.TERMS_OF_SERVICE" target="_blank">Terms of Service</a> and our
+    <a [routerLink]="appRoutes.PRIVACY_POLICY" target="_blank">Privacy Policy</a>.
   </p>
   <ng-template #footer>
     <a
       href="https://en.wikipedia.org/wiki/Yakovlev_Yak-52"
       pButton
       rel="noopener noreferrer"
-      severity="danger"
+      severity="secondary"
     >
       <span pButtonLabel>No thanks</span>
     </a>

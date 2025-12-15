@@ -8,10 +8,11 @@ import { EditorPage } from '../editor-page/editor-page';
 import { FooterToolbar } from '../footer-toolbar/footer-toolbar';
 import { HeaderToolbar } from '../header-toolbar/header-toolbar';
 import { MenuSidebar } from '../menu-sidebar/menu-sidebar';
+import { EntryConsent } from '../entry-consent/entry-consent';
 
 @Component({
   selector: 'app-main-page',
-  imports: [EditorPage, FooterToolbar, HeaderToolbar, MenuSidebar],
+  imports: [EditorPage, FooterToolbar, HeaderToolbar, MenuSidebar, EntryConsent],
   templateUrl: './main-page.html',
   styleUrl: './main-page.css',
 })

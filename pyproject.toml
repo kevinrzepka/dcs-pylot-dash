@@ -2,6 +2,7 @@
 name = "dcs-pylot-dash"
 version = "0.1.0"
 description = "A live data export script and dashboard generator for DCS"
+license = "MIT"
 license-files = ["LICENSE"]
 authors = [
     { name = "Kevin Rzepka", email = "kdev@posteo.com" }
@@ -15,6 +16,10 @@ dependencies = [
     "httpx==0.28.1",
     "pydantic-settings==2.12.0"
 ]
+
+[project.urls]
+Repository = "https://github.com/kevinrzepka/dcs-pylot-dash.git"
+Issues = "https://github.com/kevinrzepka/dcs-pylot-dash/issues"
 
 [dependency-groups]
 cyclonedx = [

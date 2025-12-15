@@ -9,9 +9,14 @@
 - add security.txt?
 - add CSP and nonce: https://angular.dev/best-practices/security#content-security-policy
 - https://angular.dev/best-practices/security#enforcing-trusted-types?
-- adjust name
 - copyright, license in generated files
 - include ui libs in sbom and attribution
+- rate limiting config
+    - test
+- input validation
+    - test
+- copy resources to docker image
+- option to remove versions in attribution (default)
 
 # About
 
