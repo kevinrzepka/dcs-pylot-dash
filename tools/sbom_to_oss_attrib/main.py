@@ -33,6 +33,13 @@ if __name__ == "__main__":
         help="Path of the OSS Attribution (.txt) file to generate. Example: ./path/to/oss_attribution.txt",
     )
     parser.add_argument(
+        "--output-versions",
+        action=BooleanOptionalAction,
+        default=False,
+        required=False,
+        help="Whether to include version information in the OSS Attribution (discouraged because of security concerns).",
+    )
+    parser.add_argument(
         "--resolve-from-github",
         action=BooleanOptionalAction,
         default=True,
@@ -89,7 +96,9 @@ if __name__ == "__main__":
     )
     attribution: Attribution = asyncio.run(attribution_generator.build_attribution(sbom_file_path))
 
-    attribution_text_file_builder: AttributionTextFileBuilder = AttributionTextFileBuilder()
+    attribution_text_file_builder: AttributionTextFileBuilder = AttributionTextFileBuilder(
+        output_versions=namespace.output_versions
+    )
     if namespace.output_file_path is not None:
         attribution_file_path: Path = Path(namespace.output_file_path).resolve(strict=True)
         attribution_text_file_builder.output_to_file(attribution, attribution_file_path)

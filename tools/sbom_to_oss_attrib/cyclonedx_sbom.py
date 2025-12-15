@@ -1,12 +1,14 @@
 # Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
 # SPDX-License-Identifier: MIT
 # License-Filename: LICENSE
+import logging
 from base64 import b64decode
 from enum import StrEnum
+from typing import ClassVar
 
 from pydantic import BaseModel, Field
 
-from sbom_to_oss_attrib.utils import StringUtils, SbomToAttributionError
+from sbom_to_oss_attrib.utils import StringUtils
 
 
 class SbomLicenseText(BaseModel):
@@ -73,11 +75,25 @@ class SbomExternalReference(BaseModel):
 
 
 class SbomComponent(BaseModel):
+    LOGGER: ClassVar[logging.Logger] = logging.getLogger(__name__)
+
     bom_ref: str = Field(alias="bom-ref")
+    component_type: str = Field(alias="type")
+    # prefix for the full name
+    group: str | None = None
     name: str
-    version: str
+    # Components of type 'application', like 'pnpm-lock.yaml' may not have a version.
+    version: str | None = None
     licenses: list[SbomLicenseContainer] = []
     external_references: list[SbomExternalReference] = Field(alias="externalReferences", default_factory=list)
+
+    @property
+    def qualified_name(self) -> str:
+        return f"{self.group}.{self.name}" if self.group is not None else self.name
+
+    @property
+    def is_library(self) -> bool:
+        return self.component_type == "library"
 
     @property
     def has_licenses(self) -> bool:
@@ -98,10 +114,13 @@ class SbomComponent(BaseModel):
     @property
     def license_id(self) -> str | None:
         licenses_with_id: list[SbomLicense] = self.licenses_with_id
-        if len(licenses_with_id) == 0:
+        distinct_license_ids: set[str] = {l.id for l in licenses_with_id}
+        if len(distinct_license_ids) == 0:
             return None
-        elif len(licenses_with_id) > 1:
-            raise SbomToAttributionError(f"Component {self.name} has multiple licenses with IDs: {licenses_with_id}")
+        elif len(distinct_license_ids) > 1:
+            self.LOGGER.warning(
+                f"Component {self.qualified_name} has multiple licenses with different IDs: {licenses_with_id}. IDs: {distinct_license_ids}."
+            )
         return licenses_with_id[0].id
 
     @property
@@ -186,3 +205,7 @@ class SbomComponent(BaseModel):
 
 class Sbom(BaseModel):
     components: list[SbomComponent] = []
+
+    @property
+    def library_components(self) -> list[SbomComponent]:
+        return [c for c in self.components if c.is_library]

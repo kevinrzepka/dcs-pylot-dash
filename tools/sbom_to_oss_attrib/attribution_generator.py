@@ -16,9 +16,10 @@ from sbom_to_oss_attrib.utils import StringUtils
 
 
 class AttributionEntry(BaseModel):
+    # full qualified name of the component
     name: str
-    version: str
     license_id: str
+    version: str | None = None
     license_text: str | None = None
     homepage: str | None = None
     source: object = None
@@ -32,6 +33,7 @@ class OssAttributionGenerator:
     CACHE_FILE_PATH_DEFAULT: Final[Path] = Path(".github-license-api-cache.json").resolve()
 
     LOGGER: logging.Logger = logging.getLogger(__name__)
+
     _http_client: AsyncClient
     _github_rate_limit_exceeded: bool = False
     _get_license_cache: GetLicenseResponseCache | None
@@ -47,7 +49,7 @@ class OssAttributionGenerator:
         headers: dict[str, str] = {}
         if github_api_token is not None:
             headers["Authorization"] = f"Bearer {github_api_token}"
-        self._http_client = AsyncClient(headers=headers)
+        self._http_client = AsyncClient(headers=headers, follow_redirects=True)
         self._get_license_cache = GetLicenseResponseCache(cache_file_path) if cache_github_responses else None
         self._persist_cache = persist_cache
 
@@ -65,16 +67,16 @@ class OssAttributionGenerator:
         if cached_response is not None:
             return cached_response
 
+        self.LOGGER.warning(f"GitHub API rate limit exceeded, skipping {component.qualified_name}")
         if self._github_rate_limit_exceeded:
-            self.LOGGER.warning(f"GitHub API rate limit exceeded, skipping {component.name}")
             return None
-        self.LOGGER.info(f"fetching license for {component.name} from {license_url}")
+        self.LOGGER.info(f"fetching license for {component.qualified_name} from {license_url}")
         response: Response = await self._http_client.get(license_url)
         try:
             if response.status_code == HTTPStatus.FORBIDDEN:
                 self._github_rate_limit_exceeded = True
             response.raise_for_status()
-            get_license_response: GetLicenseResponse = GetLicenseResponse.model_validate_json(response.json())
+            get_license_response: GetLicenseResponse = GetLicenseResponse.model_validate(response.json())
             if self._get_license_cache is not None:
                 self._get_license_cache.put(license_url, get_license_response)
             return get_license_response
@@ -94,11 +96,14 @@ class OssAttributionGenerator:
                     license_id = license_id or api_response.license.key
                     license_text = license_text or api_response.plain_text
 
+        if StringUtils.is_empty(license_text) and StringUtils.is_empty(license_id):
+            self.LOGGER.warning(f"Could not find any license information for {component.qualified_name}")
+
         return AttributionEntry(
-            name=component.name,
+            name=component.qualified_name,
             version=component.version,
-            license_id=license_id or "UNKNOWN",
-            license_text=license_text or "UNKNOWN",
+            license_id=license_id or "UNKNOWN LICENSE ID",
+            license_text=license_text or "UNKNOWN LICENSE TEXT",
             homepage=component.probable_website_url,
             source=component,
         )
@@ -108,7 +113,7 @@ class OssAttributionGenerator:
         attribution: Attribution = Attribution()
         if self._get_license_cache is not None:
             self._get_license_cache.load()
-        for c in sbom.components:
+        for c in sbom.library_components:
             entry: AttributionEntry = await self.build_attribution_entry_for_component(c)
             attribution.entries.append(entry)
         if self._get_license_cache is not None and self._persist_cache:

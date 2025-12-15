@@ -1,0 +1,615 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:b54070ef-b057-409e-8c8a-7503731032ae",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2025-12-15T10:06:34+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.68.1"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "df32c1df-ac97-43dd-b297-78710d60b6a6",
+      "type": "application",
+      "name": "dcs-pylot-dash-ui/pnpm-lock.yaml",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "f68d4f9c-933e-4427-bb21-0b63b24b5a6f",
+      "type": "application",
+      "name": "pnpm-lock.yaml",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "pnpm"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40angular/cdk@21.0.2",
+      "type": "library",
+      "group": "@angular",
+      "name": "cdk",
+      "version": "21.0.2",
+      "purl": "pkg:npm/%40angular/cdk@21.0.2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "@angular/cdk@21.0.2(@angular/common@21.0.3(@angular/core@21.0.3(@angular/compiler@21.0.3)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.0.3(@angular/compiler@21.0.3)(rxjs@7.8.2))(rxjs@7.8.2)"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pnpm"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40angular/common@21.0.3",
+      "type": "library",
+      "group": "@angular",
+      "name": "common",
+      "version": "21.0.3",
+      "purl": "pkg:npm/%40angular/common@21.0.3",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "@angular/common@21.0.3(@angular/core@21.0.3(@angular/compiler@21.0.3)(rxjs@7.8.2))(rxjs@7.8.2)"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pnpm"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40angular/compiler@21.0.3",
+      "type": "library",
+      "group": "@angular",
+      "name": "compiler",
+      "version": "21.0.3",
+      "purl": "pkg:npm/%40angular/compiler@21.0.3",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "@angular/compiler@21.0.3"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pnpm"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40angular/core@21.0.3",
+      "type": "library",
+      "group": "@angular",
+      "name": "core",
+      "version": "21.0.3",
+      "purl": "pkg:npm/%40angular/core@21.0.3",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "@angular/core@21.0.3(@angular/compiler@21.0.3)(rxjs@7.8.2)"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pnpm"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40angular/forms@21.0.3",
+      "type": "library",
+      "group": "@angular",
+      "name": "forms",
+      "version": "21.0.3",
+      "purl": "pkg:npm/%40angular/forms@21.0.3",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "@angular/forms@21.0.3(@angular/common@21.0.3(@angular/core@21.0.3(@angular/compiler@21.0.3)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.0.3(@angular/compiler@21.0.3)(rxjs@7.8.2))(@angular/platform-browser@21.0.3(@angular/common@21.0.3(@angular/core@21.0.3(@angular/compiler@21.0.3)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.0.3(@angular/compiler@21.0.3)(rxjs@7.8.2)))(@standard-schema/spec@1.0.0)(rxjs@7.8.2)"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pnpm"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40angular/platform-browser@21.0.3",
+      "type": "library",
+      "group": "@angular",
+      "name": "platform-browser",
+      "version": "21.0.3",
+      "purl": "pkg:npm/%40angular/platform-browser@21.0.3",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "@angular/platform-browser@21.0.3(@angular/common@21.0.3(@angular/core@21.0.3(@angular/compiler@21.0.3)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.0.3(@angular/compiler@21.0.3)(rxjs@7.8.2))"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pnpm"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40angular/router@21.0.3",
+      "type": "library",
+      "group": "@angular",
+      "name": "router",
+      "version": "21.0.3",
+      "purl": "pkg:npm/%40angular/router@21.0.3",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "@angular/router@21.0.3(@angular/common@21.0.3(@angular/core@21.0.3(@angular/compiler@21.0.3)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.0.3(@angular/compiler@21.0.3)(rxjs@7.8.2))(@angular/platform-browser@21.0.3(@angular/common@21.0.3(@angular/core@21.0.3(@angular/compiler@21.0.3)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.0.3(@angular/compiler@21.0.3)(rxjs@7.8.2)))(rxjs@7.8.2)"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pnpm"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40primeuix/motion@0.0.10",
+      "type": "library",
+      "group": "@primeuix",
+      "name": "motion",
+      "version": "0.0.10",
+      "purl": "pkg:npm/%40primeuix/motion@0.0.10",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "@primeuix/motion@0.0.10"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pnpm"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40primeuix/styled@0.7.4",
+      "type": "library",
+      "group": "@primeuix",
+      "name": "styled",
+      "version": "0.7.4",
+      "purl": "pkg:npm/%40primeuix/styled@0.7.4",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "@primeuix/styled@0.7.4"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pnpm"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40primeuix/styles@2.0.2",
+      "type": "library",
+      "group": "@primeuix",
+      "name": "styles",
+      "version": "2.0.2",
+      "purl": "pkg:npm/%40primeuix/styles@2.0.2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "@primeuix/styles@2.0.2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pnpm"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40primeuix/themes@2.0.2",
+      "type": "library",
+      "group": "@primeuix",
+      "name": "themes",
+      "version": "2.0.2",
+      "purl": "pkg:npm/%40primeuix/themes@2.0.2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "@primeuix/themes@2.0.2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pnpm"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40primeuix/utils@0.6.3",
+      "type": "library",
+      "group": "@primeuix",
+      "name": "utils",
+      "version": "0.6.3",
+      "purl": "pkg:npm/%40primeuix/utils@0.6.3",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "@primeuix/utils@0.6.3"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pnpm"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40standard-schema/spec@1.0.0",
+      "type": "library",
+      "group": "@standard-schema",
+      "name": "spec",
+      "version": "1.0.0",
+      "purl": "pkg:npm/%40standard-schema/spec@1.0.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "@standard-schema/spec@1.0.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pnpm"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40types/trusted-types@2.0.7",
+      "type": "library",
+      "group": "@types",
+      "name": "trusted-types",
+      "version": "2.0.7",
+      "purl": "pkg:npm/%40types/trusted-types@2.0.7",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "@types/trusted-types@2.0.7"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pnpm"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/dompurify@3.3.0",
+      "type": "library",
+      "name": "dompurify",
+      "version": "3.3.0",
+      "purl": "pkg:npm/dompurify@3.3.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "dompurify@3.3.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pnpm"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/entities@6.0.1",
+      "type": "library",
+      "name": "entities",
+      "version": "6.0.1",
+      "purl": "pkg:npm/entities@6.0.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "entities@6.0.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pnpm"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/marked@17.0.1",
+      "type": "library",
+      "name": "marked",
+      "version": "17.0.1",
+      "purl": "pkg:npm/marked@17.0.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "marked@17.0.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pnpm"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/parse5@8.0.0",
+      "type": "library",
+      "name": "parse5",
+      "version": "8.0.0",
+      "purl": "pkg:npm/parse5@8.0.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "parse5@8.0.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pnpm"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/primeicons@7.0.0",
+      "type": "library",
+      "name": "primeicons",
+      "version": "7.0.0",
+      "purl": "pkg:npm/primeicons@7.0.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "primeicons@7.0.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pnpm"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/primeng@21.0.1",
+      "type": "library",
+      "name": "primeng",
+      "version": "21.0.1",
+      "purl": "pkg:npm/primeng@21.0.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "primeng@21.0.1(420bcae21482b2c51f5bd62726f5842e)"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pnpm"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/rxjs@7.8.2",
+      "type": "library",
+      "name": "rxjs",
+      "version": "7.8.2",
+      "purl": "pkg:npm/rxjs@7.8.2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "rxjs@7.8.2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pnpm"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/tslib@2.8.1",
+      "type": "library",
+      "name": "tslib",
+      "version": "2.8.1",
+      "purl": "pkg:npm/tslib@2.8.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "tslib@2.8.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pnpm"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "df32c1df-ac97-43dd-b297-78710d60b6a6",
+      "dependsOn": [
+        "f68d4f9c-933e-4427-bb21-0b63b24b5a6f"
+      ]
+    },
+    {
+      "ref": "f68d4f9c-933e-4427-bb21-0b63b24b5a6f",
+      "dependsOn": [
+        "pkg:npm/%40angular/cdk@21.0.2",
+        "pkg:npm/%40angular/common@21.0.3",
+        "pkg:npm/%40angular/compiler@21.0.3",
+        "pkg:npm/%40angular/core@21.0.3",
+        "pkg:npm/%40angular/forms@21.0.3",
+        "pkg:npm/%40angular/platform-browser@21.0.3",
+        "pkg:npm/%40angular/router@21.0.3",
+        "pkg:npm/%40primeuix/themes@2.0.2",
+        "pkg:npm/dompurify@3.3.0",
+        "pkg:npm/marked@17.0.1",
+        "pkg:npm/primeicons@7.0.0",
+        "pkg:npm/primeng@21.0.1",
+        "pkg:npm/rxjs@7.8.2",
+        "pkg:npm/tslib@2.8.1"
+      ]
+    },
+    {
+      "ref": "pkg:npm/%40angular/cdk@21.0.2",
+      "dependsOn": [
+        "pkg:npm/%40angular/common@21.0.3",
+        "pkg:npm/%40angular/core@21.0.3",
+        "pkg:npm/parse5@8.0.0",
+        "pkg:npm/rxjs@7.8.2",
+        "pkg:npm/tslib@2.8.1"
+      ]
+    },
+    {
+      "ref": "pkg:npm/%40angular/common@21.0.3",
+      "dependsOn": [
+        "pkg:npm/%40angular/core@21.0.3",
+        "pkg:npm/rxjs@7.8.2",
+        "pkg:npm/tslib@2.8.1"
+      ]
+    },
+    {
+      "ref": "pkg:npm/%40angular/compiler@21.0.3",
+      "dependsOn": [
+        "pkg:npm/tslib@2.8.1"
+      ]
+    },
+    {
+      "ref": "pkg:npm/%40angular/core@21.0.3",
+      "dependsOn": [
+        "pkg:npm/%40angular/compiler@21.0.3",
+        "pkg:npm/rxjs@7.8.2",
+        "pkg:npm/tslib@2.8.1"
+      ]
+    },
+    {
+      "ref": "pkg:npm/%40angular/forms@21.0.3",
+      "dependsOn": [
+        "pkg:npm/%40angular/common@21.0.3",
+        "pkg:npm/%40angular/core@21.0.3",
+        "pkg:npm/%40angular/platform-browser@21.0.3",
+        "pkg:npm/%40standard-schema/spec@1.0.0",
+        "pkg:npm/rxjs@7.8.2",
+        "pkg:npm/tslib@2.8.1"
+      ]
+    },
+    {
+      "ref": "pkg:npm/%40angular/platform-browser@21.0.3",
+      "dependsOn": [
+        "pkg:npm/%40angular/common@21.0.3",
+        "pkg:npm/%40angular/core@21.0.3",
+        "pkg:npm/tslib@2.8.1"
+      ]
+    },
+    {
+      "ref": "pkg:npm/%40angular/router@21.0.3",
+      "dependsOn": [
+        "pkg:npm/%40angular/common@21.0.3",
+        "pkg:npm/%40angular/core@21.0.3",
+        "pkg:npm/%40angular/platform-browser@21.0.3",
+        "pkg:npm/rxjs@7.8.2",
+        "pkg:npm/tslib@2.8.1"
+      ]
+    },
+    {
+      "ref": "pkg:npm/%40primeuix/motion@0.0.10",
+      "dependsOn": [
+        "pkg:npm/%40primeuix/utils@0.6.3"
+      ]
+    },
+    {
+      "ref": "pkg:npm/%40primeuix/styled@0.7.4",
+      "dependsOn": [
+        "pkg:npm/%40primeuix/utils@0.6.3"
+      ]
+    },
+    {
+      "ref": "pkg:npm/%40primeuix/styles@2.0.2",
+      "dependsOn": [
+        "pkg:npm/%40primeuix/styled@0.7.4"
+      ]
+    },
+    {
+      "ref": "pkg:npm/%40primeuix/themes@2.0.2",
+      "dependsOn": [
+        "pkg:npm/%40primeuix/styled@0.7.4"
+      ]
+    },
+    {
+      "ref": "pkg:npm/%40primeuix/utils@0.6.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/%40standard-schema/spec@1.0.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/%40types/trusted-types@2.0.7",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/dompurify@3.3.0",
+      "dependsOn": [
+        "pkg:npm/%40types/trusted-types@2.0.7"
+      ]
+    },
+    {
+      "ref": "pkg:npm/entities@6.0.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/marked@17.0.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/parse5@8.0.0",
+      "dependsOn": [
+        "pkg:npm/entities@6.0.1"
+      ]
+    },
+    {
+      "ref": "pkg:npm/primeicons@7.0.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/primeng@21.0.1",
+      "dependsOn": [
+        "pkg:npm/%40angular/cdk@21.0.2",
+        "pkg:npm/%40angular/common@21.0.3",
+        "pkg:npm/%40angular/core@21.0.3",
+        "pkg:npm/%40angular/forms@21.0.3",
+        "pkg:npm/%40angular/platform-browser@21.0.3",
+        "pkg:npm/%40angular/router@21.0.3",
+        "pkg:npm/%40primeuix/motion@0.0.10",
+        "pkg:npm/%40primeuix/styled@0.7.4",
+        "pkg:npm/%40primeuix/styles@2.0.2",
+        "pkg:npm/%40primeuix/utils@0.6.3",
+        "pkg:npm/rxjs@7.8.2",
+        "pkg:npm/tslib@2.8.1"
+      ]
+    },
+    {
+      "ref": "pkg:npm/rxjs@7.8.2",
+      "dependsOn": [
+        "pkg:npm/tslib@2.8.1"
+      ]
+    },
+    {
+      "ref": "pkg:npm/tslib@2.8.1",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

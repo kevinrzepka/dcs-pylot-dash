@@ -10,6 +10,11 @@ class AttributionTextFileBuilder:
     SEPARATOR_CHAR = "-"
     SEPARATOR_LENGTH = 80
 
+    _output_versions: bool = False
+
+    def __init__(self, output_versions: bool = False):
+        self._output_versions = output_versions
+
     def output_to_file(self, attribution: Attribution, output_file: Path):
         text = self.generate_text(attribution)
         if output_file.exists():
@@ -27,13 +32,14 @@ class AttributionTextFileBuilder:
         return text
 
     def generate_text_for_entry(self, entry: AttributionEntry) -> str:
-        return (
-            f"{self.SEPARATOR_CHAR * self.SEPARATOR_LENGTH}\n"
-            f"Name:                       {entry.name}\n"
-            f"Version:                    {entry.version}\n"
+        text: str = f"{self.SEPARATOR_CHAR * self.SEPARATOR_LENGTH}\n" f"Name:                       {entry.name}\n"
+        if self._output_versions:
+            text += f"Version:                    {entry.version}\n"
+        text += (
             f"Homepage:                   {entry.homepage}\n"
             f"SPDX-License-Identifier:    {entry.license_id}\n"
             "License text:\n"
             "\n"
             f"{entry.license_text}\n\n\n"
         )
+        return text

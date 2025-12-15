@@ -1,6 +1,59 @@
 {
   "components": [
     {
+      "bom-ref": "PyYAML==6.0.3",
+      "description": "YAML parser and emitter for Python",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata: Download-URL",
+          "type": "distribution",
+          "url": "https://pypi.org/project/PyYAML/"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Documentation",
+          "type": "documentation",
+          "url": "https://pyyaml.org/wiki/PyYAMLDocumentation"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Bug Tracker",
+          "type": "issue-tracker",
+          "url": "https://github.com/yaml/pyyaml/issues"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Mailing lists",
+          "type": "other",
+          "url": "http://lists.sourceforge.net/lists/listinfo/yaml-core"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Source Code",
+          "type": "other",
+          "url": "https://github.com/yaml/pyyaml"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: CI",
+          "type": "other",
+          "url": "https://github.com/yaml/pyyaml/actions"
+        },
+        {
+          "comment": "from packaging metadata: Home-page",
+          "type": "website",
+          "url": "https://pyyaml.org/"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "MIT"
+          }
+        }
+      ],
+      "name": "PyYAML",
+      "purl": "pkg:pypi/pyyaml@6.0.3",
+      "type": "library",
+      "version": "6.0.3"
+    },
+    {
       "bom-ref": "annotated-doc==0.0.4",
       "description": "Document parameters, class attributes, return types, and variables inline, with Annotated.",
       "externalReferences": [
@@ -212,6 +265,40 @@
       "purl": "pkg:pypi/boolean.py@5.0",
       "type": "library",
       "version": "5.0"
+    },
+    {
+      "bom-ref": "certifi==2025.11.12",
+      "description": "Python package for providing Mozilla's CA Bundle.",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata Project-URL: Source",
+          "type": "other",
+          "url": "https://github.com/certifi/python-certifi"
+        },
+        {
+          "comment": "from packaging metadata: Home-page",
+          "type": "website",
+          "url": "https://github.com/certifi/python-certifi"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "MPL-2.0"
+          }
+        },
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "name": "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)"
+          }
+        }
+      ],
+      "name": "certifi",
+      "purl": "pkg:pypi/certifi@2025.11.12",
+      "type": "library",
+      "version": "2025.11.12"
     },
     {
       "bom-ref": "chardet==5.2.0",
@@ -565,6 +652,83 @@
       "purl": "pkg:pypi/h11@0.16.0",
       "type": "library",
       "version": "0.16.0"
+    },
+    {
+      "bom-ref": "httpcore==1.0.9",
+      "description": "A minimal low-level HTTP client.",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata Project-URL: Documentation",
+          "type": "documentation",
+          "url": "https://www.encode.io/httpcore"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Source",
+          "type": "other",
+          "url": "https://github.com/encode/httpcore"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Homepage",
+          "type": "website",
+          "url": "https://www.encode.io/httpcore/"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "name": "httpcore",
+      "purl": "pkg:pypi/httpcore@1.0.9",
+      "type": "library",
+      "version": "1.0.9"
+    },
+    {
+      "bom-ref": "httpx==0.28.1",
+      "description": "The next generation HTTP client.",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata Project-URL: Documentation",
+          "type": "documentation",
+          "url": "https://www.python-httpx.org"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Source",
+          "type": "other",
+          "url": "https://github.com/encode/httpx"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Changelog",
+          "type": "release-notes",
+          "url": "https://github.com/encode/httpx/blob/master/CHANGELOG.md"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Homepage",
+          "type": "website",
+          "url": "https://github.com/encode/httpx"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "BSD-3-Clause"
+          }
+        },
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "name": "License :: OSI Approved :: BSD License"
+          }
+        }
+      ],
+      "name": "httpx",
+      "purl": "pkg:pypi/httpx@0.28.1",
+      "type": "library",
+      "version": "0.28.1"
     },
     {
       "bom-ref": "idna==3.11",
@@ -1105,6 +1269,49 @@
       "version": "2.12.5"
     },
     {
+      "bom-ref": "pydantic-settings==2.12.0",
+      "description": "Settings management using Pydantic",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata Project-URL: Documentation",
+          "type": "documentation",
+          "url": "https://docs.pydantic.dev/dev-v2/concepts/pydantic_settings/"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Source",
+          "type": "other",
+          "url": "https://github.com/pydantic/pydantic-settings"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Funding",
+          "type": "other",
+          "url": "https://github.com/sponsors/samuelcolvin"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Changelog",
+          "type": "release-notes",
+          "url": "https://github.com/pydantic/pydantic-settings/releases"
+        },
+        {
+          "comment": "from packaging metadata Project-URL: Homepage",
+          "type": "website",
+          "url": "https://github.com/pydantic/pydantic-settings"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "MIT"
+          }
+        }
+      ],
+      "name": "pydantic-settings",
+      "purl": "pkg:pypi/pydantic-settings@2.12.0",
+      "type": "library",
+      "version": "2.12.0"
+    },
+    {
       "bom-ref": "pydantic_core==2.41.5",
       "description": "Core functionality for Pydantic validation and serialization",
       "externalReferences": [
@@ -1224,6 +1431,29 @@
       "purl": "pkg:pypi/python-dateutil@2.9.0.post0",
       "type": "library",
       "version": "2.9.0.post0"
+    },
+    {
+      "bom-ref": "python-dotenv==1.2.1",
+      "description": "Read key-value pairs from a .env file and set them as environment variables",
+      "externalReferences": [
+        {
+          "comment": "from packaging metadata Project-URL: Source",
+          "type": "other",
+          "url": "https://github.com/theskumar/python-dotenv"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "name": "python-dotenv",
+      "purl": "pkg:pypi/python-dotenv@1.2.1",
+      "type": "library",
+      "version": "1.2.1"
     },
     {
       "bom-ref": "referencing==0.37.0",
@@ -1800,6 +2030,9 @@
   ],
   "dependencies": [
     {
+      "ref": "PyYAML==6.0.3"
+    },
+    {
       "ref": "annotated-doc==0.0.4"
     },
     {
@@ -1827,6 +2060,9 @@
     },
     {
       "ref": "boolean.py==5.0"
+    },
+    {
+      "ref": "certifi==2025.11.12"
     },
     {
       "ref": "chardet==5.2.0"
@@ -1862,7 +2098,10 @@
     },
     {
       "dependsOn": [
+        "PyYAML==6.0.3",
         "annotated-doc==0.0.4",
+        "httpx==0.28.1",
+        "pydantic-settings==2.12.0",
         "pydantic==2.12.5",
         "starlette==0.50.0",
         "typing_extensions==4.15.0",
@@ -1875,6 +2114,24 @@
     },
     {
       "ref": "h11==0.16.0"
+    },
+    {
+      "dependsOn": [
+        "anyio==4.12.0",
+        "certifi==2025.11.12",
+        "h11==0.16.0"
+      ],
+      "ref": "httpcore==1.0.9"
+    },
+    {
+      "dependsOn": [
+        "anyio==4.12.0",
+        "certifi==2025.11.12",
+        "click==8.3.1",
+        "httpcore==1.0.9",
+        "idna==3.11"
+      ],
+      "ref": "httpx==0.28.1"
     },
     {
       "ref": "idna==3.11"
@@ -1945,6 +2202,15 @@
     },
     {
       "dependsOn": [
+        "PyYAML==6.0.3",
+        "pydantic==2.12.5",
+        "python-dotenv==1.2.1",
+        "typing-inspection==0.4.2"
+      ],
+      "ref": "pydantic-settings==2.12.0"
+    },
+    {
+      "dependsOn": [
         "annotated-types==0.7.0",
         "pydantic_core==2.41.5",
         "typing-inspection==0.4.2",
@@ -1967,6 +2233,12 @@
         "six==1.17.0"
       ],
       "ref": "python-dateutil==2.9.0.post0"
+    },
+    {
+      "dependsOn": [
+        "click==8.3.1"
+      ],
+      "ref": "python-dotenv==1.2.1"
     },
     {
       "dependsOn": [
@@ -2002,7 +2274,9 @@
     },
     {
       "dependsOn": [
+        "PyYAML==6.0.3",
         "anyio==4.12.0",
+        "httpx==0.28.1",
         "typing_extensions==4.15.0"
       ],
       "ref": "starlette==0.50.0"
@@ -2024,8 +2298,10 @@
     },
     {
       "dependsOn": [
+        "PyYAML==6.0.3",
         "click==8.3.1",
         "h11==0.16.0",
+        "python-dotenv==1.2.1",
         "typing_extensions==4.15.0"
       ],
       "ref": "uvicorn==0.38.0"
@@ -2035,7 +2311,7 @@
     }
   ],
   "metadata": {
-    "timestamp": "2025-12-04T10:48:26.247579+00:00",
+    "timestamp": "2025-12-15T10:06:30.148413+00:00",
     "tools": {
       "components": [
         {
@@ -2139,7 +2415,7 @@
       ]
     }
   },
-  "serialNumber": "urn:uuid:38c30248-5fd9-466f-a333-fc39f25b6464",
+  "serialNumber": "urn:uuid:a45125b0-6751-4e58-b14d-4ae51682f931",
   "version": 1,
   "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
   "bomFormat": "CycloneDX",
