@@ -11,6 +11,9 @@ import { IftaLabel } from 'primeng/iftalabel';
 import { Tooltip } from 'primeng/tooltip';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
+/**
+ * This would be better as a select, but that currently does not support clearing the value after selection
+ */
 @Component({
   selector: 'app-source-data-point-chooser',
   imports: [AutoComplete, IftaLabel, Tooltip, ReactiveFormsModule],

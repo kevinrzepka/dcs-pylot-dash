@@ -10,7 +10,6 @@
 - add CSP and nonce: https://angular.dev/best-practices/security#content-security-policy
 - https://angular.dev/best-practices/security#enforcing-trusted-types?
 - copyright, license in generated files
-- include ui libs in sbom and attribution
 - rate limiting config
     - test
 - input validation

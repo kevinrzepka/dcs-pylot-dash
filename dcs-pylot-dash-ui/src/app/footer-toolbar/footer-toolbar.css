@@ -3,6 +3,16 @@ Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
 SPDX-License-Identifier: MIT
 License-Filename: LICENSE
 */
+.footer-copyright {
+  span {
+    color: var(--p-iftalabel-color);
+  }
+}
+
+.p-toolbar-center {
+  flex: auto;
+}
+
 .footer-links {
   a {
     margin: 1rem;

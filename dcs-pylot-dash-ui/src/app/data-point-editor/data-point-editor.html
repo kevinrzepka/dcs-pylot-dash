@@ -8,7 +8,13 @@ License-Filename: LICENSE
     <div class="headerGroup">
       <p-iftalabel>
         <label for="inputDisplayName">Display Name</label>
-        <input id="inputDisplayName" type="text" pInputText [(ngModel)]="dataPoint.displayName" />
+        <input
+          id="inputDisplayName"
+          type="text"
+          pInputText
+          [(ngModel)]="dataPoint.displayName"
+          pTooltip="Change the display name for this data point"
+        />
       </p-iftalabel>
       <p-button
         icon="pi pi-trash"
@@ -23,6 +29,10 @@ License-Filename: LICENSE
       [initialValue]="dataPoint.sourceDataPoint"
       (onSourceDataPointChange)="handleSourceDataPointChange($event)"
     />
-    <app-unit-chooser [dataPoint]="dataPoint" (onUnitChange)="handleUnitChange($event)" />
+    <app-unit-chooser
+      [dataPoint]="dataPoint"
+      (onUnitChange)="handleUnitChange($event)"
+      pTooltip="Change the output unit for this data point"
+    />
   </ng-template>
 </p-card>

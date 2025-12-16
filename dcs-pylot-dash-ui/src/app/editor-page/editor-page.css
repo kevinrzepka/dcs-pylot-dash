@@ -46,3 +46,7 @@ License-Filename: LICENSE
 .add-data-point-row {
   margin: 1rem;
 }
+
+app-source-data-point-chooser {
+  max-width: 15rem;
+}
