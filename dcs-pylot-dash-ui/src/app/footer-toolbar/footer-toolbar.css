@@ -18,3 +18,10 @@ License-Filename: LICENSE
     margin: 1rem;
   }
 }
+
+.footer-metadata {
+  p-tag {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}

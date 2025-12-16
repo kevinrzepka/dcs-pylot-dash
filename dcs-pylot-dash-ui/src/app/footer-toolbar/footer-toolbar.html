@@ -17,5 +17,14 @@ License-Filename: LICENSE
       <a [routerLink]="appRoutes.THIRD_PARTY_LICENSES" target="_blank">Third-party Licenses</a>
     </div>
   </ng-template>
-  <ng-template #end></ng-template>
+  <ng-template #end>
+    <div class="footer-metadata">
+      @let appMetadata = appMetadata$ | async;
+      @if (appMetadata) {
+        <p-tag severity="secondary" [value]="`version: ${appMetadata.version}`" />
+        <p-tag severity="secondary" [value]="`build: ${appMetadata.buildCommit}`" />
+        <p-tag severity="secondary" [value]="`build date: ${appMetadata.buildDate}`" />
+      }
+    </div>
+  </ng-template>
 </p-toolbar>

@@ -27,3 +27,9 @@ export type APINotices = {
   privacy_policy_md: string;
   terms_of_service_md: string;
 };
+
+export type APIAppMetadata = {
+  version: string;
+  build_date: string;
+  build_commit: string;
+};
