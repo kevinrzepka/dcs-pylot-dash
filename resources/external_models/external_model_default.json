@@ -26,13 +26,15 @@
       "display_name": "Indicated Airspeed",
       "lo_function": "LoGetIndicatedAirSpeed",
       "lo_return_type": "number",
-      "unit": "ms"
+      "unit": "ms",
+      "preferred_unit": "knots"
     },
     "tas": {
       "display_name": "True Airspeed",
       "lo_function": "LoGetTrueAirSpeed",
       "lo_return_type": "number",
-      "unit": "ms"
+      "unit": "ms",
+      "preferred_unit": "knots"
     },
     "pilot_name": {
       "display_name": "Pilot Name",
@@ -43,25 +45,29 @@
       "display_name": "Altitude (MSL)",
       "lo_function": "LoGetAltitudeAboveSeaLevel",
       "lo_return_type": "number",
-      "unit": "meters"
+      "unit": "meters",
+      "preferred_unit": "feet"
     },
     "altitude_agl": {
       "display_name": "Altitude (AGL)",
       "lo_function": "LoGetAltitudeAboveGroundLevel",
       "lo_return_type": "number",
-      "unit": "meters"
+      "unit": "meters",
+      "preferred_unit": "feet"
     },
     "heading": {
       "display_name": "Heading",
       "lo_function": "LoGetMagneticYaw",
       "lo_return_type": "number",
-      "unit": "radians"
+      "unit": "radians",
+      "preferred_unit": "degrees"
     },
     "aoa": {
       "display_name": "Angle of Attack",
       "lo_function": "LoGetAngleOfAttack",
       "lo_return_type": "number",
-      "unit": "radians"
+      "unit": "radians",
+      "preferred_unit": "degrees"
     },
     "engine_info": {
       "lo_function": "LoGetEngineInfo",

@@ -16,6 +16,11 @@
     - test
 - copy resources to docker image
 - add version and build data to API and UI
+- build ui dist
+- build full image
+- provide download bundle zip
+    - readme w/ instructions, disclaimer, and license
+- advanced settings page
 
 # About
 

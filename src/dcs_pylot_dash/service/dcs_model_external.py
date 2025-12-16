@@ -24,6 +24,7 @@ class ExternalModelField(BaseModel):
     # only set for top-level fields
     lo_function: str | None = None
     unit: Unit = Unit.NONE
+    preferred_unit: Unit | None = None
     is_portion: bool = False
     # only set if is_portion
     abs_base_value: float | None = None

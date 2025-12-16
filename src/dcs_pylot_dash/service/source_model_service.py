@@ -47,7 +47,7 @@ class SourceModelService:
             api_field: APISourceField = APISourceField(
                 display_name=field.effective_display_name,
                 field_id=field.dotted_name,
-                default_unit_id=field.unit,
+                default_unit_id=field.preferred_unit if field.preferred_unit is not None else field.unit,
                 available_unit_ids=UnitConverter.get_convertable_units(field.unit),
             )
             api_fields.append(api_field)

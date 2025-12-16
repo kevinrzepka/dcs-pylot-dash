@@ -24,6 +24,7 @@ class InternalModelField:
     name: str
     return_type: LoReturnType
     unit: Unit = Unit.NONE
+    preferred_unit: Unit | None = None
     parent: Self | None = None
     # only set for top-level fields
     lo_function: str | None = None
@@ -100,6 +101,7 @@ class InternalModelField:
             display_name=self.display_name,
             return_type=self.return_type,
             unit=self.unit,
+            preferred_unit=self.preferred_unit,
             lo_function=self.lo_function,
             abs_base_value=self.abs_base_value,
             prototype_ref=self,
@@ -148,6 +150,7 @@ class InternalModel:
             display_name=ext_proto_field.display_name,
             return_type=ext_proto_field.lo_return_type,
             unit=ext_proto_field.unit,
+            preferred_unit=ext_proto_field.preferred_unit,
             lo_function=ext_proto_field.lo_function,
             abs_base_value=ext_proto_field.abs_base_value,
             is_prototype=True,
@@ -192,6 +195,7 @@ class InternalModel:
                 display_name=ext_field.display_name,
                 return_type=ext_field.lo_return_type,
                 unit=ext_field.unit,
+                preferred_unit=ext_field.preferred_unit,
                 lo_function=ext_field.lo_function,
                 abs_base_value=ext_field.abs_base_value,
                 prototype_ref=self._prototype_fields.get(ext_field.prototype_ref),
