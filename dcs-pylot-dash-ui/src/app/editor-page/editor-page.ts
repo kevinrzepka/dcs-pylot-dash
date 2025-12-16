@@ -3,10 +3,10 @@
  * SPDX-License-Identifier: MIT
  * License-Filename: LICENSE
  */
-import { Component } from '@angular/core';
-import { Button } from 'primeng/button';
+import { ChangeDetectorRef, Component } from '@angular/core';
+import { Button, ButtonDirective } from 'primeng/button';
 import { DataPointEditor } from '../data-point-editor/data-point-editor';
-import { DataPoint, DataPointRow, SourceDataPoint } from '../editor-model';
+import { DataPoint, DataPointRow, EditorModel, SourceDataPoint } from '../editor-model';
 import { Card } from 'primeng/card';
 import {
   CdkDrag,
@@ -18,9 +18,10 @@ import {
   moveItemInArray,
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
-import { SourceDataPointService } from '../source-data-point-service';
 import { SourceDataPointChooser } from '../source-data-point-chooser/source-data-point-chooser';
 import { Tooltip } from 'primeng/tooltip';
+import { GeneratorService } from '../generator-service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-editor-page',
@@ -35,21 +36,63 @@ import { Tooltip } from 'primeng/tooltip';
     CdkDragHandle,
     SourceDataPointChooser,
     Tooltip,
+    ButtonDirective,
+    ReactiveFormsModule,
   ],
   templateUrl: './editor-page.html',
   styleUrl: './editor-page.css',
 })
 export class EditorPage {
-  dataPointRows: DataPointRow[] = [];
+  readonly NO_DATA_TOOLTIP: string = 'Add at least one data point to the dashboard.';
 
-  constructor(private sourceDataPointService: SourceDataPointService) {}
+  protected generateButtonEnabled: boolean = false;
+  protected generateButtonTooltip: string = this.NO_DATA_TOOLTIP;
 
-  protected removeDataPointRow(dataPointRow: DataPointRow) {
-    this.dataPointRows = this.dataPointRows.filter((row: DataPointRow) => row !== dataPointRow);
+  protected downloadButtonEnabled: boolean = false;
+  protected downloadUrl: string | null = null;
+  protected downloadFilename: string | null = 'dcs-pylot-dash-generated.zip';
+
+  protected editorModel: EditorModel = new EditorModel();
+
+  constructor(
+    private generatorService: GeneratorService,
+    private cdr: ChangeDetectorRef,
+  ) {}
+
+  protected generate() {
+    this.generateButtonEnabled = false;
+    this.downloadButtonEnabled = false;
+    this.generatorService.generate(this.editorModel).subscribe((blob) => {
+      if (blob) {
+        this.downloadUrl = window.URL.createObjectURL(blob);
+        this.downloadButtonEnabled = true;
+      }
+      this.generateButtonEnabled = true;
+      this.cdr.detectChanges();
+    });
+    this.cdr.detectChanges();
   }
 
-  removeDataPoint(dataPointRow: DataPointRow, dataPoint: DataPoint) {
+  protected removeDataPointRow(dataPointRow: DataPointRow) {
+    this.editorModel.dataPointRows = this.editorModel.dataPointRows.filter(
+      (row: DataPointRow) => row !== dataPointRow,
+    );
+    this.disableOrEnabledBuildButtonDependingOnModelEmpty();
+  }
+
+  protected removeDataPoint(dataPointRow: DataPointRow, dataPoint: DataPoint) {
     dataPointRow.removeDataPoint(dataPoint);
+    this.disableOrEnabledBuildButtonDependingOnModelEmpty();
+  }
+
+  protected disableOrEnabledBuildButtonDependingOnModelEmpty(): void {
+    if (this.editorModel.isEmpty()) {
+      this.generateButtonTooltip = this.NO_DATA_TOOLTIP;
+      this.generateButtonEnabled = false;
+    } else {
+      this.generateButtonTooltip = '';
+      this.generateButtonEnabled = true;
+    }
   }
 
   protected dataPointDropped(event: CdkDragDrop<any, any>) {
@@ -72,7 +115,7 @@ export class EditorPage {
 
   protected dataPointRowDropped(event: CdkDragDrop<any, any>) {
     if (event.previousIndex !== event.currentIndex) {
-      moveItemInArray(this.dataPointRows, event.previousIndex, event.currentIndex);
+      moveItemInArray(this.editorModel.dataPointRows, event.previousIndex, event.currentIndex);
     }
   }
 
@@ -87,8 +130,9 @@ export class EditorPage {
       } else {
         const dataPointRow: DataPointRow = new DataPointRow();
         dataPointRow.addDataPoint(dataPoint);
-        this.dataPointRows.push(dataPointRow);
+        this.editorModel.dataPointRows.push(dataPointRow);
       }
+      this.disableOrEnabledBuildButtonDependingOnModelEmpty();
     }
   }
 }

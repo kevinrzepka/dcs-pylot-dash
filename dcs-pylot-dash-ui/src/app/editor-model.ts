@@ -6,6 +6,13 @@
 
 export class EditorModel {
   dataPointRows: DataPointRow[] = [];
+
+  isEmpty(): boolean {
+    return (
+      this.dataPointRows.length === 0 ||
+      this.dataPointRows.every((row: DataPointRow) => row.dataPoints.length === 0)
+    );
+  }
 }
 
 export class DataPointRow {
@@ -13,10 +20,6 @@ export class DataPointRow {
 
   get lastColumnIndex(): number {
     return this.dataPoints.length - 1;
-  }
-
-  get nextColumnIndex(): number {
-    return this.lastColumnIndex + 1;
   }
 
   public addDataPoint(dataPoint: DataPoint) {

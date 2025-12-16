@@ -33,3 +33,17 @@ export type APIAppMetadata = {
   build_date: string;
   build_commit: string;
 };
+
+export type APIExportField = {
+  display_name: string;
+  field_id: string;
+  unit_id: string;
+};
+
+export type APIExportRow = {
+  fields: APIExportField[];
+};
+
+export type APIExportModel = {
+  rows: APIExportRow[];
+};

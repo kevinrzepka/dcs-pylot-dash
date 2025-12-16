@@ -5,11 +5,10 @@
  */
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { EntryConsent } from './entry-consent/entry-consent';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, EntryConsent],
+  imports: [RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

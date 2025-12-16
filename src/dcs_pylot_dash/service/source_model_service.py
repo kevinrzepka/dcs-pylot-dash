@@ -5,7 +5,7 @@ from typing import Final
 
 from dcs_pylot_dash.api.api_model import APISourceModel, APIUnit, APISourceField
 from dcs_pylot_dash.service.dcs_model_external import ExternalModel
-from dcs_pylot_dash.service.dcs_model_internal import InternalModel
+from dcs_pylot_dash.service.dcs_model_internal import InternalModel, InternalModelField
 from dcs_pylot_dash.service.units import Unit, UnitConverter, UnitDisplayNames, UnitLabels
 from dcs_pylot_dash.utils.resource_provider import ResourceProvider
 
@@ -57,3 +57,22 @@ class SourceModelService:
     @property
     def api_source_model(self) -> APISourceModel:
         return self._api_source_model
+
+    @property
+    def internal_model(self) -> InternalModel:
+        return self._internal_model
+
+    def get_field(self, field_id: str) -> InternalModelField | None:
+        return self._internal_model.get_field(field_id)
+
+    def get_unit_for_field(self, field_id: str, unit_id: str) -> Unit | None:
+        field: InternalModelField | None = self.get_field(field_id)
+        if field is None:
+            return None
+        if unit_id not in Unit:
+            return None
+        desired_unit: Unit = Unit(unit_id)
+        available_units_for_field: list[Unit] = UnitConverter.get_convertable_units(field.unit)
+        if desired_unit not in available_units_for_field:
+            return None
+        return desired_unit

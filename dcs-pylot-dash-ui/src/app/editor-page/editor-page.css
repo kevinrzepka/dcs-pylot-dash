@@ -50,3 +50,18 @@ License-Filename: LICENSE
 app-source-data-point-chooser {
   max-width: 15rem;
 }
+
+.generator-container {
+  display: flex;
+  align-items: center;
+
+  .generator-buttons-container {
+    margin: auto;
+    display: flex;
+    align-items: center;
+
+    p-button {
+      margin: 1rem;
+    }
+  }
+}

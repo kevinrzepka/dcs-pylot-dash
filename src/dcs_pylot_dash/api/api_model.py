@@ -20,3 +20,17 @@ class APISourceField(BaseModel):
 class APISourceModel(BaseModel):
     units: list[APIUnit] = []
     fields: list[APISourceField] = []
+
+
+class APIExportField(BaseModel):
+    display_name: str
+    field_id: str
+    unit_id: str
+
+
+class APIExportRow(BaseModel):
+    fields: list[APIExportField] = []
+
+
+class APIExportModel(BaseModel):
+    rows: list[APIExportRow] = []

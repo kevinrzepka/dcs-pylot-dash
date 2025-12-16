@@ -20,7 +20,8 @@
       "display_name": "Mach number",
       "lo_function": "LoGetMachNumber",
       "lo_return_type": "number",
-      "unit": "none"
+      "unit": "none",
+      "default_decimal_digits": 2
     },
     "airspeed": {
       "display_name": "Indicated Airspeed",

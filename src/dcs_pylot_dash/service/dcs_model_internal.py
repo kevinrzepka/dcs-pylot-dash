@@ -25,6 +25,7 @@ class InternalModelField:
     return_type: LoReturnType
     unit: Unit = Unit.NONE
     preferred_unit: Unit | None = None
+    default_decimal_digits: int = 0
     parent: Self | None = None
     # only set for top-level fields
     lo_function: str | None = None

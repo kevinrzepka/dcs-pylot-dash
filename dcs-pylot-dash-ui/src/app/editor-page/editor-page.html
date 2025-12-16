@@ -8,10 +8,10 @@ License-Filename: LICENSE
     class="dataPointRow"
     cdkDropListGroup
     cdkDropList
-    [cdkDropListData]="dataPointRows"
+    [cdkDropListData]="editorModel.dataPointRows"
     (cdkDropListDropped)="dataPointRowDropped($event)"
   >
-    @for (dataPointRow of dataPointRows; track dataPointRow) {
+    @for (dataPointRow of editorModel.dataPointRows; track dataPointRow) {
       <p-card>
         <div
           class="data-point-row"
@@ -54,11 +54,49 @@ License-Filename: LICENSE
       </p-card>
     }
   </div>
-  <app-source-data-point-chooser
-    class="add-data-point-row"
-    [label]="'Add Data Point'"
-    [tooltip]="'Choose a source field to add a new data point in a new row'"
-    [clearAfterEmit]="true"
-    (onSourceDataPointChange)="addDataPointInRow($event)"
-  />
+  <p-card>
+    <app-source-data-point-chooser
+      class="add-data-point-row"
+      [label]="'Add Data Point'"
+      [tooltip]="'Choose a source field to add a new data point in a new row'"
+      [clearAfterEmit]="true"
+      (onSourceDataPointChange)="addDataPointInRow($event)"
+    />
+  </p-card>
+  <p-card class="generator-container">
+    <div class="generator-buttons-container">
+      <p-button
+        class="build-button"
+        label="Build"
+        [raised]="true"
+        severity="success"
+        icon="pi pi-hammer"
+        (click)="generate()"
+        [disabled]="!generateButtonEnabled"
+      />
+
+      @if (downloadButtonEnabled) {
+        <a
+          pButton
+          class="download-button"
+          [download]="downloadFilename"
+          [href]="downloadUrl"
+          [raised]="true"
+          severity="success"
+        >
+          <i class="pi pi-download"></i>
+          {{ downloadFilename }}
+        </a>
+      } @else {
+        <p-button
+          class="build-button"
+          label="Download available after build"
+          [raised]="true"
+          severity="secondary"
+          icon="pi pi-pi-download"
+          [disabled]="true"
+        />
+      }
+    </div>
+  </p-card>
 </div>

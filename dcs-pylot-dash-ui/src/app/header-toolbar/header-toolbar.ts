@@ -7,15 +7,12 @@ import { Component, Input } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { Toolbar } from 'primeng/toolbar';
 import { ButtonModule } from 'primeng/button';
-import { SplitButton } from 'primeng/splitbutton';
 import { InputTextModule } from 'primeng/inputtext';
-import { IconField } from 'primeng/iconfield';
-import { InputIcon } from 'primeng/inputicon';
 import { MenuSidebar } from '../menu-sidebar/menu-sidebar';
 
 @Component({
   selector: 'app-header-toolbar',
-  imports: [Toolbar, ButtonModule, SplitButton, InputTextModule, IconField, InputIcon],
+  imports: [Toolbar, ButtonModule, InputTextModule],
   templateUrl: './header-toolbar.html',
   styleUrl: './header-toolbar.css',
 })

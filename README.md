@@ -21,6 +21,11 @@
 - provide download bundle zip
     - readme w/ instructions, disclaimer, and license
 - advanced settings page
+- fix lua placeholders
+- remove unnecessary response headers in lua
+- add loading animations
+- prevent concurrent generate requests
+- remove download link when model is modified
 
 # About
 
