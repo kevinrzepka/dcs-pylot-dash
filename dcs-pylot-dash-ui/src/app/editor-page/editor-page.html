@@ -40,6 +40,7 @@ License-Filename: LICENSE
               cdkDrag
               [dataPoint]="dataPoint"
               (onDeleteDataPoint)="removeDataPoint(dataPointRow, $event)"
+              (onChangeDataPoint)="handleDataPointChanged($event)"
             >
               <div class="data-point-drag-placeholder" *cdkDragPlaceholder></div>
             </app-data-point-editor>

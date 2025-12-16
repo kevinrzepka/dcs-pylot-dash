@@ -12,7 +12,7 @@ License-Filename: LICENSE
           id="inputDisplayName"
           type="text"
           pInputText
-          [(ngModel)]="dataPoint.displayName"
+          [formControl]="fcDisplayName"
           pTooltip="Change the display name for this data point"
         />
       </p-iftalabel>

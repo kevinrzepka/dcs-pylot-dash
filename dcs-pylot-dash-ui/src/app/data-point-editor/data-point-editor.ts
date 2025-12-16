@@ -3,9 +3,9 @@
  * SPDX-License-Identifier: MIT
  * License-Filename: LICENSE
  */
-import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { Card } from 'primeng/card';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputText } from 'primeng/inputtext';
 import { DataPoint, DataPointUnit, SourceDataPoint } from '../editor-model';
 import { IftaLabel } from 'primeng/iftalabel';
@@ -25,21 +25,35 @@ import { UnitChooser } from '../unit-chooser/unit-chooser';
     SourceDataPointChooser,
     Tooltip,
     UnitChooser,
+    ReactiveFormsModule,
   ],
   templateUrl: './data-point-editor.html',
   styleUrl: './data-point-editor.css',
 })
-export class DataPointEditor {
-  @Output()
-  onDeleteDataPoint: EventEmitter<DataPoint> = new EventEmitter<DataPoint>();
-
+export class DataPointEditor implements OnInit {
   @Input()
   dataPoint!: DataPoint;
 
   @ViewChild(UnitChooser)
   unitChooser!: UnitChooser;
 
+  fcDisplayName: FormControl<string | null> = new FormControl();
+
+  @Output()
+  onDeleteDataPoint: EventEmitter<DataPoint> = new EventEmitter<DataPoint>();
+
+  @Output()
+  onChangeDataPoint: EventEmitter<DataPoint> = new EventEmitter<DataPoint>();
+
   constructor() {}
+
+  ngOnInit(): void {
+    this.fcDisplayName.setValue(this.dataPoint.displayName);
+    this.fcDisplayName.valueChanges.subscribe((value: string | null) => {
+      this.dataPoint.displayName = value ?? '';
+      this.onChangeDataPoint.emit(this.dataPoint);
+    });
+  }
 
   protected deleteDataPoint() {
     this.onDeleteDataPoint.emit(this.dataPoint);
@@ -50,13 +64,14 @@ export class DataPointEditor {
       this.dataPoint.sourceDataPoint = sourceDataPoint;
       this.dataPoint.outputUnit = sourceDataPoint.defaultUnit;
       if (this.dataPoint.displayName !== sourceDataPoint.displayName) {
-        this.dataPoint.displayName = sourceDataPoint.displayName;
+        this.fcDisplayName.setValue(sourceDataPoint.displayName);
       }
       this.unitChooser.handleSourceDataPointChange(sourceDataPoint);
+      this.onChangeDataPoint.emit(this.dataPoint);
     }
   }
 
   protected handleUnitChange(unit: DataPointUnit | null) {
-    console.log('handleUnitChange', unit);
+    this.onChangeDataPoint.emit(this.dataPoint);
   }
 }

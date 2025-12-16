@@ -25,7 +25,7 @@
 - remove unnecessary response headers in lua
 - add loading animations
 - prevent concurrent generate requests
-- remove download link when model is modified
+- status page w\ current messages
 
 # About
 

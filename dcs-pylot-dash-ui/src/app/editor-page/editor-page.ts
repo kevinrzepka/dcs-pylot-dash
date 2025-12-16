@@ -77,12 +77,21 @@ export class EditorPage {
     this.editorModel.dataPointRows = this.editorModel.dataPointRows.filter(
       (row: DataPointRow) => row !== dataPointRow,
     );
-    this.disableOrEnabledBuildButtonDependingOnModelEmpty();
+    this.editorModelChanged();
   }
 
   protected removeDataPoint(dataPointRow: DataPointRow, dataPoint: DataPoint) {
     dataPointRow.removeDataPoint(dataPoint);
+    this.editorModelChanged();
+  }
+
+  protected editorModelChanged() {
     this.disableOrEnabledBuildButtonDependingOnModelEmpty();
+    if (this.downloadUrl) {
+      window.URL.revokeObjectURL(this.downloadUrl);
+    }
+    this.downloadButtonEnabled = false;
+    this.downloadUrl = null;
   }
 
   protected disableOrEnabledBuildButtonDependingOnModelEmpty(): void {
@@ -132,7 +141,11 @@ export class EditorPage {
         dataPointRow.addDataPoint(dataPoint);
         this.editorModel.dataPointRows.push(dataPointRow);
       }
-      this.disableOrEnabledBuildButtonDependingOnModelEmpty();
+      this.editorModelChanged();
     }
+  }
+
+  protected handleDataPointChanged(dataPoint: DataPoint) {
+    this.editorModelChanged();
   }
 }
