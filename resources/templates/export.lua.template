@@ -1,7 +1,3 @@
---[[
-%copyright%
-]]
-
 local lfs = require('lfs')
 local success, error = pcall(function()
     log.write(%log_prefix%, log.INFO, "Loading script: %output_script_name%")

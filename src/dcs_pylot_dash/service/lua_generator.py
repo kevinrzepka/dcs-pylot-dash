@@ -17,6 +17,7 @@ from dcs_pylot_dash.service.export_model import (
     ExportModelTreeNode,
     HttpServerSettings,
 )
+from dcs_pylot_dash.service.notice_service import NoticesContainer
 from dcs_pylot_dash.service.units import UnitConverter
 from dcs_pylot_dash.utils.resource_provider import ResourceProvider
 
@@ -31,6 +32,7 @@ class LuaTemplateVar(StrEnum):
     BIND_PORT = auto()
     MAX_CONNECTIONS = auto()
     LOG_PREFIX = auto()
+    COPYRIGHT = auto()
 
 
 class LuaGeneratorSettings(BaseModel):
@@ -50,6 +52,7 @@ class LuaGeneratorSettings(BaseModel):
 class LuaGenerator:
     _settings: LuaGeneratorSettings
     _resource_provider: ResourceProvider
+    _notices_container: NoticesContainer
     _main_template: str
     _export_template: str
 
@@ -63,14 +66,18 @@ class LuaGenerator:
         LoReturnType.LIST: "{}",
     }
 
-    def __init__(self, settings: LuaGeneratorSettings, resource_provider: ResourceProvider) -> None:
+    def __init__(
+        self, settings: LuaGeneratorSettings, resource_provider: ResourceProvider, notices_container: NoticesContainer
+    ) -> None:
         self._settings = settings
         self._resource_provider = resource_provider
+        self._notices_container = notices_container
         self._read_templates()
 
     def _read_templates(self) -> None:
         LOGGER.info(f"Reading main template: {self._settings.main_template_name}")
-        self._main_template = self._resource_provider.read_template_file(self._settings.main_template_name)
+        main_template: str = self._resource_provider.read_template_file(self._settings.main_template_name)
+        self._main_template = self._fill(main_template, LuaTemplateVar.COPYRIGHT, self._notices_container.license_txt)
         LOGGER.info(f"Reading export template: {self._settings.main_template_name}")
         self._export_template = self._resource_provider.read_template_file(self._settings.export_template_name)
 

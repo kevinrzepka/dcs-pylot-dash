@@ -9,6 +9,7 @@ from dcs_pylot_dash.service.dcs_model_external import ExternalModel
 from dcs_pylot_dash.service.dcs_model_internal import InternalModel
 from dcs_pylot_dash.service.export_model import ExportModel, LuaGeneratorOutput
 from dcs_pylot_dash.service.lua_generator import LuaGenerator, LuaGeneratorSettings
+from dcs_pylot_dash.service.notice_service import NoticesContainer
 from dcs_pylot_dash.utils.resource_provider import ResourceProvider
 
 
@@ -32,6 +33,10 @@ def test_generate(model_external: ExternalModel, export_model: ExportModel):
     internal_model.populate()
     assert internal_model
     resource_provider: ResourceProvider = ResourceProvider()
-    generator: LuaGenerator = LuaGenerator(LuaGeneratorSettings(), resource_provider)
+    generator: LuaGenerator = LuaGenerator(
+        LuaGeneratorSettings(),
+        resource_provider,
+        NoticesContainer(license_txt="", third_party_licenses_txt="", privacy_policy_md="", terms_of_service_md=""),
+    )
     generator_output: LuaGeneratorOutput = generator.generate(internal_model, export_model)
     assert generator_output

@@ -16,16 +16,22 @@
     - test
 - copy resources to docker image
 - add version and build data to API and UI
+    - bake version into image
 - build ui dist
 - build full image
 - provide download bundle zip
     - readme w/ instructions, disclaimer, and license
-- advanced settings page
+- advanced settings
+    - page
+    - api
+    - use in model generation
 - fix lua placeholders
 - remove unnecessary response headers in lua
 - add loading animations
 - prevent concurrent generate requests
 - status page w\ current messages
+- default model
+- footer not centered
 
 # About
 
