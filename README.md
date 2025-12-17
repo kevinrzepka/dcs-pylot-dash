@@ -25,8 +25,6 @@
     - page
     - api
     - use in model generation
-- fix lua placeholders
-- remove unnecessary response headers in lua
 - add loading animations
 - prevent concurrent generate requests
 - status page w\ current messages

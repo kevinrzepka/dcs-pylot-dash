@@ -11,7 +11,7 @@ handlers:
     stream: ext://sys.stdout
 loggers:
   dcs_pylot_dash:
-    level: DEBUG
+    level: INFO
   uvicorn:
     level: DEBUG
   fastapi:

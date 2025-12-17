@@ -7,10 +7,15 @@ from pathlib import Path
 from typing import Final
 
 from fastapi import FastAPI
-from starlette.staticfiles import StaticFiles
+from starlette.requests import Request
+from starlette.responses import FileResponse
 
 from dcs_pylot_dash.api.main_router import MainRouter
+from dcs_pylot_dash.app_exception_handlers import AppExceptionHandlers
 from dcs_pylot_dash.app_settings import DCSPylotDashAppSettings, DCSPylotDashAppMetaSettings
+from dcs_pylot_dash.exceptions import DCSPylotDashResourceNotFoundException
+from dcs_pylot_dash.utils.resource_provider import ResourceProvider
+from dcs_pylot_dash.utils.string_utils import StringUtils
 
 
 class DcsPylotDash:
@@ -32,13 +37,33 @@ class DcsPylotDash:
         DcsPylotDash.LOGGER.info(f"App settings: {app_settings}")
 
         fast_api: FastAPI = FastAPI(title=app_settings.app_name, version=app_settings.app_version, openapi_url=None)
+        AppExceptionHandlers.add_exception_handlers(fast_api)
         fast_api.include_router(await MainRouter.create_router(app_settings), prefix="/api/v1")
 
-        if app_settings.mount_ui:
+        if app_settings.mount_ui:  # FastAPI does not allow mounting a router with empty prefix and path
             DcsPylotDash.LOGGER.info("Mounting static router")
+
+            resource_provider: ResourceProvider = ResourceProvider()
             ui_base_dir: Path = (Path(__file__).parent / Path(app_settings.ui_base_dir)).resolve(strict=True)
-            fast_api.mount("/", StaticFiles(directory=ui_base_dir, html=True))
-            # fast_api.include_router(await StaticRouter.create_router(app_settings), prefix="")
+            ui_root_file_path: Path = resource_provider.resolve_path_from_base(
+                ui_base_dir, app_settings.ui_index_file_name
+            )
+
+            @fast_api.get("/")
+            async def ui_root(request: Request) -> FileResponse:
+                return FileResponse(ui_root_file_path)
+
+            @fast_api.get("/{full_path:path}")
+            async def catch_all(request: Request, full_path: str) -> FileResponse:
+                resource_path: Path = resource_provider.resolve_path_from_base(ui_base_dir, full_path)
+                if resource_path.exists():
+                    DcsPylotDash.LOGGER.info(f"Serving resource: {resource_path.absolute()}")
+                    return FileResponse(resource_path)
+                elif StringUtils.is_not_empty(resource_path.suffix):
+                    raise DCSPylotDashResourceNotFoundException(f"Resource not found: {full_path}")
+                else:
+                    DcsPylotDash.LOGGER.warning(f"Resource not found: {resource_path.absolute()}, serving UI")
+                    return FileResponse(ui_root_file_path)
 
         DcsPylotDash.LOGGER.info(f"mounted routes: {fast_api.routes}")
         return fast_api

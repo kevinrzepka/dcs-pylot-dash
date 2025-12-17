@@ -8,6 +8,7 @@ from typing import ClassVar, Self
 
 from pydantic import BaseModel, model_validator
 
+from dcs_pylot_dash.exceptions import DCSPylotDashInvalidInputException
 from dcs_pylot_dash.service.dcs_model_internal import InternalModelField
 from dcs_pylot_dash.service.units import Unit, UnitLabels
 from dcs_pylot_dash.utils.string_utils import StringUtils
@@ -15,7 +16,7 @@ from dcs_pylot_dash.utils.string_utils import StringUtils
 LOGGER = logging.getLogger(__name__)
 
 
-class InvalidExportModelError(Exception):
+class InvalidExportModelError(DCSPylotDashInvalidInputException):
     def __init__(self, msg: str) -> None:
         super().__init__(f"Invalid export model: {msg}")
 
@@ -198,7 +199,7 @@ class ExportModelTreeNode(BaseModel):
         name_chunks: list[str] = name.split(".")
         node: Self | None = self.nodes.get(name_chunks[0])
         if node is None:
-            LOGGER.warning(f"Node {name} not found")
+            LOGGER.debug(f"Node {name} not found")
             return None
         if len(name_chunks) > 1:
             return node.get_node(".".join(name_chunks[1:]))

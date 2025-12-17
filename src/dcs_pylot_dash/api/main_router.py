@@ -10,6 +10,7 @@ from starlette.responses import Response
 from dcs_pylot_dash.api.api_model import APISourceModel, APIExportModel
 from dcs_pylot_dash.api.api_routes import APIRoutes
 from dcs_pylot_dash.app_settings import DCSPylotDashAppSettings
+from dcs_pylot_dash.exceptions import DCSPylotDashInvalidInputException
 from dcs_pylot_dash.service.api_model_export_service import APIModelExportService
 from dcs_pylot_dash.service.app_metadata_service import AppMetadataService, AppMetadata
 from dcs_pylot_dash.service.notice_service import NoticesContainer, NoticesService, NoticesSettings
@@ -30,7 +31,7 @@ class MainRouter:
         metadata_service: AppMetadataService = AppMetadataService(app_settings)
 
         api_model_export_service: APIModelExportService = APIModelExportService(
-            app_settings, source_model_service, resource_provider
+            app_settings, source_model_service, notices_service, resource_provider
         )
 
         api_router: APIRouter = APIRouter()
@@ -49,6 +50,9 @@ class MainRouter:
 
         @api_router.post(APIRoutes.GENERATE)
         async def generate(api_export_model: APIExportModel) -> Response:
+            if api_export_model.is_empty:
+                raise DCSPylotDashInvalidInputException("empty export model")
+
             bytes_io: BytesIO = api_model_export_service.export_model(api_export_model)
             return Response(content=bytes_io.getvalue(), media_type="application/zip")
 

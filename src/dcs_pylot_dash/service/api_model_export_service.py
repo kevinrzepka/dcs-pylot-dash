@@ -19,6 +19,8 @@ from dcs_pylot_dash.utils.resource_provider import ResourceProvider
 
 class APIModelExportService:
 
+    _lua_generator: LuaGenerator
+    _html_generator: HtmlUIGenerator
     _notices_service: NoticesService
     _resource_provider: ResourceProvider
     _app_settings: DCSPylotDashAppSettings
@@ -35,17 +37,17 @@ class APIModelExportService:
         self._app_settings = app_settings
         self._source_model_service = source_model_service
         self._notices_service = notices_service
+        self._lua_generator = LuaGenerator(
+            LuaGeneratorSettings(), self._resource_provider, self._notices_service.notices
+        )
+        self._html_generator = HtmlUIGenerator(HtmlUiGeneratorSettings(), self._resource_provider)
 
     def export_model(self, api_model: APIExportModel) -> BytesIO:
         export_model: ExportModel = self._build_export_model(api_model)
-        lua_generator: LuaGenerator = LuaGenerator(
-            LuaGeneratorSettings(), self._resource_provider, self._notices_service.notices
-        )
-        lua_generator_output: LuaGeneratorOutput = lua_generator.generate(
+        lua_generator_output: LuaGeneratorOutput = self._lua_generator.generate(
             self._source_model_service.internal_model, export_model
         )
-        html_generator: HtmlUIGenerator = HtmlUIGenerator(HtmlUiGeneratorSettings(), self._resource_provider)
-        html_generator_output: HtmlUIGeneratorOutput = html_generator.generate(export_model)
+        html_generator_output: HtmlUIGeneratorOutput = self._html_generator.generate(export_model)
 
         in_memory_file: BytesIO = BytesIO()
         with PyZipFile(in_memory_file, "w") as zip_file:
