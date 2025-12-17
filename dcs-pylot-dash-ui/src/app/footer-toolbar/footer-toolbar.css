@@ -3,25 +3,54 @@ Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
 SPDX-License-Identifier: MIT
 License-Filename: LICENSE
 */
-.footer-copyright {
-  span {
-    color: var(--p-iftalabel-color);
-  }
-}
 
-.p-toolbar-center {
+p-toolbar {
   flex: auto;
 }
 
-.footer-links {
-  a {
-    margin: 1rem;
+.third {
+  display: flex;
+  flex: 1 1 33%;
+}
+
+.third-0 {
+  display: flex;
+  align-items: flex-start;
+
+  .footer-copyright {
+    a {
+      margin-left: 1rem;
+    }
+
+    span {
+      color: var(--p-iftalabel-color);
+    }
   }
 }
 
-.footer-metadata {
-  p-tag {
-    margin-left: 1rem;
-    margin-right: 1rem;
+.third-1 {
+  display: flex;
+  align-items: center;
+
+  .footer-links {
+    margin: auto;
+
+    a {
+      margin: 1rem;
+    }
+  }
+}
+
+.third-2 {
+  display: flex;
+  align-items: flex-end;
+
+  .footer-metadata {
+    margin-left: auto;
+
+    p-tag {
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
   }
 }

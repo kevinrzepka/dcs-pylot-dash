@@ -11,16 +11,18 @@ import { AppMetadata, AppMetadataService } from '../app-metadata-service';
 import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 import { Tag } from 'primeng/tag';
+import { Button, ButtonLabel } from 'primeng/button';
 
 @Component({
   selector: 'app-footer-toolbar',
-  imports: [Toolbar, RouterLink, AsyncPipe, Tag],
+  imports: [Toolbar, RouterLink, AsyncPipe, Tag, Button, ButtonLabel],
   templateUrl: './footer-toolbar.html',
   styleUrl: './footer-toolbar.css',
 })
 export class FooterToolbar {
   protected appRoutes = AppRoutes;
   protected copyrightText: string = 'Copyright © 2025 Kevin Rzepka';
+  protected githubLink: string = 'https://github.com/kevinrzepka/dcs-pylot-dash';
 
   appMetadata$: Observable<AppMetadata>;
 

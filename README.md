@@ -4,16 +4,16 @@
 - package isoduration: SbomLicenseContainer(license=SbomLicense(name="declared license of 'isoduration'", id=None,
   url=None, acknowledgement='declared', text=SbomLicenseText(content='UNKNOWN', content_type='text/plain',
   encoding=None)))
-- warning for generated scripts, e.g., with MIT license
 - uv test instructions for tools
 - add security.txt?
 - add CSP and nonce: https://angular.dev/best-practices/security#content-security-policy
 - https://angular.dev/best-practices/security#enforcing-trusted-types?
-- copyright, license in generated files
 - rate limiting config
     - test
 - input validation test
 - color scale
+- warning for generated scripts, e.g., with MIT license
+- copyright, license in generated files
 - provide download bundle zip
     - readme w/ instructions, disclaimer, and license
 - advanced settings
@@ -21,10 +21,9 @@
     - api
     - use in model generation
 - add loading animations
-- prevent concurrent generate requests
+- prevent concurrent generate requests?
 - status page w\ current messages
 - default model
-- footer not centered
 - error handling when api call fails
     - show message
     - re-enable buttons
