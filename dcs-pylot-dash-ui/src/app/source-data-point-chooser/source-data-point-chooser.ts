@@ -46,6 +46,8 @@ export class SourceDataPointChooser implements OnInit {
 
   protected sourceDataPointSuggestions: SourceDataPoint[] = [];
 
+  @Input() disabled!: boolean;
+
   constructor(private sourceDataPointService: SourceDataPointService) {
     this.fcSourceDataPoint = new FormControl(null);
   }

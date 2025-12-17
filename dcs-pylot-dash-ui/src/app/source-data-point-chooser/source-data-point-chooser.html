@@ -13,6 +13,7 @@ License-Filename: LICENSE
     (completeMethod)="searchSourceDataPoints($event)"
     [pTooltip]="tooltip ? tooltip : ''"
     optionLabel="displayName"
+    [disabled]="disabled"
   >
     <ng-template let-item #item>
       <div [style]="{ width: '100%' }">

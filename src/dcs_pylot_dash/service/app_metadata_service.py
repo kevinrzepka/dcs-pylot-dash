@@ -6,7 +6,7 @@ import re
 import subprocess
 from re import Match
 from subprocess import CompletedProcess
-from typing import Final, Any
+from typing import Final, Any, ClassVar
 
 from pydantic import BaseModel
 from pydantic_settings import SettingsConfigDict, BaseSettings
@@ -22,9 +22,12 @@ class BuildMetadata(BaseSettings):
 
 
 class AppMetadata(BaseModel):
+    UNKNOWN_BUILD_DATE: ClassVar[str] = "unknown_date"
+    UNKNOWN_BUILD_COMMIT: ClassVar[str] = "unknown_commit"
+
     version: str
-    build_date: str = "unknown_date"
-    build_commit: str = "unknown_commit"
+    build_date: str = UNKNOWN_BUILD_DATE
+    build_commit: str = UNKNOWN_BUILD_COMMIT
 
 
 class AppMetadataService:
@@ -39,12 +42,14 @@ class AppMetadataService:
         build_metadata: BuildMetadata = BuildMetadata()
         self._app_metadata = AppMetadata(
             version=self._app_settings.app_version,
-            build_date=build_metadata.build_date,
-            build_commit=build_metadata.build_commit,
+            build_date=build_metadata.build_date or AppMetadata.UNKNOWN_BUILD_DATE,
+            build_commit=build_metadata.build_commit or AppMetadata.UNKNOWN_BUILD_COMMIT,
         )
 
         if self._app_metadata.build_commit is None:
             self._app_metadata.build_commit = self.parse_git_commit_hash()
+
+        self.LOGGER.info(f"App metadata: {self._app_metadata}")
 
     def parse_git_commit_hash(self) -> str | None:
         try:

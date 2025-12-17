@@ -54,6 +54,9 @@ export class EditorPage {
 
   protected editorModel: EditorModel = new EditorModel();
 
+  readonly maxRows: number = 10;
+  readonly maxDataPointsPerRow: number = 6;
+
   constructor(
     private generatorService: GeneratorService,
     private cdr: ChangeDetectorRef,

@@ -13,12 +13,7 @@
 - rate limiting config
     - test
 - input validation test
-- copy resources to docker image
-- add version and build data to API and UI
-    - bake version into image
 - color scale
-- build ui dist
-- build full image
 - provide download bundle zip
     - readme w/ instructions, disclaimer, and license
 - advanced settings
@@ -30,6 +25,10 @@
 - status page w\ current messages
 - default model
 - footer not centered
+- error handling when api call fails
+    - show message
+    - re-enable buttons
+- fill drawer
 
 # About
 
@@ -165,18 +164,18 @@ https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html
 - set ulimits: https://ss64.com/bash/ulimit.html,
     - but: http://docs.docker.com/reference/cli/docker/container/run/#for-nproc-usage
 
-Build and run with shell:
+Build: `./build-image.sh`
+
+run with shell:
 
 ```bash
-sudo docker build -t kevinrzepka/dcs-pylot-dash . && \
 sudo docker run --rm -it --read-only --memory-swappiness=0 --security-opt=no-new-privileges --cap-drop all -m=1g --cpus=1 --entrypoint /bin/bash kevinrzepka/dcs-pylot-dash
 ```
 
-Build and run with regular entrypoint:
+run with regular entrypoint:
 
 ```bash
-sudo docker build -t kevinrzepka/dcs-pylot-dash . && \
-sudo docker run --rm -it --read-only --memory-swappiness=0 --security-opt=no-new-privileges --cap-drop all -m=1g --cpus=1 kevinrzepka/dcs-pylot-dash
+sudo docker run --rm -it --read-only --memory-swappiness=0 --security-opt=no-new-privileges --cap-drop all -m=1g --cpus=1 -p 8000:8000 kevinrzepka/dcs-pylot-dash:latest
 ```
 
 ## Vulnerability Scan (Trivy)

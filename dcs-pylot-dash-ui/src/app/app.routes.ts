@@ -19,9 +19,9 @@ export class AppRoutes {
 
 export const routes: Routes = [
   { path: '', component: MainPage },
-  { path: '**', component: MainPage },
   { path: AppRoutes.LICENSE, component: LicensePage },
   { path: AppRoutes.PRIVACY_POLICY, component: PrivacyPolicyPage },
   { path: AppRoutes.TERMS_OF_SERVICE, component: TermsPage },
   { path: AppRoutes.THIRD_PARTY_LICENSES, component: ThirdPartyLicensesPage },
+  { path: '**', redirectTo: '' },
 ];

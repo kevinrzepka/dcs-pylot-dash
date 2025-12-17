@@ -23,11 +23,7 @@ License-Filename: LICENSE
         >
           <div class="row-drag-placeholder" *cdkDragPlaceholder></div>
           <div class="row-controls">
-            <i
-              class="pi pi-arrows-v"
-              cdkDragHandle
-              [pTooltip]="'Drag to move this row up or down'"
-            ></i>
+            <i class="pi pi-arrows-v" cdkDragHandle></i>
             <p-button
               icon="pi pi-trash"
               severity="danger"
@@ -49,6 +45,7 @@ License-Filename: LICENSE
             [label]="'Add Data Point'"
             [tooltip]="'Choose a source field to add a new data point to this row'"
             [clearAfterEmit]="true"
+            [disabled]="dataPointRow.dataPoints.length >= maxDataPointsPerRow"
             (onSourceDataPointChange)="addDataPointInRow($event, dataPointRow)"
           />
         </div>
@@ -61,6 +58,7 @@ License-Filename: LICENSE
       [label]="'Add Data Point'"
       [tooltip]="'Choose a source field to add a new data point in a new row'"
       [clearAfterEmit]="true"
+      [disabled]="editorModel.dataPointRows.length >= maxRows"
       (onSourceDataPointChange)="addDataPointInRow($event)"
     />
   </p-card>
