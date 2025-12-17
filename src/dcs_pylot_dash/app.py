@@ -35,16 +35,16 @@ class DcsPylotDash:
             settings_file_path=env_settings_file_path_str, _env_file=env_settings_file_path_str
         )
         DcsPylotDash.LOGGER.info(f"App settings: {app_settings}")
+        resource_provider: ResourceProvider = ResourceProvider(app_settings.resources_dir_path)
 
         fast_api: FastAPI = FastAPI(title=app_settings.app_name, version=app_settings.app_version, openapi_url=None)
         AppExceptionHandlers.add_exception_handlers(fast_api)
-        fast_api.include_router(await MainRouter.create_router(app_settings), prefix="/api/v1")
+        fast_api.include_router(await MainRouter.create_router(app_settings, resource_provider), prefix="/api/v1")
 
         if app_settings.mount_ui:  # FastAPI does not allow mounting a router with empty prefix and path
-            DcsPylotDash.LOGGER.info("Mounting static router")
+            DcsPylotDash.LOGGER.info("Mounting UI")
 
-            resource_provider: ResourceProvider = ResourceProvider()
-            ui_base_dir: Path = (Path(__file__).parent / Path(app_settings.ui_base_dir)).resolve(strict=True)
+            ui_base_dir: Path = Path(app_settings.ui_base_dir).resolve(strict=True)
             ui_root_file_path: Path = resource_provider.resolve_path_from_base(
                 ui_base_dir, app_settings.ui_index_file_name
             )

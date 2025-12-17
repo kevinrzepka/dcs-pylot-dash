@@ -3,5 +3,5 @@
 **/*.pyc
 .angular
 **/node_modules
-/src/dcs_pylot_dash/static/
-/dcs-pylot-dash-ui/dist/
+src/dcs_pylot_dash/static
+dcs-pylot-dash-ui/dist

@@ -12,11 +12,11 @@
 - copyright, license in generated files
 - rate limiting config
     - test
-- input validation
-    - test
+- input validation test
 - copy resources to docker image
 - add version and build data to API and UI
     - bake version into image
+- color scale
 - build ui dist
 - build full image
 - provide download bundle zip

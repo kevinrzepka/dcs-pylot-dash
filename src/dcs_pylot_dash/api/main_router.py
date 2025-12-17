@@ -22,9 +22,10 @@ class MainRouter:
     LOGGER: Logger = getLogger(__name__)
 
     @classmethod
-    async def create_router(cls, app_settings: DCSPylotDashAppSettings) -> APIRouter:
+    async def create_router(
+        cls, app_settings: DCSPylotDashAppSettings, resource_provider: ResourceProvider
+    ) -> APIRouter:
 
-        resource_provider: ResourceProvider = ResourceProvider()
         source_model_service: SourceModelService = SourceModelService(resource_provider)
         notices_settings: NoticesSettings = NoticesSettings(_env_file=app_settings.settings_file_path)
         notices_service: NoticesService = NoticesService(notices_settings, resource_provider)

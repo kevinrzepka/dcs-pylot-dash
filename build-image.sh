@@ -11,7 +11,7 @@ set -euo pipefail
 commit_id=$(git rev-parse HEAD)
 base_image_name=kevinrzepka/dcs-pylot-dash
 full_image_name="$base_image_name:$commit_id"
-sudo docker build -t "$full_image_name" .
+sudo docker build --build-arg BUILD_DATE="$(date +"%Y-%m-%dT%H:%M:%S%z")" --build-arg BUILD_COMMIT="$(git rev-parse --short HEAD)" -t "$full_image_name" .
 sudo docker tag "$full_image_name" "$base_image_name:latest"
 
 # ensure no dev packages are in image

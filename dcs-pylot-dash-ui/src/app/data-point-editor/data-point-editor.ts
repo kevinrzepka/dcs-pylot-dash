@@ -13,6 +13,7 @@ import { Button } from 'primeng/button';
 import { SourceDataPointChooser } from '../source-data-point-chooser/source-data-point-chooser';
 import { Tooltip } from 'primeng/tooltip';
 import { UnitChooser } from '../unit-chooser/unit-chooser';
+import { KeyFilter } from 'primeng/keyfilter';
 
 @Component({
   selector: 'app-data-point-editor',
@@ -26,6 +27,7 @@ import { UnitChooser } from '../unit-chooser/unit-chooser';
     Tooltip,
     UnitChooser,
     ReactiveFormsModule,
+    KeyFilter,
   ],
   templateUrl: './data-point-editor.html',
   styleUrl: './data-point-editor.css',
@@ -44,6 +46,9 @@ export class DataPointEditor implements OnInit {
 
   @Output()
   onChangeDataPoint: EventEmitter<DataPoint> = new EventEmitter<DataPoint>();
+
+  protected displayNameRegex: RegExp = /^[\w\s]+$/;
+  protected displayNameMaxLength: number = 50;
 
   constructor() {}
 

@@ -12,6 +12,8 @@ License-Filename: LICENSE
           id="inputDisplayName"
           type="text"
           pInputText
+          [pKeyFilter]="displayNameRegex"
+          [maxlength]="displayNameMaxLength"
           [formControl]="fcDisplayName"
           pTooltip="Change the display name for this data point"
         />

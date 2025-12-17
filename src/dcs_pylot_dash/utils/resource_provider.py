@@ -11,6 +11,7 @@ class ResourceProvider:
 
     LOGGER: Final[Logger] = logging.getLogger(__name__)
 
+    # repo 'dcs-pylot-dash' root dir
     RESOURCES_DIR_DEFAULT: Final[Path] = Path(__file__).parent.parent.parent.parent / "resources"
 
     TEMPLATES_DIR_NAME: Final[str] = "templates"

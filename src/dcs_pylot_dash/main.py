@@ -10,8 +10,18 @@ from pathlib import Path
 import uvicorn
 import yaml
 from fastapi import FastAPI
+from pydantic_settings import BaseSettings
 
 from dcs_pylot_dash.app import DcsPylotDash
+
+
+class UvicornEnvSettings(BaseSettings):
+    """
+    Same names as in https://uvicorn.dev/settings/#configuration-methods, but more secure defaults
+    """
+
+    uvicorn_port: int = 8000
+    uvicorn_host: str = "127.0.0.1"
 
 
 def main():
@@ -21,8 +31,9 @@ def main():
     """
     logger: Logger = logging.getLogger(__name__)
     logger.info("Starting DCS Pylot Dash")
+    uvicorn_env_settings: UvicornEnvSettings = UvicornEnvSettings()
     app: FastAPI = asyncio.run(DcsPylotDash.create_app())
-    uvicorn.run(app, host="127.0.0.1")
+    uvicorn.run(app, host=uvicorn_env_settings.uvicorn_host, port=uvicorn_env_settings.uvicorn_port)
 
 
 if __name__ == "__main__":

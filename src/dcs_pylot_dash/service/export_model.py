@@ -44,10 +44,10 @@ class LuaExportSettings(BaseModel):
     """
 
     EXPORT_SCRIPT_NAME: ClassVar[str] = "Export.lua"
-    LOG_PREFIX_DEFAULT: ClassVar[str] = "PyDCSExport"
+    LOG_PREFIX_DEFAULT: ClassVar[str] = "DCSPylotDash"
     SCRIPT_INDENTATION_DEFAULT: ClassVar[int] = 4
     OUTPUT_DIR_DEFAULT: ClassVar[str] = "."
-    OUTPUT_SCRIPT_NAME_DEFAULT: ClassVar[str] = "PyDcsExport.lua"
+    OUTPUT_SCRIPT_NAME_DEFAULT: ClassVar[str] = "DCSPylotDash.lua"
 
     log_prefix: str = LOG_PREFIX_DEFAULT
     output_dir: str = OUTPUT_DIR_DEFAULT
