@@ -43,6 +43,17 @@ class ResourceProvider:
         self.LOGGER.info(f"Reading notice file: {notice_path}")
         return notice_path.read_text()
 
+    def resolve_path_from_base(self, base_path: Path, relative_path: str) -> Path | None:
+        full_path: Path = base_path / Path(relative_path)
+        try:
+            resolved_relative_path: Path = full_path.relative_to(base_path)
+            resolved_path: Path = (base_path / resolved_relative_path).resolve()
+            self.LOGGER.info(f"Resolved path '{relative_path}' from base path '{base_path}' to: {resolved_path}")
+            return resolved_path
+        except ValueError as e:
+            self.LOGGER.warning(f"Could not resolve path '{relative_path}' from base path '{base_path}': {e}")
+            return None
+
     @property
     def templates_dir(self) -> Path:
         return self.resources_dir / self.TEMPLATES_DIR_NAME

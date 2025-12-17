@@ -11,6 +11,7 @@ from dcs_pylot_dash.service.dcs_model_internal import InternalModelField
 from dcs_pylot_dash.service.export_model import ExportModel, ExportModelField, LuaGeneratorOutput
 from dcs_pylot_dash.service.html_ui_generator import HtmlUIGenerator, HtmlUiGeneratorSettings, HtmlUIGeneratorOutput
 from dcs_pylot_dash.service.lua_generator import LuaGenerator, LuaGeneratorSettings
+from dcs_pylot_dash.service.notice_service import NoticesService
 from dcs_pylot_dash.service.source_model_service import SourceModelService
 from dcs_pylot_dash.service.units import Unit
 from dcs_pylot_dash.utils.resource_provider import ResourceProvider
@@ -18,6 +19,7 @@ from dcs_pylot_dash.utils.resource_provider import ResourceProvider
 
 class APIModelExportService:
 
+    _notices_service: NoticesService
     _resource_provider: ResourceProvider
     _app_settings: DCSPylotDashAppSettings
     _source_model_service: SourceModelService
@@ -26,15 +28,19 @@ class APIModelExportService:
         self,
         app_settings: DCSPylotDashAppSettings,
         source_model_service: SourceModelService,
+        notices_service: NoticesService,
         resource_provider: ResourceProvider,
     ):
         self._resource_provider = resource_provider
         self._app_settings = app_settings
         self._source_model_service = source_model_service
+        self._notices_service = notices_service
 
     def export_model(self, api_model: APIExportModel) -> BytesIO:
         export_model: ExportModel = self._build_export_model(api_model)
-        lua_generator: LuaGenerator = LuaGenerator(LuaGeneratorSettings(), self._resource_provider)
+        lua_generator: LuaGenerator = LuaGenerator(
+            LuaGeneratorSettings(), self._resource_provider, self._notices_service.notices
+        )
         lua_generator_output: LuaGeneratorOutput = lua_generator.generate(
             self._source_model_service.internal_model, export_model
         )

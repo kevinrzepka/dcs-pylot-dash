@@ -3,26 +3,18 @@
 # License-Filename: LICENSE
 from io import BytesIO
 from logging import Logger, getLogger
-from typing import Final
 
 from fastapi import APIRouter
 from starlette.responses import Response
 
 from dcs_pylot_dash.api.api_model import APISourceModel, APIExportModel
+from dcs_pylot_dash.api.api_routes import APIRoutes
 from dcs_pylot_dash.app_settings import DCSPylotDashAppSettings
 from dcs_pylot_dash.service.api_model_export_service import APIModelExportService
 from dcs_pylot_dash.service.app_metadata_service import AppMetadataService, AppMetadata
 from dcs_pylot_dash.service.notice_service import NoticesContainer, NoticesService, NoticesSettings
 from dcs_pylot_dash.service.source_model_service import SourceModelService
 from dcs_pylot_dash.utils.resource_provider import ResourceProvider
-
-
-class APIRoutes:
-
-    SOURCE_MODEL: Final[str] = "/source-model"
-    GENERATE: Final[str] = "/generate"
-    NOTICES: Final[str] = "/notices"
-    METADATA: Final[str] = "/metadata"
 
 
 class MainRouter:
@@ -60,5 +52,5 @@ class MainRouter:
             bytes_io: BytesIO = api_model_export_service.export_model(api_export_model)
             return Response(content=bytes_io.getvalue(), media_type="application/zip")
 
-        cls.LOGGER.info("MainRouter created")
+        cls.LOGGER.info(f"{__name__} created")
         return api_router
