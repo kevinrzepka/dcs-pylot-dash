@@ -13,7 +13,7 @@ class DCSPylotDashAppSettings(BaseSettings):
     # path to populate DCSPylotDashAppSettings
     settings_file_path: str | None = None
 
-    app_name: str = "DCSPylotDashAPI"
+    app_name: str = "DCSPylotDash"
     app_version: str = "v1.0.0"
 
     resources_dir: str | None = None

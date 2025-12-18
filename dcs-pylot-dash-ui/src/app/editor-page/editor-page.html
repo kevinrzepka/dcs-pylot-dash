@@ -74,28 +74,40 @@ License-Filename: LICENSE
         [disabled]="!generateButtonEnabled"
       />
 
-      @if (downloadButtonEnabled) {
-        <a
-          pButton
-          class="download-button"
-          [download]="downloadFilename"
-          [href]="downloadUrl"
-          [raised]="true"
-          severity="success"
-        >
-          <i class="pi pi-download"></i>
-          {{ downloadFilename }}
-        </a>
-      } @else {
-        <p-button
-          class="build-button"
-          label="Download available after build"
-          [raised]="true"
-          severity="secondary"
-          icon="pi pi-pi-download"
-          [disabled]="true"
-        />
-      }
+      <a
+        #downloadLink
+        pButton
+        class="download-button"
+        [download]="downloadFilename"
+        [href]="downloadUrl"
+        [raised]="true"
+        severity="success"
+        [style]="!downloadButtonEnabled ? { display: 'none' } : {}"
+      >
+        <i class="pi pi-download"></i>
+        {{ downloadFilename }}
+      </a>
+
+      <p-popover #downloadPopover>
+        <p-card class="download-popover-content">
+          <ol>
+            <li>Click to download the .zip archive</li>
+            <li>Extract the archive anywhere</li>
+            <li>See the attached readme.txt for instructions</li>
+          </ol>
+        </p-card>
+      </p-popover>
+
+      <p-button
+        #downloadAfterBuildButton
+        class="build-button"
+        [pClass]="downloadAfterBuildButtonStyleClass"
+        label="Download available after build"
+        [raised]="true"
+        severity="secondary"
+        icon="pi pi-pi-download"
+        [disabled]="true"
+      />
     </div>
   </p-card>
 </div>

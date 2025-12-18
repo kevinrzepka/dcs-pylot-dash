@@ -11,8 +11,8 @@ from dcs_pylot_dash.api.api_model import APISourceModel, APIExportModel
 from dcs_pylot_dash.api.api_routes import APIRoutes
 from dcs_pylot_dash.app_settings import DCSPylotDashAppSettings
 from dcs_pylot_dash.exceptions import DCSPylotDashInvalidInputException
-from dcs_pylot_dash.service.api_model_export_service import APIModelExportService
 from dcs_pylot_dash.service.app_metadata_service import AppMetadataService, AppMetadata
+from dcs_pylot_dash.service.generator_service import GeneratorService
 from dcs_pylot_dash.service.notice_service import NoticesContainer, NoticesService, NoticesSettings
 from dcs_pylot_dash.service.source_model_service import SourceModelService
 from dcs_pylot_dash.utils.resource_provider import ResourceProvider
@@ -31,7 +31,7 @@ class MainRouter:
         notices_service: NoticesService = NoticesService(notices_settings, resource_provider)
         metadata_service: AppMetadataService = AppMetadataService(app_settings)
 
-        api_model_export_service: APIModelExportService = APIModelExportService(
+        api_model_export_service: GeneratorService = GeneratorService(
             app_settings, source_model_service, notices_service, resource_provider
         )
 

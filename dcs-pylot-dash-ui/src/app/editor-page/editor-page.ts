@@ -3,7 +3,14 @@
  * SPDX-License-Identifier: MIT
  * License-Filename: LICENSE
  */
-import { ChangeDetectorRef, Component } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { Button, ButtonDirective } from 'primeng/button';
 import { DataPointEditor } from '../data-point-editor/data-point-editor';
 import { DataPoint, DataPointRow, EditorModel, SourceDataPoint } from '../editor-model';
@@ -22,6 +29,8 @@ import { SourceDataPointChooser } from '../source-data-point-chooser/source-data
 import { Tooltip } from 'primeng/tooltip';
 import { GeneratorService } from '../generator-service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { Popover } from 'primeng/popover';
+import { ClassNames } from 'primeng/classnames';
 
 @Component({
   selector: 'app-editor-page',
@@ -38,6 +47,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     Tooltip,
     ButtonDirective,
     ReactiveFormsModule,
+    Popover,
+    ClassNames,
   ],
   templateUrl: './editor-page.html',
   styleUrl: './editor-page.css',
@@ -45,7 +56,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 export class EditorPage {
   readonly NO_DATA_TOOLTIP: string = 'Add at least one data point to the dashboard.';
 
+  /**
+   * Should only be modified through {@link disableOrEnabledBuildButtonDependingOnModelEmpty}, or {@link generate}
+   * @protected
+   */
   protected generateButtonEnabled: boolean = false;
+  /**
+   * Should only be modified through {@link disableOrEnabledBuildButtonDependingOnModelEmpty}
+   * @protected
+   */
   protected generateButtonTooltip: string = this.NO_DATA_TOOLTIP;
 
   protected downloadButtonEnabled: boolean = false;
@@ -56,6 +75,20 @@ export class EditorPage {
 
   readonly maxRows: number = 10;
   readonly maxDataPointsPerRow: number = 6;
+
+  @Output()
+  onEditorModelChanged: EventEmitter<EditorModel> = new EventEmitter<EditorModel>();
+
+  @ViewChild('downloadAfterBuildButton')
+  downloadAfterBuildButton!: Button;
+
+  @ViewChild('downloadPopover')
+  downloadPopover!: Popover;
+
+  @ViewChild('downloadLink')
+  downloadLink!: ElementRef;
+
+  downloadAfterBuildButtonStyleClass: string = '';
 
   constructor(
     private generatorService: GeneratorService,
@@ -69,8 +102,11 @@ export class EditorPage {
       if (blob) {
         this.downloadUrl = window.URL.createObjectURL(blob);
         this.downloadButtonEnabled = true;
+        this.downloadAfterBuildButtonStyleClass = 'display-none';
+        this.downloadPopover.show(null, this.downloadLink.nativeElement);
+      } else {
+        this.disableOrEnabledBuildButtonDependingOnModelEmpty();
       }
-      this.generateButtonEnabled = true;
       this.cdr.detectChanges();
     });
     this.cdr.detectChanges();
@@ -94,7 +130,9 @@ export class EditorPage {
       window.URL.revokeObjectURL(this.downloadUrl);
     }
     this.downloadButtonEnabled = false;
+    this.downloadAfterBuildButtonStyleClass = '';
     this.downloadUrl = null;
+    this.onEditorModelChanged.emit(this.editorModel);
   }
 
   protected disableOrEnabledBuildButtonDependingOnModelEmpty(): void {
@@ -151,4 +189,6 @@ export class EditorPage {
   protected handleDataPointChanged(dataPoint: DataPoint) {
     this.editorModelChanged();
   }
+
+  protected readonly console = console;
 }

@@ -171,17 +171,22 @@ class LuaGenerator:
         for f in export_model.fields:
             self._resolve_field(internal_model, f)
 
+        quoted_log_prefix: str = f'"{export_model.lua_export_settings.log_prefix}"'
+
         export_content: str = self._fill(
             self._export_template,
             LuaTemplateVar.OUTPUT_SCRIPT_NAME,
             export_model.lua_export_settings.output_script_name,
         )
+        export_content = self._fill(export_content, LuaTemplateVar.COPYRIGHT, self._notices_container.license_txt)
+        export_content = self._fill(export_content, LuaTemplateVar.LOG_PREFIX, quoted_log_prefix)
+
         sc: str = self._fill(self._main_template, LuaTemplateVar.DATA_CONTENT, self._build_script_content(export_model))
 
         def _fill_sc(sc_: str, template_var: LuaTemplateVar, value: Any) -> str:
             return self._fill(sc_, template_var, str(value))
 
-        sc = _fill_sc(sc, LuaTemplateVar.LOG_PREFIX, f'"{export_model.lua_export_settings.log_prefix}"')
+        sc = _fill_sc(sc, LuaTemplateVar.LOG_PREFIX, quoted_log_prefix)
         http_settings: HttpServerSettings = export_model.http_server_settings
         sc = _fill_sc(sc, LuaTemplateVar.SOCKET_TIMEOUT, http_settings.socket_timeout)
         sc = _fill_sc(sc, LuaTemplateVar.BIND_ADDRESS, f'"{http_settings.bind_address}"')

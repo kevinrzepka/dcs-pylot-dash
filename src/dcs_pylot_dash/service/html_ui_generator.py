@@ -9,6 +9,7 @@ from pydantic import BaseModel
 
 from dcs_pylot_dash.service.dcs_common_data_types import LoReturnType
 from dcs_pylot_dash.service.export_model import ExportModel, Color
+from dcs_pylot_dash.service.notice_service import NoticesService
 from dcs_pylot_dash.utils.resource_provider import ResourceProvider
 
 LOGGER = logging.getLogger(__name__)
@@ -19,6 +20,9 @@ class HtmlTemplateVar(StrEnum):
     Placeholders in the HTML main template. Some are 'standalone', some in the form: //%foo%
     """
 
+    APP_TITLE = auto()
+    APP_VERSION = auto()
+    COPYRIGHT = auto()
     BIND_ADDRESS = auto()
     BIND_PORT = auto()
     SET_INTERVAL_CALL = auto()
@@ -28,8 +32,6 @@ class HtmlTemplateVar(StrEnum):
     POSITION_MAP_ENTRIES = auto()
     COLOR_SCALE_MAP_ENTRIES = auto()
     COLOR_SCALE_CLASSES_ENTRIES = auto()
-    APP_TITLE = auto()
-    APP_VERSION = auto()
 
 
 class HtmlUIGeneratorOutput(BaseModel):
@@ -60,6 +62,8 @@ class HtmlUiGeneratorSettings(BaseModel):
     position_map_var_name: str = POSITION_MAP_VAR_NAME_DEFAULT
     color_scale_map_var_name: str = COLOR_SCALE_MAP_VAR_NAME_DEFAULT
     color_scale_classes_var_name: str = COLOR_SCALE_CLASSES_VAR_NAME_DEFAULT
+    app_name: str = "DCSPylotDash"
+    app_version: str = "v0.0.0"
 
 
 class HtmlUIGenerator:
@@ -69,11 +73,19 @@ class HtmlUIGenerator:
 
     _settings: HtmlUiGeneratorSettings
     _resource_provider: ResourceProvider
+    _notices_service: NoticesService
 
-    def __init__(self, settings: HtmlUiGeneratorSettings, resource_provider: ResourceProvider) -> None:
+    def __init__(
+        self, settings: HtmlUiGeneratorSettings, resource_provider: ResourceProvider, notices_service: NoticesService
+    ) -> None:
+        self._notices_service = notices_service
         self._settings = settings
         self._resource_provider = resource_provider
         self._read_template()
+
+    @property
+    def app_name(self) -> str:
+        return self._settings.app_name
 
     def _read_template(self) -> None:
         LOGGER.info(f"Reading main template: {self._settings.main_template_name}")
@@ -144,8 +156,9 @@ class HtmlUIGenerator:
 
         html: str = self._main_template
         http_settings = export_model.http_server_settings
-        html = self._fill(html, HtmlTemplateVar.APP_TITLE, "TODO")
-        html = self._fill(html, HtmlTemplateVar.APP_VERSION, "TODO")
+        html = self._fill(html, HtmlTemplateVar.APP_TITLE, self._settings.app_name)
+        html = self._fill(html, HtmlTemplateVar.APP_VERSION, self._settings.app_version)
+        html = self._fill(html, HtmlTemplateVar.COPYRIGHT, self._notices_service.notices.license_txt)
         html = self._fill(html, HtmlTemplateVar.BIND_ADDRESS, http_settings.bind_address)
         html = self._fill(html, HtmlTemplateVar.BIND_PORT, str(http_settings.bind_port))
         html = self._fill(html, HtmlTemplateVar.TITLE_MAP_ENTRIES, title_map_entries, comment=True)

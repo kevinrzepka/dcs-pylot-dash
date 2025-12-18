@@ -15,13 +15,12 @@
 - warning for generated scripts, e.g., with MIT license
 - copyright, license in generated files
 - provide download bundle zip
-    - readme w/ instructions, disclaimer, and license
+    - readme w/ instructions
 - advanced settings
     - page
     - api
     - use in model generation
 - add loading animations
-- prevent concurrent generate requests?
 - status page w\ current messages
 - default model
 - error handling when api call fails

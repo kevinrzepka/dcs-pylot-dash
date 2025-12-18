@@ -3,12 +3,15 @@ Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
 SPDX-License-Identifier: MIT
 License-Filename: LICENSE
 -->
+<!--
+%copyright%
+-->
 <!DOCTYPE html>
 <html lang="en" class="h-100">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PyDCS data exporter</title>
+    <title>%app_title%</title>
     <style>
 
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
@@ -106,7 +109,7 @@ License-Filename: LICENSE
 
 <div id="root-container" class="container-fluid py-4">
     <div class="row" id="row-header">
-        <h2 id="appTitle" class="text-center text-secondary data-value">PyDCS Data Exporter</h2>
+        <h2 id="appTitle" class="text-center text-secondary data-value">%app_title%</h2>
     </div>
 
     <div class="row g-4 m-2" id="row-default">
@@ -121,7 +124,7 @@ License-Filename: LICENSE
     const appTitle = '%app_title%';
     const appVersion = '%app_version%';
     document.title = `${appTitle} v${appVersion}`;
-    document.getElementById('appTitle').innerText = `${appTitle} v${appVersion}`;
+    document.getElementById('appTitle').innerText = `${appTitle} ${appVersion}`;
 
     const ID_ROOT_CONTAINER = 'root-container';
     const ID_ROW_DEFAULT = 'row-default';
@@ -218,9 +221,6 @@ License-Filename: LICENSE
         const row = document.createElement('div');
         row.id = id;
         row.classList.add('row', 'g-4', 'm-2');
-        // const separator = document.createElement('hr');
-        // separator.classList.add('m-1');
-        // row.appendChild(separator);
         return row;
     }
 
@@ -319,9 +319,6 @@ License-Filename: LICENSE
 
     function processData(data) {
         processDataNode(data, null, 'data', ID_ROW_DEFAULT);
-        // for (let [key, value] of Object.entries(data)) {
-        //     processDataNode(value, 'data', key, ID_ROW_DEFAULT);
-        // }
     }
 
     function processDataNode(node, parentFullName, localName, appendToElementId) {
@@ -379,7 +376,6 @@ License-Filename: LICENSE
             }
         }
     }
-
 
     //%set_interval_call%;
 
