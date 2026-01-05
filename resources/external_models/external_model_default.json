@@ -1,20 +1,4 @@
 {
-  "field_prototypes": {
-    "station": {
-      "lo_return_type": "table",
-      "fields": {
-        "CLSID": {
-          "lo_return_type": "string"
-        },
-        "container": {
-          "lo_return_type": "boolean"
-        },
-        "count": {
-          "lo_return_type": "number"
-        }
-      }
-    }
-  },
   "fields": {
     "mach": {
       "display_name": "Mach number",
@@ -37,6 +21,13 @@
       "unit": "ms",
       "preferred_unit": "knots"
     },
+    "vertical_speed": {
+      "display_name": "Vertical Speed",
+      "lo_function": "LoGetVerticalVelocity",
+      "lo_return_type": "number",
+      "unit": "ms",
+      "preferred_unit": "fts"
+    },
     "pilot_name": {
       "display_name": "Pilot Name",
       "lo_function": "LoGetPilotName",
@@ -57,11 +48,52 @@
       "preferred_unit": "feet"
     },
     "heading": {
-      "display_name": "Heading",
+      "display_name": "Mag. Heading",
       "lo_function": "LoGetMagneticYaw",
       "lo_return_type": "number",
       "unit": "radians",
       "preferred_unit": "degrees"
+    },
+    "self": {
+      "lo_function": "LoGetSelfData",
+      "lo_return_type": "table",
+      "fields": {
+        "Pitch": {
+          "display_name": "Pitch Angle",
+          "lo_return_type": "number",
+          "unit": "radians",
+          "preferred_unit": "degrees"
+        },
+        "Bank": {
+          "display_name": "Bank Angle",
+          "lo_return_type": "number",
+          "unit": "radians",
+          "preferred_unit": "degrees"
+        },
+        "Heading": {
+          "display_name": "Heading",
+          "lo_return_type": "number",
+          "unit": "radians",
+          "preferred_unit": "degrees"
+        },
+        "LatLongAlt": {
+          "lo_return_type": "table",
+          "fields": {
+            "Lat": {
+              "display_name": "Latitude",
+              "lo_return_type": "number",
+              "unit": "degrees",
+              "default_decimal_digits": 4
+            },
+            "Lon": {
+              "display_name": "Longitude",
+              "lo_return_type": "number",
+              "unit": "degrees",
+              "default_decimal_digits": 4
+            }
+          }
+        }
+      }
     },
     "aoa": {
       "display_name": "Angle of Attack",
@@ -95,10 +127,6 @@
               "lo_return_type": "number"
             }
           }
-        },
-        "Stations": {
-          "lo_return_type": "list",
-          "prototype_ref": "station"
         }
       }
     }

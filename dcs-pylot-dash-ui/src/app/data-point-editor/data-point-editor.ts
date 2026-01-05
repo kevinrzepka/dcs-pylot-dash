@@ -47,7 +47,7 @@ export class DataPointEditor implements OnInit {
   @Output()
   onChangeDataPoint: EventEmitter<DataPoint> = new EventEmitter<DataPoint>();
 
-  protected displayNameRegex: RegExp = /^[\w\s()]+$/;
+  protected displayNameRegex: RegExp = /^[\w\s.()]+$/;
   protected displayNameMaxLength: number = 50;
 
   constructor() {}

@@ -1,12 +1,11 @@
-# Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
+# Copyright (c) 2026 Kevin Rzepka <kdev@posteo.com>
 # SPDX-License-Identifier: MIT
 # License-Filename: LICENSE
-import itertools
 import logging
 import math
 from collections import defaultdict
 from enum import StrEnum, auto
-from typing import Any, ClassVar
+from typing import Any, ClassVar, FrozenSet
 
 LOGGER = logging.getLogger(__name__)
 
@@ -75,24 +74,53 @@ class MissingConverterError(Exception):
 
 
 class UnitConverter:
-    _factors: ClassVar[dict[Unit, dict[Unit, float]]] = defaultdict(dict)
+    SPEED_UNITS: FrozenSet[Unit] = frozenset([Unit.MS, Unit.MPH, Unit.KMH, Unit.KNOTS, Unit.FTS])
+    DISTANCE_UNITS: FrozenSet[Unit] = frozenset([Unit.METERS, Unit.MILES, Unit.FEET])
+    RAD_UNITS: FrozenSet[Unit] = frozenset([Unit.RADIANS, Unit.DEGREES])
+    WEIGHT_UNITS: FrozenSet[Unit] = frozenset([Unit.KILOGRAMS, Unit.POUNDS])
 
-    _factors[Unit.METERS][Unit.MILES] = 0.000621371
-    _factors[Unit.METERS][Unit.FEET] = 3.28084
-    _factors[Unit.FEET][Unit.MILES] = 0.000189394
-    _factors[Unit.MS][Unit.MPH] = 2.23694
-    _factors[Unit.MS][Unit.KMH] = 1 / 3.6
-    _factors[Unit.MS][Unit.KNOTS] = 1.94384
-    _factors[Unit.KMH][Unit.MPH] = 0.621371
-    _factors[Unit.FTS][Unit.MPH] = 0.681818
-    _factors[Unit.FTS][Unit.KNOTS] = 0.592484
-    _factors[Unit.KNOTS][Unit.MPH] = 1.15078
-    _factors[Unit.KILOGRAMS][Unit.POUNDS] = 2.20462
-    _factors[Unit.RADIANS][Unit.DEGREES] = 180 / math.pi
+    # only used to build _factors
+    _init_factors: ClassVar[dict[Unit, dict[Unit, float]]] = defaultdict(dict)
+
+    _init_factors[Unit.METERS][Unit.MILES] = 0.000621371
+    _init_factors[Unit.METERS][Unit.FEET] = 3.28084
+    _init_factors[Unit.MS][Unit.MPH] = 2.23694
+    _init_factors[Unit.MS][Unit.KMH] = 3.6
+    _init_factors[Unit.MS][Unit.KNOTS] = 1.94384
+    _init_factors[Unit.MS][Unit.FTS] = 3.28084
+    _init_factors[Unit.KILOGRAMS][Unit.POUNDS] = 2.20462
+    _init_factors[Unit.RADIANS][Unit.DEGREES] = 180 / math.pi
+    _init_factors[Unit.NONE][Unit.NONE] = 1
+
+    @staticmethod
+    def _build_factors(_init_factors: dict[Unit, dict[Unit, float]]):
+        factors = {}
+        # build 2-way factors
+        for src, dsts in _init_factors.items():
+            factors[src] = {}
+            for dst, factor in dsts.items():
+                factors[src][dst] = factor
+                if dst not in factors:
+                    factors[dst] = {}
+                factors[dst][src] = 1 / factor
+
+        # build n-way factors
+        for src, dsts in factors.items():
+            for dst_0, factor in dsts.items():
+                for dst_1 in dsts:
+                    # convert "backwards" to src, then "forwards" to dst_1
+                    factors[dst_0][dst_1] = factors[dst_0][src] * factors[src][dst_1]
+        return factors
+
+    _factors: ClassVar[dict[Unit, dict[Unit, float]]] = _build_factors(_init_factors)
 
     @classmethod
-    def get_convertable_units(cls, src: Unit) -> list[Unit]:
-        return list(itertools.chain(cls._factors[src].keys(), [src]))
+    def get_convertable_units(cls, src: Unit) -> set[Unit]:
+        """
+        :param src:
+        :return: Units, to which the src can be converted
+        """
+        return set(cls._factors.get(src, {}).keys())
 
     @classmethod
     def get_conversion_factor(cls, src: Unit, dst: Unit) -> float | None:
@@ -107,15 +135,6 @@ class UnitConverter:
         source_factors: dict[Unit, float] = cls._factors[src]
         if len(source_factors) > 0:
             factor = source_factors.get(dst)
-
-        if factor is None:
-            # there might still be a converter for the other way around
-            dst_factors: dict[Unit, float] = cls._factors[dst]
-            if len(dst_factors) > 0:
-                dst_factor: float | None = dst_factors.get(src)
-                if dst_factor is not None:
-                    factor = 1 / dst_factor
-
         return factor
 
     @classmethod

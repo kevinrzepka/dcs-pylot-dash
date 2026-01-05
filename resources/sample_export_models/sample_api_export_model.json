@@ -1,0 +1,76 @@
+{
+  "rows": [
+    {
+      "fields": [
+        {
+          "display_name": "Indicated Airspeed",
+          "field_id": "airspeed",
+          "unit_id": "knots"
+        },
+        {
+          "display_name": "True Airspeed",
+          "field_id": "tas",
+          "unit_id": "knots"
+        },
+        {
+          "display_name": "Mach number",
+          "field_id": "mach",
+          "unit_id": "none"
+        },
+        {
+          "display_name": "Vertical Speed",
+          "field_id": "vertical_speed",
+          "unit_id": "fts"
+        }
+      ]
+    },
+    {
+      "fields": [
+        {
+          "display_name": "Mag. Heading",
+          "field_id": "heading",
+          "unit_id": "degrees"
+        },
+        {
+          "display_name": "Heading",
+          "field_id": "self.Heading",
+          "unit_id": "degrees"
+        },
+        {
+          "display_name": "Pitch Angle",
+          "field_id": "self.Pitch",
+          "unit_id": "degrees"
+        },
+        {
+          "display_name": "Bank Angle",
+          "field_id": "self.Bank",
+          "unit_id": "degrees"
+        }
+      ]
+    },
+    {
+      "fields": [
+        {
+          "display_name": "Fuel (total)",
+          "field_id": "engine_info.fuel_internal",
+          "unit_id": "pounds"
+        },
+        {
+          "display_name": "Gun Rounds",
+          "field_id": "payload_info.Cannon.shells",
+          "unit_id": "none"
+        },
+        {
+          "display_name": "Latitude",
+          "field_id": "self.LatLongAlt.Lat",
+          "unit_id": "degrees"
+        },
+        {
+          "display_name": "Longitude",
+          "field_id": "self.LatLongAlt.Lon",
+          "unit_id": "degrees"
+        }
+      ]
+    }
+  ]
+}

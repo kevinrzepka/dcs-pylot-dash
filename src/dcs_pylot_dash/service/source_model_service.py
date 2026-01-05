@@ -1,4 +1,4 @@
-# Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
+# Copyright (c) 2026 Kevin Rzepka <kdev@posteo.com>
 # SPDX-License-Identifier: MIT
 # License-Filename: LICENSE
 from typing import Final
@@ -48,7 +48,7 @@ class SourceModelService:
                 display_name=field.effective_display_name,
                 field_id=field.dotted_name,
                 default_unit_id=field.preferred_unit if field.preferred_unit is not None else field.unit,
-                available_unit_ids=UnitConverter.get_convertable_units(field.unit),
+                available_unit_ids=list(UnitConverter.get_convertable_units(field.unit)),
             )
             api_fields.append(api_field)
 
@@ -72,7 +72,7 @@ class SourceModelService:
         if unit_id not in Unit:
             return None
         desired_unit: Unit = Unit(unit_id)
-        available_units_for_field: list[Unit] = UnitConverter.get_convertable_units(field.unit)
+        available_units_for_field: list[Unit] = list(UnitConverter.get_convertable_units(field.unit))
         if desired_unit not in available_units_for_field:
             return None
         return desired_unit

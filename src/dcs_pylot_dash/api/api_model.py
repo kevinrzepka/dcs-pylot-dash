@@ -1,4 +1,4 @@
-# Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
+# Copyright (c) 2026 Kevin Rzepka <kdev@posteo.com>
 # SPDX-License-Identifier: MIT
 # License-Filename: LICENSE
 import re
@@ -30,7 +30,7 @@ class APISourceModel(BaseModel):
 
 class APIExportField(BaseModel):
     MAX_FIELD_VALUE_LENGTH: ClassVar[int] = 50
-    DISPLAY_NAME_PATTERN: ClassVar[Pattern] = re.compile(r"^[\w\s()]+$")
+    DISPLAY_NAME_PATTERN: ClassVar[Pattern] = re.compile(r"^[\w\s.()]+$")
     FIELD_ID_PATTERN: ClassVar[Pattern] = re.compile(r"^[\w.]+$")
 
     display_name: str = Field(max_length=MAX_FIELD_VALUE_LENGTH, pattern=DISPLAY_NAME_PATTERN)
