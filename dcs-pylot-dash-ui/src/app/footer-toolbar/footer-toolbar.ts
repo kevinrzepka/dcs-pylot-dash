@@ -20,7 +20,7 @@ import { Tag } from 'primeng/tag';
 })
 export class FooterToolbar {
   protected appRoutes = AppRoutes;
-  protected copyrightText: string = 'Copyright © 2025 Kevin Rzepka';
+  protected copyrightText: string = 'Copyright © 2026 Kevin Rzepka';
   protected githubLink: string = 'https://github.com/kevinrzepka/dcs-pylot-dash';
 
   appMetadata$: Observable<AppMetadata>;
