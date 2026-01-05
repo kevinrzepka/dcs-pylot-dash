@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: MIT
 # License-Filename: LICENSE
 import logging
+from enum import StrEnum, auto
 from io import BytesIO
 from logging import Logger
 from typing import Final
@@ -20,9 +21,18 @@ from dcs_pylot_dash.service.units import Unit
 from dcs_pylot_dash.utils.resource_provider import ResourceProvider
 
 
+class ReadmeTemplateVar(StrEnum):
+    APP_TITLE = auto()
+    APP_VERSION = auto()
+    OUTPUT_SCRIPT_NAME = auto()
+    HTML_FILE_NAME = auto()
+
+
 class GeneratorService:
 
     LOGGER: Final[Logger] = logging.getLogger(__name__)
+
+    README_TEMPLATE_NAME: Final[str] = "readme.template.txt"
 
     _lua_generator: LuaGenerator
     _html_generator: HtmlUIGenerator
@@ -30,6 +40,8 @@ class GeneratorService:
     _resource_provider: ResourceProvider
     _app_settings: DCSPylotDashAppSettings
     _source_model_service: SourceModelService
+
+    _readme_template: str = ""
 
     def __init__(
         self,
@@ -50,6 +62,16 @@ class GeneratorService:
             self._resource_provider,
             notices_service,
         )
+        self._read_readme_template()
+
+    def _read_readme_template(self) -> None:
+        self.LOGGER.info(f"Reading readme template: {self.README_TEMPLATE_NAME}")
+        readme_template: str = self._resource_provider.read_template_file(self.README_TEMPLATE_NAME)
+        readme_template = self._fill_readme(readme_template, ReadmeTemplateVar.APP_TITLE, self._app_settings.app_name)
+        readme_template = self._fill_readme(
+            readme_template, ReadmeTemplateVar.APP_VERSION, self._app_settings.app_version
+        )
+        self._readme_template = readme_template
 
     def export_model(self, api_model: APIExportModel) -> BytesIO:
         self.LOGGER.info("Generating from export model")
@@ -59,12 +81,17 @@ class GeneratorService:
         )
         html_generator_output: HtmlUIGeneratorOutput = self._html_generator.generate(export_model)
 
+        html_file_name: str = f"{self._html_generator.app_name}.html"
+        output_script_file_name: str = export_model.lua_export_settings.output_script_name
+        readme_content: str = self._build_readme(html_file_name, output_script_file_name)
+
         in_memory_file: BytesIO = BytesIO()
         with PyZipFile(in_memory_file, "w") as zip_file:
-            zip_file.writestr(f"{self._html_generator.app_name}.html", html_generator_output.html_content)
-            zip_file.writestr(export_model.lua_export_settings.output_script_name, lua_generator_output.script_content)
+            zip_file.writestr(html_file_name, html_generator_output.html_content)
+            zip_file.writestr(output_script_file_name, lua_generator_output.script_content)
             zip_file.writestr("add-to-Export.lua", lua_generator_output.export_content)
             zip_file.writestr("license.txt", self._notices_service.notices.license_txt)
+            zip_file.writestr("readme.txt", readme_content)
             if first_invalid_zip_file_name := zip_file.testzip() is not None:
                 raise DCSPylotDashInvalidInputException(f"zip file is invalid: {first_invalid_zip_file_name}")
 
@@ -93,3 +120,12 @@ class GeneratorService:
                 export_model.fields.append(export_model_field)
 
         return export_model
+
+    @staticmethod
+    def _fill_readme(template: str, template_var: ReadmeTemplateVar, value: str) -> str:
+        template_var_string: str = f"%{template_var}%"
+        return template.replace(template_var_string, value)
+
+    def _build_readme(self, html_file_name: str, output_script_file_name: str) -> str:
+        readme_content: str = self._fill_readme(self._readme_template, ReadmeTemplateVar.HTML_FILE_NAME, html_file_name)
+        return self._fill_readme(readme_content, ReadmeTemplateVar.OUTPUT_SCRIPT_NAME, output_script_file_name)

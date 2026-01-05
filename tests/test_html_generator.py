@@ -10,7 +10,7 @@ from dcs_pylot_dash.service.dcs_model_internal import InternalModel
 from dcs_pylot_dash.service.export_model import ExportModel
 from dcs_pylot_dash.service.html_ui_generator import HtmlUIGenerator, HtmlUiGeneratorSettings, HtmlUIGeneratorOutput
 from dcs_pylot_dash.service.lua_generator import LuaGenerator, LuaGeneratorSettings
-from dcs_pylot_dash.service.notice_service import NoticesContainer
+from dcs_pylot_dash.service.notice_service import NoticesContainer, NoticesService, NoticesSettings
 from dcs_pylot_dash.utils.resource_provider import ResourceProvider
 
 
@@ -49,7 +49,8 @@ def test_generate(model_external: ExternalModel, export_model: ExportModel):
     lua_script_output_file_path: Path = output_dir / export_model.lua_export_settings.output_script_name
     export_output_file_path: Path = output_dir / "Export.lua"
 
-    html_generator: HtmlUIGenerator = HtmlUIGenerator(HtmlUiGeneratorSettings(), resource_provider)
+    notices_service: NoticesService = NoticesService(NoticesSettings(), resource_provider)
+    html_generator: HtmlUIGenerator = HtmlUIGenerator(HtmlUiGeneratorSettings(), resource_provider, notices_service)
     html_generator_output: HtmlUIGeneratorOutput = html_generator.generate(export_model)
     assert html_generator_output
 

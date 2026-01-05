@@ -11,11 +11,10 @@ import { AppMetadata, AppMetadataService } from '../app-metadata-service';
 import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 import { Tag } from 'primeng/tag';
-import { Button, ButtonLabel } from 'primeng/button';
 
 @Component({
   selector: 'app-footer-toolbar',
-  imports: [Toolbar, RouterLink, AsyncPipe, Tag, Button, ButtonLabel],
+  imports: [Toolbar, RouterLink, AsyncPipe, Tag],
   templateUrl: './footer-toolbar.html',
   styleUrl: './footer-toolbar.css',
 })

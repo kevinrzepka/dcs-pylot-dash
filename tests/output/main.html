@@ -3,12 +3,24 @@ Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
 SPDX-License-Identifier: MIT
 License-Filename: LICENSE
 -->
+<!--
+Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
+
+MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+-->
 <!DOCTYPE html>
 <html lang="en" class="h-100">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PyDCS data exporter</title>
+    <title>DCSPylotDash</title>
     <style>
 
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
@@ -106,7 +118,7 @@ License-Filename: LICENSE
 
 <div id="root-container" class="container-fluid py-4">
     <div class="row" id="row-header">
-        <h2 id="appTitle" class="text-center text-secondary data-value">PyDCS Data Exporter</h2>
+        <h2 id="appTitle" class="text-center text-secondary data-value">DCSPylotDash</h2>
     </div>
 
     <div class="row g-4 m-2" id="row-default">
@@ -118,10 +130,10 @@ License-Filename: LICENSE
     const dataPort = '52025';
     const dataUrl = `${dataHost}:${dataPort}`;
 
-    const appTitle = 'TODO';
-    const appVersion = 'TODO';
+    const appTitle = 'DCSPylotDash';
+    const appVersion = 'v0.0.0';
     document.title = `${appTitle} v${appVersion}`;
-    document.getElementById('appTitle').innerText = `${appTitle} v${appVersion}`;
+    document.getElementById('appTitle').innerText = `${appTitle} ${appVersion}`;
 
     const ID_ROOT_CONTAINER = 'root-container';
     const ID_ROW_DEFAULT = 'row-default';
@@ -250,9 +262,6 @@ License-Filename: LICENSE
         const row = document.createElement('div');
         row.id = id;
         row.classList.add('row', 'g-4', 'm-2');
-        // const separator = document.createElement('hr');
-        // separator.classList.add('m-1');
-        // row.appendChild(separator);
         return row;
     }
 
@@ -351,9 +360,6 @@ License-Filename: LICENSE
 
     function processData(data) {
         processDataNode(data, null, 'data', ID_ROW_DEFAULT);
-        // for (let [key, value] of Object.entries(data)) {
-        //     processDataNode(value, 'data', key, ID_ROW_DEFAULT);
-        // }
     }
 
     function processDataNode(node, parentFullName, localName, appendToElementId) {
@@ -411,7 +417,6 @@ License-Filename: LICENSE
             }
         }
     }
-
 
     setInterval(updateData, 200);
 
