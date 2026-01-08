@@ -131,6 +131,12 @@ License-Filename: LICENSE
     const ID_ROW_HEADER = 'row-header';
 
     /**
+     * Key: Elements as created by {@link createContainer}, Value: Id of the data element
+     * @type {Map<any, any>}
+     */
+    const containerToIdMap = new Map();
+
+    /**
      *
      * @type {Map<any, any>}
      */
@@ -345,12 +351,20 @@ License-Filename: LICENSE
                     const card = createCard(leafFullName);
                     if (positionMap.has(leafFullName)) {
                         const position = positionMap.get(leafFullName);
-                        row = ensureDataRowsExistUpTo(position[0])
+                        row = ensureDataRowsExistUpTo(position[0]);
+                        const lastChild = row.children[row.childElementCount - 1];
+                        let lastChildShouldBeMoved = false;
+                        if (lastChild) {
+                            const lastChildId = containerToIdMap.get(lastChild);
+                            lastChildShouldBeMoved = lastChildId !== undefined && (!positionMap.has(lastChildId) || positionMap.get(lastChildId)[1] > position[1]);
+                        }
                         if (row.childElementCount > position[1]) {
                             const child = row.children[position[1]];
                             row.insertBefore(card, child);
+                        } else if (lastChildShouldBeMoved) {
+                            row.insertBefore(card, lastChild);
                         } else {
-                            appendToElement(row.id, card)
+                            appendToElement(row.id, card);
                         }
                     } else {
                         appendToElement(row.id, card);

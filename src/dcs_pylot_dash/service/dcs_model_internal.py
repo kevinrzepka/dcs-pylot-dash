@@ -1,4 +1,4 @@
-# Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
+# Copyright (c) 2026 Kevin Rzepka <kdev@posteo.com>
 # SPDX-License-Identifier: MIT
 # License-Filename: LICENSE
 import logging
@@ -105,6 +105,7 @@ class InternalModelField:
             preferred_unit=self.preferred_unit,
             lo_function=self.lo_function,
             abs_base_value=self.abs_base_value,
+            default_decimal_digits=self.default_decimal_digits,
             prototype_ref=self,
             parent=parent_instance,
         )
@@ -154,6 +155,7 @@ class InternalModel:
             preferred_unit=ext_proto_field.preferred_unit,
             lo_function=ext_proto_field.lo_function,
             abs_base_value=ext_proto_field.abs_base_value,
+            default_decimal_digits=ext_proto_field.default_decimal_digits,
             is_prototype=True,
             parent=parsed_parent,
         )
@@ -199,6 +201,7 @@ class InternalModel:
                 preferred_unit=ext_field.preferred_unit,
                 lo_function=ext_field.lo_function,
                 abs_base_value=ext_field.abs_base_value,
+                default_decimal_digits=ext_field.default_decimal_digits,
                 prototype_ref=self._prototype_fields.get(ext_field.prototype_ref),
                 is_prototype=False,
                 parent=parsed_parent,

@@ -23,6 +23,12 @@
     - show message
     - re-enable buttons
 - fill drawer
+- change decimal digits
+- GPS coordinate unit as lat lon dcml or seconds
+
+# Bugs
+
+- default decimal digits disapper
 
 # About
 

@@ -47,7 +47,7 @@
       "unit": "meters",
       "preferred_unit": "feet"
     },
-    "heading": {
+    "mag_heading": {
       "display_name": "Mag. Heading",
       "lo_function": "LoGetMagneticYaw",
       "lo_return_type": "number",
@@ -83,13 +83,13 @@
               "display_name": "Latitude",
               "lo_return_type": "number",
               "unit": "degrees",
-              "default_decimal_digits": 4
+              "default_decimal_digits": 5
             },
-            "Lon": {
+            "Long": {
               "display_name": "Longitude",
               "lo_return_type": "number",
               "unit": "degrees",
-              "default_decimal_digits": 4
+              "default_decimal_digits": 5
             }
           }
         }
