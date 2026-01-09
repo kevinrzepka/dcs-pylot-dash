@@ -1,4 +1,4 @@
-# Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
+# Copyright (c) 2026 Kevin Rzepka <kdev@posteo.com>
 # SPDX-License-Identifier: MIT
 # License-Filename: LICENSE
 import logging
@@ -29,18 +29,23 @@ class ResourceProvider:
         self.LOGGER.info(f"Reading file: {file_path}")
         return file_path.read_text()
 
-    def read_template_file(self, template_name: str) -> str:
-        template_path = self.templates_dir / template_name
+    def read_template_file(self, template_file_name: str) -> str:
+        template_path = self.templates_dir / template_file_name
         self.LOGGER.info(f"Reading template file: {template_path}")
         return template_path.read_text()
 
-    def read_external_model_file(self, model_name: str) -> str:
-        external_model_path: Path = self.external_models_dir / model_name
+    def read_external_model_file(self, model_file_name: str) -> str:
+        external_model_path: Path = self.external_models_dir / model_file_name
         self.LOGGER.info(f"Reading external model file: {external_model_path}")
         return external_model_path.read_text()
 
-    def read_notice(self, notice_name: str) -> str:
-        notice_path: Path = self.notices_dir / notice_name
+    def read_sample_model_file(self, model_file_name: str) -> str:
+        external_model_path: Path = self.sample_export_models_dir / model_file_name
+        self.LOGGER.info(f"Reading external model file: {external_model_path}")
+        return external_model_path.read_text()
+
+    def read_notice(self, notice_file_name: str) -> str:
+        notice_path: Path = self.notices_dir / notice_file_name
         self.LOGGER.info(f"Reading notice file: {notice_path}")
         return notice_path.read_text()
 

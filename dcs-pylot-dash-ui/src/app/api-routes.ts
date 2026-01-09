@@ -9,4 +9,5 @@ export class ApiRoutes {
   static readonly NOTICES: string = `${ApiRoutes.BASE}/notices`;
   static readonly METADATA: string = `${ApiRoutes.BASE}/metadata`;
   static readonly GENERATE: string = `${ApiRoutes.BASE}/generate`;
+  static readonly SAMPLE_MODEL: string = `${ApiRoutes.BASE}/sample-model`;
 }

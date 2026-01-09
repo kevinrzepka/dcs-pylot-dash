@@ -16,10 +16,10 @@ export class SourceDataPointService {
   sourceDataPoints: ReplaySubject<SourceDataPoint[]> = new ReplaySubject(1);
 
   constructor(private apiService: ApiSourceModelService) {
-    this.loadSourceDataPoints2();
+    this.loadSourceDataPoints();
   }
 
-  loadSourceDataPoints2() {
+  loadSourceDataPoints() {
     this.apiService.apiSourceModel.subscribe((apiModel: APISourceModel) => {
       const sourceDataPoints: SourceDataPoint[] = this.buildSourceDataPointsFromAPIModel(apiModel);
       this.sourceDataPoints.next(sourceDataPoints);

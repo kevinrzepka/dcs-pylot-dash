@@ -1,9 +1,5 @@
 # TODO
 
-- oss attribution: Add best-effort approach for libraries with odd license file names
-- package isoduration: SbomLicenseContainer(license=SbomLicense(name="declared license of 'isoduration'", id=None,
-  url=None, acknowledgement='declared', text=SbomLicenseText(content='UNKNOWN', content_type='text/plain',
-  encoding=None)))
 - uv test instructions for tools
 - add security.txt?
 - add CSP and nonce: https://angular.dev/best-practices/security#content-security-policy
@@ -18,7 +14,6 @@
     - use in model generation
 - add loading animations
 - status page w\ current messages
-- default model
 - error handling when api call fails
     - show message
     - re-enable buttons

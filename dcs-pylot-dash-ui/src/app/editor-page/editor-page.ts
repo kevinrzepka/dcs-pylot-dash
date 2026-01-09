@@ -8,6 +8,7 @@ import {
   Component,
   ElementRef,
   EventEmitter,
+  OnInit,
   Output,
   ViewChild,
 } from '@angular/core';
@@ -31,6 +32,9 @@ import { GeneratorService } from '../generator-service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Popover } from 'primeng/popover';
 import { ClassNames } from 'primeng/classnames';
+import { SampleModelService } from '../sample-model.service';
+import { Dialog } from 'primeng/dialog';
+import { first, ReplaySubject } from 'rxjs';
 
 @Component({
   selector: 'app-editor-page',
@@ -49,20 +53,21 @@ import { ClassNames } from 'primeng/classnames';
     ReactiveFormsModule,
     Popover,
     ClassNames,
+    Dialog,
   ],
   templateUrl: './editor-page.html',
   styleUrl: './editor-page.css',
 })
-export class EditorPage {
+export class EditorPage implements OnInit {
   readonly NO_DATA_TOOLTIP: string = 'Add at least one data point to the dashboard.';
 
   /**
-   * Should only be modified through {@link disableOrEnabledBuildButtonDependingOnModelEmpty}, or {@link generate}
+   * Should only be modified through {@link enableControlsDependingOnModelEmpty}, or {@link generate}
    * @protected
    */
   protected generateButtonEnabled: boolean = false;
   /**
-   * Should only be modified through {@link disableOrEnabledBuildButtonDependingOnModelEmpty}
+   * Should only be modified through {@link enableControlsDependingOnModelEmpty}
    * @protected
    */
   protected generateButtonTooltip: string = this.NO_DATA_TOOLTIP;
@@ -72,9 +77,15 @@ export class EditorPage {
   protected downloadFilename: string | null = 'dcs-pylot-dash-generated.zip';
 
   protected editorModel: EditorModel = new EditorModel();
+  protected sampleModel: EditorModel | null = null;
 
   readonly maxRows: number = 10;
   readonly maxDataPointsPerRow: number = 6;
+
+  loadSampleModelButtonEnabled: boolean = false;
+  clearModelButtonEnabled: boolean = false;
+  loadSampleModelDialogVisible: boolean = false;
+  clearModelDialogVisible: boolean = false;
 
   @Output()
   onEditorModelChanged: EventEmitter<EditorModel> = new EventEmitter<EditorModel>();
@@ -82,18 +93,61 @@ export class EditorPage {
   @ViewChild('downloadAfterBuildButton')
   downloadAfterBuildButton!: Button;
 
+  @ViewChild('buildButton')
+  buildButton!: Button;
+
+  @ViewChild('loadSampleModelButton')
+  loadSampleModelButton!: Button;
+
   @ViewChild('downloadPopover')
   downloadPopover!: Popover;
+
+  @ViewChild('sampleModelPopover')
+  sampleModelPopover!: Popover;
+
+  @ViewChild('addDataPointRowChooser', { read: ElementRef })
+  addDataPointRowChooser!: ElementRef;
+
+  @ViewChild('modellingPopover')
+  modellingPopover!: Popover;
+
+  @ViewChild('buildPopover')
+  buildPopover!: Popover;
 
   @ViewChild('downloadLink')
   downloadLink!: ElementRef;
 
   downloadAfterBuildButtonStyleClass: string = '';
 
+  userConsentGiven$: ReplaySubject<boolean> = new ReplaySubject(1);
+
   constructor(
     private generatorService: GeneratorService,
+    private sampleModelService: SampleModelService,
     private cdr: ChangeDetectorRef,
   ) {}
+
+  ngOnInit(): void {
+    this.sampleModelService.sampleModel$.subscribe((next) => {
+      this.sampleModel = next;
+      if (!this.sampleModel.isEmpty()) {
+        this.loadSampleModelButtonEnabled = true;
+      }
+      this.userConsentGiven$.pipe(first()).subscribe(() => this.showTutorialPopovers());
+    });
+  }
+
+  confirmLoadSampleModel() {
+    this.editorModel.dataPointRows = [...this.sampleModel!.dataPointRows];
+    this.editorModelChanged();
+    this.loadSampleModelDialogVisible = false;
+  }
+
+  confirmClearModel() {
+    this.editorModel.dataPointRows = [];
+    this.editorModelChanged();
+    this.clearModelDialogVisible = false;
+  }
 
   protected generate() {
     this.generateButtonEnabled = false;
@@ -105,7 +159,7 @@ export class EditorPage {
         this.downloadAfterBuildButtonStyleClass = 'display-none';
         this.downloadPopover.show(null, this.downloadLink.nativeElement);
       } else {
-        this.disableOrEnabledBuildButtonDependingOnModelEmpty();
+        this.enableControlsDependingOnModelEmpty();
       }
       this.cdr.detectChanges();
     });
@@ -125,7 +179,8 @@ export class EditorPage {
   }
 
   protected editorModelChanged() {
-    this.disableOrEnabledBuildButtonDependingOnModelEmpty();
+    this.enableControlsDependingOnModelEmpty();
+    this.modellingPopover.hide();
     if (this.downloadUrl) {
       window.URL.revokeObjectURL(this.downloadUrl);
     }
@@ -135,13 +190,15 @@ export class EditorPage {
     this.onEditorModelChanged.emit(this.editorModel);
   }
 
-  protected disableOrEnabledBuildButtonDependingOnModelEmpty(): void {
+  protected enableControlsDependingOnModelEmpty(): void {
     if (this.editorModel.isEmpty()) {
       this.generateButtonTooltip = this.NO_DATA_TOOLTIP;
       this.generateButtonEnabled = false;
+      this.clearModelButtonEnabled = false;
     } else {
       this.generateButtonTooltip = '';
       this.generateButtonEnabled = true;
+      this.clearModelButtonEnabled = true;
     }
   }
 
@@ -190,5 +247,25 @@ export class EditorPage {
     this.editorModelChanged();
   }
 
-  protected readonly console = console;
+  protected loadSampleModel() {
+    this.sampleModelPopover.hide();
+    if (this.editorModel.isEmpty()) {
+      this.confirmLoadSampleModel();
+    } else {
+      this.loadSampleModelDialogVisible = true;
+    }
+  }
+
+  updateUserConsentGiven(): void {
+    this.userConsentGiven$.next(true);
+  }
+
+  protected showTutorialPopovers(): void {
+    if (this.sampleModel !== null && !this.sampleModel.isEmpty()) {
+      this.sampleModelPopover.show(null, this.loadSampleModelButton.el.nativeElement);
+    }
+
+    this.buildPopover.show(null, this.buildButton.el.nativeElement);
+    this.modellingPopover.show(null, this.addDataPointRowChooser.nativeElement);
+  }
 }

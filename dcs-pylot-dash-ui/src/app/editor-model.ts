@@ -29,6 +29,10 @@ export class DataPointRow {
   public removeDataPoint(dataPoint: DataPoint) {
     this.dataPoints = this.dataPoints.filter((dp) => dp !== dataPoint);
   }
+
+  isEmpty(): boolean {
+    return this.dataPoints.length === 0;
+  }
 }
 
 export class DataPoint {

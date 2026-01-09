@@ -1,4 +1,4 @@
-# Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
+# Copyright (c) 2026 Kevin Rzepka <kdev@posteo.com>
 # SPDX-License-Identifier: MIT
 # License-Filename: LICENSE
 import logging
@@ -32,6 +32,7 @@ class GeneratorService:
 
     LOGGER: Final[Logger] = logging.getLogger(__name__)
 
+    SAMPLE_MODEL_FILE_NAME: Final[str] = "sample_api_export_model.json"
     README_TEMPLATE_NAME: Final[str] = "readme.template.txt"
 
     _lua_generator: LuaGenerator
@@ -42,6 +43,8 @@ class GeneratorService:
     _source_model_service: SourceModelService
 
     _readme_template: str = ""
+
+    _sample_model: APIExportModel
 
     def __init__(
         self,
@@ -63,6 +66,11 @@ class GeneratorService:
             notices_service,
         )
         self._read_readme_template()
+        self._load_sample_model()
+
+    def _load_sample_model(self) -> None:
+        json_content: str = self._resource_provider.read_sample_model_file(self.SAMPLE_MODEL_FILE_NAME)
+        self._sample_model = APIExportModel.model_validate_json(json_content)
 
     def _read_readme_template(self) -> None:
         self.LOGGER.info(f"Reading readme template: {self.README_TEMPLATE_NAME}")
@@ -129,3 +137,7 @@ class GeneratorService:
     def _build_readme(self, html_file_name: str, output_script_file_name: str) -> str:
         readme_content: str = self._fill_readme(self._readme_template, ReadmeTemplateVar.HTML_FILE_NAME, html_file_name)
         return self._fill_readme(readme_content, ReadmeTemplateVar.OUTPUT_SCRIPT_NAME, output_script_file_name)
+
+    @property
+    def sample_model(self) -> APIExportModel:
+        return self._sample_model

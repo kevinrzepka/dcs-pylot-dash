@@ -1,4 +1,4 @@
-# Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
+# Copyright (c) 2026 Kevin Rzepka <kdev@posteo.com>
 # SPDX-License-Identifier: MIT
 # License-Filename: LICENSE
 from io import BytesIO
@@ -31,7 +31,7 @@ class MainRouter:
         notices_service: NoticesService = NoticesService(notices_settings, resource_provider)
         metadata_service: AppMetadataService = AppMetadataService(app_settings)
 
-        api_model_export_service: GeneratorService = GeneratorService(
+        generator_service: GeneratorService = GeneratorService(
             app_settings, source_model_service, notices_service, resource_provider
         )
 
@@ -54,8 +54,12 @@ class MainRouter:
             if api_export_model.is_empty:
                 raise DCSPylotDashInvalidInputException("empty export model")
 
-            bytes_io: BytesIO = api_model_export_service.export_model(api_export_model)
+            bytes_io: BytesIO = generator_service.export_model(api_export_model)
             return Response(content=bytes_io.getvalue(), media_type="application/zip")
+
+        @api_router.get(APIRoutes.SAMPLE_MODEL)
+        async def get_sample_model() -> APIExportModel:
+            return generator_service.sample_model
 
         cls.LOGGER.info(f"{__name__} created")
         return api_router

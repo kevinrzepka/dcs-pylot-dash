@@ -16,6 +16,20 @@
           "display_name": "Mach number",
           "field_id": "mach",
           "unit_id": "none"
+        }
+      ]
+    },
+    {
+      "fields": [
+        {
+          "display_name": "Altitude (MSL)",
+          "field_id": "altitude_msl",
+          "unit_id": "feet"
+        },
+        {
+          "display_name": "Altitude (AGL)",
+          "field_id": "altitude_agl",
+          "unit_id": "feet"
         },
         {
           "display_name": "Vertical Speed",
@@ -28,7 +42,7 @@
       "fields": [
         {
           "display_name": "Mag. Heading",
-          "field_id": "heading",
+          "field_id": "mag_heading",
           "unit_id": "degrees"
         },
         {
@@ -37,13 +51,13 @@
           "unit_id": "degrees"
         },
         {
-          "display_name": "Pitch Angle",
-          "field_id": "self.Pitch",
+          "display_name": "Latitude",
+          "field_id": "self.LatLongAlt.Lat",
           "unit_id": "degrees"
         },
         {
-          "display_name": "Bank Angle",
-          "field_id": "self.Bank",
+          "display_name": "Longitude",
+          "field_id": "self.LatLongAlt.Long",
           "unit_id": "degrees"
         }
       ]
@@ -59,16 +73,6 @@
           "display_name": "Gun Rounds",
           "field_id": "payload_info.Cannon.shells",
           "unit_id": "none"
-        },
-        {
-          "display_name": "Latitude",
-          "field_id": "self.LatLongAlt.Lat",
-          "unit_id": "degrees"
-        },
-        {
-          "display_name": "Longitude",
-          "field_id": "self.LatLongAlt.Lon",
-          "unit_id": "degrees"
         }
       ]
     }

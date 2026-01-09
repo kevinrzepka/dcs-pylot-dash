@@ -69,6 +69,9 @@ local function handle_http_request(client_socket)
     local response = "HTTP/1.1 200 OK\r\n" ..
                     "Content-Type: application/json\r\n" ..
                     "Content-Length: " .. string.len(response_body) .. "\r\n" ..
+                    "Access-Control-Allow-Origin: *\r\n" ..
+                    "Access-Control-Allow-Methods: GET, POST, OPTIONS\r\n" ..
+                    "Access-Control-Allow-Headers: Content-Type\r\n" ..
                     "Connection: close\r\n\r\n" ..
                     response_body
 

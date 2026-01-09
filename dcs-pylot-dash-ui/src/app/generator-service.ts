@@ -5,7 +5,13 @@
  */
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
-import { EditorModel } from './editor-model';
+import {
+  DataPoint,
+  DataPointRow,
+  DataPointUnit,
+  EditorModel,
+  SourceDataPoint,
+} from './editor-model';
 import { APIExportField, APIExportModel, APIExportRow } from './api-model';
 import { ApiRoutes } from './api-routes';
 import { map, Observable } from 'rxjs';
@@ -45,5 +51,35 @@ export class GeneratorService {
       }
     }
     return apiExportModel;
+  }
+
+  buildEditorModel(
+    apiExportModel: APIExportModel,
+    sourceDataPoints: Map<string, SourceDataPoint>,
+  ): EditorModel {
+    const editorModel: EditorModel = new EditorModel();
+    for (const apiRow of apiExportModel.rows) {
+      const dataPointRow: DataPointRow = new DataPointRow();
+      for (const apiField of apiRow.fields) {
+        const sourceDataPoint: SourceDataPoint | undefined = sourceDataPoints.get(
+          apiField.field_id,
+        );
+        const dataPointUnit: DataPointUnit | undefined = sourceDataPoint?.availableUnits.find(
+          (u) => u.unitId === apiField.unit_id,
+        );
+        if (sourceDataPoint !== undefined && dataPointUnit !== undefined) {
+          const dataPoint: DataPoint = new DataPoint(
+            apiField.display_name,
+            sourceDataPoint,
+            dataPointUnit,
+          );
+          dataPointRow.addDataPoint(dataPoint);
+        }
+      }
+      if (!dataPointRow.isEmpty()) {
+        editorModel.dataPointRows.push(dataPointRow);
+      }
+    }
+    return editorModel;
   }
 }

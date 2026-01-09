@@ -3,7 +3,50 @@ Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
 SPDX-License-Identifier: MIT
 License-Filename: LICENSE
 -->
+<p-dialog [(visible)]="loadSampleModelDialogVisible" [modal]="true">
+  <ng-template #header>
+    <h3 class="font-bold whitespace-nowrap">Are you sure?</h3>
+  </ng-template>
+  <p>Are you sure you want to discard all changes and load the sample model instead?</p>
+  <ng-template #footer>
+    <p-button label="Cancel" severity="secondary" (click)="loadSampleModelDialogVisible = false" />
+    <p-button label="Confirm" severity="success" (click)="confirmLoadSampleModel()" />
+  </ng-template>
+</p-dialog>
+<p-dialog [(visible)]="clearModelDialogVisible" [modal]="true">
+  <ng-template #header>
+    <h3 class="font-bold whitespace-nowrap">Are you sure?</h3>
+  </ng-template>
+  <p>Are you sure you want to discard all changes and clear the entire model?</p>
+  <ng-template #footer>
+    <p-button label="Cancel" severity="secondary" (click)="clearModelDialogVisible = false" />
+    <p-button label="Confirm" severity="success" (click)="confirmClearModel()" />
+  </ng-template>
+</p-dialog>
+
 <div class="editorFrame">
+  <p-card class="editorControlsFrame">
+    <p-button
+      #loadSampleModelButton
+      label="Load Sample Model"
+      severity="help"
+      icon="pi pi-lightbulb"
+      (click)="loadSampleModel()"
+      [disabled]="!loadSampleModelButtonEnabled"
+    />
+    <p-popover #sampleModelPopover>
+      <p-card header="1. Getting started">
+        <p>Loading the sample model is the easiest way to get started. Try it!</p>
+      </p-card>
+    </p-popover>
+    <p-button
+      icon="pi pi-trash"
+      severity="danger"
+      label="Clear Model"
+      (click)="clearModelDialogVisible = true"
+      [disabled]="!clearModelButtonEnabled"
+    />
+  </p-card>
   <div
     class="dataPointRow"
     cdkDropListGroup
@@ -54,6 +97,7 @@ License-Filename: LICENSE
   </div>
   <p-card>
     <app-source-data-point-chooser
+      #addDataPointRowChooser
       class="add-data-point-row"
       [label]="'Add Data Point'"
       [tooltip]="'Choose a source field to add a new data point in a new row'"
@@ -61,10 +105,26 @@ License-Filename: LICENSE
       [disabled]="editorModel.dataPointRows.length >= maxRows"
       (onSourceDataPointChange)="addDataPointInRow($event)"
     />
+    <p-popover #modellingPopover>
+      <p-card class="modellingPopover" header="2. Modelling">
+        <p>
+          The model consists of rows, and each row contains data points, which will display the
+          desired plane data coming from a "source field".
+        </p>
+        <p>
+          You can drag and drop data points to move them around, and you can even move entire rows.
+        </p>
+        <p>
+          Some data points offer to be displayed in different units of measurement. You can also
+          show the same data point multiple times with different units.
+        </p>
+      </p-card>
+    </p-popover>
   </p-card>
   <p-card class="generator-container">
     <div class="generator-buttons-container">
       <p-button
+        #buildButton
         class="build-button"
         label="Build"
         [raised]="true"
@@ -73,6 +133,11 @@ License-Filename: LICENSE
         (click)="generate()"
         [disabled]="!generateButtonEnabled"
       />
+      <p-popover #buildPopover>
+        <p-card header="3. Final steps">
+          <p>When you are done modelling, build your model to download the code.</p>
+        </p-card>
+      </p-popover>
 
       <a
         #downloadLink
@@ -89,12 +154,16 @@ License-Filename: LICENSE
       </a>
 
       <p-popover #downloadPopover>
-        <p-card class="download-popover-content" header="Next Steps" title="Next Steps">
+        <p-card class="downloadPopoverContent" header="Next Steps" title="Next Steps">
           <ol>
             <li>Click to download the .zip archive</li>
             <li>Extract the archive anywhere</li>
             <li>See the attached readme.txt for instructions</li>
           </ol>
+          <p>
+            Note: The generated HTML page loads Bootstrap (https://getbootstrap.com) and a font from
+            Google fonts. Feel free to look at the source code.
+          </p>
         </p-card>
       </p-popover>
 
@@ -105,7 +174,7 @@ License-Filename: LICENSE
         label="Download available after build"
         [raised]="true"
         severity="secondary"
-        icon="pi pi-pi-download"
+        icon="pi pi-download"
         [disabled]="true"
       />
     </div>

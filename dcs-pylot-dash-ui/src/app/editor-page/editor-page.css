@@ -3,6 +3,20 @@ Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
 SPDX-License-Identifier: MIT
 License-Filename: LICENSE
 */
+
+.editorControlsFrame {
+  display: flex;
+  align-items: flex-end;
+
+  p-button {
+    margin-left: 1rem;
+  }
+}
+
+.modellingPopover {
+  max-width: 30vw;
+}
+
 .data-point-row {
   display: flex;
   flex-direction: row;
@@ -68,4 +82,8 @@ app-source-data-point-chooser {
 
 .display-none {
   display: none;
+}
+
+.downloadPopoverContent {
+  max-width: 40vw;
 }
