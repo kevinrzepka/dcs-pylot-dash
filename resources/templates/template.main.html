@@ -112,6 +112,15 @@ License-Filename: LICENSE
         <h2 id="appTitle" class="text-center text-secondary data-value">%app_title%</h2>
     </div>
 
+    <div id="waitingMessage" class="alert alert-info" style="margin: 4rem" role="alert">
+        Waiting for data... If you still see this message after a mission was started, please check the following
+        locations for errors:
+        <ul>
+            <li>DCS log, usually at "C:\Users\&ltusername&gt\Saved Games\DCS\Logs\dcs.log"</li>
+            <li>Your browser console, which is usually opened by pressing F12 to show the dev tools</li>
+        </ul>
+    </div>
+
     <div class="row g-4 m-2" id="row-default">
     </div>
 </div>
@@ -123,7 +132,7 @@ License-Filename: LICENSE
 
     const appTitle = '%app_title%';
     const appVersion = '%app_version%';
-    document.title = `${appTitle} v${appVersion}`;
+    document.title = `${appTitle} ${appVersion}`;
     document.getElementById('appTitle').innerText = `${appTitle} ${appVersion}`;
 
     const ID_ROOT_CONTAINER = 'root-container';
@@ -172,6 +181,9 @@ License-Filename: LICENSE
     //%colorscale_classes_entries%
 
     let busy = false;
+    let firstDataReceived = false;
+    const errorUpdateIntervalMs = 1000;
+    let lastErrorTime = null;
 
     async function fetchData() {
         let data = null;
@@ -187,11 +199,19 @@ License-Filename: LICENSE
         if (busy) {
             return;
         }
+        if (lastErrorTime !== null && new Date() - lastErrorTime < errorUpdateIntervalMs) {
+            return;
+        }
         busy = true;
         try {
             const data = await fetchData();
             processData(data);
+            if (!firstDataReceived) {
+                firstDataReceived = true;
+                document.getElementById('waitingMessage').remove();
+            }
         } catch (e) {
+            lastErrorTime = new Date();
             console.error(e);
         } finally {
             busy = false;

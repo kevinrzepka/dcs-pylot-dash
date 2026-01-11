@@ -18,14 +18,13 @@
     - show message
     - re-enable buttons
 - fill drawer
+    - FAQ
 - change decimal digits
 - GPS coordinate unit as lat lon dcml or seconds
 
-# Bugs
-
-- default decimal digits disapper
-
 # About
+
+This is a web tool that allows users of DCS World to build their own telemetry dashboards.
 
 # Usage
 
@@ -43,7 +42,7 @@ This section describes how to install all required tools to test, build and run 
 
 See https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository
 
-### Python
+### Python 3.14
 
 https://launchpad.net/~deadsnakes/+archive/ubuntu/ppa
 
@@ -104,6 +103,14 @@ sudo apt update && sudo apt install trivy -y
 
 ## UI
 
+### Set up Prettier
+
+https://prettier.io/docs/install
+
+- install: `pnpm add --save-dev --save-exact prettier@3.7.4`
+- dry-run: `npx prettier . --check`
+- run: `pnpm exec prettier . --write`
+
 ### Set up Angular project
 
 https://angular.dev/installation
@@ -118,14 +125,6 @@ https://angular.dev/installation
 - set up dev proxy: https://angular.dev/tools/cli/serve#proxying-to-a-backend-server
 - start: `pnpm start`
 
-### Set up Prettier
-
-https://prettier.io/docs/install
-
-- install: `pnpm add --save-dev --save-exact prettier@3.7.4`
-- dry-run: `npx prettier . --check`
-- run: `pnpm exec prettier . --write`
-
 ### Set up PrimeNG
 
 https://primeng.org/installation
@@ -134,10 +133,6 @@ https://primeng.org/installation
 - Add icons: https://primeng.org/icons
     - `pnpm add primeicons@7.0.0`
     - `styles.css`: `@import "primeicons/primeicons.css";`
-
-### Add Angular component
-
-- add component: `ng generate component hello --skip-tests true`
 
 ### Add drag and drop
 
@@ -172,16 +167,6 @@ run with regular entrypoint:
 ```bash
 sudo docker run --rm -it --read-only --memory-swappiness=0 --security-opt=no-new-privileges --cap-drop all -m=1g --cpus=1 -p 8000:8000 kevinrzepka/dcs-pylot-dash:latest
 ```
-
-## Vulnerability Scan (Trivy)
-
-https://trivy.dev/docs/latest/guide/target/sbom/#cyclonedx
-
-- image: `sudo trivy image --disable-telemetry dcs-pylot-dash`
-- SBOM: `trivy sbom --disable-telemetry sboms/sbom.json`
-- just `uv.lock`: `trivy fs --disable-telemetry --include-dev-deps uv.lock`
-- repository (finds `uv.lock`): `trivy repo --disable-telemetry --include-dev-deps .`
-    - can add `.trivyignore`, but that does not work
 
 ## Generate SBOMs
 
@@ -250,6 +235,16 @@ Other options:
 
 - license files are present in installed `./node_modules`
 
+## Vulnerability Scan (Trivy)
+
+https://trivy.dev/docs/latest/guide/target/sbom/#cyclonedx
+
+- image: `sudo trivy image --disable-telemetry dcs-pylot-dash`
+- SBOM: `trivy sbom --disable-telemetry sboms/sbom.json`
+- just `uv.lock`: `trivy fs --disable-telemetry --include-dev-deps uv.lock`
+- repository (finds `uv.lock`): `trivy repo --disable-telemetry --include-dev-deps .`
+    - can add `.trivyignore`, but that does not work
+
 ## Generate third-party attribution / license notice
 
 - set GitHub API PAT: ` export GITHUB_LICENSE_API_TOKEN=github_pat_<HEX...>`
@@ -257,8 +252,8 @@ Other options:
 
 # Third-party licenses
 
-This software uses third-party components that may be copyrighted by others.
-See [third_party_licenses.txt](./third_party_licenses.txt) for details.
+This software uses third-party components.
+See [third_party_licenses.txt](./third_party_licenses.txt) for their respective copyright and license notices.
 
 # License
 
@@ -268,6 +263,5 @@ See [LICENSE](./LICENSE)
 
 This private, non-commercial project is not affiliated with, associated with, authorized by, endorsed by, approved by,
 or in any other way officially connected with "DCS World", "Eagle Dynamics SA" and/or any of its subsidiaries,
-affiliates, and
-related entities.
+affiliates, and related entities.
 The official website of "DCS World" can be found at https://www.digitalcombatsimulator.com/
