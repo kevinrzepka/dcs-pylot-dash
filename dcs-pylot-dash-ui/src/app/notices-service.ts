@@ -36,6 +36,6 @@ export class NoticesService {
 
   private markdownToHtml(markdown: string): string {
     const parsed: string = marked.parse(markdown) as string;
-    return DOMPurify.sanitize(parsed);
+    return DOMPurify.sanitize(parsed, { RETURN_TRUSTED_TYPE: true }) as unknown as string;
   }
 }

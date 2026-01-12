@@ -87,7 +87,10 @@
           },
           "defaultConfiguration": "development",
           "options": {
-            "proxyConfig": "src/proxy.conf.json"
+            "proxyConfig": "src/proxy.conf.json",
+            "headers": {
+              "Content-Security-Policy": "require-trusted-types-for 'script'; trusted-types angular dompurify default;"
+            }
           }
         }
       }
