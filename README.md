@@ -1,40 +1,17 @@
-# TODO
-
-- uv test instructions for tools
-- add security.txt?
-- add CSP and nonce: https://angular.dev/best-practices/security#content-security-policy
-- https://angular.dev/best-practices/security#enforcing-trusted-types?
-- rate limiting config
-    - test
-- input validation test
-- color scale
-- advanced settings
-    - page
-    - api
-    - use in model generation
-- add loading animations
-- status page w\ current messages
-- error handling when api call fails
-    - show message
-    - re-enable buttons
-- fill drawer
-    - FAQ
-- change decimal digits
-- GPS coordinate unit as lat lon dcml or seconds
-
 # About
 
 This is a web tool that allows users of DCS World to build their own telemetry dashboards.
 
-# Usage
+# Disclaimer
 
-## Uvicorn configuration
-
-https://uvicorn.dev/settings/
+This private, non-commercial project is not affiliated with, associated with, authorized by, endorsed by, approved by,
+or in any other way officially connected with "DCS World", "Eagle Dynamics SA" and/or any of its subsidiaries,
+affiliates, and related entities.
+The official website of "DCS World" can be found at https://www.digitalcombatsimulator.com/
 
 # Development
 
-## Environment setup
+## Environment Setup
 
 This section describes how to install all required tools to test, build and run this software.
 
@@ -101,7 +78,7 @@ sudo apt update && sudo apt install trivy -y
 - run all pre-commit hooks: `uv run pre-commit run --all-files`
 - create venv from lockfile: `uv sync --frozen`
 
-## UI
+## UI Development
 
 ### Set up Prettier
 
@@ -258,10 +235,3 @@ See [third_party_licenses.txt](./third_party_licenses.txt) for their respective 
 # License
 
 See [LICENSE](./LICENSE)
-
-# Disclaimer
-
-This private, non-commercial project is not affiliated with, associated with, authorized by, endorsed by, approved by,
-or in any other way officially connected with "DCS World", "Eagle Dynamics SA" and/or any of its subsidiaries,
-affiliates, and related entities.
-The official website of "DCS World" can be found at https://www.digitalcombatsimulator.com/
