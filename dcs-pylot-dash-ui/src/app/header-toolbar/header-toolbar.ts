@@ -9,6 +9,7 @@ import { Toolbar } from 'primeng/toolbar';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { MenuSidebar } from '../menu-sidebar/menu-sidebar';
+import { AppConstants } from '../constants';
 
 @Component({
   selector: 'app-header-toolbar',
@@ -20,20 +21,9 @@ export class HeaderToolbar {
   items: MenuItem[] | undefined;
   @Input() menuSidebar!: MenuSidebar;
 
-  ngOnInit() {
-    this.items = [
-      {
-        label: 'Update',
-        icon: 'pi pi-refresh',
-      },
-      {
-        label: 'Delete',
-        icon: 'pi pi-times',
-      },
-    ];
-  }
-
   protected toggleSidebar() {
     this.menuSidebar.visible = !this.menuSidebar.visible;
   }
+
+  protected readonly AppConstants = AppConstants;
 }

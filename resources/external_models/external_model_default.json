@@ -95,13 +95,6 @@
         }
       }
     },
-    "aoa": {
-      "display_name": "Angle of Attack",
-      "lo_function": "LoGetAngleOfAttack",
-      "lo_return_type": "number",
-      "unit": "radians",
-      "preferred_unit": "degrees"
-    },
     "engine_info": {
       "lo_function": "LoGetEngineInfo",
       "lo_return_type": "table",

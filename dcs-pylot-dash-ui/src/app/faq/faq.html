@@ -1,0 +1,13 @@
+<!--
+Copyright (c) 2026 Kevin Rzepka <kdev@posteo.com>
+SPDX-License-Identifier: MIT
+License-Filename: LICENSE
+-->
+<p-card [header]="header">
+  @for (entry of entries; track entry) {
+    <p-card class="faqEntryCard">
+      <h3>Q: {{ entry.q }}</h3>
+      <p>A: {{ entry.a }}</p>
+    </p-card>
+  }
+</p-card>

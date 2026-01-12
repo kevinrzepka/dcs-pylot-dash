@@ -59,3 +59,9 @@ app-main-page {
   flex-direction: column;
   height: 100%;
 }
+
+.faqEntryCard {
+  .p-card-body {
+    padding: 0;
+  }
+}
