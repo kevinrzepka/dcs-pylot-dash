@@ -1,4 +1,4 @@
-# Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
+# Copyright (c) 2026 Kevin Rzepka <kdev@posteo.com>
 # SPDX-License-Identifier: MIT
 # License-Filename: LICENSE
 import os
@@ -23,7 +23,3 @@ async def test_app():
     app = await DcsPylotDash.create_app()
     assert isinstance(app, FastAPI)
     assert app.routes
-
-
-def test_foo():
-    assert 1 == 1

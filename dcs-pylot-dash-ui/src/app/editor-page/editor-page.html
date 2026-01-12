@@ -9,8 +9,18 @@ License-Filename: LICENSE
   </ng-template>
   <p>Are you sure you want to discard all changes and load the sample model instead?</p>
   <ng-template #footer>
-    <p-button label="Cancel" severity="secondary" (click)="loadSampleModelDialogVisible = false" />
-    <p-button label="Confirm" severity="success" (click)="confirmLoadSampleModel()" />
+    <p-button
+      label="Cancel"
+      icon="pi pi-times"
+      severity="secondary"
+      (click)="loadSampleModelDialogVisible = false"
+    />
+    <p-button
+      label="Confirm"
+      icon="pi pi-check"
+      severity="danger"
+      (click)="confirmLoadSampleModel()"
+    />
   </ng-template>
 </p-dialog>
 <p-dialog [(visible)]="clearModelDialogVisible" [modal]="true">
@@ -19,8 +29,13 @@ License-Filename: LICENSE
   </ng-template>
   <p>Are you sure you want to discard all changes and clear the entire model?</p>
   <ng-template #footer>
-    <p-button label="Cancel" severity="secondary" (click)="clearModelDialogVisible = false" />
-    <p-button label="Confirm" severity="success" (click)="confirmClearModel()" />
+    <p-button
+      label="Cancel"
+      icon="pi pi-times"
+      severity="secondary"
+      (click)="clearModelDialogVisible = false"
+    />
+    <p-button label="Clear" icon="pi pi-trash" severity="danger" (click)="confirmClearModel()" />
   </ng-template>
 </p-dialog>
 
@@ -39,6 +54,12 @@ License-Filename: LICENSE
         <p>Loading the sample model is the easiest way to get started. Try it!</p>
       </p-card>
     </p-popover>
+    <p-button
+      icon="pi pi-cog"
+      severity="secondary"
+      label="Advanced Settings"
+      (click)="showAdvancedSettings()"
+    />
     <p-button
       icon="pi pi-trash"
       severity="danger"
@@ -179,4 +200,88 @@ License-Filename: LICENSE
       />
     </div>
   </p-card>
+
+  <p-dialog
+    header="Advanced Settings"
+    [(visible)]="advancedSettingsDialogVisible"
+    [modal]="true"
+    [style]="{ minWidth: '20vw' }"
+  >
+    <div class="advancedSettingsGroup">
+      <p-checkbox
+        inputId="fcOverrideDefaults"
+        [binary]="true"
+        [formControl]="fcOverrideDefaults"
+        pTooltip="Please only change these settings if you know what you are doing and understand the security implications!"
+      />
+      <label for="fcOverrideDefaults">Override default settings</label>
+      <p-iftalabel>
+        <label for="fcBindAddress">Lua HTTP Server Bind Address</label>
+        <input
+          id="fcBindAddress"
+          type="text"
+          pInputText
+          [formControl]="fcBindAddress"
+          pTooltip="The address to which the lua server socket will bind. WARNING: Only change this value if you understand the security implications!"
+        />
+      </p-iftalabel>
+      <p-iftalabel>
+        <label for="fcBindPort"
+          >Lua HTTP Server Bind Port [{{ AdvancedSettingsConstraints.LUA_BIND_PORT_MIN }} -{{
+            AdvancedSettingsConstraints.LUA_BIND_PORT_MAX
+          }}]</label
+        >
+        <input
+          id="fcBindPort"
+          type="number"
+          pInputText
+          [min]="AdvancedSettingsConstraints.LUA_BIND_PORT_MIN"
+          [max]="AdvancedSettingsConstraints.LUA_BIND_PORT_MAX"
+          [formControl]="fcBindPort"
+          pTooltip="The port to which the lua server socket will bind"
+        />
+      </p-iftalabel>
+      <p-iftalabel>
+        <label for="fcPollIntervalMs"
+          >Update Interval (ms) [{{ AdvancedSettingsConstraints.POLL_INTERVAL_MS_MIN }} -{{
+            AdvancedSettingsConstraints.POLL_INTERVAL_MS_MAX
+          }}]</label
+        >
+        <input
+          id="fcPollIntervalMs"
+          type="number"
+          pInputText
+          [min]="AdvancedSettingsConstraints.POLL_INTERVAL_MS_MIN"
+          [max]="AdvancedSettingsConstraints.POLL_INTERVAL_MS_MAX"
+          [formControl]="fcPollIntervalMs"
+          pTooltip="The interval in milliseconds between data updates"
+        />
+      </p-iftalabel>
+    </div>
+    <ng-template #footer>
+      <div class="advancedSettingsFooterButtons">
+        <p-button
+          label="Revert"
+          severity="secondary"
+          icon="pi pi-undo"
+          [raised]="true"
+          (click)="resetAdvancedSettings()"
+        />
+        <p-button
+          label="Cancel"
+          severity="secondary"
+          icon="pi pi-times"
+          [raised]="true"
+          (click)="advancedSettingsDialogVisible = false"
+        />
+        <p-button
+          class="build-button"
+          label="Save"
+          severity="success"
+          icon="pi pi-check"
+          (click)="saveAdvancedSettings()"
+        />
+      </div>
+    </ng-template>
+  </p-dialog>
 </div>

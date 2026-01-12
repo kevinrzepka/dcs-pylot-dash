@@ -29,7 +29,6 @@ local server_port = 52025
 
 -- Global Variables
 local server = nil
-local clients = {}
 
 -- Helper function to safely get data
 local function safe_get(func, default)
@@ -134,12 +133,4 @@ function LuaExportStop()
         server = nil
         log.write("DCSPylotDash", log.INFO, "HTTP Server stopped")
     end
-
-    -- Close any remaining client connections
-    for i, client in ipairs(clients) do
-        if client then
-            client:close()
-        end
-    end
-    clients = {}
 end

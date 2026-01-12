@@ -12,7 +12,12 @@ import {
   EditorModel,
   SourceDataPoint,
 } from './editor-model';
-import { APIExportField, APIExportModel, APIExportRow } from './api-model';
+import {
+  APIExportField,
+  APIExportModel,
+  APIExportModelAdvancedSettings,
+  APIExportRow,
+} from './api-model';
 import { ApiRoutes } from './api-routes';
 import { map, Observable } from 'rxjs';
 
@@ -22,8 +27,11 @@ import { map, Observable } from 'rxjs';
 export class GeneratorService {
   constructor(private httpClient: HttpClient) {}
 
-  public generate(editorModel: EditorModel): Observable<Blob | null> {
-    const apiExportModel: APIExportModel = this.buildAPIExportModel(editorModel);
+  public generate(
+    editorModel: EditorModel,
+    advancedSettings: APIExportModelAdvancedSettings | null,
+  ): Observable<Blob | null> {
+    const apiExportModel: APIExportModel = this.buildAPIExportModel(editorModel, advancedSettings);
     return this.httpClient
       .post(ApiRoutes.GENERATE, apiExportModel, {
         responseType: 'blob',
@@ -32,9 +40,13 @@ export class GeneratorService {
       .pipe(map((response: HttpResponse<Blob>) => response.body));
   }
 
-  protected buildAPIExportModel(editorModel: EditorModel): APIExportModel {
+  protected buildAPIExportModel(
+    editorModel: EditorModel,
+    advancedSettings: APIExportModelAdvancedSettings | null,
+  ): APIExportModel {
     const apiExportModel: APIExportModel = {
       rows: [],
+      advanced_settings: advancedSettings,
     };
     for (const row of editorModel.dataPointRows) {
       const apiRow: APIExportRow = {

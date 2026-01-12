@@ -29,12 +29,20 @@ import {
 import { SourceDataPointChooser } from '../source-data-point-chooser/source-data-point-chooser';
 import { Tooltip } from 'primeng/tooltip';
 import { GeneratorService } from '../generator-service';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Popover } from 'primeng/popover';
 import { ClassNames } from 'primeng/classnames';
 import { SampleModelService } from '../sample-model.service';
 import { Dialog } from 'primeng/dialog';
-import { first, ReplaySubject } from 'rxjs';
+import { first, ReplaySubject, startWith } from 'rxjs';
+import {
+  AdvancedSettingsConstraints,
+  AdvancedSettingsDefaults,
+  APIExportModelAdvancedSettings,
+} from '../api-model';
+import { IftaLabel } from 'primeng/iftalabel';
+import { InputText } from 'primeng/inputtext';
+import { Checkbox } from 'primeng/checkbox';
 
 @Component({
   selector: 'app-editor-page',
@@ -54,6 +62,9 @@ import { first, ReplaySubject } from 'rxjs';
     Popover,
     ClassNames,
     Dialog,
+    IftaLabel,
+    InputText,
+    Checkbox,
   ],
   templateUrl: './editor-page.html',
   styleUrl: './editor-page.css',
@@ -121,6 +132,18 @@ export class EditorPage implements OnInit {
 
   userConsentGiven$: ReplaySubject<boolean> = new ReplaySubject(1);
 
+  advancedSettingsDialogVisible: boolean = false;
+
+  fcOverrideDefaults: FormControl<boolean | null> = new FormControl<boolean | null>(false);
+
+  fgAdvancedSettings: FormGroup = new FormGroup({
+    bindAddress: new FormControl<string | null>(AdvancedSettingsDefaults.LUA_BIND_ADDRESS),
+    bindPort: new FormControl<number | null>(AdvancedSettingsDefaults.LUA_BIND_PORT),
+    pollIntervalMs: new FormControl<number | null>(AdvancedSettingsDefaults.POLL_INTERVAL_MS),
+  });
+
+  protected advancedSettings: APIExportModelAdvancedSettings | null = null;
+
   constructor(
     private generatorService: GeneratorService,
     private sampleModelService: SampleModelService,
@@ -135,10 +158,20 @@ export class EditorPage implements OnInit {
       }
       this.userConsentGiven$.pipe(first()).subscribe(() => this.showTutorialPopovers());
     });
+
+    this.fcOverrideDefaults.valueChanges
+      .pipe(startWith(false))
+      .subscribe((value: boolean | null) => {
+        if (value) {
+          this.fgAdvancedSettings.enable();
+        } else {
+          this.fgAdvancedSettings.disable();
+        }
+      });
   }
 
   confirmLoadSampleModel() {
-    this.editorModel.dataPointRows = [...this.sampleModel!.dataPointRows];
+    this.editorModel = this.sampleModel!.copy();
     this.editorModelChanged();
     this.loadSampleModelDialogVisible = false;
   }
@@ -152,7 +185,10 @@ export class EditorPage implements OnInit {
   protected generate() {
     this.generateButtonEnabled = false;
     this.downloadButtonEnabled = false;
-    this.generatorService.generate(this.editorModel).subscribe((blob) => {
+    const advancedSettings: APIExportModelAdvancedSettings | null = this.overrideAdvancedSettings
+      ? this.advancedSettings
+      : null;
+    this.generatorService.generate(this.editorModel, advancedSettings).subscribe((blob) => {
       if (blob) {
         this.downloadUrl = window.URL.createObjectURL(blob);
         this.downloadButtonEnabled = true;
@@ -161,6 +197,7 @@ export class EditorPage implements OnInit {
       } else {
         this.enableControlsDependingOnModelEmpty();
       }
+      this.advancedSettingsDialogVisible = false;
       this.cdr.detectChanges();
     });
     this.cdr.detectChanges();
@@ -267,5 +304,46 @@ export class EditorPage implements OnInit {
 
     this.buildPopover.show(null, this.buildButton.el.nativeElement);
     this.modellingPopover.show(null, this.addDataPointRowChooser.nativeElement);
+  }
+
+  protected showAdvancedSettings() {
+    this.advancedSettingsDialogVisible = true;
+  }
+
+  protected get overrideAdvancedSettings(): boolean {
+    return this.fcOverrideDefaults.value ?? false;
+  }
+
+  protected get fcBindAddress(): FormControl<string | null> {
+    return this.fgAdvancedSettings.get('bindAddress') as FormControl<string | null>;
+  }
+
+  protected get fcBindPort(): FormControl<number | null> {
+    return this.fgAdvancedSettings.get('bindPort') as FormControl<number | null>;
+  }
+
+  protected get fcPollIntervalMs(): FormControl<number | null> {
+    return this.fgAdvancedSettings.get('pollIntervalMs') as FormControl<number | null>;
+  }
+
+  protected readonly AdvancedSettingsConstraints = AdvancedSettingsConstraints;
+
+  protected resetAdvancedSettings() {
+    this.fcBindAddress.setValue(AdvancedSettingsDefaults.LUA_BIND_ADDRESS);
+    this.fcBindPort.setValue(AdvancedSettingsDefaults.LUA_BIND_PORT);
+    this.fcPollIntervalMs.setValue(AdvancedSettingsDefaults.POLL_INTERVAL_MS);
+    this.fcOverrideDefaults.setValue(false);
+  }
+
+  protected saveAdvancedSettings() {
+    const bindAddress: string | null = this.fcBindAddress.value;
+    const bindPort: number | null = this.fcBindPort.value;
+    const pollIntervalMs: number | null = this.fcPollIntervalMs.value;
+    this.advancedSettings = {
+      lua_bind_address: bindAddress,
+      lua_bind_port: bindPort,
+      poll_interval_ms: pollIntervalMs,
+    };
+    this.advancedSettingsDialogVisible = false;
   }
 }

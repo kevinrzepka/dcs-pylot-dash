@@ -46,4 +46,25 @@ export type APIExportRow = {
 
 export type APIExportModel = {
   rows: APIExportRow[];
+  advanced_settings: APIExportModelAdvancedSettings | null;
+};
+
+export class AdvancedSettingsDefaults {
+  static readonly LUA_BIND_ADDRESS: string = '127.0.0.1';
+  static readonly LUA_BIND_PORT: number = 52025;
+  static readonly POLL_INTERVAL_MS: number = 200;
+}
+
+export class AdvancedSettingsConstraints {
+  static readonly LUA_BIND_PORT_MIN: number = 49152;
+  static readonly LUA_BIND_PORT_MAX: number = 65535;
+
+  static readonly POLL_INTERVAL_MS_MIN: number = 100;
+  static readonly POLL_INTERVAL_MS_MAX: number = 1000;
+}
+
+export type APIExportModelAdvancedSettings = {
+  lua_bind_address: string | null;
+  lua_bind_port: number | null;
+  poll_interval_ms: number | null;
 };

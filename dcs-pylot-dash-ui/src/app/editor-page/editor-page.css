@@ -87,3 +87,27 @@ app-source-data-point-chooser {
 .downloadPopoverContent {
   max-width: 40vw;
 }
+
+.advancedSettingsGroup {
+  p-checkbox {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  p-iftalabel {
+    margin: 1rem;
+  }
+
+  input {
+    width: 100%;
+  }
+}
+
+.advancedSettingsFooterButtons {
+  display: flex;
+
+  p-button {
+    flex: auto;
+    margin-right: 1rem;
+  }
+}

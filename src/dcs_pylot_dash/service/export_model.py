@@ -1,12 +1,12 @@
-# Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
+# Copyright (c) 2026 Kevin Rzepka <kdev@posteo.com>
 # SPDX-License-Identifier: MIT
 # License-Filename: LICENSE
 import logging
 from enum import StrEnum, auto
 from pathlib import Path
-from typing import ClassVar, Self
+from typing import ClassVar, Self, Annotated
 
-from pydantic import BaseModel, model_validator
+from pydantic import BaseModel, model_validator, Field, PositiveInt, NonNegativeInt
 
 from dcs_pylot_dash.exceptions import DCSPylotDashInvalidInputException
 from dcs_pylot_dash.service.dcs_model_internal import InternalModelField
@@ -26,6 +26,9 @@ class HttpServerSettings(BaseModel):
     See also: UiModelSettings
     """
 
+    EPHEMERAL_PORT_RANGE_START: ClassVar[int] = 49152
+    EPHEMERAL_PORT_RANGE_END: ClassVar[int] = 65535
+
     BIND_ADDRESS_LOCALHOST: ClassVar[str] = "127.0.0.1"
     BIND_PORT_DEFAULT: ClassVar[int] = 52025
     MAX_CONNECTIONS_DEFAULT: ClassVar[int] = 5
@@ -33,9 +36,9 @@ class HttpServerSettings(BaseModel):
 
     bind_address: str = BIND_ADDRESS_LOCALHOST
     # ephemeral range: 49152 to 65535
-    bind_port: int = BIND_PORT_DEFAULT
-    max_connections: int = MAX_CONNECTIONS_DEFAULT
-    socket_timeout: int = SOCKET_TIMEOUT_DEFAULT
+    bind_port: Annotated[int, Field(ge=EPHEMERAL_PORT_RANGE_START, le=EPHEMERAL_PORT_RANGE_END)] = BIND_PORT_DEFAULT
+    max_connections: PositiveInt = MAX_CONNECTIONS_DEFAULT
+    socket_timeout: NonNegativeInt = SOCKET_TIMEOUT_DEFAULT
 
 
 class LuaExportSettings(BaseModel):
@@ -52,7 +55,7 @@ class LuaExportSettings(BaseModel):
     log_prefix: str = LOG_PREFIX_DEFAULT
     output_dir: str = OUTPUT_DIR_DEFAULT
     output_script_name: str = OUTPUT_SCRIPT_NAME_DEFAULT
-    script_indentation: int = SCRIPT_INDENTATION_DEFAULT
+    script_indentation: NonNegativeInt = SCRIPT_INDENTATION_DEFAULT
 
     @property
     def output_dir_path(self) -> Path:
@@ -155,8 +158,12 @@ class UiExportSettings(BaseModel):
     """
 
     FETCH_DATA_INTERVAL_MS_DEFAULT: ClassVar[int] = 200
+    FETCH_DATA_INTERVAL_MS_MIN: ClassVar[int] = 100
+    FETCH_DATA_INTERVAL_MS_MAX: ClassVar[int] = 1000
 
-    fetch_data_interval_ms: int = FETCH_DATA_INTERVAL_MS_DEFAULT
+    fetch_data_interval_ms: Annotated[int, Field(ge=FETCH_DATA_INTERVAL_MS_MIN, le=FETCH_DATA_INTERVAL_MS_MAX)] = (
+        FETCH_DATA_INTERVAL_MS_DEFAULT
+    )
 
 
 class ExportModel(BaseModel):

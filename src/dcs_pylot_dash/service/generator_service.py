@@ -8,7 +8,7 @@ from logging import Logger
 from typing import Final
 from zipfile import PyZipFile
 
-from dcs_pylot_dash.api.api_model import APIExportModel
+from dcs_pylot_dash.api.api_model import APIExportModel, APIExportModelAdvancedSettings
 from dcs_pylot_dash.app_settings import DCSPylotDashAppSettings
 from dcs_pylot_dash.exceptions import DCSPylotDashInvalidInputException
 from dcs_pylot_dash.service.dcs_model_internal import InternalModelField
@@ -19,6 +19,7 @@ from dcs_pylot_dash.service.notice_service import NoticesService
 from dcs_pylot_dash.service.source_model_service import SourceModelService
 from dcs_pylot_dash.service.units import Unit
 from dcs_pylot_dash.utils.resource_provider import ResourceProvider
+from dcs_pylot_dash.utils.string_utils import StringUtils
 
 
 class ReadmeTemplateVar(StrEnum):
@@ -107,6 +108,15 @@ class GeneratorService:
 
     def _build_export_model(self, api_model: APIExportModel) -> ExportModel:
         export_model: ExportModel = ExportModel()
+        advanced_settings: APIExportModelAdvancedSettings | None = api_model.advanced_settings
+        if advanced_settings is not None:
+            if StringUtils.is_not_empty(advanced_settings.lua_bind_address):
+                export_model.http_server_settings.bind_address = advanced_settings.lua_bind_address
+            if advanced_settings.lua_bind_port is not None:
+                export_model.http_server_settings.bind_port = advanced_settings.lua_bind_port
+            if advanced_settings.poll_interval_ms is not None:
+                export_model.ui_export_settings.fetch_data_interval_ms = advanced_settings.poll_interval_ms
+
         for i_row, row in enumerate(api_model.rows):
             for i_col, field in enumerate(row.fields):
                 internal_field: InternalModelField | None = self._source_model_service.get_field(field.field_id)

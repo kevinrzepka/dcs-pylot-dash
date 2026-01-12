@@ -13,6 +13,12 @@ export class EditorModel {
       this.dataPointRows.every((row: DataPointRow) => row.dataPoints.length === 0)
     );
   }
+
+  copy(): EditorModel {
+    const instance = new EditorModel();
+    instance.dataPointRows = this.dataPointRows.map((row: DataPointRow) => row.copy());
+    return instance;
+  }
 }
 
 export class DataPointRow {
@@ -33,6 +39,12 @@ export class DataPointRow {
   isEmpty(): boolean {
     return this.dataPoints.length === 0;
   }
+
+  copy(): DataPointRow {
+    const instance = new DataPointRow();
+    instance.dataPoints = this.dataPoints.map((dp) => dp.copy());
+    return instance;
+  }
 }
 
 export class DataPoint {
@@ -50,8 +62,12 @@ export class DataPoint {
     this.outputUnit = outputUnit ? outputUnit : sourceDataPoint.defaultUnit;
   }
 
-  public setOutputUnit(unit: DataPointUnit) {
+  setOutputUnit(unit: DataPointUnit) {
     this.outputUnit = unit;
+  }
+
+  copy() {
+    return new DataPoint(this.displayName, this.sourceDataPoint, this.outputUnit);
   }
 }
 
