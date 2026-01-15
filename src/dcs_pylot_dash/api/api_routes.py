@@ -11,3 +11,5 @@ class APIRoutes:
     NOTICES: Final[str] = "/notices"
     METADATA: Final[str] = "/metadata"
     SAMPLE_MODEL: Final[str] = "/sample-model"
+    ROBOTS_TXT: Final[str] = "/robots.txt"
+    SECURITY_TXT: Final[str] = "/.well-known/security.txt"

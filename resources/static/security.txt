@@ -1,0 +1,3 @@
+Contact: kdev@posteo.com
+Expires: 2026-12-31T23:00:00.000Z
+Policy: https://github.com/kevinrzepka/dcs-pylot-dash/security/policy

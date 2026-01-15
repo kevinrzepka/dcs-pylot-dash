@@ -18,6 +18,7 @@ class ResourceProvider:
     EXTERNAL_MODELS_DIR_NAME: Final[str] = "external_models"
     SAMPLE_EXPORT_MODELS_DIR_NAME: Final[str] = "sample_export_models"
     NOTICES_DIR_NAME: Final[str] = "notices"
+    STATIC_DIR_NAME: Final[str] = "static"
 
     resources_dir: Path = RESOURCES_DIR_DEFAULT
 
@@ -75,3 +76,7 @@ class ResourceProvider:
     @property
     def notices_dir(self) -> Path:
         return self.resources_dir / self.NOTICES_DIR_NAME
+
+    @property
+    def static_dir(self) -> Path:
+        return self.resources_dir / self.STATIC_DIR_NAME

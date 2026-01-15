@@ -1,4 +1,4 @@
-# Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
+# Copyright (c) 2026 Kevin Rzepka <kdev@posteo.com>
 # SPDX-License-Identifier: MIT
 # License-Filename: LICENSE
 import logging
@@ -10,6 +10,7 @@ from fastapi import FastAPI
 from starlette.requests import Request
 from starlette.responses import FileResponse
 
+from dcs_pylot_dash.api.api_routes import APIRoutes
 from dcs_pylot_dash.api.main_router import MainRouter
 from dcs_pylot_dash.app_exception_handlers import AppExceptionHandlers
 from dcs_pylot_dash.app_settings import DCSPylotDashAppSettings, DCSPylotDashAppMetaSettings
@@ -41,7 +42,15 @@ class DcsPylotDash:
         AppExceptionHandlers.add_exception_handlers(fast_api)
         fast_api.include_router(await MainRouter.create_router(app_settings, resource_provider), prefix="/api/v1")
 
-        if app_settings.mount_ui:  # FastAPI does not allow mounting a router with empty prefix and path
+        @fast_api.get(APIRoutes.ROBOTS_TXT)
+        async def get_robots_txt() -> FileResponse:
+            return FileResponse(resource_provider.static_dir / "robots.txt")
+
+        @fast_api.get(APIRoutes.SECURITY_TXT)
+        async def get_robots_txt() -> FileResponse:
+            return FileResponse(resource_provider.static_dir / "security.txt")
+
+        if app_settings.mount_ui:  # FastAPI does not allow mounting a router with an empty prefix and path
             DcsPylotDash.LOGGER.info("Mounting UI")
 
             ui_base_dir: Path = Path(app_settings.ui_base_dir).resolve(strict=True)
