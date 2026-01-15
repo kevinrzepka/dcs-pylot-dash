@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
-  "serialNumber": "urn:uuid:357a55ab-1135-4329-8fba-c4ee897c5588",
+  "serialNumber": "urn:uuid:6e413ab3-1d61-496a-87a2-742c00c27c72",
   "version": 1,
   "metadata": {
-    "timestamp": "2025-12-15T14:07:59Z",
+    "timestamp": "2026-01-15T07:00:17Z",
     "tools": {
       "components": [
         {
@@ -48,7 +48,7 @@
       },
       {
         "name": "cdx:bom:componentNamespaces",
-        "value": "@algolia\\n@ampproject\\n@angular\\n@angular-devkit\\n@appthreat\\n@babel\\n@bufbuild\\n@cyclonedx\\n@emnapi\\n@esbuild\\n@iarna\\n@inquirer\\n@isaacs\\n@istanbuljs\\n@jridgewell\\n@keyv\\n@listr2\\n@lmdb\\n@modelcontextprotocol\\n@msgpackr-extract\\n@napi-rs\\n@npmcli\\n@oozcitak\\n@oxc-project\\n@parcel\\n@pkgjs\\n@primeuix\\n@rolldown\\n@rollup\\n@schematics\\n@sec-ant\\n@sigstore\\n@sindresorhus\\n@standard-schema\\n@tufjs\\n@tybys\\n@types\\n@vitejs\\n@yarnpkg"
+        "value": "@algolia\\n@ampproject\\n@angular\\n@angular-devkit\\n@appthreat\\n@babel\\n@bufbuild\\n@cyclonedx\\n@emnapi\\n@esbuild\\n@iarna\\n@inquirer\\n@isaacs\\n@istanbuljs\\n@jridgewell\\n@keyv\\n@listr2\\n@lmdb\\n@modelcontextprotocol\\n@msgpackr-extract\\n@napi-rs\\n@npmcli\\n@oxc-project\\n@parcel\\n@pkgjs\\n@primeuix\\n@rolldown\\n@rollup\\n@schematics\\n@sec-ant\\n@sigstore\\n@sindresorhus\\n@standard-schema\\n@tufjs\\n@tybys\\n@types\\n@vitejs\\n@yarnpkg"
       },
       {
         "name": "cdx:bom:componentSrcFiles",
@@ -813,7 +813,7 @@
         ],
         "occurrences": [
           {
-            "location": "src/app/editor-page/editor-page.ts#20"
+            "location": "src/app/editor-page/editor-page.ts#28"
           }
         ]
       },
@@ -882,7 +882,7 @@
         },
         {
           "name": "ImportedModules",
-          "value": "@angular/common/http,HttpClient,@angular/common/http/HttpClient"
+          "value": "@angular/common/http,HttpClient,@angular/common/http/HttpClient,HttpResponse,@angular/common/http/HttpResponse,@angular/common,AsyncPipe,@angular/common/AsyncPipe"
         }
       ],
       "evidence": {
@@ -905,7 +905,19 @@
             "location": "src/app/api-source-model-service.ts#7"
           },
           {
+            "location": "src/app/app-metadata-service.ts#7"
+          },
+          {
+            "location": "src/app/generator-service.ts#7"
+          },
+          {
             "location": "src/app/notices-service.ts#8"
+          },
+          {
+            "location": "src/app/sample-model.service.ts#9"
+          },
+          {
+            "location": "src/app/footer-toolbar/footer-toolbar.ts#12"
           }
         ]
       },
@@ -1014,7 +1026,7 @@
         },
         {
           "name": "ImportedModules",
-          "value": "@angular/core,Injectable,@angular/core/Injectable,Component,@angular/core/Component,signal,@angular/core/signal,EventEmitter,@angular/core/EventEmitter,Input,@angular/core/Input,Output,@angular/core/Output,OnInit,@angular/core/OnInit,Signal,@angular/core/Signal,@angular/core/rxjs-interop,toSignal,@angular/core/rxjs-interop/toSignal"
+          "value": "@angular/core,Injectable,@angular/core/Injectable,Component,@angular/core/Component,signal,@angular/core/signal,EventEmitter,@angular/core/EventEmitter,Input,@angular/core/Input,OnInit,@angular/core/OnInit,Output,@angular/core/Output,ViewChild,@angular/core/ViewChild,ChangeDetectorRef,@angular/core/ChangeDetectorRef,ElementRef,@angular/core/ElementRef,AfterViewInit,@angular/core/AfterViewInit,Signal,@angular/core/Signal,@angular/core/rxjs-interop,toSignal,@angular/core/rxjs-interop/toSignal"
         }
       ],
       "evidence": {
@@ -1037,19 +1049,28 @@
             "location": "src/app/api-source-model-service.ts#6"
           },
           {
+            "location": "src/app/app-metadata-service.ts#6"
+          },
+          {
             "location": "src/app/app.ts#6"
           },
           {
             "location": "src/app/data-point-editor/data-point-editor.ts#6"
           },
           {
-            "location": "src/app/editor-page/editor-page.ts#6"
+            "location": "src/app/editor-page/editor-page.ts#14"
           },
           {
             "location": "src/app/entry-consent/entry-consent.ts#6"
           },
           {
+            "location": "src/app/faq/faq.ts#6"
+          },
+          {
             "location": "src/app/footer-toolbar/footer-toolbar.ts#6"
+          },
+          {
+            "location": "src/app/generator-service.ts#6"
           },
           {
             "location": "src/app/header-toolbar/header-toolbar.ts#6"
@@ -1073,6 +1094,9 @@
             "location": "src/app/privacy-policy-page/privacy-policy-page.ts#6"
           },
           {
+            "location": "src/app/sample-model.service.ts#6"
+          },
+          {
             "location": "src/app/source-data-point-chooser/source-data-point-chooser.ts#6"
           },
           {
@@ -1083,6 +1107,9 @@
           },
           {
             "location": "src/app/third-party-licenses-page/third-party-licenses-page.ts#6"
+          },
+          {
+            "location": "src/app/unit-chooser/unit-chooser.ts#6"
           },
           {
             "location": "src/app/user-data-service.ts#6"
@@ -1126,7 +1153,7 @@
         },
         {
           "name": "ImportedModules",
-          "value": "@angular/forms,FormsModule,@angular/forms/FormsModule,FormControl,@angular/forms/FormControl,ReactiveFormsModule,@angular/forms/ReactiveFormsModule"
+          "value": "@angular/forms,FormControl,@angular/forms/FormControl,FormsModule,@angular/forms/FormsModule,ReactiveFormsModule,@angular/forms/ReactiveFormsModule,FormGroup,@angular/forms/FormGroup"
         }
       ],
       "evidence": {
@@ -1149,7 +1176,13 @@
             "location": "src/app/data-point-editor/data-point-editor.ts#8"
           },
           {
+            "location": "src/app/editor-page/editor-page.ts#32"
+          },
+          {
             "location": "src/app/source-data-point-chooser/source-data-point-chooser.ts#12"
+          },
+          {
+            "location": "src/app/unit-chooser/unit-chooser.ts#9"
           }
         ]
       },
@@ -2776,84 +2809,6 @@
       "purl": "pkg:npm/%40cyclonedx/cdxgen@12.0.0",
       "type": "library",
       "bom-ref": "pkg:npm/@cyclonedx/cdxgen@12.0.0",
-      "properties": [
-        {
-          "name": "SrcFile",
-          "value": "pnpm-lock.yaml"
-        },
-        {
-          "name": "cdx:npm:has_binary",
-          "value": "true"
-        }
-      ],
-      "evidence": {
-        "identity": [
-          {
-            "field": "purl",
-            "confidence": 1,
-            "methods": [
-              {
-                "technique": "manifest-analysis",
-                "confidence": 1,
-                "value": "pnpm-lock.yaml"
-              }
-            ],
-            "concludedValue": "pnpm-lock.yaml"
-          }
-        ]
-      }
-    },
-    {
-      "group": "@cyclonedx",
-      "name": "cyclonedx-library",
-      "version": "9.4.1",
-      "scope": "optional",
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "7d8fd91055c428ce17fde0b6bc294fae9b9c81be08b322984f5abd481171dbec922748c0d8d10b21fd6f6bef120e572feb2520c322eab49f768362a2bd0a7778"
-        }
-      ],
-      "purl": "pkg:npm/%40cyclonedx/cyclonedx-library@9.4.1",
-      "type": "library",
-      "bom-ref": "pkg:npm/@cyclonedx/cyclonedx-library@9.4.1",
-      "properties": [
-        {
-          "name": "SrcFile",
-          "value": "pnpm-lock.yaml"
-        }
-      ],
-      "evidence": {
-        "identity": [
-          {
-            "field": "purl",
-            "confidence": 1,
-            "methods": [
-              {
-                "technique": "manifest-analysis",
-                "confidence": 1,
-                "value": "pnpm-lock.yaml"
-              }
-            ],
-            "concludedValue": "pnpm-lock.yaml"
-          }
-        ]
-      }
-    },
-    {
-      "group": "@cyclonedx",
-      "name": "cyclonedx-npm",
-      "version": "4.1.2",
-      "scope": "optional",
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "49869bb533a05d07a2c130d29d756ac0310a99cc85eed70c747eb6ae809a731a9f21ecb41cec5d8752f42648cce39b7a58ef59f109c0fe143c150ccb534dc030"
-        }
-      ],
-      "purl": "pkg:npm/%40cyclonedx/cyclonedx-npm@4.1.2",
-      "type": "library",
-      "bom-ref": "pkg:npm/@cyclonedx/cyclonedx-npm@4.1.2",
       "properties": [
         {
           "name": "SrcFile",
@@ -8856,154 +8811,6 @@
       }
     },
     {
-      "group": "@oozcitak",
-      "name": "dom",
-      "version": "2.0.2",
-      "scope": "optional",
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "1a3a4a8644980b7323e3e95fc04c88d5daa7b0a4e0c06cb8f32b591219b803fc671fff33f4cdd95572abfd81908b7b822ecd401014bec794f624f8ae7840d6f3"
-        }
-      ],
-      "purl": "pkg:npm/%40oozcitak/dom@2.0.2",
-      "type": "library",
-      "bom-ref": "pkg:npm/@oozcitak/dom@2.0.2",
-      "properties": [
-        {
-          "name": "SrcFile",
-          "value": "pnpm-lock.yaml"
-        }
-      ],
-      "evidence": {
-        "identity": [
-          {
-            "field": "purl",
-            "confidence": 1,
-            "methods": [
-              {
-                "technique": "manifest-analysis",
-                "confidence": 1,
-                "value": "pnpm-lock.yaml"
-              }
-            ],
-            "concludedValue": "pnpm-lock.yaml"
-          }
-        ]
-      }
-    },
-    {
-      "group": "@oozcitak",
-      "name": "infra",
-      "version": "2.0.2",
-      "scope": "optional",
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "da0f84ee1a04d9d802cff00f3ce10ae6cdeb32126f37148c06b3fe53e8f5396b086ed4a95b1c65523ab5954f1122c149358bfb34c96756c0ae1dc533256fbcbc"
-        }
-      ],
-      "purl": "pkg:npm/%40oozcitak/infra@2.0.2",
-      "type": "library",
-      "bom-ref": "pkg:npm/@oozcitak/infra@2.0.2",
-      "properties": [
-        {
-          "name": "SrcFile",
-          "value": "pnpm-lock.yaml"
-        }
-      ],
-      "evidence": {
-        "identity": [
-          {
-            "field": "purl",
-            "confidence": 1,
-            "methods": [
-              {
-                "technique": "manifest-analysis",
-                "confidence": 1,
-                "value": "pnpm-lock.yaml"
-              }
-            ],
-            "concludedValue": "pnpm-lock.yaml"
-          }
-        ]
-      }
-    },
-    {
-      "group": "@oozcitak",
-      "name": "url",
-      "version": "3.0.0",
-      "scope": "optional",
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "64a7c44fc024d70b0b0222d635f16465cfc1ada0dc72e4c9291eacbd361ceec5636d1f88bb4bed5dd883318e28ea36859794d6d93952ee36cb978568bed00959"
-        }
-      ],
-      "purl": "pkg:npm/%40oozcitak/url@3.0.0",
-      "type": "library",
-      "bom-ref": "pkg:npm/@oozcitak/url@3.0.0",
-      "properties": [
-        {
-          "name": "SrcFile",
-          "value": "pnpm-lock.yaml"
-        }
-      ],
-      "evidence": {
-        "identity": [
-          {
-            "field": "purl",
-            "confidence": 1,
-            "methods": [
-              {
-                "technique": "manifest-analysis",
-                "confidence": 1,
-                "value": "pnpm-lock.yaml"
-              }
-            ],
-            "concludedValue": "pnpm-lock.yaml"
-          }
-        ]
-      }
-    },
-    {
-      "group": "@oozcitak",
-      "name": "util",
-      "version": "10.0.0",
-      "scope": "optional",
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "8405f4a53ffbdf5f7434ba813cf592741546b5b63a54e85660adeaa87aad5d0d602bb912db2cf8fa2bec374ee1a49e88dda78cb4a3fa27a9e9b0428e033b932c"
-        }
-      ],
-      "purl": "pkg:npm/%40oozcitak/util@10.0.0",
-      "type": "library",
-      "bom-ref": "pkg:npm/@oozcitak/util@10.0.0",
-      "properties": [
-        {
-          "name": "SrcFile",
-          "value": "pnpm-lock.yaml"
-        }
-      ],
-      "evidence": {
-        "identity": [
-          {
-            "field": "purl",
-            "confidence": 1,
-            "methods": [
-              {
-                "technique": "manifest-analysis",
-                "confidence": 1,
-                "value": "pnpm-lock.yaml"
-              }
-            ],
-            "concludedValue": "pnpm-lock.yaml"
-          }
-        ]
-      }
-    },
-    {
       "group": "@oxc-project",
       "name": "types",
       "version": "0.96.0",
@@ -12850,43 +12657,6 @@
     },
     {
       "group": "",
-      "name": "ajv-formats-draft2019",
-      "version": "1.6.1",
-      "scope": "optional",
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "2503ef6afa64583bc8b01a76677dd49180ad5c24a95b81c3ded019fa82f888414e93da1b4197dfc74c80370102b7abf3afa113fbb1cde5ccd1caa5db9eafeed1"
-        }
-      ],
-      "purl": "pkg:npm/ajv-formats-draft2019@1.6.1",
-      "type": "library",
-      "bom-ref": "pkg:npm/ajv-formats-draft2019@1.6.1",
-      "properties": [
-        {
-          "name": "SrcFile",
-          "value": "pnpm-lock.yaml"
-        }
-      ],
-      "evidence": {
-        "identity": [
-          {
-            "field": "purl",
-            "confidence": 1,
-            "methods": [
-              {
-                "technique": "manifest-analysis",
-                "confidence": 1,
-                "value": "pnpm-lock.yaml"
-              }
-            ],
-            "concludedValue": "pnpm-lock.yaml"
-          }
-        ]
-      }
-    },
-    {
-      "group": "",
       "name": "ajv-formats",
       "version": "3.0.1",
       "scope": "optional",
@@ -13315,52 +13085,6 @@
       "tags": [
         "escape"
       ]
-    },
-    {
-      "group": "",
-      "name": "argparse",
-      "version": "2.0.1",
-      "description": "CLI arguments parser. Native port of python's argparse.",
-      "scope": "optional",
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "f3ef56a9e6db173a57f4e47e59ae8edbd6ac22881e44ccdc1ad00835da4c1c7c80835d1fd3969215505b704a867ff3d7c35123019faadbf6c4060dc3beeacadd"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "Python-2.0",
-            "url": "https://opensource.org/licenses/Python-2.0"
-          }
-        }
-      ],
-      "purl": "pkg:npm/argparse@2.0.1",
-      "type": "library",
-      "bom-ref": "pkg:npm/argparse@2.0.1",
-      "properties": [
-        {
-          "name": "SrcFile",
-          "value": "pnpm-lock.yaml"
-        }
-      ],
-      "evidence": {
-        "identity": [
-          {
-            "field": "purl",
-            "confidence": 1,
-            "methods": [
-              {
-                "technique": "manifest-analysis",
-                "confidence": 1,
-                "value": "pnpm-lock.yaml"
-              }
-            ],
-            "concludedValue": "pnpm-lock.yaml"
-          }
-        ]
-      }
     },
     {
       "authors": [
@@ -15824,120 +15548,6 @@
     {
       "authors": [
         {
-          "name": "TJ Holowaychuk <tj@vision-media.ca>"
-        }
-      ],
-      "group": "",
-      "name": "commander",
-      "version": "14.0.2",
-      "description": "the complete solution for node.js command-line programs",
-      "scope": "optional",
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "4f2c2858d3516e1a03d015ecd4fdd9112716f16e622ab9db8ad848974607fae0a605dd10a4f380f3273cd834b704813931ae859c1554b09ef05540f3e1dbce59"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT",
-            "url": "https://opensource.org/licenses/MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/commander@14.0.2",
-      "externalReferences": [
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/tj/commander.js.git"
-        }
-      ],
-      "type": "library",
-      "bom-ref": "pkg:npm/commander@14.0.2",
-      "properties": [
-        {
-          "name": "SrcFile",
-          "value": "pnpm-lock.yaml"
-        }
-      ],
-      "evidence": {
-        "identity": [
-          {
-            "field": "purl",
-            "confidence": 1,
-            "methods": [
-              {
-                "technique": "manifest-analysis",
-                "confidence": 1,
-                "value": "pnpm-lock.yaml"
-              }
-            ],
-            "concludedValue": "pnpm-lock.yaml"
-          }
-        ]
-      }
-    },
-    {
-      "authors": [
-        {
-          "name": "TJ Holowaychuk <tj@vision-media.ca>"
-        }
-      ],
-      "group": "",
-      "name": "commander",
-      "version": "2.20.3",
-      "description": "the complete solution for node.js command-line programs",
-      "scope": "optional",
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "1a956498cf2f176bd05248f62ef6660f7e49c5e24e2c2c09f5c524ba0ca4da7ba16efdfe989be92d862dfb4f9448cc44fa88fe7b2fe52449e1670ef9c7f38c71"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT",
-            "url": "https://opensource.org/licenses/MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/commander@2.20.3",
-      "externalReferences": [
-        {
-          "type": "vcs",
-          "url": "https://github.com/tj/commander.js.git"
-        }
-      ],
-      "type": "library",
-      "bom-ref": "pkg:npm/commander@2.20.3",
-      "properties": [
-        {
-          "name": "SrcFile",
-          "value": "pnpm-lock.yaml"
-        }
-      ],
-      "evidence": {
-        "identity": [
-          {
-            "field": "purl",
-            "confidence": 1,
-            "methods": [
-              {
-                "technique": "manifest-analysis",
-                "confidence": 1,
-                "value": "pnpm-lock.yaml"
-              }
-            ],
-            "concludedValue": "pnpm-lock.yaml"
-          }
-        ]
-      }
-    },
-    {
-      "authors": [
-        {
           "name": "Isaac Z. Schlueter <i@izs.me> (https://izs.me)"
         }
       ],
@@ -17507,67 +17117,6 @@
     {
       "authors": [
         {
-          "name": "David Tudury <david.tudury@gmail.com>"
-        }
-      ],
-      "group": "",
-      "name": "discontinuous-range",
-      "version": "1.0.0",
-      "description": "for adding, subtracting, and indexing discontinuous ranges of numbers",
-      "scope": "optional",
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "73af0ba4b6cefbb90ffdbd47af5aacf3f049d3d1799216464f1ab166e873c699b024a3a04451c95886fdfca9aa9ea1e12dd3b9e5a3b1147fc4181bd441b2ff45"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT",
-            "url": "https://opensource.org/licenses/MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/discontinuous-range@1.0.0",
-      "externalReferences": [
-        {
-          "type": "vcs",
-          "url": "https://github.com/dtudury/discontinuous-range"
-        },
-        {
-          "type": "vcs",
-          "url": "https://github.com/dtudury/discontinuous-range.git"
-        }
-      ],
-      "type": "library",
-      "bom-ref": "pkg:npm/discontinuous-range@1.0.0",
-      "properties": [
-        {
-          "name": "SrcFile",
-          "value": "pnpm-lock.yaml"
-        }
-      ],
-      "evidence": {
-        "identity": [
-          {
-            "field": "purl",
-            "confidence": 1,
-            "methods": [
-              {
-                "technique": "manifest-analysis",
-                "confidence": 1,
-                "value": "pnpm-lock.yaml"
-              }
-            ],
-            "concludedValue": "pnpm-lock.yaml"
-          }
-        ]
-      }
-    },
-    {
-      "authors": [
-        {
           "name": "Felix Boehm <me@feedic.com>"
         }
       ],
@@ -17802,6 +17351,9 @@
         "occurrences": [
           {
             "location": "src/app/notices-service.ts#12"
+          },
+          {
+            "location": "src/main.ts#9"
           }
         ]
       },
@@ -19960,63 +19512,6 @@
         "framework",
         "web"
       ]
-    },
-    {
-      "authors": [
-        {
-          "name": "Stefan Thomas <justmoon@members.fsf.org> (http://www.justmoon.net)"
-        }
-      ],
-      "group": "",
-      "name": "extend",
-      "version": "3.0.2",
-      "description": "Port of jQuery.extend for node.js and the browser",
-      "scope": "optional",
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "7e3aae0b9f5c0fb0b25babab3572b4141b9f9197288861bcd304ee3ee8d7e7dd1c0794ed967db4136501e12fd601156a8577df665d8b3604be81074f2088a6fe"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT",
-            "url": "https://opensource.org/licenses/MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/extend@3.0.2",
-      "externalReferences": [
-        {
-          "type": "vcs",
-          "url": "https://github.com/justmoon/node-extend.git"
-        }
-      ],
-      "type": "library",
-      "bom-ref": "pkg:npm/extend@3.0.2",
-      "properties": [
-        {
-          "name": "SrcFile",
-          "value": "pnpm-lock.yaml"
-        }
-      ],
-      "evidence": {
-        "identity": [
-          {
-            "field": "purl",
-            "confidence": 1,
-            "methods": [
-              {
-                "technique": "manifest-analysis",
-                "confidence": 1,
-                "value": "pnpm-lock.yaml"
-              }
-            ],
-            "concludedValue": "pnpm-lock.yaml"
-          }
-        ]
-      }
     },
     {
       "authors": [
@@ -23964,61 +23459,6 @@
     {
       "authors": [
         {
-          "name": "Vladimir Zapparov <dervus.grim@gmail.com>"
-        }
-      ],
-      "group": "",
-      "name": "js-yaml",
-      "version": "4.1.1",
-      "description": "YAML 1.2 parser and serializer",
-      "scope": "optional",
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "a90293e334315e5f252f006d1cc5b06937067c5399be23897addcecbfc661a4da0647ebbec224cf44bed7dd4a48167004d9863ff9e49674ae6cb79b2093e65b0"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT",
-            "url": "https://opensource.org/licenses/MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/js-yaml@4.1.1",
-      "type": "library",
-      "bom-ref": "pkg:npm/js-yaml@4.1.1",
-      "properties": [
-        {
-          "name": "SrcFile",
-          "value": "pnpm-lock.yaml"
-        },
-        {
-          "name": "cdx:npm:has_binary",
-          "value": "true"
-        }
-      ],
-      "evidence": {
-        "identity": [
-          {
-            "field": "purl",
-            "confidence": 1,
-            "methods": [
-              {
-                "technique": "manifest-analysis",
-                "confidence": 1,
-                "value": "pnpm-lock.yaml"
-              }
-            ],
-            "concludedValue": "pnpm-lock.yaml"
-          }
-        ]
-      }
-    },
-    {
-      "authors": [
-        {
           "name": "Mathias Bynens (https://mathiasbynens.be/)"
         }
       ],
@@ -24817,63 +24257,6 @@
       ],
       "type": "library",
       "bom-ref": "pkg:npm/keyv@5.5.4",
-      "properties": [
-        {
-          "name": "SrcFile",
-          "value": "pnpm-lock.yaml"
-        }
-      ],
-      "evidence": {
-        "identity": [
-          {
-            "field": "purl",
-            "confidence": 1,
-            "methods": [
-              {
-                "technique": "manifest-analysis",
-                "confidence": 1,
-                "value": "pnpm-lock.yaml"
-              }
-            ],
-            "concludedValue": "pnpm-lock.yaml"
-          }
-        ]
-      }
-    },
-    {
-      "authors": [
-        {
-          "name": "marudor"
-        }
-      ],
-      "group": "",
-      "name": "libxmljs2",
-      "version": "0.37.0",
-      "description": "libxml bindings for v8 javascript engine",
-      "scope": "optional",
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "5dbefc57c199a2ea1916babc702c31efe1b759839c246d316f76146f0792c84e33d8422b40264caf761efdd1e7e26112b3a63150c790794666e485e0fa22c7a2"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT",
-            "url": "https://opensource.org/licenses/MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/libxmljs2@0.37.0",
-      "externalReferences": [
-        {
-          "type": "vcs",
-          "url": "http://github.com/marudor/libxmljs2.git"
-        }
-      ],
-      "type": "library",
-      "bom-ref": "pkg:npm/libxmljs2@0.37.0",
       "properties": [
         {
           "name": "SrcFile",
@@ -27125,60 +26508,6 @@
     {
       "authors": [
         {
-          "name": "Tim Radvan <tim@tjvr.org>"
-        }
-      ],
-      "group": "",
-      "name": "moo",
-      "version": "0.5.2",
-      "description": "Optimised tokenizer/lexer generator! 🐄 Much performance. Moo!",
-      "scope": "optional",
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "8920092c760a9d7e3598a7092a3aaf9c037db1fd0b3034d70c4bc5bfe7dfb9147d6b5308b972e330d2fa12c9c31d290a2d358da90439ba8eb53f811b538354f9"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "BSD-3-Clause",
-            "url": "https://opensource.org/licenses/BSD-3-Clause"
-          }
-        }
-      ],
-      "purl": "pkg:npm/moo@0.5.2",
-      "type": "library",
-      "bom-ref": "pkg:npm/moo@0.5.2",
-      "properties": [
-        {
-          "name": "SrcFile",
-          "value": "pnpm-lock.yaml"
-        }
-      ],
-      "evidence": {
-        "identity": [
-          {
-            "field": "purl",
-            "confidence": 1,
-            "methods": [
-              {
-                "technique": "manifest-analysis",
-                "confidence": 1,
-                "value": "pnpm-lock.yaml"
-              }
-            ],
-            "concludedValue": "pnpm-lock.yaml"
-          }
-        ]
-      },
-      "tags": [
-        "performance"
-      ]
-    },
-    {
-      "authors": [
-        {
           "name": "Luke Edwards <luke.edwards05@gmail.com> (https://lukeed.com)"
         }
       ],
@@ -27495,58 +26824,6 @@
       }
     },
     {
-      "group": "",
-      "name": "nan",
-      "version": "2.22.2",
-      "description": "Native Abstractions for Node.js: C++ header for Node 0.8 -> 22 compatibility",
-      "scope": "optional",
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "0c03608711644b5a650dd46c5f45fda66d19e9224d37a80176d5df6a7c2867c868a02e60a2c1854811916075153f3d5ab0a03f90c46a0d1747ae5b99eb54a905"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT",
-            "url": "https://opensource.org/licenses/MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/nan@2.22.2",
-      "externalReferences": [
-        {
-          "type": "vcs",
-          "url": "git://github.com/nodejs/nan.git"
-        }
-      ],
-      "type": "library",
-      "bom-ref": "pkg:npm/nan@2.22.2",
-      "properties": [
-        {
-          "name": "SrcFile",
-          "value": "pnpm-lock.yaml"
-        }
-      ],
-      "evidence": {
-        "identity": [
-          {
-            "field": "purl",
-            "confidence": 1,
-            "methods": [
-              {
-                "technique": "manifest-analysis",
-                "confidence": 1,
-                "value": "pnpm-lock.yaml"
-              }
-            ],
-            "concludedValue": "pnpm-lock.yaml"
-          }
-        ]
-      }
-    },
-    {
       "authors": [
         {
           "name": "Andrey Sitnik <andrey@sitnik.ru>"
@@ -27664,67 +26941,6 @@
       "tags": [
         "tools"
       ]
-    },
-    {
-      "authors": [
-        {
-          "name": "Hardmath123"
-        }
-      ],
-      "group": "",
-      "name": "nearley",
-      "version": "2.20.1",
-      "description": "Simple, fast, powerful parser toolkit for JavaScript.",
-      "scope": "optional",
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "f8c73c51a01e6c5ce057e2a92399fb0dab2eb9008703cf5d9b09bb257c374d5e37ba47cd43d0e7047dcc75bda0fc8e05771736ea9c229815af8c8c3450020b49"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT",
-            "url": "https://opensource.org/licenses/MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/nearley@2.20.1",
-      "externalReferences": [
-        {
-          "type": "vcs",
-          "url": "https://github.com/hardmath123/nearley.git"
-        }
-      ],
-      "type": "library",
-      "bom-ref": "pkg:npm/nearley@2.20.1",
-      "properties": [
-        {
-          "name": "SrcFile",
-          "value": "pnpm-lock.yaml"
-        },
-        {
-          "name": "cdx:npm:has_binary",
-          "value": "true"
-        }
-      ],
-      "evidence": {
-        "identity": [
-          {
-            "field": "purl",
-            "confidence": 1,
-            "methods": [
-              {
-                "technique": "manifest-analysis",
-                "confidence": 1,
-                "value": "pnpm-lock.yaml"
-              }
-            ],
-            "concludedValue": "pnpm-lock.yaml"
-          }
-        ]
-      }
     },
     {
       "group": "",
@@ -28464,63 +27680,6 @@
         {
           "name": "cdx:npm:has_binary",
           "value": "true"
-        }
-      ],
-      "evidence": {
-        "identity": [
-          {
-            "field": "purl",
-            "confidence": 1,
-            "methods": [
-              {
-                "technique": "manifest-analysis",
-                "confidence": 1,
-                "value": "pnpm-lock.yaml"
-              }
-            ],
-            "concludedValue": "pnpm-lock.yaml"
-          }
-        ]
-      }
-    },
-    {
-      "authors": [
-        {
-          "name": "GitHub Inc."
-        }
-      ],
-      "group": "",
-      "name": "normalize-package-data",
-      "version": "8.0.0",
-      "description": "Normalizes data that can be found in package.json files.",
-      "scope": "optional",
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "45693e3c8e37dde11243ba2e9d8c48a7aec262e56c4b5b984a89d7de403aa6cff72d67e35506bfa6d120e98dd3eae00cab5996a57f4f43eab1f90687a6c73b81"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "BSD-2-Clause",
-            "url": "https://opensource.org/licenses/BSD-2-Clause"
-          }
-        }
-      ],
-      "purl": "pkg:npm/normalize-package-data@8.0.0",
-      "externalReferences": [
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/npm/normalize-package-data.git"
-        }
-      ],
-      "type": "library",
-      "bom-ref": "pkg:npm/normalize-package-data@8.0.0",
-      "properties": [
-        {
-          "name": "SrcFile",
-          "value": "pnpm-lock.yaml"
         }
       ],
       "evidence": {
@@ -29901,70 +29060,6 @@
       ],
       "type": "library",
       "bom-ref": "pkg:npm/packageurl-js@1.0.2",
-      "properties": [
-        {
-          "name": "SrcFile",
-          "value": "pnpm-lock.yaml"
-        }
-      ],
-      "evidence": {
-        "identity": [
-          {
-            "field": "purl",
-            "confidence": 1,
-            "methods": [
-              {
-                "technique": "manifest-analysis",
-                "confidence": 1,
-                "value": "pnpm-lock.yaml"
-              }
-            ],
-            "concludedValue": "pnpm-lock.yaml"
-          }
-        ]
-      },
-      "tags": [
-        "parse"
-      ]
-    },
-    {
-      "authors": [
-        {
-          "name": "the purl authors"
-        }
-      ],
-      "group": "",
-      "name": "packageurl-js",
-      "version": "2.0.1",
-      "description": "JavaScript library to parse and build \"purl\" aka. package URLs. This is a microlibrary implementing the purl spec at https://github.com/package-url",
-      "scope": "optional",
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "3798b15e3cd3cb8403407d10f58163a8859deb31faf77e838e99769bd40d1660efe45ba6f2af018e4a4070734ccce144d08c10ac584959ec7700dea44b4392c2"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT",
-            "url": "https://opensource.org/licenses/MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/packageurl-js@2.0.1",
-      "externalReferences": [
-        {
-          "type": "vcs",
-          "url": "https://github.com/package-url/packageurl-js#readme"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/package-url/packageurl-js.git"
-        }
-      ],
-      "type": "library",
-      "bom-ref": "pkg:npm/packageurl-js@2.0.1",
       "properties": [
         {
           "name": "SrcFile",
@@ -31571,7 +30666,7 @@
         },
         {
           "name": "ImportedModules",
-          "value": "primeng/card,Card,primeng/card/Card,primeng/inputtext,InputText,primeng/inputtext/InputText,primeng/iftalabel,IftaLabel,primeng/iftalabel/IftaLabel,primeng/button,Button,primeng/button/Button,primeng/tooltip,Tooltip,primeng/tooltip/Tooltip,primeng/dialog,Dialog,primeng/dialog/Dialog,ButtonDirective,primeng/button/ButtonDirective,ButtonLabel,primeng/button/ButtonLabel,primeng/toolbar,Toolbar,primeng/toolbar/Toolbar,primeng/api,MenuItem,primeng/api/MenuItem,ButtonModule,primeng/button/ButtonModule,primeng/splitbutton,SplitButton,primeng/splitbutton/SplitButton,InputTextModule,primeng/inputtext/InputTextModule,primeng/iconfield,IconField,primeng/iconfield/IconField,primeng/inputicon,InputIcon,primeng/inputicon/InputIcon,primeng/drawer,Drawer,primeng/drawer/Drawer,primeng/autocomplete,AutoComplete,primeng/autocomplete/AutoComplete,AutoCompleteCompleteEvent,primeng/autocomplete/AutoCompleteCompleteEvent"
+          "value": "primeng/card,Card,primeng/card/Card,primeng/inputtext,InputText,primeng/inputtext/InputText,primeng/iftalabel,IftaLabel,primeng/iftalabel/IftaLabel,primeng/button,Button,primeng/button/Button,primeng/tooltip,Tooltip,primeng/tooltip/Tooltip,primeng/keyfilter,KeyFilter,primeng/keyfilter/KeyFilter,ButtonDirective,primeng/button/ButtonDirective,primeng/popover,Popover,primeng/popover/Popover,primeng/classnames,ClassNames,primeng/classnames/ClassNames,primeng/dialog,Dialog,primeng/dialog/Dialog,primeng/checkbox,Checkbox,primeng/checkbox/Checkbox,ButtonLabel,primeng/button/ButtonLabel,primeng/toolbar,Toolbar,primeng/toolbar/Toolbar,primeng/tag,primeng/tag/Tag,primeng/api,MenuItem,primeng/api/MenuItem,ButtonModule,primeng/button/ButtonModule,InputTextModule,primeng/inputtext/InputTextModule,primeng/drawer,Drawer,primeng/drawer/Drawer,primeng/menu,Menu,primeng/menu/Menu,primeng/autocomplete,AutoComplete,primeng/autocomplete/AutoComplete,AutoCompleteCompleteEvent,primeng/autocomplete/AutoCompleteCompleteEvent,primeng/select,Select,primeng/select/Select"
         }
       ],
       "evidence": {
@@ -31594,10 +30689,10 @@
             "location": "src/app/data-point-editor/data-point-editor.ts#7"
           },
           {
-            "location": "src/app/editor-page/editor-page.ts#10"
+            "location": "src/app/editor-page/editor-page.ts#18"
           },
           {
-            "location": "src/app/footer-toolbar/footer-toolbar.ts#10"
+            "location": "src/app/faq/faq.ts#7"
           },
           {
             "location": "src/app/license-page/license-page.ts#9"
@@ -31627,13 +30722,34 @@
             "location": "src/app/data-point-editor/data-point-editor.ts#14"
           },
           {
-            "location": "src/app/editor-page/editor-page.ts#7"
+            "location": "src/app/data-point-editor/data-point-editor.ts#16"
           },
           {
-            "location": "src/app/editor-page/editor-page.ts#10"
+            "location": "src/app/editor-page/editor-page.ts#15"
           },
           {
-            "location": "src/app/editor-page/editor-page.ts#23"
+            "location": "src/app/editor-page/editor-page.ts#18"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#30"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#33"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#34"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#36"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#43"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#44"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#45"
           },
           {
             "location": "src/app/entry-consent/entry-consent.ts#7"
@@ -31642,10 +30758,13 @@
             "location": "src/app/entry-consent/entry-consent.ts#8"
           },
           {
+            "location": "src/app/faq/faq.ts#7"
+          },
+          {
             "location": "src/app/footer-toolbar/footer-toolbar.ts#7"
           },
           {
-            "location": "src/app/footer-toolbar/footer-toolbar.ts#10"
+            "location": "src/app/footer-toolbar/footer-toolbar.ts#13"
           },
           {
             "location": "src/app/header-toolbar/header-toolbar.ts#7"
@@ -31660,19 +30779,16 @@
             "location": "src/app/header-toolbar/header-toolbar.ts#10"
           },
           {
-            "location": "src/app/header-toolbar/header-toolbar.ts#11"
-          },
-          {
-            "location": "src/app/header-toolbar/header-toolbar.ts#12"
-          },
-          {
-            "location": "src/app/header-toolbar/header-toolbar.ts#13"
-          },
-          {
             "location": "src/app/license-page/license-page.ts#9"
           },
           {
             "location": "src/app/menu-sidebar/menu-sidebar.ts#7"
+          },
+          {
+            "location": "src/app/menu-sidebar/menu-sidebar.ts#9"
+          },
+          {
+            "location": "src/app/menu-sidebar/menu-sidebar.ts#10"
           },
           {
             "location": "src/app/privacy-policy-page/privacy-policy-page.ts#9"
@@ -31693,22 +30809,37 @@
             "location": "src/app/third-party-licenses-page/third-party-licenses-page.ts#9"
           },
           {
+            "location": "src/app/unit-chooser/unit-chooser.ts#7"
+          },
+          {
+            "location": "src/app/unit-chooser/unit-chooser.ts#10"
+          },
+          {
             "location": "src/app/data-point-editor/data-point-editor.ts#9"
           },
           {
-            "location": "src/app/header-toolbar/header-toolbar.ts#11"
+            "location": "src/app/editor-page/editor-page.ts#44"
+          },
+          {
+            "location": "src/app/header-toolbar/header-toolbar.ts#10"
           },
           {
             "location": "src/app/data-point-editor/data-point-editor.ts#11"
           },
           {
+            "location": "src/app/editor-page/editor-page.ts#43"
+          },
+          {
             "location": "src/app/source-data-point-chooser/source-data-point-chooser.ts#10"
+          },
+          {
+            "location": "src/app/unit-chooser/unit-chooser.ts#10"
           },
           {
             "location": "src/app/data-point-editor/data-point-editor.ts#12"
           },
           {
-            "location": "src/app/editor-page/editor-page.ts#7"
+            "location": "src/app/editor-page/editor-page.ts#15"
           },
           {
             "location": "src/app/entry-consent/entry-consent.ts#8"
@@ -31720,13 +30851,28 @@
             "location": "src/app/data-point-editor/data-point-editor.ts#14"
           },
           {
-            "location": "src/app/editor-page/editor-page.ts#23"
+            "location": "src/app/editor-page/editor-page.ts#30"
           },
           {
             "location": "src/app/source-data-point-chooser/source-data-point-chooser.ts#11"
           },
           {
+            "location": "src/app/data-point-editor/data-point-editor.ts#16"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#33"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#34"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#36"
+          },
+          {
             "location": "src/app/entry-consent/entry-consent.ts#7"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#45"
           },
           {
             "location": "src/app/footer-toolbar/footer-toolbar.ts#7"
@@ -31735,22 +30881,25 @@
             "location": "src/app/header-toolbar/header-toolbar.ts#8"
           },
           {
+            "location": "src/app/footer-toolbar/footer-toolbar.ts#13"
+          },
+          {
             "location": "src/app/header-toolbar/header-toolbar.ts#7"
           },
           {
-            "location": "src/app/header-toolbar/header-toolbar.ts#10"
-          },
-          {
-            "location": "src/app/header-toolbar/header-toolbar.ts#12"
-          },
-          {
-            "location": "src/app/header-toolbar/header-toolbar.ts#13"
+            "location": "src/app/menu-sidebar/menu-sidebar.ts#10"
           },
           {
             "location": "src/app/menu-sidebar/menu-sidebar.ts#7"
           },
           {
+            "location": "src/app/menu-sidebar/menu-sidebar.ts#9"
+          },
+          {
             "location": "src/app/source-data-point-chooser/source-data-point-chooser.ts#9"
+          },
+          {
+            "location": "src/app/unit-chooser/unit-chooser.ts#7"
           }
         ]
       },
@@ -32212,67 +31361,6 @@
       }
     },
     {
-      "authors": [
-        {
-          "name": "Mathias Bynens (https://mathiasbynens.be/)"
-        }
-      ],
-      "group": "",
-      "name": "punycode",
-      "version": "2.3.1",
-      "description": "A robust Punycode converter that fully complies to RFC 3492 and RFC 5891, and works on nearly all JavaScript platforms.",
-      "scope": "optional",
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "bd8b7b503d54f5683ad77f2c84bb4b3af740bbef03b02fe2945b44547707fb0c9d712a4d136d007d239db9fe8c91115a84be4563b5f5a14ee7295645b5fabc16"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT",
-            "url": "https://opensource.org/licenses/MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/punycode@2.3.1",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://mths.be/punycode"
-        },
-        {
-          "type": "vcs",
-          "url": "https://github.com/mathiasbynens/punycode.js.git"
-        }
-      ],
-      "type": "library",
-      "bom-ref": "pkg:npm/punycode@2.3.1",
-      "properties": [
-        {
-          "name": "SrcFile",
-          "value": "pnpm-lock.yaml"
-        }
-      ],
-      "evidence": {
-        "identity": [
-          {
-            "field": "purl",
-            "confidence": 1,
-            "methods": [
-              {
-                "technique": "manifest-analysis",
-                "confidence": 1,
-                "value": "pnpm-lock.yaml"
-              }
-            ],
-            "concludedValue": "pnpm-lock.yaml"
-          }
-        ]
-      }
-    },
-    {
       "group": "",
       "name": "qs",
       "version": "6.14.0",
@@ -32356,128 +31444,6 @@
       "purl": "pkg:npm/quick-lru@5.1.1",
       "type": "library",
       "bom-ref": "pkg:npm/quick-lru@5.1.1",
-      "properties": [
-        {
-          "name": "SrcFile",
-          "value": "pnpm-lock.yaml"
-        }
-      ],
-      "evidence": {
-        "identity": [
-          {
-            "field": "purl",
-            "confidence": 1,
-            "methods": [
-              {
-                "technique": "manifest-analysis",
-                "confidence": 1,
-                "value": "pnpm-lock.yaml"
-              }
-            ],
-            "concludedValue": "pnpm-lock.yaml"
-          }
-        ]
-      }
-    },
-    {
-      "authors": [
-        {
-          "name": "Tab Atkins Jr."
-        }
-      ],
-      "group": "",
-      "name": "railroad-diagrams",
-      "version": "1.0.0",
-      "description": "A small JS+SVG library for drawing railroad syntax diagrams.",
-      "scope": "optional",
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "733f770e335e2d8d2276b08d387e8fbe264644df46261b1d9bd8699f56024bcefd7e3e16fb1e4814986191165cc1580c98517b47cd9403fece87e47c94b660e8"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "CC0-1.0",
-            "url": "https://opensource.org/licenses/CC0-1.0"
-          }
-        }
-      ],
-      "purl": "pkg:npm/railroad-diagrams@1.0.0",
-      "externalReferences": [
-        {
-          "type": "vcs",
-          "url": "https://github.com/tabatkins/railroad-diagrams"
-        },
-        {
-          "type": "vcs",
-          "url": "https://github.com/tabatkins/railroad-diagrams.git"
-        }
-      ],
-      "type": "library",
-      "bom-ref": "pkg:npm/railroad-diagrams@1.0.0",
-      "properties": [
-        {
-          "name": "SrcFile",
-          "value": "pnpm-lock.yaml"
-        }
-      ],
-      "evidence": {
-        "identity": [
-          {
-            "field": "purl",
-            "confidence": 1,
-            "methods": [
-              {
-                "technique": "manifest-analysis",
-                "confidence": 1,
-                "value": "pnpm-lock.yaml"
-              }
-            ],
-            "concludedValue": "pnpm-lock.yaml"
-          }
-        ]
-      }
-    },
-    {
-      "authors": [
-        {
-          "name": "Roly Fentanes (https://github.com/fent)"
-        }
-      ],
-      "group": "",
-      "name": "randexp",
-      "version": "0.4.6",
-      "description": "Create random strings that match a given regular expression.",
-      "scope": "optional",
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "f3458d99df43034b6666bc3da906bad863cf59fb972649eb99598b731beae2e641758a9bd706282939a794651c86f5567b45e22eea58901a1754ec73dc2f0361"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT",
-            "url": "https://opensource.org/licenses/MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/randexp@0.4.6",
-      "externalReferences": [
-        {
-          "type": "vcs",
-          "url": "http://fent.github.io/randexp.js/"
-        },
-        {
-          "type": "vcs",
-          "url": "git://github.com/fent/randexp.js.git"
-        }
-      ],
-      "type": "library",
-      "bom-ref": "pkg:npm/randexp@0.4.6",
       "properties": [
         {
           "name": "SrcFile",
@@ -33299,63 +32265,6 @@
     {
       "authors": [
         {
-          "name": "Roly Fentanes (https://github.com/fent)"
-        }
-      ],
-      "group": "",
-      "name": "ret",
-      "version": "0.1.15",
-      "description": "Tokenizes a string that represents a regular expression.",
-      "scope": "optional",
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "4d3958a5af8e2febcc30d1b6e314a5406109dc1fd1cc47d494b72dedbe46ff2b5abfec0fae9942a55305bb0cd76e479c26b6fa218a358856f44bdbf7efbe789a"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT",
-            "url": "https://opensource.org/licenses/MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/ret@0.1.15",
-      "externalReferences": [
-        {
-          "type": "vcs",
-          "url": "git://github.com/fent/ret.js.git"
-        }
-      ],
-      "type": "library",
-      "bom-ref": "pkg:npm/ret@0.1.15",
-      "properties": [
-        {
-          "name": "SrcFile",
-          "value": "pnpm-lock.yaml"
-        }
-      ],
-      "evidence": {
-        "identity": [
-          {
-            "field": "purl",
-            "confidence": 1,
-            "methods": [
-              {
-                "technique": "manifest-analysis",
-                "confidence": 1,
-                "value": "pnpm-lock.yaml"
-              }
-            ],
-            "concludedValue": "pnpm-lock.yaml"
-          }
-        ]
-      }
-    },
-    {
-      "authors": [
-        {
           "name": "Mick Hansen <maker@mhansen.io>"
         }
       ],
@@ -33811,7 +32720,7 @@
         },
         {
           "name": "ImportedModules",
-          "value": "rxjs,Observable,rxjs/Observable,ReplaySubject,rxjs/ReplaySubject"
+          "value": "rxjs,Observable,rxjs/Observable,ReplaySubject,rxjs/ReplaySubject,first,rxjs/first,startWith,rxjs/startWith,rxjs/map,forkJoin,rxjs/forkJoin"
         }
       ],
       "evidence": {
@@ -33834,7 +32743,22 @@
             "location": "src/app/api-source-model-service.ts#9"
           },
           {
+            "location": "src/app/app-metadata-service.ts#8"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#37"
+          },
+          {
+            "location": "src/app/footer-toolbar/footer-toolbar.ts#11"
+          },
+          {
+            "location": "src/app/generator-service.ts#22"
+          },
+          {
             "location": "src/app/notices-service.ts#7"
+          },
+          {
+            "location": "src/app/sample-model.service.ts#7"
           },
           {
             "location": "src/app/source-data-point-service.ts#8"
@@ -34081,70 +33005,6 @@
       "tags": [
         "framework",
         "xml"
-      ]
-    },
-    {
-      "authors": [
-        {
-          "name": "Peter Müller <munter@fumle.dk>"
-        }
-      ],
-      "group": "",
-      "name": "schemes",
-      "version": "1.4.0",
-      "description": "IANA Uniform Resource Identifier (URI) Schemes list, including crowd sourced unofficial ones",
-      "scope": "optional",
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "226172f456c2b109558271374c25a62cf0859d5cf1d251cbfe5fae987a650ea00a7747731699d2ea51592296a00656212b0cd59a5577e9e7346355d3bbc24101"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT",
-            "url": "https://opensource.org/licenses/MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/schemes@1.4.0",
-      "externalReferences": [
-        {
-          "type": "vcs",
-          "url": "https://github.com/Munter/schemes"
-        },
-        {
-          "type": "vcs",
-          "url": "git://github.com/Munter/schemes.git"
-        }
-      ],
-      "type": "library",
-      "bom-ref": "pkg:npm/schemes@1.4.0",
-      "properties": [
-        {
-          "name": "SrcFile",
-          "value": "pnpm-lock.yaml"
-        }
-      ],
-      "evidence": {
-        "identity": [
-          {
-            "field": "purl",
-            "confidence": 1,
-            "methods": [
-              {
-                "technique": "manifest-analysis",
-                "confidence": 1,
-                "value": "pnpm-lock.yaml"
-              }
-            ],
-            "concludedValue": "pnpm-lock.yaml"
-          }
-        ]
-      },
-      "tags": [
-        "resource"
       ]
     },
     {
@@ -35385,70 +34245,6 @@
           }
         ]
       }
-    },
-    {
-      "authors": [
-        {
-          "name": "Gene Hightower <gene@digilicious.com> (https://digilicious.com/)"
-        }
-      ],
-      "group": "",
-      "name": "smtp-address-parser",
-      "version": "1.1.0",
-      "description": "Parse an SMTP (RFC-5321) address",
-      "scope": "optional",
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "1b3d758db354d2996b45e53d4a3edf9ac852071c49f5285d0f6ab892d1c81e8feba531fa945c90a181d828834f26d3def1a1c59ec6ed5b8e8bb34b42081b0866"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT",
-            "url": "https://opensource.org/licenses/MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/smtp-address-parser@1.1.0",
-      "externalReferences": [
-        {
-          "type": "vcs",
-          "url": "https://github.com/gene-hightower/smtp-address-parser#readme"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/gene-hightower/smtp-address-parser.git"
-        }
-      ],
-      "type": "library",
-      "bom-ref": "pkg:npm/smtp-address-parser@1.1.0",
-      "properties": [
-        {
-          "name": "SrcFile",
-          "value": "pnpm-lock.yaml"
-        }
-      ],
-      "evidence": {
-        "identity": [
-          {
-            "field": "purl",
-            "confidence": 1,
-            "methods": [
-              {
-                "technique": "manifest-analysis",
-                "confidence": 1,
-                "value": "pnpm-lock.yaml"
-              }
-            ],
-            "concludedValue": "pnpm-lock.yaml"
-          }
-        ]
-      },
-      "tags": [
-        "parse"
-      ]
     },
     {
       "authors": [
@@ -38151,67 +36947,6 @@
     {
       "authors": [
         {
-          "name": "Gary Court <gary.court@gmail.com>"
-        }
-      ],
-      "group": "",
-      "name": "uri-js",
-      "version": "4.4.1",
-      "description": "An RFC 3986/3987 compliant, scheme extendable URI/IRI parsing/validating/resolving library for JavaScript.",
-      "scope": "optional",
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "eeb294cb2df7435c9cf7ca50d430262edc17d74f45ed321f5a55b561da3c5a5d628b549e1e279e8741c77cf78bd9f3172bacf4b3c79c2acf5fac2b8b26f9dd06"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "BSD-2-Clause",
-            "url": "https://opensource.org/licenses/BSD-2-Clause"
-          }
-        }
-      ],
-      "purl": "pkg:npm/uri-js@4.4.1",
-      "externalReferences": [
-        {
-          "type": "vcs",
-          "url": "https://github.com/garycourt/uri-js"
-        },
-        {
-          "type": "vcs",
-          "url": "http://github.com/garycourt/uri-js"
-        }
-      ],
-      "type": "library",
-      "bom-ref": "pkg:npm/uri-js@4.4.1",
-      "properties": [
-        {
-          "name": "SrcFile",
-          "value": "pnpm-lock.yaml"
-        }
-      ],
-      "evidence": {
-        "identity": [
-          {
-            "field": "purl",
-            "confidence": 1,
-            "methods": [
-              {
-                "technique": "manifest-analysis",
-                "confidence": 1,
-                "value": "pnpm-lock.yaml"
-              }
-            ],
-            "concludedValue": "pnpm-lock.yaml"
-          }
-        ]
-      }
-    },
-    {
-      "authors": [
-        {
           "name": "Nathan Rajlich <nathan@tootallnate.net> (http://n8.io/)"
         }
       ],
@@ -39690,70 +38425,6 @@
     {
       "authors": [
         {
-          "name": "Ozgur Ozcitak <oozcitak@gmail.com>"
-        }
-      ],
-      "group": "",
-      "name": "xmlbuilder2",
-      "version": "4.0.3",
-      "description": "An XML builder for node.js",
-      "scope": "optional",
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "6f1f10d524dcb6735a683ca65a791f40b2a87ecd2618d37bacb2daa49946b95dd596f7a00fb2ece2080c8c4dda512588b420b35343c4bf8e6523cee24a282208"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT",
-            "url": "https://opensource.org/licenses/MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/xmlbuilder2@4.0.3",
-      "externalReferences": [
-        {
-          "type": "vcs",
-          "url": "https://github.com/oozcitak/xmlbuilder2"
-        },
-        {
-          "type": "vcs",
-          "url": "https://github.com/oozcitak/xmlbuilder2.git"
-        }
-      ],
-      "type": "library",
-      "bom-ref": "pkg:npm/xmlbuilder2@4.0.3",
-      "properties": [
-        {
-          "name": "SrcFile",
-          "value": "pnpm-lock.yaml"
-        }
-      ],
-      "evidence": {
-        "identity": [
-          {
-            "field": "purl",
-            "confidence": 1,
-            "methods": [
-              {
-                "technique": "manifest-analysis",
-                "confidence": 1,
-                "value": "pnpm-lock.yaml"
-              }
-            ],
-            "concludedValue": "pnpm-lock.yaml"
-          }
-        ]
-      },
-      "tags": [
-        "xml"
-      ]
-    },
-    {
-      "authors": [
-        {
           "name": "Ben Coe <bencoe@gmail.com>"
         }
       ],
@@ -41046,22 +39717,6 @@
       ]
     },
     {
-      "ref": "pkg:npm/@cyclonedx/cyclonedx-library@9.4.1",
-      "dependsOn": [
-        "pkg:npm/packageurl-js@2.0.1",
-        "pkg:npm/spdx-expression-parse@3.0.1"
-      ]
-    },
-    {
-      "ref": "pkg:npm/@cyclonedx/cyclonedx-npm@4.1.2",
-      "dependsOn": [
-        "pkg:npm/@cyclonedx/cyclonedx-library@9.4.1",
-        "pkg:npm/commander@14.0.2",
-        "pkg:npm/normalize-package-data@8.0.0",
-        "pkg:npm/xmlbuilder2@4.0.3"
-      ]
-    },
-    {
       "ref": "pkg:npm/@emnapi/core@1.7.1",
       "dependsOn": [
         "pkg:npm/@emnapi/wasi-threads@1.1.0",
@@ -41770,31 +40425,6 @@
       ]
     },
     {
-      "ref": "pkg:npm/@oozcitak/dom@2.0.2",
-      "dependsOn": [
-        "pkg:npm/@oozcitak/infra@2.0.2",
-        "pkg:npm/@oozcitak/url@3.0.0",
-        "pkg:npm/@oozcitak/util@10.0.0"
-      ]
-    },
-    {
-      "ref": "pkg:npm/@oozcitak/infra@2.0.2",
-      "dependsOn": [
-        "pkg:npm/@oozcitak/util@10.0.0"
-      ]
-    },
-    {
-      "ref": "pkg:npm/@oozcitak/url@3.0.0",
-      "dependsOn": [
-        "pkg:npm/@oozcitak/infra@2.0.2",
-        "pkg:npm/@oozcitak/util@10.0.0"
-      ]
-    },
-    {
-      "ref": "pkg:npm/@oozcitak/util@10.0.0",
-      "dependsOn": []
-    },
-    {
       "ref": "pkg:npm/@oxc-project/types@0.96.0",
       "dependsOn": []
     },
@@ -42180,16 +40810,6 @@
       "dependsOn": []
     },
     {
-      "ref": "pkg:npm/ajv-formats-draft2019@1.6.1",
-      "dependsOn": [
-        "pkg:npm/ajv@8.17.1",
-        "pkg:npm/punycode@2.3.1",
-        "pkg:npm/schemes@1.4.0",
-        "pkg:npm/smtp-address-parser@1.1.0",
-        "pkg:npm/uri-js@4.4.1"
-      ]
-    },
-    {
       "ref": "pkg:npm/ajv-formats@3.0.1",
       "dependsOn": []
     },
@@ -42243,10 +40863,6 @@
     },
     {
       "ref": "pkg:npm/ansi-styles@6.2.3",
-      "dependsOn": []
-    },
-    {
-      "ref": "pkg:npm/argparse@2.0.1",
       "dependsOn": []
     },
     {
@@ -42555,14 +41171,6 @@
       "dependsOn": []
     },
     {
-      "ref": "pkg:npm/commander@14.0.2",
-      "dependsOn": []
-    },
-    {
-      "ref": "pkg:npm/commander@2.20.3",
-      "dependsOn": []
-    },
-    {
       "ref": "pkg:npm/common-ancestor-path@1.0.1",
       "dependsOn": []
     },
@@ -42722,10 +41330,6 @@
     },
     {
       "ref": "pkg:npm/detect-node@2.1.0",
-      "dependsOn": []
-    },
-    {
-      "ref": "pkg:npm/discontinuous-range@1.0.0",
       "dependsOn": []
     },
     {
@@ -42953,10 +41557,6 @@
         "pkg:npm/type-is@2.0.1",
         "pkg:npm/vary@1.1.2"
       ]
-    },
-    {
-      "ref": "pkg:npm/extend@3.0.2",
-      "dependsOn": []
     },
     {
       "ref": "pkg:npm/fast-deep-equal@3.1.3",
@@ -43358,12 +41958,6 @@
       "dependsOn": []
     },
     {
-      "ref": "pkg:npm/js-yaml@4.1.1",
-      "dependsOn": [
-        "pkg:npm/argparse@2.0.1"
-      ]
-    },
-    {
       "ref": "pkg:npm/jsesc@3.1.0",
       "dependsOn": []
     },
@@ -43426,15 +42020,6 @@
       "ref": "pkg:npm/keyv@5.5.4",
       "dependsOn": [
         "pkg:npm/@keyv/serialize@1.1.1"
-      ]
-    },
-    {
-      "ref": "pkg:npm/libxmljs2@0.37.0",
-      "dependsOn": [
-        "pkg:npm/bindings@1.5.0",
-        "pkg:npm/nan@2.22.2",
-        "pkg:npm/node-gyp@11.5.0",
-        "pkg:npm/prebuild-install@7.1.3"
       ]
     },
     {
@@ -43681,10 +42266,6 @@
       "dependsOn": []
     },
     {
-      "ref": "pkg:npm/moo@0.5.2",
-      "dependsOn": []
-    },
-    {
       "ref": "pkg:npm/mrmime@2.0.1",
       "dependsOn": []
     },
@@ -43711,25 +42292,12 @@
       "dependsOn": []
     },
     {
-      "ref": "pkg:npm/nan@2.22.2",
-      "dependsOn": []
-    },
-    {
       "ref": "pkg:npm/nanoid@3.3.11",
       "dependsOn": []
     },
     {
       "ref": "pkg:npm/napi-build-utils@2.0.0",
       "dependsOn": []
-    },
-    {
-      "ref": "pkg:npm/nearley@2.20.1",
-      "dependsOn": [
-        "pkg:npm/commander@2.20.3",
-        "pkg:npm/moo@0.5.2",
-        "pkg:npm/railroad-diagrams@1.0.0",
-        "pkg:npm/randexp@0.4.6"
-      ]
     },
     {
       "ref": "pkg:npm/negotiator@0.6.4",
@@ -43811,14 +42379,6 @@
       "ref": "pkg:npm/nopt@9.0.0",
       "dependsOn": [
         "pkg:npm/abbrev@4.0.0"
-      ]
-    },
-    {
-      "ref": "pkg:npm/normalize-package-data@8.0.0",
-      "dependsOn": [
-        "pkg:npm/hosted-git-info@9.0.2",
-        "pkg:npm/semver@7.7.3",
-        "pkg:npm/validate-npm-package-license@3.0.4"
       ]
     },
     {
@@ -43970,10 +42530,6 @@
     },
     {
       "ref": "pkg:npm/packageurl-js@1.0.2",
-      "dependsOn": []
-    },
-    {
-      "ref": "pkg:npm/packageurl-js@2.0.1",
       "dependsOn": []
     },
     {
@@ -44204,10 +42760,6 @@
       ]
     },
     {
-      "ref": "pkg:npm/punycode@2.3.1",
-      "dependsOn": []
-    },
-    {
       "ref": "pkg:npm/qs@6.14.0",
       "dependsOn": [
         "pkg:npm/side-channel@1.1.0"
@@ -44216,17 +42768,6 @@
     {
       "ref": "pkg:npm/quick-lru@5.1.1",
       "dependsOn": []
-    },
-    {
-      "ref": "pkg:npm/railroad-diagrams@1.0.0",
-      "dependsOn": []
-    },
-    {
-      "ref": "pkg:npm/randexp@0.4.6",
-      "dependsOn": [
-        "pkg:npm/discontinuous-range@1.0.0",
-        "pkg:npm/ret@0.1.15"
-      ]
     },
     {
       "ref": "pkg:npm/range-parser@1.2.1",
@@ -44311,10 +42852,6 @@
       ]
     },
     {
-      "ref": "pkg:npm/ret@0.1.15",
-      "dependsOn": []
-    },
-    {
       "ref": "pkg:npm/retry-as-promised@7.1.1",
       "dependsOn": []
     },
@@ -44385,12 +42922,6 @@
     {
       "ref": "pkg:npm/sax@1.4.3",
       "dependsOn": []
-    },
-    {
-      "ref": "pkg:npm/schemes@1.4.0",
-      "dependsOn": [
-        "pkg:npm/extend@3.0.2"
-      ]
     },
     {
       "ref": "pkg:npm/semver-compare@1.0.0",
@@ -44555,12 +43086,6 @@
     {
       "ref": "pkg:npm/smart-buffer@4.2.0",
       "dependsOn": []
-    },
-    {
-      "ref": "pkg:npm/smtp-address-parser@1.1.0",
-      "dependsOn": [
-        "pkg:npm/nearley@2.20.1"
-      ]
     },
     {
       "ref": "pkg:npm/socks-proxy-agent@8.0.5",
@@ -44850,12 +43375,6 @@
       ]
     },
     {
-      "ref": "pkg:npm/uri-js@4.4.1",
-      "dependsOn": [
-        "pkg:npm/punycode@2.3.1"
-      ]
-    },
-    {
       "ref": "pkg:npm/util-deprecate@1.0.2",
       "dependsOn": []
     },
@@ -45004,15 +43523,6 @@
       ]
     },
     {
-      "ref": "pkg:npm/xmlbuilder2@4.0.3",
-      "dependsOn": [
-        "pkg:npm/@oozcitak/dom@2.0.2",
-        "pkg:npm/@oozcitak/infra@2.0.2",
-        "pkg:npm/@oozcitak/util@10.0.0",
-        "pkg:npm/js-yaml@4.1.1"
-      ]
-    },
-    {
       "ref": "pkg:npm/y18n@5.0.8",
       "dependsOn": []
     },
@@ -45104,8 +43614,8 @@
           ]
         }
       },
-      "timestamp": "2025-12-15T14:07:59Z",
-      "text": "This Software Bill-of-Materials (SBOM) document was created on Monday, December 15, 2025 with cdxgen. The data was captured during the build lifecycle phase. The document describes an application named 'dcs-pylot-dash-ui' with version '1.0.0'. There are 775 components. The package type in this SBOM is npm with 39 purl namespaces described under components. The components were identified from the source files: pnpm-lock.yaml."
+      "timestamp": "2026-01-15T07:00:17Z",
+      "text": "This Software Bill-of-Materials (SBOM) document was created on Thursday, January 15, 2026 with cdxgen. The data was captured during the build lifecycle phase. The document describes an application named 'dcs-pylot-dash-ui' with version '1.0.0'. There are 748 components. The package type in this SBOM is npm with 38 purl namespaces described under components. The components were identified from the source files: pnpm-lock.yaml."
     }
   ]
 }
