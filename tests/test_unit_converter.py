@@ -16,6 +16,7 @@ from dcs_pylot_dash.service.units import Unit, UnitConverter
         (Unit.KMH, 100, Unit.MPH, 62.1371),
         (Unit.MPH, 62.1371, Unit.KMH, 100),
         (Unit.MPH, 1, Unit.FTS, 1.46667),
+        (Unit.MPH, 1, Unit.FTMIN, 1.46667 / 60),
         (Unit.FTS, 1, Unit.MPH, 0.681818),
         (Unit.FTS, 1, Unit.KMH, 1.09728),
         (Unit.POUNDS, 10, Unit.KILOGRAMS, 4.53592),

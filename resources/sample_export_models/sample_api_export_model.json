@@ -34,20 +34,20 @@
         {
           "display_name": "Vertical Speed",
           "field_id": "vertical_speed",
-          "unit_id": "fts"
+          "unit_id": "ftmin"
         }
       ]
     },
     {
       "fields": [
         {
-          "display_name": "Mag. Heading",
-          "field_id": "mag_heading",
+          "display_name": "Heading",
+          "field_id": "self.Heading",
           "unit_id": "degrees"
         },
         {
-          "display_name": "Heading",
-          "field_id": "self.Heading",
+          "display_name": "Mag. Heading",
+          "field_id": "mag_heading",
           "unit_id": "degrees"
         },
         {

@@ -19,6 +19,7 @@ class Unit(StrEnum):
     KMH = auto()
     MPH = auto()
     FTS = auto()
+    FTMIN = auto()
     KNOTS = auto()
     POUNDS = auto()
     RADIANS = auto()
@@ -38,6 +39,7 @@ class UnitLabels:
         Unit.KMH: "km/h",
         Unit.MPH: "mph",
         Unit.FTS: "ft/s",
+        Unit.FTMIN: "ft/min",
         Unit.KNOTS: "kts",
         Unit.POUNDS: "lbs",
         Unit.RADIANS: "rad",
@@ -58,6 +60,7 @@ class UnitDisplayNames:
         Unit.KMH: "kilometers per hour",
         Unit.MPH: "miles per hour",
         Unit.FTS: "feet per second",
+        Unit.FTMIN: "feet per minute",
         Unit.KNOTS: "knots",
         Unit.POUNDS: "pounds",
         Unit.RADIANS: "radians",
@@ -74,7 +77,7 @@ class MissingConverterError(Exception):
 
 
 class UnitConverter:
-    SPEED_UNITS: FrozenSet[Unit] = frozenset([Unit.MS, Unit.MPH, Unit.KMH, Unit.KNOTS, Unit.FTS])
+    SPEED_UNITS: FrozenSet[Unit] = frozenset([Unit.MS, Unit.MPH, Unit.KMH, Unit.KNOTS, Unit.FTS, Unit.FTMIN])
     DISTANCE_UNITS: FrozenSet[Unit] = frozenset([Unit.METERS, Unit.MILES, Unit.FEET])
     RAD_UNITS: FrozenSet[Unit] = frozenset([Unit.RADIANS, Unit.DEGREES])
     WEIGHT_UNITS: FrozenSet[Unit] = frozenset([Unit.KILOGRAMS, Unit.POUNDS])
@@ -88,6 +91,7 @@ class UnitConverter:
     _init_factors[Unit.MS][Unit.KMH] = 3.6
     _init_factors[Unit.MS][Unit.KNOTS] = 1.94384
     _init_factors[Unit.MS][Unit.FTS] = 3.28084
+    _init_factors[Unit.MS][Unit.FTMIN] = 3.28084 / 60
     _init_factors[Unit.KILOGRAMS][Unit.POUNDS] = 2.20462
     _init_factors[Unit.RADIANS][Unit.DEGREES] = 180 / math.pi
     _init_factors[Unit.NONE][Unit.NONE] = 1
