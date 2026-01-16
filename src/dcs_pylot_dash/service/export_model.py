@@ -145,11 +145,12 @@ class ExportModelField(BaseModel):
         return self.name.split(".")
 
     @property
+    def effective_unit(self) -> Unit:
+        return self.output_unit_override or self.internal_field.unit
+
+    @property
     def unit_label(self) -> str:
-        unit: Unit = self.output_unit_override
-        if unit is None:
-            unit = self.internal_field.unit
-        return UnitLabels.default.get(unit) or ""
+        return UnitLabels.default.get(self.effective_unit) or ""
 
 
 class UiExportSettings(BaseModel):

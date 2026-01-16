@@ -82,14 +82,14 @@
             "Lat": {
               "display_name": "Latitude",
               "lo_return_type": "number",
-              "unit": "degrees",
-              "default_decimal_digits": 5
+              "unit": "lat_dec",
+              "preferred_unit": "lat_min_dec"
             },
             "Long": {
               "display_name": "Longitude",
               "lo_return_type": "number",
-              "unit": "degrees",
-              "default_decimal_digits": 5
+              "unit": "lon_dec",
+              "preferred_unit": "lon_min_dec"
             }
           }
         }

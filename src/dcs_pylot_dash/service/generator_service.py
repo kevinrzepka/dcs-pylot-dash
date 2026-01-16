@@ -126,8 +126,9 @@ class GeneratorService:
                 if output_unit is None:
                     raise DCSPylotDashInvalidInputException(f"no such unit {field.unit_id} for field {field.field_id}")
 
+                internal_field_name: str = f"val_{i_row}_{i_col}_{internal_field.name}"
                 export_model_field: ExportModelField = ExportModelField(
-                    name=internal_field.name,
+                    name=internal_field_name,
                     internal_field_name=internal_field.dotted_name,
                     display_name_override=field.display_name,
                     output_unit_override=output_unit,

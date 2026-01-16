@@ -5,6 +5,7 @@ License-Filename: LICENSE
 */
 
 .editorControlsFrame {
+  margin-top: 1rem;
   display: flex;
   align-items: flex-end;
 

@@ -53,12 +53,12 @@
         {
           "display_name": "Latitude",
           "field_id": "self.LatLongAlt.Lat",
-          "unit_id": "degrees"
+          "unit_id": "lat_min_dec"
         },
         {
           "display_name": "Longitude",
           "field_id": "self.LatLongAlt.Long",
-          "unit_id": "degrees"
+          "unit_id": "lon_min_dec"
         }
       ]
     },
@@ -73,8 +73,19 @@
           "display_name": "Gun Rounds",
           "field_id": "payload_info.Cannon.shells",
           "unit_id": "none"
+        },
+        {
+          "display_name": "Latitude",
+          "field_id": "self.LatLongAlt.Lat",
+          "unit_id": "lat_sec_precise"
+        },
+        {
+          "display_name": "Longitude",
+          "field_id": "self.LatLongAlt.Long",
+          "unit_id": "lon_sec_precise"
         }
       ]
     }
-  ]
+  ],
+  "advanced_settings": null
 }

@@ -240,7 +240,6 @@ export class EditorPage implements OnInit {
   }
 
   protected dataPointDropped(event: CdkDragDrop<any, any>) {
-    console.log('dataPointDropped', event);
     const previousDataPointRow: DataPointRow = event.previousContainer.data;
     const currentDataPointRow: DataPointRow = event.container.data;
     if (previousDataPointRow === currentDataPointRow) {

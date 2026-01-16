@@ -27,6 +27,14 @@ class Unit(StrEnum):
     SECONDS = auto()
     KILOGRAMS = auto()
     DELTA_T_S = auto()
+    LAT_DEC = auto()
+    LAT_MIN_DEC = auto()
+    LAT_SEC = auto()
+    LAT_SEC_PRECISE = auto()
+    LON_DEC = auto()
+    LON_MIN_DEC = auto()
+    LON_SEC = auto()
+    LON_SEC_PRECISE = auto()
 
 
 class UnitLabels:
@@ -68,12 +76,60 @@ class UnitDisplayNames:
         Unit.SECONDS: "seconds",
         Unit.KILOGRAMS: "kilograms",
         Unit.DELTA_T_S: "delta seconds",
+        Unit.LAT_DEC: "decimal degrees",
+        Unit.LAT_MIN_DEC: "decimal minutes",
+        Unit.LAT_SEC: "seconds",
+        Unit.LAT_SEC_PRECISE: "precise seconds",
+        Unit.LON_DEC: "decimal degrees",
+        Unit.LON_MIN_DEC: "decimal minutes",
+        Unit.LON_SEC: "seconds",
+        Unit.LON_SEC_PRECISE: "precise seconds",
     }
 
 
 class MissingConverterError(Exception):
     def __init__(self, src: Unit, dst: Unit) -> None:
         super().__init__(f"Missing converter from {src} to {dst}")
+
+
+class UnitFormatters:
+    """
+    A Unit with a formatter has no unit label. This is the job of the formatter.
+    """
+
+    _convertable_units: ClassVar[list[set[Unit]]] = [
+        {Unit.LAT_DEC, Unit.LAT_MIN_DEC, Unit.LAT_SEC, Unit.LAT_SEC_PRECISE},
+        {Unit.LON_DEC, Unit.LON_MIN_DEC, Unit.LON_SEC, Unit.LON_SEC_PRECISE},
+    ]
+
+    _formatters: ClassVar[dict[Unit, str]] = {
+        Unit.LAT_MIN_DEC: "to_lat_dcml_str",
+        Unit.LAT_SEC: "to_lat_sec_str",
+        Unit.LAT_SEC_PRECISE: "to_lat_sec_precise_str",
+        Unit.LON_MIN_DEC: "to_lon_dcml_str",
+        Unit.LON_SEC: "to_lon_sec_str",
+        Unit.LON_SEC_PRECISE: "to_lon_sec_precise_str",
+    }
+
+    @classmethod
+    def has_formatter(cls, unit: Unit) -> bool:
+        return cls.get_formatter(unit) is not None
+
+    @classmethod
+    def get_formatter(cls, unit: Unit) -> str | None:
+        return cls._formatters.get(unit)
+
+    @classmethod
+    def get_convertable_units(cls, src: Unit) -> set[Unit]:
+        """
+        :param src:
+        :return: Units, to which the src can be converted
+        """
+        result: set[Unit] = set()
+        for unit_set in cls._convertable_units:
+            if src in unit_set:
+                result |= unit_set
+        return result
 
 
 class UnitConverter:
@@ -125,10 +181,16 @@ class UnitConverter:
         :param src:
         :return: Units, to which the src can be converted
         """
-        return set(cls._factors.get(src, {}).keys())
+        return set(cls._factors.get(src, {}).keys()) | UnitFormatters.get_convertable_units(src)
 
     @classmethod
     def get_conversion_factor(cls, src: Unit, dst: Unit) -> float | None:
+        """
+        For a unit that has a formatter, there will never be a conversion factor.
+        :param src:
+        :param dst:
+        :return:
+        """
         if src is None:
             raise ValueError("src cannot be None")
         if dst is None:
@@ -137,13 +199,16 @@ class UnitConverter:
             return 1
 
         factor: float | None = None
-        source_factors: dict[Unit, float] = cls._factors[src]
+        source_factors: dict[Unit, float] = cls._factors.get(src, {})
         if len(source_factors) > 0:
             factor = source_factors.get(dst)
         return factor
 
     @classmethod
     def convert(cls, src: Unit, value: Any, dst: Unit) -> Any:
+        """
+        Only used by tests
+        """
         if value is None:
             return None
         factor: float | None = cls.get_conversion_factor(src, dst)

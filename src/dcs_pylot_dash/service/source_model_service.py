@@ -44,11 +44,13 @@ class SourceModelService:
             api_units.append(api_unit)
 
         for field in internal_model.leaf_fields:
+            available_unit_ids: list[Unit] = list(UnitConverter.get_convertable_units(field.unit))
+            available_unit_ids.sort()
             api_field: APISourceField = APISourceField(
                 display_name=field.effective_display_name,
                 field_id=field.dotted_name,
                 default_unit_id=field.preferred_unit if field.preferred_unit is not None else field.unit,
-                available_unit_ids=list(UnitConverter.get_convertable_units(field.unit)),
+                available_unit_ids=available_unit_ids,
             )
             api_fields.append(api_field)
 

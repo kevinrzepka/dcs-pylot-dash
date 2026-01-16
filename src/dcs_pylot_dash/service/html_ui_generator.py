@@ -10,6 +10,7 @@ from pydantic import BaseModel
 from dcs_pylot_dash.service.dcs_common_data_types import LoReturnType
 from dcs_pylot_dash.service.export_model import ExportModel, Color
 from dcs_pylot_dash.service.notice_service import NoticesService
+from dcs_pylot_dash.service.units import UnitFormatters
 from dcs_pylot_dash.utils.resource_provider import ResourceProvider
 
 LOGGER = logging.getLogger(__name__)
@@ -115,7 +116,9 @@ class HtmlUIGenerator:
         var_name: str = self._settings.decimal_digits_map_var_name
         content: str = ""
         for field in export_model.fields:
-            if field.internal_field.return_type == LoReturnType.NUMBER:
+            has_formatter: bool = UnitFormatters.has_formatter(field.effective_unit)
+            is_number: bool = field.internal_field.return_type == LoReturnType.NUMBER
+            if is_number and not has_formatter:
                 line: str = f"{var_name}.set('data.{field.name}', '{field.decimal_digits}');"
                 content = self._add_line(content, line)
         return content

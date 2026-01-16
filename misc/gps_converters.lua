@@ -24,12 +24,12 @@ local function to_deg_min_sec(deg_dec)
 end
 
 local function to_dcml_str(nesw, deg, min_dec)
-    return nesw .. " " .. deg .. "°" .. string.format("%.3f'", min_dec)
+    return nesw .. " " .. string.format("%02d",deg) .. "°" .. string.format("%06.3f'", min_dec)
 end
 
 local function to_sec_str(nesw, deg, min, sec_dec, precise)
-    local sec_str = precise and string.format("%.2f\"", sec_dec) or math.floor(sec_dec + 0.5) .. "\""
-    return nesw .. " " .. deg .. "°" .. min .. "'" .. sec_str
+    local sec_str = precise and string.format("%05.2f\"", sec_dec) or string.format("%02d", math.floor(sec_dec + 0.5)) .. "\""
+    return nesw .. " " .. string.format("%02d",deg) .. "°" .. string.format("%02d",min) .. "'" .. sec_str
 end
 
 -- public functions for single values
@@ -58,10 +58,10 @@ local function to_lon_sec_str(lon_dec, precise)
     return to_sec_str(ew, lon_deg, lon_min, lon_sec_dec, precise)
 end
 
-local to_lat_sec_str_precise = function(lat_dec)
+local to_lat_sec_precise_str = function(lat_dec)
     return to_lat_sec_str(lat_dec, true)
 end
-local to_lon_sec_str_precise = function(lon_dec)
+local to_lon_sec_precise_str = function(lon_dec)
     return to_lon_sec_str(lon_dec, true)
 end
 
@@ -72,8 +72,8 @@ local function to_lat_lon_dcml_str(lat_dec, lon_dec)
 end
 
 local function to_lat_lon_sec_str(lat_dec, lon_dec, precise)
-    local lat_function = precise and to_lat_sec_str_precise or to_lat_sec_str
-    local lon_function = precise and to_lon_sec_str_precise or to_lon_sec_str
+    local lat_function = precise and to_lat_sec_precise_str or to_lat_sec_str
+    local lon_function = precise and to_lon_sec_precise_str or to_lon_sec_str
     return lat_function(lat_dec) .. "   " .. lon_function(lon_dec)
 end
 

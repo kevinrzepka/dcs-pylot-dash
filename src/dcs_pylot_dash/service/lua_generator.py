@@ -1,4 +1,4 @@
-# Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
+# Copyright (c) 2026 Kevin Rzepka <kdev@posteo.com>
 # SPDX-License-Identifier: MIT
 # License-Filename: LICENSE
 import logging
@@ -18,7 +18,7 @@ from dcs_pylot_dash.service.export_model import (
     HttpServerSettings,
 )
 from dcs_pylot_dash.service.notice_service import NoticesContainer
-from dcs_pylot_dash.service.units import UnitConverter
+from dcs_pylot_dash.service.units import UnitConverter, UnitFormatters
 from dcs_pylot_dash.utils.resource_provider import ResourceProvider
 
 LOGGER = logging.getLogger(__name__)
@@ -120,15 +120,20 @@ class LuaGenerator:
                 sc = self._add_line(sc, f"{var_name} = {var_value}", settings, indent_factor=2)
                 sc = self._add_line(sc, "end", settings)
             else:
-                line: str = f"{self._data_var}.{node.name} = {internal_field.dotted_name}"
-                if internal_field.abs_base_value is not None:
-                    line += f" * {internal_field.abs_base_value}"
-                if node.export_field.output_unit_override is not None:
-                    factor: float | None = UnitConverter.get_conversion_factor(
-                        internal_field.unit, node.export_field.output_unit_override
-                    )
-                    if factor is not None and factor != 1.0:
-                        line = f"{line} * {factor}"
+                line: str = f"{self._data_var}.{node.name} = "
+                if UnitFormatters.has_formatter(node.export_field.effective_unit):
+                    formatter_function: str | None = UnitFormatters.get_formatter(node.export_field.effective_unit)
+                    line += f"{formatter_function}({internal_field.dotted_name})"
+                else:
+                    line = f"{self._data_var}.{node.name} = {internal_field.dotted_name}"
+                    if internal_field.abs_base_value is not None:
+                        line += f" + {internal_field.abs_base_value}"
+                    if node.export_field.output_unit_override is not None:
+                        factor: float | None = UnitConverter.get_conversion_factor(
+                            internal_field.unit, node.export_field.output_unit_override
+                        )
+                        if factor is not None and factor != 1.0:
+                            line = f"{line} * {factor}"
                 sc = self._add_line(sc, line, settings)
         else:
             sc = self._add_line(sc, f"{self._data_var}.{node.name} = {{}}", settings)
