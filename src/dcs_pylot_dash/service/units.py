@@ -108,7 +108,8 @@ class UnitConverter:
                     factors[dst] = {}
                 factors[dst][src] = 1 / factor
 
-        # build n-way factors
+        # build n-way factors. Works as long as there is a common base unit within one unit group.
+        # What does not work: A>B, B>C. What works: A>B, A>C
         for src, dsts in factors.items():
             for dst_0, factor in dsts.items():
                 for dst_1 in dsts:

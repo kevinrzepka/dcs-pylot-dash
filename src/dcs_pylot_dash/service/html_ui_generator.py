@@ -1,4 +1,4 @@
-# Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
+# Copyright (c) 2026 Kevin Rzepka <kdev@posteo.com>
 # SPDX-License-Identifier: MIT
 # License-Filename: LICENSE
 import logging
@@ -92,7 +92,10 @@ class HtmlUIGenerator:
         self._main_template = self._resource_provider.read_template_file(self._settings.main_template_name)
 
     def _add_line(self, content: str, line: str, *, indent_factor: int = 1) -> str:
-        return content + "\n" + (self._settings.script_indentation * indent_factor) * " " + line
+        if len(content) > 0:
+            return content + "\n" + (self._settings.script_indentation * indent_factor) * " " + line
+        else:
+            return line
 
     def _create_title_map_entries(self, export_model: ExportModel) -> str:
         var_name: str = self._settings.title_map_var_name
