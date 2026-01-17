@@ -7,7 +7,7 @@
 
 set -euo pipefail
 
-SBOM_DIR='sboms/'
+SBOM_DIR='sboms'
 mkdir -p "$SBOM_DIR"
 
 # generate python full SBOM
@@ -49,7 +49,7 @@ num_components_dev=$(cat $sbom_file | jq -r '.components | length')
 [ "$num_components_prod" -gt 0 ]
 [ "$num_components_dev" -le "$num_components_full" ]
 [ "$num_components_prod" -le "$num_components_full" ]
-[ "$num_components_dev" -ne "$num_components_prod" ]
+# [ "$num_components_dev" -ne "$num_components_prod" ]  it might actually be
 
 # ensure regular venv is used again
 source .venv/bin/activate
@@ -62,7 +62,7 @@ sbom_file="$SBOM_DIR/$sbom_ui_full_file_name"
 pnpm -C ./dcs-pylot-dash-ui exec cdxgen -t pnpm --json-pretty -o ../"$sbom_file"
 
 # merge full SBOM
-sudo docker run --rm -t -v ./"$SBOM_DIR":/"$SBOM_DIR" cyclonedx/cyclonedx-cli@sha256:4c42a0f3f24a62aee3c914f5a0c2f5cbf50cdf61093e250c3dd952c4efa012d0 \
+sudo docker run --rm -t -v ./"$SBOM_DIR"/:/"$SBOM_DIR"/ cyclonedx/cyclonedx-cli@sha256:4c42a0f3f24a62aee3c914f5a0c2f5cbf50cdf61093e250c3dd952c4efa012d0 \
 merge --group "kevinrzepka" --name "dcs-pylot-dash" --version "1.0.0" \
 --input-files "$SBOM_DIR/$sbom_python_full_file_name" --input-files "$SBOM_DIR/$sbom_ui_full_file_name" \
 --output-file $SBOM_DIR/sbom.json

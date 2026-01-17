@@ -80,6 +80,11 @@ sudo apt update && sudo apt install trivy -y
 
 ## Upgrading dependencies
 
+After upgrading dependencies, update the SBOM and run the vulnerability scan:
+
+- `./generate-sboms.sh`
+- `trivy sbom --disable-telemetry sboms/sbom.json`
+
 ### Python
 
 to include all groups, not just prod and dev, they must be specified explicitly:
@@ -88,7 +93,8 @@ to include all groups, not just prod and dev, they must be specified explicitly:
 
 ### Node
 
-tbd
+- find updates: `pnpm run ng update`
+- apply updates: `pnpm update`
 
 ## UI Development
 
