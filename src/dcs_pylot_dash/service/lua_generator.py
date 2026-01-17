@@ -127,7 +127,7 @@ class LuaGenerator:
                 else:
                     line = f"{self._data_var}.{node.name} = {internal_field.dotted_name}"
                     if internal_field.abs_base_value is not None:
-                        line += f" + {internal_field.abs_base_value}"
+                        line += f" * {internal_field.abs_base_value}"
                     if node.export_field.output_unit_override is not None:
                         factor: float | None = UnitConverter.get_conversion_factor(
                             internal_field.unit, node.export_field.output_unit_override
