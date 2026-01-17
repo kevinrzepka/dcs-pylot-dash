@@ -21,6 +21,8 @@ from dcs_pylot_dash.utils.string_utils import StringUtils
 
 class DcsPylotDash:
 
+    API_PATH: Final[str] = "/api/v1"
+
     LOGGER: Final[Logger] = logging.getLogger(__name__)
 
     @staticmethod
@@ -40,7 +42,9 @@ class DcsPylotDash:
 
         fast_api: FastAPI = FastAPI(title=app_settings.app_name, version=app_settings.app_version, openapi_url=None)
         AppExceptionHandlers.add_exception_handlers(fast_api)
-        fast_api.include_router(await MainRouter.create_router(app_settings, resource_provider), prefix="/api/v1")
+        fast_api.include_router(
+            await MainRouter.create_router(app_settings, resource_provider), prefix=DcsPylotDash.API_PATH
+        )
 
         @fast_api.get(APIRoutes.ROBOTS_TXT)
         async def get_robots_txt() -> FileResponse:

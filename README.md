@@ -78,6 +78,18 @@ sudo apt update && sudo apt install trivy -y
 - run all pre-commit hooks: `uv run pre-commit run --all-files`
 - create venv from lockfile: `uv sync --frozen`
 
+## Upgrading dependencies
+
+### Python
+
+to include all groups, not just prod and dev, they must be specified explicitly:
+
+- `uv sync --all-groups`
+
+### Node
+
+tbd
+
 ## UI Development
 
 ### Set up Prettier

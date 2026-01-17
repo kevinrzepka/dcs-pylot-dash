@@ -171,7 +171,7 @@ function generate_json_data()
     data.altitude.agl.ft = altitude_agl * 3.28084
     data.fuel = {}
     data.fuel.internal = {}
-    data.fuel.internal.lbs = engine_info.fuel_internal + 12000.0
+    data.fuel.internal.lbs = engine_info.fuel_internal * 12000.0
     data.arms = {}
     data.arms.gun_rounds = payload_info.Cannon.shells
 
