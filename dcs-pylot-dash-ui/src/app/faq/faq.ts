@@ -24,7 +24,7 @@ export class Faq {
   entries: FAQEntry[] = [
     {
       q: 'What is this?',
-      a: 'This is a tool to build browser-based dashboards, which show live plane telemetry data from DCS World.',
+      a: 'This is a free open-source tool to generate Lua and HTML code, that allows to show live plane telemetry data from the video game "DCS World".',
     },
     {
       q: 'Is this tool in any way officially connected to DCS World, Eagle Dynamics SA or any of its subsidiaries?',
@@ -108,7 +108,7 @@ export class Faq {
     },
     {
       q: 'Do I have to restart DCS after making changes to my dashboard?',
-      a: 'No. You do have to restart a mission though.',
+      a: 'No. You do have to restart a mission though. Please note that everytime you change the model, you must build and download the generated files again, and place them in the appropriate locations as instructed by the readme.txt file.',
     },
   ];
 }

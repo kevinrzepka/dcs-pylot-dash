@@ -46,6 +46,7 @@ import {
 import { IftaLabel } from 'primeng/iftalabel';
 import { InputText } from 'primeng/inputtext';
 import { Checkbox } from 'primeng/checkbox';
+import { BackendStatusMessages } from '../backend-status-messages/backend-status-messages';
 
 @Component({
   selector: 'app-editor-page',
@@ -68,6 +69,7 @@ import { Checkbox } from 'primeng/checkbox';
     IftaLabel,
     InputText,
     Checkbox,
+    BackendStatusMessages,
   ],
   templateUrl: './editor-page.html',
   styleUrl: './editor-page.css',

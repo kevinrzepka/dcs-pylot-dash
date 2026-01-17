@@ -22,23 +22,32 @@ export class MenuSidebar implements OnInit {
   menuItems: MenuItem[] = [];
 
   ngOnInit() {
-    const githubBaseUrl: string = 'https://github.com/kevinrzepka/dcs-pylot-dash';
     this.menuItems = [
       { label: 'FAQ', icon: 'pi pi-question', routerLink: AppRoutes.FAQ, target: '_blank' },
       {
         label: 'Bugs',
+        icon: 'pi pi-list',
+        url: AppConstants.GITHUB_ISSUES_URL,
+        target: '_blank',
+      },
+      {
+        label: 'Report a Bug',
         icon: 'pi pi-flag',
-        url: githubBaseUrl + '/issues',
+        url: AppConstants.GITHUB_NEW_ISSUE_URL,
+        target: '_blank',
+      },
+      {
+        label: 'Security Policy',
+        icon: 'pi pi-building-columns',
+        url: AppConstants.GITHUB_SECURITY_POLICY_URL,
         target: '_blank',
       },
       {
         label: 'Report a Security Issue',
         icon: 'pi pi-shield',
-        url: githubBaseUrl + '/security/advisories/new',
+        url: AppConstants.GITHUB_REPORT_SECURITY_ISSUE_URL,
         target: '_blank',
       },
     ];
   }
-
-  protected readonly AppConstants = AppConstants;
 }

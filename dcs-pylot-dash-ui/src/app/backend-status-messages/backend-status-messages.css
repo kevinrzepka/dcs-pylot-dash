@@ -1,0 +1,9 @@
+/*
+Copyright (c) 2026 Kevin Rzepka <kdev@posteo.com>
+SPDX-License-Identifier: MIT
+License-Filename: LICENSE
+*/
+p-message {
+  flex: auto;
+  margin: 1rem;
+}

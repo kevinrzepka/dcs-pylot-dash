@@ -137,6 +137,10 @@ https://angular.dev/guide/drag-drop
 
 ## Build UI
 
+`./build-ui.sh`
+
+Manual steps:
+
 - install all: `pnpm i --frozen-lockfile`
 - prod dependencies only: `pnpm i --frozen-lockfile --prod`
 - build dist: `pnpm run build`

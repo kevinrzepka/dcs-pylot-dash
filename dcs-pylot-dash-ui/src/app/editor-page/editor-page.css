@@ -4,6 +4,18 @@ SPDX-License-Identifier: MIT
 License-Filename: LICENSE
 */
 
+.editorFrame {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 100%;
+}
+
+app-backend-status-messages {
+  margin-top: 1rem;
+  display: flex;
+}
+
 .editorControlsFrame {
   margin-top: 1rem;
   display: flex;
@@ -37,13 +49,6 @@ License-Filename: LICENSE
   border-color: var(--p-primary-color);
   min-height: 10rem;
   min-width: 15rem;
-}
-
-.editorFrame {
-  display: flex;
-  flex-direction: column;
-
-  min-width: 100%;
 }
 
 .row-controls {
