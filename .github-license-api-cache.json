@@ -3005,6 +3005,15 @@
       },
       "timestamp": 1765807178.536487,
       "version": "1.0.0"
+    },
+    "https://api.github.com/repos/RemyRylan/json-schema-typed.git/license": {
+      "response": {
+        "content": null,
+        "encoding": null,
+        "license": null
+      },
+      "timestamp": 1768656418.6945472,
+      "version": "1.0.0"
     }
   }
 }

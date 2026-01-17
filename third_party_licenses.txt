@@ -140,7 +140,15 @@ Name:                       @babel.parser
 SPDX-License-Identifier:    UNKNOWN LICENSE ID
 
 --------------------------------------------------------------------------------
+Name:                       @babel.parser
+SPDX-License-Identifier:    UNKNOWN LICENSE ID
+
+--------------------------------------------------------------------------------
 Name:                       @babel.template
+SPDX-License-Identifier:    UNKNOWN LICENSE ID
+
+--------------------------------------------------------------------------------
+Name:                       @babel.traverse
 SPDX-License-Identifier:    UNKNOWN LICENSE ID
 
 --------------------------------------------------------------------------------
@@ -425,6 +433,10 @@ SPDX-License-Identifier:    UNKNOWN LICENSE ID
 
 --------------------------------------------------------------------------------
 Name:                       @esbuild.win32-x64
+SPDX-License-Identifier:    UNKNOWN LICENSE ID
+
+--------------------------------------------------------------------------------
+Name:                       @hono.node-server
 SPDX-License-Identifier:    UNKNOWN LICENSE ID
 
 --------------------------------------------------------------------------------
@@ -932,7 +944,15 @@ Name:                       @rollup.rollup-linux-loong64-gnu
 SPDX-License-Identifier:    UNKNOWN LICENSE ID
 
 --------------------------------------------------------------------------------
+Name:                       @rollup.rollup-linux-loong64-musl
+SPDX-License-Identifier:    UNKNOWN LICENSE ID
+
+--------------------------------------------------------------------------------
 Name:                       @rollup.rollup-linux-ppc64-gnu
+SPDX-License-Identifier:    UNKNOWN LICENSE ID
+
+--------------------------------------------------------------------------------
+Name:                       @rollup.rollup-linux-ppc64-musl
 SPDX-License-Identifier:    UNKNOWN LICENSE ID
 
 --------------------------------------------------------------------------------
@@ -953,6 +973,10 @@ SPDX-License-Identifier:    UNKNOWN LICENSE ID
 
 --------------------------------------------------------------------------------
 Name:                       @rollup.rollup-linux-x64-musl
+SPDX-License-Identifier:    UNKNOWN LICENSE ID
+
+--------------------------------------------------------------------------------
+Name:                       @rollup.rollup-openbsd-x64
 SPDX-License-Identifier:    UNKNOWN LICENSE ID
 
 --------------------------------------------------------------------------------
@@ -1951,37 +1975,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-
-
---------------------------------------------------------------------------------
-Name:                       braces
-SPDX-License-Identifier:    MIT
-Homepage:                   https://github.com/micromatch/braces
-Authors:                    Jon Schlinkert (https://github.com/jonschlinkert)
-License text:
-
-The MIT License (MIT)
-
-Copyright (c) 2014-present, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
 
 
 
@@ -3765,12 +3758,6 @@ Authors:                    Douglas Christopher Wilson <doug@somethingdoug.com>
 --------------------------------------------------------------------------------
 Name:                       detect-libc
 SPDX-License-Identifier:    Apache-2.0
-Homepage:                   git://github.com/lovell/detect-libc
-Authors:                    Lovell Fuller <npm@lovell.info>
-
---------------------------------------------------------------------------------
-Name:                       detect-libc
-SPDX-License-Identifier:    Apache-2.0
 Homepage:                   git://github.com/lovell/detect-libc.git
 Authors:                    Lovell Fuller <npm@lovell.info>
 
@@ -5122,37 +5109,6 @@ For more information, please refer to <http://unlicense.org>
 
 
 --------------------------------------------------------------------------------
-Name:                       fill-range
-SPDX-License-Identifier:    MIT
-Homepage:                   https://github.com/jonschlinkert/fill-range
-Authors:                    Jon Schlinkert (https://github.com/jonschlinkert)
-License text:
-
-The MIT License (MIT)
-
-Copyright (c) 2014-present, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-
---------------------------------------------------------------------------------
 Name:                       finalhandler
 SPDX-License-Identifier:    MIT
 Authors:                    Douglas Christopher Wilson <doug@somethingdoug.com>
@@ -5476,6 +5432,36 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 --------------------------------------------------------------------------------
+Name:                       h2
+SPDX-License-Identifier:    MIT
+Homepage:                   https://github.com/python-hyper/h2/
+License text:
+
+The MIT License (MIT)
+
+Copyright (c) 2015-2020 Cory Benfield and contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+
+
+--------------------------------------------------------------------------------
 Name:                       has-property-descriptors
 SPDX-License-Identifier:    MIT
 Homepage:                   https://github.com/inspect-js/has-property-descriptors#readme
@@ -5492,6 +5478,14 @@ Name:                       hasown
 SPDX-License-Identifier:    MIT
 Homepage:                   https://github.com/inspect-js/hasOwn#readme
 Authors:                    Jordan Harband <ljharb@gmail.com>
+
+--------------------------------------------------------------------------------
+Name:                       hermes-estree
+SPDX-License-Identifier:    MIT
+
+--------------------------------------------------------------------------------
+Name:                       hermes-parser
+SPDX-License-Identifier:    MIT
 
 --------------------------------------------------------------------------------
 Name:                       hosted-git-info
@@ -5513,6 +5507,36 @@ INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
 LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
 OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
+
+
+
+--------------------------------------------------------------------------------
+Name:                       hpack
+SPDX-License-Identifier:    MIT
+Homepage:                   https://github.com/python-hyper/hpack/
+License text:
+
+The MIT License (MIT)
+
+Copyright (c) 2014 Cory Benfield
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
 
 
 
@@ -5609,9 +5633,70 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 
 --------------------------------------------------------------------------------
+Name:                       hyperframe
+SPDX-License-Identifier:    MIT
+Homepage:                   https://github.com/python-hyper/hyperframe/
+License text:
+
+The MIT License (MIT)
+
+Copyright (c) 2014 Cory Benfield
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+
+
+--------------------------------------------------------------------------------
 Name:                       iconv-lite
 SPDX-License-Identifier:    MIT
 Homepage:                   https://github.com/ashtuchkin/iconv-lite
+Authors:                    Alexander Shtuchkin <ashtuchkin@gmail.com>
+License text:
+
+Copyright (c) 2011 Alexander Shtuchkin
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+
+--------------------------------------------------------------------------------
+Name:                       iconv-lite
+SPDX-License-Identifier:    MIT
+Homepage:                   https://github.com/pillarjs/iconv-lite
 Authors:                    Alexander Shtuchkin <ashtuchkin@gmail.com>
 License text:
 
@@ -5962,37 +6047,6 @@ SPDX-License-Identifier:    MIT
 Authors:                    Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
 
 --------------------------------------------------------------------------------
-Name:                       is-number
-SPDX-License-Identifier:    MIT
-Homepage:                   https://github.com/jonschlinkert/is-number
-Authors:                    Jon Schlinkert (https://github.com/jonschlinkert)
-License text:
-
-The MIT License (MIT)
-
-Copyright (c) 2014-present, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-
---------------------------------------------------------------------------------
 Name:                       is-promise
 SPDX-License-Identifier:    MIT
 Homepage:                   https://github.com/then/is-promise.git
@@ -6099,6 +6153,12 @@ Name:                       json-schema-traverse
 SPDX-License-Identifier:    MIT
 Homepage:                   https://github.com/epoberezkin/json-schema-traverse#readme
 Authors:                    Evgeny Poberezkin
+
+--------------------------------------------------------------------------------
+Name:                       json-schema-typed
+SPDX-License-Identifier:    BSD-2-Clause
+Homepage:                   https://github.com/RemyRylan/json-schema-typed.git
+Authors:                    Remy Rylan (https://github.com/RemyRylan)
 
 --------------------------------------------------------------------------------
 Name:                       json-stringify-nice
@@ -6324,6 +6384,38 @@ SOFTWARE.
 
 
 --------------------------------------------------------------------------------
+Name:                       keyv
+SPDX-License-Identifier:    MIT
+Homepage:                   https://github.com/jaredwray/keyv
+Authors:                    Jared Wray <me@jaredwray.com> (http://jaredwray.com)
+License text:
+
+MIT License
+
+Copyright (c) 2017-2021 Luke Childs
+Copyright (c) 2021-2026 Jared Wray
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+
+--------------------------------------------------------------------------------
 Name:                       lark
 SPDX-License-Identifier:    MIT
 Homepage:                   https://github.com/lark-parser/lark
@@ -6506,37 +6598,6 @@ Authors:                    Douglas Christopher Wilson <doug@somethingdoug.com>
 --------------------------------------------------------------------------------
 Name:                       merge-descriptors
 SPDX-License-Identifier:    MIT
-
---------------------------------------------------------------------------------
-Name:                       micromatch
-SPDX-License-Identifier:    MIT
-Homepage:                   https://github.com/micromatch/micromatch
-Authors:                    Jon Schlinkert (https://github.com/jonschlinkert)
-License text:
-
-The MIT License (MIT)
-
-Copyright (c) 2014-present, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
 
 --------------------------------------------------------------------------------
 Name:                       mime-db
@@ -7829,37 +7890,6 @@ SOFTWARE.
 Name:                       picocolors
 SPDX-License-Identifier:    ISC
 Authors:                    Alexey Raspopov
-
---------------------------------------------------------------------------------
-Name:                       picomatch
-SPDX-License-Identifier:    MIT
-Homepage:                   https://github.com/micromatch/picomatch
-Authors:                    Jon Schlinkert (https://github.com/jonschlinkert)
-License text:
-
-The MIT License (MIT)
-
-Copyright (c) 2017-present, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
 
 --------------------------------------------------------------------------------
 Name:                       picomatch
@@ -10456,37 +10486,6 @@ Homepage:                   https://superchupu.dev/tinyglobby
 Authors:                    Superchupu
 
 --------------------------------------------------------------------------------
-Name:                       to-regex-range
-SPDX-License-Identifier:    MIT
-Homepage:                   https://github.com/micromatch/to-regex-range
-Authors:                    Jon Schlinkert (https://github.com/jonschlinkert)
-License text:
-
-The MIT License (MIT)
-
-Copyright (c) 2015-present, Jon Schlinkert.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-
---------------------------------------------------------------------------------
 Name:                       toidentifier
 SPDX-License-Identifier:    MIT
 Authors:                    Douglas Christopher Wilson <doug@somethingdoug.com>
@@ -10942,6 +10941,11 @@ See the License for the specific language governing permissions and
 limitations under the License.
 
 
+
+--------------------------------------------------------------------------------
+Name:                       undici
+SPDX-License-Identifier:    MIT
+Homepage:                   https://undici.nodejs.org
 
 --------------------------------------------------------------------------------
 Name:                       undici
