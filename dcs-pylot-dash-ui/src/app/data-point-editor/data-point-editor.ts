@@ -10,7 +10,10 @@ import { InputText } from 'primeng/inputtext';
 import { DataPoint, DataPointUnit, SourceDataPoint } from '../editor-model';
 import { IftaLabel } from 'primeng/iftalabel';
 import { Button } from 'primeng/button';
-import { SourceDataPointChooser } from '../source-data-point-chooser/source-data-point-chooser';
+import {
+  SourceDataPointChangedEvent,
+  SourceDataPointChooser,
+} from '../source-data-point-chooser/source-data-point-chooser';
 import { Tooltip } from 'primeng/tooltip';
 import { UnitChooser } from '../unit-chooser/unit-chooser';
 import { KeyFilter } from 'primeng/keyfilter';
@@ -64,7 +67,8 @@ export class DataPointEditor implements OnInit {
     this.onDeleteDataPoint.emit(this.dataPoint);
   }
 
-  protected handleSourceDataPointChange(sourceDataPoint: SourceDataPoint | null) {
+  protected handleSourceDataPointChange(event: SourceDataPointChangedEvent) {
+    const sourceDataPoint: SourceDataPoint | null = event.sourceDataPoint;
     if (sourceDataPoint) {
       this.dataPoint.sourceDataPoint = sourceDataPoint;
       this.dataPoint.outputUnit = sourceDataPoint.defaultUnit;

@@ -11,6 +11,11 @@ import { IftaLabel } from 'primeng/iftalabel';
 import { Tooltip } from 'primeng/tooltip';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
+export interface SourceDataPointChangedEvent {
+  source: SourceDataPointChooser;
+  sourceDataPoint: SourceDataPoint | null;
+}
+
 /**
  * This would be better as a select, but that currently does not support clearing the value after selection
  */
@@ -37,16 +42,14 @@ export class SourceDataPointChooser implements OnInit {
   initialValue: SourceDataPoint | null = null;
 
   @Output()
-  protected onSourceDataPointChange: EventEmitter<SourceDataPoint | null> =
-    new EventEmitter<SourceDataPoint | null>();
+  protected onSourceDataPointChange: EventEmitter<SourceDataPointChangedEvent> =
+    new EventEmitter<SourceDataPointChangedEvent>();
 
   fcSourceDataPoint: FormControl<SourceDataPoint | null>;
 
   lastSelectedSourceDataPoint: SourceDataPoint | null = null;
 
   protected sourceDataPointSuggestions: SourceDataPoint[] = [];
-
-  @Input() disabled!: boolean;
 
   constructor(private sourceDataPointService: SourceDataPointService) {
     this.fcSourceDataPoint = new FormControl(null);
@@ -61,7 +64,10 @@ export class SourceDataPointChooser implements OnInit {
       if (value) {
         if (this.lastSelectedSourceDataPoint !== value) {
           this.lastSelectedSourceDataPoint = value;
-          this.onSourceDataPointChange.emit(value);
+          this.onSourceDataPointChange.emit({
+            source: this,
+            sourceDataPoint: value,
+          });
           if (this.clearAfterEmit) {
             this.lastSelectedSourceDataPoint = null;
             this.fcSourceDataPoint.setValue(null);
@@ -89,5 +95,13 @@ export class SourceDataPointChooser implements OnInit {
           sourceDataPoint.internalName.toLowerCase().includes(query?.toLowerCase()),
       );
     });
+  }
+
+  disable() {
+    this.fcSourceDataPoint.disable();
+  }
+
+  enable() {
+    this.fcSourceDataPoint.enable();
   }
 }

@@ -26,7 +26,10 @@ import {
   moveItemInArray,
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
-import { SourceDataPointChooser } from '../source-data-point-chooser/source-data-point-chooser';
+import {
+  SourceDataPointChangedEvent,
+  SourceDataPointChooser,
+} from '../source-data-point-chooser/source-data-point-chooser';
 import { Tooltip } from 'primeng/tooltip';
 import { GeneratorService } from '../generator-service';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
@@ -117,7 +120,10 @@ export class EditorPage implements OnInit {
   sampleModelPopover!: Popover;
 
   @ViewChild('addDataPointRowChooser', { read: ElementRef })
-  addDataPointRowChooser!: ElementRef;
+  addDataPointRowChooserElementRef!: ElementRef;
+
+  @ViewChild('addDataPointRowChooser')
+  addDataPointRowChooser!: SourceDataPointChooser;
 
   @ViewChild('modellingPopover')
   modellingPopover!: Popover;
@@ -210,8 +216,13 @@ export class EditorPage implements OnInit {
     this.editorModelChanged();
   }
 
-  protected removeDataPoint(dataPointRow: DataPointRow, dataPoint: DataPoint) {
+  protected removeDataPoint(
+    dataPointRow: DataPointRow,
+    dataPoint: DataPoint,
+    sourceDataPointChooser: SourceDataPointChooser,
+  ) {
     dataPointRow.removeDataPoint(dataPoint);
+    this.enableOrDisableDataPointChooserForRow(dataPointRow, sourceDataPointChooser);
     this.editorModelChanged();
   }
 
@@ -220,6 +231,11 @@ export class EditorPage implements OnInit {
     this.modellingPopover.hide();
     if (this.downloadUrl) {
       window.URL.revokeObjectURL(this.downloadUrl);
+    }
+    if (this.editorModel.dataPointRows.length >= this.maxRows) {
+      this.addDataPointRowChooser.disable();
+    } else {
+      this.addDataPointRowChooser.enable();
     }
     this.downloadButtonEnabled = false;
     this.downloadAfterBuildButtonStyleClass = '';
@@ -263,23 +279,37 @@ export class EditorPage implements OnInit {
   }
 
   protected addDataPointInRow(
-    sourceDataPoint: SourceDataPoint | null,
+    event: SourceDataPointChangedEvent,
     dataPointRow: DataPointRow | null = null,
   ) {
+    const sourceDataPoint: SourceDataPoint | null = event.sourceDataPoint;
     if (sourceDataPoint) {
       const dataPoint: DataPoint = new DataPoint(sourceDataPoint.displayName, sourceDataPoint);
       if (dataPointRow !== null) {
         dataPointRow.addDataPoint(dataPoint);
       } else {
-        const dataPointRow: DataPointRow = new DataPointRow();
+        dataPointRow = new DataPointRow();
         dataPointRow.addDataPoint(dataPoint);
         this.editorModel.dataPointRows.push(dataPointRow);
       }
+      this.enableOrDisableDataPointChooserForRow(dataPointRow, event.source);
+      this.cdr.detectChanges();
       this.editorModelChanged();
     }
   }
 
-  protected handleDataPointChanged(dataPoint: DataPoint) {
+  protected enableOrDisableDataPointChooserForRow(
+    dataPointRow: DataPointRow,
+    sourceDataPointChooser: SourceDataPointChooser,
+  ) {
+    if (dataPointRow.dataPoints.length >= this.maxDataPointsPerRow) {
+      sourceDataPointChooser.disable();
+    } else {
+      sourceDataPointChooser.enable();
+    }
+  }
+
+  protected handleDataPointChanged() {
     this.editorModelChanged();
   }
 
@@ -302,7 +332,7 @@ export class EditorPage implements OnInit {
     }
 
     this.buildPopover.show(null, this.buildButton.el.nativeElement);
-    this.modellingPopover.show(null, this.addDataPointRowChooser.nativeElement);
+    this.modellingPopover.show(null, this.addDataPointRowChooserElementRef.nativeElement);
   }
 
   protected showAdvancedSettings() {
