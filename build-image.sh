@@ -38,3 +38,5 @@ if  [[ num_dev_packages -ne 0 ]]; then
   echo "fail: found dev packages"
   exit 1
 fi
+
+echo "successfully built image: $full_image_name"

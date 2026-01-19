@@ -96,6 +96,59 @@ to include all groups, not just prod and dev, they must be specified explicitly:
 - find updates: `pnpm run ng update`
 - apply updates: `pnpm update`
 
+## Installing the Helm chart
+
+See [Chart notes](./deployment/dcs-pylot-dash/templates/NOTES.txt)
+
+- Ensure the image was bult for the current `HEAD`: `./build-image.sh`
+
+command:
+
+```shell
+image_tag=$(git rev-parse HEAD)
+sudo microk8s helm upgrade dcs-pylot-dash deployment/dcs-pylot-dash \
+-n dcs-pylot-dash -i --dry-run=server --debug \
+--set image.tag="$image_tag"
+```
+
+Uninstall:
+
+```shell
+sudo microk8s helm uninstall dcs-pylot-dash \
+-n dcs-pylot-dash --debug
+```
+
+note: With microk8s, this sometimes/temporarily throws an error:
+
+```shell
+Error: Kubernetes cluster unreachable: Get "https://127.0.0.1:16443/version": dial tcp 127.0.0.1:16443: connect: connection refused
+helm.go:92: 2026-01-19 14:55:37.107935894 +0100 CET m=+0.026355838 [debug] Get "https://127.0.0.1:16443/version": dial tcp 127.0.0.1:16443: connect: connection refused
+```
+
+Seems to be related to the api server using ipv6:
+
+```shell
+sudo netstat -tlnp | grep 16443
+tcp6       0      0 :::16443      :::*       LISTEN      80481/kubelite
+```
+
+- open: `sudo nano /var/snap/microk8s/current/args/kube-apiserver`
+- edit: `--bind-address=0.0.0.0`
+- open: `sudo nano /var/snap/microk8s/current/args/kubelet`
+- edit:
+
+```
+--address=0.0.0.0
+--node-ip=127.0.0.1  # Or your actual primary IPv4 address if in a cluster
+```
+
+In `/var/snap/microk8s/current/args/kube-apiserver` and `/var/snap/microk8s/current/args/kube-controller-manager`,
+ensure the service CIDR is IPv4 only:
+`--service-cluster-ip-range=10.152.183.0/24`
+
+- restart: `sudo snap restart microk8s`
+- check: `sudo lsof -i -n -P | grep 16443`
+
 ## UI Development
 
 ### Set up Prettier

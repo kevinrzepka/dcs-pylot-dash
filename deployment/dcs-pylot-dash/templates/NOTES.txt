@@ -1,0 +1,11 @@
+# USAGE:
+
+## INSTALL:
+image_tag=$(git rev-parse HEAD)
+sudo microk8s helm upgrade dcs-pylot-dash deployment/dcs-pylot-dash \
+-n dcs-pylot-dash -i --dry-run=server --debug \
+--set image.tag="$image_tag"
+
+## UNINSTALL:
+sudo microk8s helm uninstall dcs-pylot-dash \
+-n dcs-pylot-dash --debug

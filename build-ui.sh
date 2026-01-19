@@ -7,9 +7,12 @@
 
 set -euo pipefail
 
+ui_work_dir="./dcs-pylot-dash-ui/"
+
 # build dist
-pnpm -C ./dcs-pylot-dash-ui/ i --frozen-lockfile
-pnpm -C ./dcs-pylot-dash-ui/ run build
+pnpm -C "$ui_work_dir" i --frozen-lockfile
+pnpm -C "$ui_work_dir" audit || true
+pnpm -C "$ui_work_dir" run build
 
 # copy dist to src of API
 ui_dest=src/dcs_pylot_dash/static/ui
