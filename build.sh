@@ -13,7 +13,7 @@ uv run pytest
 
 sudo trivy image --disable-telemetry kevinrzepka/dcs-pylot-dash:"$commit_id"
 
-microk8s helm lint deployment/dcs-pylot-dash \
+helm lint deployment/dcs-pylot-dash \
 -n dcs-pylot-dash --debug \
 --set image.tag="$commit_id"
 

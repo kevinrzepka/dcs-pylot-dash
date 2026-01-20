@@ -6,8 +6,7 @@ metadata:
     app: dcs-pylot-dash
 spec:
   rules:
-    - host: pylotdash.eu
-      http:
+    - http:
         paths:
           - path: /
             pathType: Prefix

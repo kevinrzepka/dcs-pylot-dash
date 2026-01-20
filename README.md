@@ -96,7 +96,52 @@ to include all groups, not just prod and dev, they must be specified explicitly:
 - find updates: `pnpm run ng update`
 - apply updates: `pnpm update`
 
+## Preparing the K3s cluster
+
+Install `k3s`:
+
+```shell
+curl -sfL https://get.k3s.io | sh -
+sudo kubectl get nodes
+systemctl status k3s
+ln -s /etc/rancher/k3s/k3s.yaml ~/.kube/config
+```
+
+ensure traefik uses different ports than `80`/`443`, e.g. `50080`/`50443`:
+
+- https://docs.k3s.io/networking/networking-services
+- https://github.com/k3s-io/k3s-charts/tree/main/charts/traefik
+- https://docs.k3s.io/add-ons/helm#customizing-packaged-components-with-helmchartconfig
+- https://github.com/k3s-io/k3s-charts/blob/main/charts/traefik/38.0.101%2Bup38.0.1/values.yaml
+
+- create an additional `HelmChartConfig` manifest in `/var/lib/rancher/k3s/server/manifests`
+
+```shell
+cat << EOF | sudo tee /var/lib/rancher/k3s/server/manifests/traefik-port-config.yaml
+apiVersion: helm.cattle.io/v1
+kind: HelmChartConfig
+metadata:
+  name: traefik
+  namespace: kube-system
+spec:
+  valuesContent: |-
+    ports:
+      web:
+        exposedPort: 50080
+      websecure:
+        exposedPort: 50443
+EOF
+```
+
+- apply values: `sudo systemctl restart k3s`
+- ensure nat entries are updated: `sudo iptables -t nat -L -n`
+- webapp should be available at `http://localhost:50080` and on the traefik node ip, e.g. `http://10.42.0.50:8000/` (not
+  on the cluster IP of the service though, also not on the hosts external IP)
+
 ## Installing the Helm chart
+
+Install helm: https://helm.sh/docs/intro/install/
+add to `~/.profile`: `export KUBECONFIG=/etc/rancher/k3s/k3s.yaml`
 
 See [Chart notes](./deployment/dcs-pylot-dash/templates/NOTES.txt)
 
@@ -106,7 +151,8 @@ command:
 
 ```shell
 image_tag=$(git rev-parse HEAD)
-sudo microk8s helm upgrade dcs-pylot-dash deployment/dcs-pylot-dash \
+docker save kevinrzepka/dcs-pylot-dash:$image_tag | sudo k3s ctr images import -
+helm upgrade dcs-pylot-dash deployment/dcs-pylot-dash \
 -n dcs-pylot-dash -i --dry-run=server --debug \
 --set image.tag="$image_tag"
 ```
@@ -114,40 +160,9 @@ sudo microk8s helm upgrade dcs-pylot-dash deployment/dcs-pylot-dash \
 Uninstall:
 
 ```shell
-sudo microk8s helm uninstall dcs-pylot-dash \
+sudo helm uninstall dcs-pylot-dash \
 -n dcs-pylot-dash --debug
 ```
-
-note: With microk8s, this sometimes/temporarily throws an error:
-
-```shell
-Error: Kubernetes cluster unreachable: Get "https://127.0.0.1:16443/version": dial tcp 127.0.0.1:16443: connect: connection refused
-helm.go:92: 2026-01-19 14:55:37.107935894 +0100 CET m=+0.026355838 [debug] Get "https://127.0.0.1:16443/version": dial tcp 127.0.0.1:16443: connect: connection refused
-```
-
-Seems to be related to the api server using ipv6:
-
-```shell
-sudo netstat -tlnp | grep 16443
-tcp6       0      0 :::16443      :::*       LISTEN      80481/kubelite
-```
-
-- open: `sudo nano /var/snap/microk8s/current/args/kube-apiserver`
-- edit: `--bind-address=0.0.0.0`
-- open: `sudo nano /var/snap/microk8s/current/args/kubelet`
-- edit:
-
-```
---address=0.0.0.0
---node-ip=127.0.0.1  # Or your actual primary IPv4 address if in a cluster
-```
-
-In `/var/snap/microk8s/current/args/kube-apiserver` and `/var/snap/microk8s/current/args/kube-controller-manager`,
-ensure the service CIDR is IPv4 only:
-`--service-cluster-ip-range=10.152.183.0/24`
-
-- restart: `sudo snap restart microk8s`
-- check: `sudo lsof -i -n -P | grep 16443`
 
 ## UI Development
 
