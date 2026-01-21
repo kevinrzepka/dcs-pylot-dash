@@ -107,7 +107,9 @@ systemctl status k3s
 ln -s /etc/rancher/k3s/k3s.yaml ~/.kube/config
 ```
 
-ensure traefik uses different ports than `80`/`443`, e.g. `50080`/`50443`:
+**IMPORTANT:** ensure `traefik` uses a different listening address (e.g. `127.0.0.1`) than the default `0.0.0.0` and
+different ports than
+`80`/`443`, e.g. `50080`/`50443`:
 
 - https://docs.k3s.io/networking/networking-services
 - https://github.com/k3s-io/k3s-charts/tree/main/charts/traefik
@@ -126,6 +128,8 @@ metadata:
 spec:
   valuesContent: |-
     ports:
+      traefik:
+        hostIP: "127.0.0.1"
       web:
         exposedPort: 50080
       websecure:
@@ -134,9 +138,14 @@ EOF
 ```
 
 - apply values: `sudo systemctl restart k3s`
-- ensure nat entries are updated: `sudo iptables -t nat -L -n`
-- webapp should be available at `http://localhost:50080` and on the traefik node ip, e.g. `http://10.42.0.50:8000/` (not
-  on the cluster IP of the service though, also not on the hosts external IP)
+- ensure nat entries are updated: `sudo nft list table nat`
+- webapp should be available at:
+    - the "intended" host address: `http://localhost:50080`
+    - the traefik node address, e.g. `http://10.42.0.50:8000/`
+    - the cluster IP of the service: `http://10.43.132.111:8080`
+    - the webapp node address: `http://10.42.0.61:8000`
+- webapp should **not** be available at:
+    - the host interface address, e.g. `http://10.0.2.15:50080/`
 
 ## Installing the Helm chart
 
