@@ -24,7 +24,7 @@ export class Faq {
   entries: FAQEntry[] = [
     {
       q: 'What is this?',
-      a: 'This is a free open-source tool to generate Lua and HTML code, that allows to show live plane telemetry data from the video game "DCS World".',
+      a: 'This is a free open-source tool to generate Lua and HTML code, that allows to show live plane telemetry data from the video game "DCS World" in a web browser.',
     },
     {
       q: 'Is this tool in any way officially connected to DCS World, Eagle Dynamics SA or any of its subsidiaries?',

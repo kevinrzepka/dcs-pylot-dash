@@ -1,6 +1,7 @@
 # About
 
-This is a web tool that allows users of DCS World to build their own telemetry dashboards.
+This is a free open-source tool to generate Lua and HTML code that allows showing live plane telemetry data from the
+video game "DCS World" in a web browser.
 
 # Disclaimer
 
@@ -8,6 +9,15 @@ This private, non-commercial project is not affiliated with, associated with, au
 or in any other way officially connected with "DCS World", "Eagle Dynamics SA" and/or any of its subsidiaries,
 affiliates, and related entities.
 The official website of "DCS World" can be found at https://www.digitalcombatsimulator.com/
+
+# Third-party licenses
+
+This software uses third-party components.
+See [third_party_licenses.txt](./third_party_licenses.txt) for their respective copyright and license notices.
+
+# License
+
+See [LICENSE](./LICENSE)
 
 # Development
 
@@ -78,101 +88,6 @@ sudo apt update && sudo apt install trivy -y
 - run all pre-commit hooks: `uv run pre-commit run --all-files`
 - create venv from lockfile: `uv sync --frozen`
 
-## Upgrading dependencies
-
-After upgrading dependencies, update the SBOM and run the vulnerability scan:
-
-- `./generate-sboms.sh`
-- `trivy sbom --disable-telemetry sboms/sbom.json`
-
-### Python
-
-to include all groups, not just prod and dev, they must be specified explicitly:
-
-- `uv sync --all-groups`
-
-### Node
-
-- find updates: `pnpm run ng update`
-- apply updates: `pnpm update`
-
-## Preparing the K3s cluster
-
-Install `k3s`:
-
-```shell
-curl -sfL https://get.k3s.io | sh -
-sudo kubectl get nodes
-systemctl status k3s
-ln -s /etc/rancher/k3s/k3s.yaml ~/.kube/config
-```
-
-**IMPORTANT:** ensure `traefik` uses a different listening address (e.g. `127.0.0.1`) than the default `0.0.0.0` and
-different ports than
-`80`/`443`, e.g. `50080`/`50443`:
-
-- https://docs.k3s.io/networking/networking-services
-- https://github.com/k3s-io/k3s-charts/tree/main/charts/traefik
-- https://docs.k3s.io/add-ons/helm#customizing-packaged-components-with-helmchartconfig
-- https://github.com/k3s-io/k3s-charts/blob/main/charts/traefik/38.0.101%2Bup38.0.1/values.yaml
-
-- create an additional `HelmChartConfig` manifest in `/var/lib/rancher/k3s/server/manifests`
-
-```shell
-cat << EOF | sudo tee /var/lib/rancher/k3s/server/manifests/traefik-port-config.yaml
-apiVersion: helm.cattle.io/v1
-kind: HelmChartConfig
-metadata:
-  name: traefik
-  namespace: kube-system
-spec:
-  valuesContent: |-
-    ports:
-      traefik:
-        hostIP: "127.0.0.1"
-      web:
-        exposedPort: 50080
-      websecure:
-        exposedPort: 50443
-EOF
-```
-
-- apply values: `sudo systemctl restart k3s`
-- ensure nat entries are updated: `sudo nft list table nat`
-- webapp should be available at:
-    - the "intended" host address: `http://localhost:50080`
-    - the traefik node address, e.g. `http://10.42.0.50:8000/`
-    - the cluster IP of the service: `http://10.43.132.111:8080`
-    - the webapp node address: `http://10.42.0.61:8000`
-- webapp should **not** be available at:
-    - the host interface address, e.g. `http://10.0.2.15:50080/`
-
-## Installing the Helm chart
-
-Install helm: https://helm.sh/docs/intro/install/
-add to `~/.profile`: `export KUBECONFIG=/etc/rancher/k3s/k3s.yaml`
-
-See [Chart notes](./deployment/dcs-pylot-dash/templates/NOTES.txt)
-
-- Ensure the image was bult for the current `HEAD`: `./build-image.sh`
-
-command:
-
-```shell
-image_tag=$(git rev-parse HEAD)
-docker save kevinrzepka/dcs-pylot-dash:$image_tag | sudo k3s ctr images import -
-helm upgrade dcs-pylot-dash deployment/dcs-pylot-dash \
--n dcs-pylot-dash -i --dry-run=server --debug \
---set image.tag="$image_tag"
-```
-
-Uninstall:
-
-```shell
-sudo helm uninstall dcs-pylot-dash \
--n dcs-pylot-dash --debug
-```
-
 ## UI Development
 
 ### Set up Prettier
@@ -210,7 +125,28 @@ https://primeng.org/installation
 
 https://angular.dev/guide/drag-drop
 
+- apply updates: `pnpm update`
+
+## Upgrading dependencies
+
+After upgrading dependencies, update the SBOM and run the vulnerability scan:
+
+- `./generate-sboms.sh`
+- `trivy sbom --disable-telemetry sboms/sbom.json`
+
+### Python
+
+to include all groups, not just prod and dev, they must be specified explicitly:
+
+- `uv sync --all-groups`
+
+### Node
+
+- find updates: `pnpm run ng update`
+
 # Building from source
+
+`./build.sh`
 
 ## Build UI
 
@@ -224,13 +160,13 @@ Manual steps:
 
 ## Build Docker image
 
+`./build-image.sh`
+
 https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html
 
 - list of capabilities: https://docs.docker.com/engine/containers/run/#runtime-privilege-and-linux-capabilities
 - set ulimits: https://ss64.com/bash/ulimit.html,
     - but: http://docs.docker.com/reference/cli/docker/container/run/#for-nproc-usage
-
-Build: `./build-image.sh`
 
 run with shell:
 
@@ -298,7 +234,7 @@ Options with Trivy and `pnpm`:
     - does have a `purl`, e.g.: `"purl": "pkg:npm/%40angular/cdk@21.0.2`
 - license info, not in SBOM format: `pnpm licenses list --json`
     - `author` mentioned
-    - homepage link, not always github, sometimes github but link to tree document
+    - homepage link, not always GitHub, sometimes GitHub but link to tree document
 
 Non-working options with `npm` only:
 
@@ -326,11 +262,147 @@ https://trivy.dev/docs/latest/guide/target/sbom/#cyclonedx
 - set GitHub API PAT: ` export GITHUB_LICENSE_API_TOKEN=github_pat_<HEX...>`
 - run: `./generate-attribution.sh`
 
-# Third-party licenses
+# Deployment
 
-This software uses third-party components.
-See [third_party_licenses.txt](./third_party_licenses.txt) for their respective copyright and license notices.
+The deployment scenario is that there is an `nginx` reverse proxy that handles TLS termination and forwards requests to
+the k8s workloads. The reverse proxy is exposed on the WAN interface, no k8s workloads should be exposed on the WAN
+interface. The following sections describe how to (not) achieve this.
 
-# License
+## Preparing the K3s cluster
 
-See [LICENSE](./LICENSE)
+Install `k3s`:
+
+```shell
+curl -sfL https://get.k3s.io | sh -
+sudo kubectl get nodes
+systemctl status k3s
+ln -s /etc/rancher/k3s/k3s.yaml ~/.kube/config
+```
+
+### `LoadBalancer` service - NOT recommended
+
+Impossible to not expose the load balancer pod on the WAN interface.
+
+### `LoadBalancer` service and `ingress` (`traefik`) - NOT recommended but possible
+
+**IMPORTANT:** ensure `traefik` uses a different listening address (e.g. `127.0.0.1`) than the default `0.0.0.0` and
+different ports than
+`80`/`443`, e.g. `50080`/`50443`:
+
+- https://docs.k3s.io/networking/networking-services
+- https://github.com/k3s-io/k3s-charts/tree/main/charts/traefik
+- https://docs.k3s.io/add-ons/helm#customizing-packaged-components-with-helmchartconfig
+- https://github.com/k3s-io/k3s-charts/blob/main/charts/traefik/38.0.101%2Bup38.0.1/values.yaml
+
+- create an additional `HelmChartConfig` manifest in `/var/lib/rancher/k3s/server/manifests`
+
+```shell
+cat << EOF | sudo tee /var/lib/rancher/k3s/server/manifests/traefik-port-config.yaml
+apiVersion: helm.cattle.io/v1
+kind: HelmChartConfig
+metadata:
+  name: traefik
+  namespace: kube-system
+spec:
+  valuesContent: |-
+    ports:
+      traefik:
+        hostIP: "127.0.0.1"
+      web:
+        exposedPort: 50080
+      websecure:
+        exposedPort: 50443
+EOF
+```
+
+- apply values: `sudo systemctl restart k3s`
+- ensure nat entries are updated: `sudo nft list table nat`
+- webapp should be available at:
+    - the "intended" host address: `http://localhost:50080`
+    - the traefik node address, e.g. `http://10.42.0.50:8000/`
+    - the cluster IP of the service, e.g.: `http://10.43.132.111:8080`
+    - the webapp node address, e.g.: `http://10.42.0.61:8000`
+- webapp should **not** be available at:
+    - the host interface address, e.g. `http://10.0.2.15:50080/`
+
+**Problem:** Unfortunately, this causes the health (`/ping`) check bind address to be `127.0.0.1`, which of course
+fails the liveness
+and readiness probes, since connection attempts from the k8s api server are refused. At the moment, the helm chart does
+not allow specifying a bind address different from `hostIp` for the health check. And the `hostIp` must be `127.0.0.1`
+or
+the NAT rules will expose `traefik` on the WAN interface. <br> It is also not possible to disable the probes via the
+helm
+chart. A hacky solution that works is to manually edit the deployment and delete the probes there.
+
+### `NodePort` service without `ingress` - recommended
+
+- disable `traefik` in the `k3s` service: Append `--disable=traefik` to `ExecStart` in
+  `/etc/systemd/system/k3s.service`:
+
+```
+ExecStart=/usr/local/bin/k3s \
+    server --disable=traefik \
+```
+
+- configure the API server to expose `NodePort` services only on `127.0.0.1`: Append to `/etc/rancher/k3s/config.yaml`:
+
+```
+kube-proxy-arg:
+  - "nodeport-addresses=127.0.0.1/32"
+```
+
+- reload the service:
+
+```
+systemctl daemon-reload
+systemctl restart k3s
+```
+
+Now the `nat` table should look like this (truncated for readability):
+
+```
+nft list table nat
+# Warning: table ip nat is managed by iptables-nft, do not touch!
+table ip nat {
+	chain PREROUTING {
+		type nat hook prerouting priority dstnat; policy accept;
+		 counter packets 17 bytes 1524 jump KUBE-SERVICES
+		 ...
+	}
+	chain KUBE-SERVICES {
+	    ...
+		ip daddr 127.0.0.1  counter packets 10 bytes 600 jump KUBE-NODEPORTS
+	}
+	chain KUBE-NODEPORTS {
+		ip daddr 127.0.0.0/8 ip protocol tcp  tcp dport 32080 xt match "nfacct" counter packets 0 bytes 0 jump KUBE-EXT-CDOT2HNW3SM5ZYBQ
+		ip protocol tcp  tcp dport 32080 counter packets 0 bytes 0 jump KUBE-EXT-CDOT2HNW3SM5ZYBQ
+	}
+}
+```
+
+## Installing the Helm chart
+
+- Install helm: https://helm.sh/docs/intro/install/
+- add to `~/.profile` (also for `root` when running helm with `sudo` later):
+  `export KUBECONFIG=/etc/rancher/k3s/k3s.yaml`
+
+See [Chart notes](./deployment/dcs-pylot-dash/templates/NOTES.txt)
+
+- Ensure the image was bult for the current `HEAD`: `./build.sh`
+
+Install (`--dry-run=server`):
+
+```shell
+image_tag=$(git rev-parse HEAD)
+sudo docker save kevinrzepka/dcs-pylot-dash:$image_tag | sudo k3s ctr images import -
+sudo helm upgrade dcs-pylot-dash deployment/dcs-pylot-dash \
+-n dcs-pylot-dash -i --dry-run=server --debug \
+--set image.tag="$image_tag"
+```
+
+Uninstall:
+
+```shell
+sudo helm uninstall dcs-pylot-dash \
+-n dcs-pylot-dash --debug
+```

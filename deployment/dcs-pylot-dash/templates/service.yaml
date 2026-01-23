@@ -5,10 +5,11 @@ metadata:
   labels:
     app: dcs-pylot-dash
 spec:
-  type: ClusterIP
+  type: NodePort
   ports:
     - port: {{ .Values.service.port }}
       targetPort: {{ .Values.container.port }}
+      nodePort: {{ .Values.service.nodePort }}
       protocol: TCP
   selector:
     app: dcs-pylot-dash
