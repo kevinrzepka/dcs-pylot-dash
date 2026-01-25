@@ -89,7 +89,7 @@
           "options": {
             "proxyConfig": "src/proxy.conf.json",
             "headers": {
-              "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; require-trusted-types-for 'script'; trusted-types angular dompurify default;"
+              "Content-Security-Policy": "default-src 'self'; script-src 'unsafe-hashes' 'sha256-MhtPZXr7+LpJUY5qtMutB+qWfQtMaPccfe7QXtCcEYc=' 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; require-trusted-types-for 'script'; trusted-types angular dompurify default;"
             }
           }
         }

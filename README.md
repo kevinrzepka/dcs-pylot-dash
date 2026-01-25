@@ -129,6 +129,14 @@ https://angular.dev/guide/drag-drop
 
 - apply updates: `pnpm update`
 
+### Angular CSP caveat
+
+https://stackoverflow.com/questions/67565858/angular-12-css-optimization-inline-event-handler-with-content-security-policy/67582075#67582075
+
+Must add the following to the CSP:
+
+`script-src 'unsafe-hashes' 'sha256-MhtPZXr7+LpJUY5qtMutB+qWfQtMaPccfe7QXtCcEYc=' 'self';`
+
 ## Upgrading dependencies
 
 After upgrading dependencies, update the SBOM and run the vulnerability scan:

@@ -5,3 +5,4 @@
 **/node_modules
 src/dcs_pylot_dash/static
 dcs-pylot-dash-ui/dist
+*.tar.gz
