@@ -40,7 +40,7 @@ COPY --chown=1000:1000 --chmod=440 .envs/prod-container.env ./
 COPY --chown=1000:1000 --chmod=440 resources/ ./resources/
 COPY --chown=1000:1000 --chmod=440 terms_of_service.md/ ./resources/notices/
 COPY --chown=1000:1000 --chmod=440 LICENSE/ ./resources/notices/
-COPY --chown=1000:1000 --chmod=440 third_party_licenses.txt/ ./resources/notices/
+COPY --chown=1000:1000 --chmod=440 third_party_licenses_distributed.txt/ ./resources/notices/
 COPY --chown=1000:1000 --chmod=440 privacy_policy.md/ ./resources/notices/
 
 RUN find . -type d -exec chmod 550 {} \;

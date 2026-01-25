@@ -1,4 +1,4 @@
-# Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
+# Copyright (c) 2026 Kevin Rzepka <kdev@posteo.com>
 # SPDX-License-Identifier: MIT
 # License-Filename: LICENSE
 import json
@@ -34,7 +34,10 @@ class Attribution(BaseModel):
 
 
 class OssAttributionGenerator:
-    CACHE_FILE_PATH_DEFAULT: Final[Path] = Path(".github-license-api-cache.json").resolve()
+    CACHE_FILE_PATH_DEFAULT: Final[Path] = Path(".github-license-api-cache.json")
+    PNPM_NODE_MODULES_PATH_DEFAULT: Final[Path] = (
+        Path(__file__).parent.parent.parent / "dcs-pylot-dash-ui" / "node_modules" / ".pnpm"
+    )
 
     LOGGER: logging.Logger = logging.getLogger(__name__)
 
@@ -42,6 +45,7 @@ class OssAttributionGenerator:
     _github_rate_limit_exceeded: bool = False
     _get_license_cache: GetLicenseResponseCache | None
     _persist_cache: bool = True
+    _pnpm_node_modules_path: Path = PNPM_NODE_MODULES_PATH_DEFAULT
 
     def __init__(
         self,
@@ -49,6 +53,7 @@ class OssAttributionGenerator:
         cache_github_responses: bool = True,
         persist_cache: bool = True,
         cache_file_path: Path = CACHE_FILE_PATH_DEFAULT,
+        _node_modules_path: Path = PNPM_NODE_MODULES_PATH_DEFAULT,
     ):
         headers: dict[str, str] = {}
         if github_api_token is not None:
@@ -97,9 +102,60 @@ class OssAttributionGenerator:
                 self.LOGGER.error(f"failed to load license from {license_url}: {e}", exc_info=True)
             return None
 
+    def _fetch_license_text_from_pnpm_node_modules(self, component: SBOMComponent) -> str | None:
+        if not self._pnpm_node_modules_path.exists():
+            self.LOGGER.debug(
+                f"node_modules directory {self._pnpm_node_modules_path} does not exist, skipping {component.qualified_name}"
+            )
+            return None
+
+        # example: @types+trusted-types@2.0.7
+        folder_name: str = ""
+        if StringUtils.is_not_empty(component.group):
+            folder_name += f"{component.group}+"
+        folder_name += component.name
+        if StringUtils.is_not_empty(component.version):
+            folder_name += f"@{component.version}"
+
+        # there are also these constructs with multiple components, where only the first could be a match:
+        # @angular+cdk@21.0.6_@angular+common@21.0.8_@angular+core@21.0.8_@angular+compiler@21.0._86bd3254d156402248a8f88a47ee594b
+        def _find_dir_starting_with_component() -> Path | None:
+            for d in self._pnpm_node_modules_path.iterdir():
+                if d.is_dir() and d.name.startswith(folder_name):
+                    self.LOGGER.debug(f"found matching directory {d} for {component.qualified_name}")
+                    dir_: Path = d / "node_modules"
+                    if StringUtils.is_not_empty(component.group):
+                        dir_ /= component.group
+                    dir_ /= component.name
+                    return dir_
+            return None
+
+        # example: dcs-pylot-dash-ui/node_modules/.pnpm/@types+trusted-types@2.0.7/node_modules/@types/trusted-types
+        module_dir: Path | None = self._pnpm_node_modules_path / folder_name / "node_modules"
+        if StringUtils.is_not_empty(component.group):
+            module_dir /= component.group
+        module_dir /= component.name
+
+        if module_dir is not None and not module_dir.exists():
+            module_dir = _find_dir_starting_with_component()
+
+        if module_dir is not None and module_dir.exists():
+            for p in module_dir.iterdir():
+                if p.is_file(follow_symlinks=True) and p.stem.lower() == "license":
+                    self.LOGGER.info(f"Reading license file {p} for {component.qualified_name}")
+                    try:
+                        return p.read_text()
+                    except Exception as e:
+                        self.LOGGER.error(f"failed to read license file {p}: {e}")
+        return None
+
     async def build_attribution_entry_for_component(self, component: SBOMComponent) -> AttributionEntry:
         license_text: str | None = component.probable_license_text
         license_id: str | None = component.accurate_or_probable_license_id
+
+        if StringUtils.is_empty(license_text):
+            license_text = self._fetch_license_text_from_pnpm_node_modules(component)
+
         # TODO: Could also be that the information is trash and github has better quality
         #  Could always fetch and also compare ID, to warn in case of  mismatch
         #  fallback: list all external ref urls
@@ -134,7 +190,7 @@ class OssAttributionGenerator:
         attribution: Attribution = Attribution()
         if self._get_license_cache is not None:
             self._get_license_cache.load()
-        for c in sbom.library_components:
+        for c in sbom.library_or_framework_components:
             entry: AttributionEntry = await self.build_attribution_entry_for_component(c)
             attribution.entries.append(entry)
         if self._get_license_cache is not None and self._persist_cache:

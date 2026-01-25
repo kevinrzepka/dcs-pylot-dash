@@ -13,7 +13,9 @@ The official website of "DCS World" can be found at https://www.digitalcombatsim
 # Third-party licenses
 
 This software uses third-party components.
-See [third_party_licenses.txt](./third_party_licenses.txt) for their respective copyright and license notices.
+See [third_party_licenses.txt](./third_party_licenses.txt) for their respective copyright and license notices. <br>
+For the licenses of third-party components that are distributed (superset for operators users),
+see [third_party_licenses_distributed.txt](./third_party_licenses_distributed.txt).
 
 # License
 
@@ -220,6 +222,7 @@ See https://github.com/cdxgen/cdxgen?tab=readme-ov-file#resolving-licenses
     - the external references are also present when `FETCH_LICENSE=false` -> missing benefit?!
 - the simpler command should suffice:
   `pnpm -C ./dcs-pylot-dash-ui exec cdxgen -t pnpm --json-pretty -o ../sboms/sbom-ui.json`
+- However, for many packages, like angular, the license and external ref information is missing entirely.
 
 `cyclonedx-npm`:
 https://www.npmjs.com/package/@cyclonedx/cyclonedx-npm
@@ -246,6 +249,7 @@ Non-working options with `npm` only:
 Other options:
 
 - license files are present in installed `./node_modules`
+- angular generates `dcs-pylot-dash-ui/dist/dcs-pylot-dash-ui/3rdpartylicenses.txt`
 
 ## Vulnerability Scan (Trivy)
 
@@ -259,8 +263,16 @@ https://trivy.dev/docs/latest/guide/target/sbom/#cyclonedx
 
 ## Generate third-party attribution / license notice
 
+`./generate-attributions.sh`
+
+manual steps:
+
 - set GitHub API PAT: ` export GITHUB_LICENSE_API_TOKEN=github_pat_<HEX...>`
-- run: `./generate-attribution.sh`
+- all components: `./generate-attribution.sh sboms/sbom.json third_party_licenses.txt`
+- distributed (i.e. ui prod) components:
+  `./generate-attribution.sh sboms/sbom-ui-prod.json third_party_licenses_distributed.txt`
+
+When building the UI, angular also generates a file: `dcs-pylot-dash-ui/dist/dcs-pylot-dash-ui/3rdpartylicenses.txt`
 
 # Deployment
 

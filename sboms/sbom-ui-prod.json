@@ -1,0 +1,1125 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:3ffebe32-81b9-43db-8c65-b27bcba97f67",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-01-25T12:59:16Z",
+    "tools": {
+      "components": [
+        {
+          "group": "@cyclonedx",
+          "name": "cdxgen",
+          "version": "12.0.0",
+          "purl": "pkg:npm/%40cyclonedx/cdxgen@12.0.0",
+          "type": "application",
+          "bom-ref": "pkg:npm/@cyclonedx/cdxgen@12.0.0",
+          "publisher": "OWASP Foundation",
+          "authors": [
+            {
+              "name": "OWASP Foundation"
+            }
+          ]
+        }
+      ]
+    },
+    "authors": [
+      {
+        "name": "OWASP Foundation"
+      }
+    ],
+    "lifecycles": [
+      {
+        "phase": "pre-build"
+      }
+    ],
+    "component": {
+      "name": "dcs-pylot-dash-ui",
+      "group": "",
+      "version": "1.0.0",
+      "purl": "pkg:npm/dcs-pylot-dash-ui@1.0.0",
+      "bom-ref": "pkg:npm/dcs-pylot-dash-ui@1.0.0",
+      "type": "application"
+    },
+    "properties": [
+      {
+        "name": "cdx:bom:componentTypes",
+        "value": "npm"
+      },
+      {
+        "name": "cdx:bom:componentNamespaces",
+        "value": "@angular"
+      },
+      {
+        "name": "cdx:bom:componentSrcFiles",
+        "value": "pnpm-lock.yaml"
+      }
+    ]
+  },
+  "components": [
+    {
+      "group": "@angular",
+      "name": "cdk",
+      "version": "21.0.6",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "e46c3c997b4a5ef72f0cc5847223cb45807a25ae6fb2290b022759b1d084205e81739d469a8a93e5393f29ef9c8827791eaf40728fc8707c53d510b7e3bd2566"
+        }
+      ],
+      "purl": "pkg:npm/%40angular/cdk@21.0.6",
+      "type": "framework",
+      "bom-ref": "pkg:npm/@angular/cdk@21.0.6",
+      "properties": [
+        {
+          "name": "SrcFile",
+          "value": "pnpm-lock.yaml"
+        },
+        {
+          "name": "ImportedModules",
+          "value": "@angular/cdk/drag-drop,CdkDrag,@angular/cdk/drag-drop/CdkDrag,CdkDragDrop,@angular/cdk/drag-drop/CdkDragDrop,CdkDragHandle,@angular/cdk/drag-drop/CdkDragHandle,CdkDragPlaceholder,@angular/cdk/drag-drop/CdkDragPlaceholder,CdkDropList,@angular/cdk/drag-drop/CdkDropList,CdkDropListGroup,@angular/cdk/drag-drop/CdkDropListGroup,moveItemInArray,@angular/cdk/drag-drop/moveItemInArray,transferArrayItem,@angular/cdk/drag-drop/transferArrayItem"
+        }
+      ],
+      "evidence": {
+        "identity": [
+          {
+            "field": "purl",
+            "confidence": 1,
+            "methods": [
+              {
+                "technique": "manifest-analysis",
+                "confidence": 1,
+                "value": "pnpm-lock.yaml"
+              }
+            ],
+            "concludedValue": "pnpm-lock.yaml"
+          }
+        ],
+        "occurrences": [
+          {
+            "location": "src/app/editor-page/editor-page.ts#28"
+          }
+        ]
+      },
+      "tags": [
+        "framework"
+      ]
+    },
+    {
+      "group": "@angular",
+      "name": "common",
+      "version": "21.0.8",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "a27d41e2873fa5fec89646c6d3c12dfdc083497f1da59cfd8b0a77ccc14dff426fa2bb29c8be583a8bc525f8dda668dd96b222f93a06226c3222463d3fc31b97"
+        }
+      ],
+      "purl": "pkg:npm/%40angular/common@21.0.8",
+      "type": "framework",
+      "bom-ref": "pkg:npm/@angular/common@21.0.8",
+      "properties": [
+        {
+          "name": "SrcFile",
+          "value": "pnpm-lock.yaml"
+        },
+        {
+          "name": "ImportedModules",
+          "value": "@angular/common/http,HttpClient,@angular/common/http/HttpClient,HttpResponse,@angular/common/http/HttpResponse,@angular/common,AsyncPipe,@angular/common/AsyncPipe"
+        }
+      ],
+      "evidence": {
+        "identity": [
+          {
+            "field": "purl",
+            "confidence": 1,
+            "methods": [
+              {
+                "technique": "manifest-analysis",
+                "confidence": 1,
+                "value": "pnpm-lock.yaml"
+              }
+            ],
+            "concludedValue": "pnpm-lock.yaml"
+          }
+        ],
+        "occurrences": [
+          {
+            "location": "src/app/api-source-model-service.ts#7"
+          },
+          {
+            "location": "src/app/app-metadata-service.ts#7"
+          },
+          {
+            "location": "src/app/generator-service.ts#7"
+          },
+          {
+            "location": "src/app/notices-service.ts#8"
+          },
+          {
+            "location": "src/app/sample-model.service.ts#9"
+          },
+          {
+            "location": "src/app/footer-toolbar/footer-toolbar.ts#12"
+          }
+        ]
+      },
+      "tags": [
+        "framework"
+      ]
+    },
+    {
+      "group": "@angular",
+      "name": "core",
+      "version": "21.0.8",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "f1d368948427f161eb0f73eca86b8faee8f10d7e618e931b8a889f201ca38d7f72689cbda27ec07b05466fc9bf0c7570590d5e1950069af5bdc2dfa1fa79732e"
+        }
+      ],
+      "purl": "pkg:npm/%40angular/core@21.0.8",
+      "type": "framework",
+      "bom-ref": "pkg:npm/@angular/core@21.0.8",
+      "properties": [
+        {
+          "name": "SrcFile",
+          "value": "pnpm-lock.yaml"
+        },
+        {
+          "name": "ImportedModules",
+          "value": "@angular/core,Injectable,@angular/core/Injectable,Component,@angular/core/Component,signal,@angular/core/signal,ChangeDetectorRef,@angular/core/ChangeDetectorRef,OnInit,@angular/core/OnInit,EventEmitter,@angular/core/EventEmitter,Input,@angular/core/Input,Output,@angular/core/Output,ViewChild,@angular/core/ViewChild,ElementRef,@angular/core/ElementRef,AfterViewInit,@angular/core/AfterViewInit,Signal,@angular/core/Signal,@angular/core/rxjs-interop,toSignal,@angular/core/rxjs-interop/toSignal"
+        }
+      ],
+      "evidence": {
+        "identity": [
+          {
+            "field": "purl",
+            "confidence": 1,
+            "methods": [
+              {
+                "technique": "manifest-analysis",
+                "confidence": 1,
+                "value": "pnpm-lock.yaml"
+              }
+            ],
+            "concludedValue": "pnpm-lock.yaml"
+          }
+        ],
+        "occurrences": [
+          {
+            "location": "src/app/api-source-model-service.ts#6"
+          },
+          {
+            "location": "src/app/app-metadata-service.ts#6"
+          },
+          {
+            "location": "src/app/app.ts#6"
+          },
+          {
+            "location": "src/app/backend-status-messages/backend-status-messages.ts#6"
+          },
+          {
+            "location": "src/app/data-point-editor/data-point-editor.ts#6"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#14"
+          },
+          {
+            "location": "src/app/entry-consent/entry-consent.ts#6"
+          },
+          {
+            "location": "src/app/faq/faq.ts#6"
+          },
+          {
+            "location": "src/app/footer-toolbar/footer-toolbar.ts#6"
+          },
+          {
+            "location": "src/app/generator-service.ts#6"
+          },
+          {
+            "location": "src/app/header-toolbar/header-toolbar.ts#6"
+          },
+          {
+            "location": "src/app/license-page/license-page.ts#6"
+          },
+          {
+            "location": "src/app/local-storage-service.ts#6"
+          },
+          {
+            "location": "src/app/main-page/main-page.ts#6"
+          },
+          {
+            "location": "src/app/menu-sidebar/menu-sidebar.ts#6"
+          },
+          {
+            "location": "src/app/notices-service.ts#6"
+          },
+          {
+            "location": "src/app/privacy-policy-page/privacy-policy-page.ts#6"
+          },
+          {
+            "location": "src/app/sample-model.service.ts#6"
+          },
+          {
+            "location": "src/app/source-data-point-chooser/source-data-point-chooser.ts#6"
+          },
+          {
+            "location": "src/app/source-data-point-service.ts#6"
+          },
+          {
+            "location": "src/app/status-message-service.ts#6"
+          },
+          {
+            "location": "src/app/terms-page/terms-page.ts#6"
+          },
+          {
+            "location": "src/app/third-party-licenses-page/third-party-licenses-page.ts#6"
+          },
+          {
+            "location": "src/app/unit-chooser/unit-chooser.ts#6"
+          },
+          {
+            "location": "src/app/user-data-service.ts#6"
+          },
+          {
+            "location": "src/app/license-page/license-page.ts#8"
+          },
+          {
+            "location": "src/app/privacy-policy-page/privacy-policy-page.ts#8"
+          },
+          {
+            "location": "src/app/terms-page/terms-page.ts#8"
+          },
+          {
+            "location": "src/app/third-party-licenses-page/third-party-licenses-page.ts#8"
+          }
+        ]
+      },
+      "tags": [
+        "framework"
+      ]
+    },
+    {
+      "group": "@angular",
+      "name": "forms",
+      "version": "21.0.8",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "1f4dc0e747a56b05cee77c64cf4032b5aaf99184f5e062de6a3e9d2ca73591c47936abd7f58fd1ef3ddb639dadbf2a4074847c0a63d3eda774ed3953e0ef6592"
+        }
+      ],
+      "purl": "pkg:npm/%40angular/forms@21.0.8",
+      "type": "framework",
+      "bom-ref": "pkg:npm/@angular/forms@21.0.8",
+      "properties": [
+        {
+          "name": "SrcFile",
+          "value": "pnpm-lock.yaml"
+        },
+        {
+          "name": "ImportedModules",
+          "value": "@angular/forms,FormControl,@angular/forms/FormControl,FormsModule,@angular/forms/FormsModule,ReactiveFormsModule,@angular/forms/ReactiveFormsModule,FormGroup,@angular/forms/FormGroup"
+        }
+      ],
+      "evidence": {
+        "identity": [
+          {
+            "field": "purl",
+            "confidence": 1,
+            "methods": [
+              {
+                "technique": "manifest-analysis",
+                "confidence": 1,
+                "value": "pnpm-lock.yaml"
+              }
+            ],
+            "concludedValue": "pnpm-lock.yaml"
+          }
+        ],
+        "occurrences": [
+          {
+            "location": "src/app/data-point-editor/data-point-editor.ts#8"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#35"
+          },
+          {
+            "location": "src/app/source-data-point-chooser/source-data-point-chooser.ts#12"
+          },
+          {
+            "location": "src/app/unit-chooser/unit-chooser.ts#9"
+          }
+        ]
+      },
+      "tags": [
+        "framework"
+      ]
+    },
+    {
+      "group": "@angular",
+      "name": "platform-browser",
+      "version": "21.0.8",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "e6b3f2acfea7e8294ed191145e7752dbf5dbee766b6e38d858ec607c26fe6530a253b7b237ace14a689c2a4d9d2d0c44d4cd79c1b4daf3b74debf62dbaadaebe"
+        }
+      ],
+      "purl": "pkg:npm/%40angular/platform-browser@21.0.8",
+      "type": "framework",
+      "bom-ref": "pkg:npm/@angular/platform-browser@21.0.8",
+      "properties": [
+        {
+          "name": "SrcFile",
+          "value": "pnpm-lock.yaml"
+        },
+        {
+          "name": "ImportedModules",
+          "value": "@angular/platform-browser,bootstrapApplication,@angular/platform-browser/bootstrapApplication"
+        }
+      ],
+      "evidence": {
+        "identity": [
+          {
+            "field": "purl",
+            "confidence": 1,
+            "methods": [
+              {
+                "technique": "manifest-analysis",
+                "confidence": 1,
+                "value": "pnpm-lock.yaml"
+              }
+            ],
+            "concludedValue": "pnpm-lock.yaml"
+          }
+        ],
+        "occurrences": [
+          {
+            "location": "src/main.ts#6"
+          }
+        ]
+      },
+      "tags": [
+        "framework"
+      ]
+    },
+    {
+      "group": "@angular",
+      "name": "router",
+      "version": "21.0.8",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "2cf47ae70c96052c91e3a7c6790b43f76f9333adf9a34961f8de64f6a3d974c69ca20c15893aed04758f7ca601b415172d61165d72897d26d7be1877c37b8bc7"
+        }
+      ],
+      "purl": "pkg:npm/%40angular/router@21.0.8",
+      "type": "framework",
+      "bom-ref": "pkg:npm/@angular/router@21.0.8",
+      "properties": [
+        {
+          "name": "SrcFile",
+          "value": "pnpm-lock.yaml"
+        },
+        {
+          "name": "ImportedModules",
+          "value": "@angular/router,Routes,@angular/router/Routes,RouterOutlet,@angular/router/RouterOutlet,RouterLink,@angular/router/RouterLink"
+        }
+      ],
+      "evidence": {
+        "identity": [
+          {
+            "field": "purl",
+            "confidence": 1,
+            "methods": [
+              {
+                "technique": "manifest-analysis",
+                "confidence": 1,
+                "value": "pnpm-lock.yaml"
+              }
+            ],
+            "concludedValue": "pnpm-lock.yaml"
+          }
+        ],
+        "occurrences": [
+          {
+            "location": "src/app/app.routes.ts#6"
+          },
+          {
+            "location": "src/app/app.ts#7"
+          },
+          {
+            "location": "src/app/entry-consent/entry-consent.ts#11"
+          },
+          {
+            "location": "src/app/footer-toolbar/footer-toolbar.ts#8"
+          }
+        ]
+      },
+      "tags": [
+        "framework"
+      ]
+    },
+    {
+      "authors": [
+        {
+          "name": "Dr.-Ing. Mario Heiderich"
+        },
+        {
+          "name": " Cure53 <mario@cure53.de> (https://cure53.de/)"
+        }
+      ],
+      "group": "",
+      "name": "dompurify",
+      "version": "3.3.0",
+      "description": "DOMPurify is a DOM-only, super-fast, uber-tolerant XSS sanitizer for HTML, MathML and SVG. It's written in JavaScript and works in all modern browsers (Safari, Opera (15+), Internet Explorer (10+), Firefox and Chrome - as well as almost anything else using Blink or WebKit). DOMPurify is written by security people who have vast background in web attacks and XSS. Fear not.",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "afe7fa318475806375789bf44d541b840ee27ff53b3fcedc74f9771cde6b8a4a9a0520712e209bfdbf4efb6786d1cc73d2087253e994d5091bb0ec0444c62559"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "(MPL-2.0 OR Apache-2.0)"
+        }
+      ],
+      "purl": "pkg:npm/dompurify@3.3.0",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/cure53/DOMPurify"
+        },
+        {
+          "type": "vcs",
+          "url": "git://github.com/cure53/DOMPurify.git"
+        }
+      ],
+      "type": "library",
+      "bom-ref": "pkg:npm/dompurify@3.3.0",
+      "properties": [
+        {
+          "name": "SrcFile",
+          "value": "pnpm-lock.yaml"
+        },
+        {
+          "name": "ImportedModules",
+          "value": "dompurify"
+        }
+      ],
+      "evidence": {
+        "identity": [
+          {
+            "field": "purl",
+            "confidence": 1,
+            "methods": [
+              {
+                "technique": "manifest-analysis",
+                "confidence": 1,
+                "value": "pnpm-lock.yaml"
+              }
+            ],
+            "concludedValue": "pnpm-lock.yaml"
+          }
+        ],
+        "occurrences": [
+          {
+            "location": "src/app/notices-service.ts#12"
+          },
+          {
+            "location": "src/main.ts#9"
+          }
+        ]
+      },
+      "tags": [
+        "security",
+        "web"
+      ]
+    },
+    {
+      "authors": [
+        {
+          "name": "Christopher Jeffrey"
+        }
+      ],
+      "group": "",
+      "name": "marked",
+      "version": "17.0.1",
+      "description": "A markdown parser built for speed",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "6e87817624b4821a56712c28366fe3241c1da4568c9d9591ce303a4a450c61be3449568dd71ee699f18aa748ef7b119cc7eef2d8b6b9cd166c605648e90a72a6"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/marked@17.0.1",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://marked.js.org"
+        },
+        {
+          "type": "vcs",
+          "url": "git://github.com/markedjs/marked.git"
+        }
+      ],
+      "type": "library",
+      "bom-ref": "pkg:npm/marked@17.0.1",
+      "properties": [
+        {
+          "name": "SrcFile",
+          "value": "pnpm-lock.yaml"
+        },
+        {
+          "name": "cdx:npm:has_binary",
+          "value": "true"
+        },
+        {
+          "name": "ImportedModules",
+          "value": "marked,marked/marked"
+        }
+      ],
+      "evidence": {
+        "identity": [
+          {
+            "field": "purl",
+            "confidence": 1,
+            "methods": [
+              {
+                "technique": "manifest-analysis",
+                "confidence": 1,
+                "value": "pnpm-lock.yaml"
+              }
+            ],
+            "concludedValue": "pnpm-lock.yaml"
+          }
+        ],
+        "occurrences": [
+          {
+            "location": "src/app/notices-service.ts#13"
+          }
+        ]
+      }
+    },
+    {
+      "authors": [
+        {
+          "name": "PrimeTek Informatics"
+        }
+      ],
+      "group": "",
+      "name": "primeng",
+      "version": "21.0.1",
+      "description": "PrimeNG is an open source UI library for Angular featuring a rich set of 80+ components, a theme designer, various theme alternatives such as Material, Bootstrap, Tailwind, premium templates and professional support. In addition, it integrates with PrimeBlock, which has 370+ ready to use UI blocks to build spectacular applications in no time.",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "94298ca6bd9c80be2bfc73c1c8c9eb2933e0c182404213036edbbfbbc54bdceb67cecf0a48a63b6e64a71fa72abee72c93c96bfd548a253c5bb2c6fd82d98e56"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "SEE LICENSE IN LICENSE.md"
+        }
+      ],
+      "purl": "pkg:npm/primeng@21.0.1",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://primeng.org/"
+        },
+        {
+          "type": "vcs",
+          "url": "https://github.com/primefaces/primeng.git"
+        }
+      ],
+      "type": "library",
+      "bom-ref": "pkg:npm/primeng@21.0.1",
+      "properties": [
+        {
+          "name": "SrcFile",
+          "value": "pnpm-lock.yaml"
+        },
+        {
+          "name": "ImportedModules",
+          "value": "primeng/message,Message,primeng/message/Message,primeng/card,Card,primeng/card/Card,primeng/inputtext,InputText,primeng/inputtext/InputText,primeng/iftalabel,IftaLabel,primeng/iftalabel/IftaLabel,primeng/button,Button,primeng/button/Button,primeng/tooltip,Tooltip,primeng/tooltip/Tooltip,primeng/keyfilter,KeyFilter,primeng/keyfilter/KeyFilter,ButtonDirective,primeng/button/ButtonDirective,primeng/popover,Popover,primeng/popover/Popover,primeng/classnames,ClassNames,primeng/classnames/ClassNames,primeng/dialog,Dialog,primeng/dialog/Dialog,primeng/checkbox,Checkbox,primeng/checkbox/Checkbox,ButtonLabel,primeng/button/ButtonLabel,primeng/toolbar,Toolbar,primeng/toolbar/Toolbar,primeng/tag,primeng/tag/Tag,primeng/api,MenuItem,primeng/api/MenuItem,ButtonModule,primeng/button/ButtonModule,InputTextModule,primeng/inputtext/InputTextModule,primeng/drawer,Drawer,primeng/drawer/Drawer,primeng/menu,Menu,primeng/menu/Menu,primeng/autocomplete,AutoComplete,primeng/autocomplete/AutoComplete,AutoCompleteCompleteEvent,primeng/autocomplete/AutoCompleteCompleteEvent,primeng/select,Select,primeng/select/Select"
+        }
+      ],
+      "evidence": {
+        "identity": [
+          {
+            "field": "purl",
+            "confidence": 1,
+            "methods": [
+              {
+                "technique": "manifest-analysis",
+                "confidence": 1,
+                "value": "pnpm-lock.yaml"
+              }
+            ],
+            "concludedValue": "pnpm-lock.yaml"
+          }
+        ],
+        "occurrences": [
+          {
+            "location": "src/app/backend-status-messages/backend-status-messages.ts#7"
+          },
+          {
+            "location": "src/app/backend-status-messages/backend-status-messages.ts#7"
+          },
+          {
+            "location": "src/app/data-point-editor/data-point-editor.ts#7"
+          },
+          {
+            "location": "src/app/data-point-editor/data-point-editor.ts#9"
+          },
+          {
+            "location": "src/app/data-point-editor/data-point-editor.ts#11"
+          },
+          {
+            "location": "src/app/data-point-editor/data-point-editor.ts#12"
+          },
+          {
+            "location": "src/app/data-point-editor/data-point-editor.ts#17"
+          },
+          {
+            "location": "src/app/data-point-editor/data-point-editor.ts#19"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#15"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#18"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#33"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#36"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#37"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#39"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#46"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#47"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#48"
+          },
+          {
+            "location": "src/app/entry-consent/entry-consent.ts#7"
+          },
+          {
+            "location": "src/app/entry-consent/entry-consent.ts#8"
+          },
+          {
+            "location": "src/app/faq/faq.ts#7"
+          },
+          {
+            "location": "src/app/footer-toolbar/footer-toolbar.ts#7"
+          },
+          {
+            "location": "src/app/footer-toolbar/footer-toolbar.ts#13"
+          },
+          {
+            "location": "src/app/header-toolbar/header-toolbar.ts#7"
+          },
+          {
+            "location": "src/app/header-toolbar/header-toolbar.ts#8"
+          },
+          {
+            "location": "src/app/header-toolbar/header-toolbar.ts#9"
+          },
+          {
+            "location": "src/app/header-toolbar/header-toolbar.ts#10"
+          },
+          {
+            "location": "src/app/license-page/license-page.ts#9"
+          },
+          {
+            "location": "src/app/menu-sidebar/menu-sidebar.ts#7"
+          },
+          {
+            "location": "src/app/menu-sidebar/menu-sidebar.ts#9"
+          },
+          {
+            "location": "src/app/menu-sidebar/menu-sidebar.ts#10"
+          },
+          {
+            "location": "src/app/privacy-policy-page/privacy-policy-page.ts#9"
+          },
+          {
+            "location": "src/app/source-data-point-chooser/source-data-point-chooser.ts#9"
+          },
+          {
+            "location": "src/app/source-data-point-chooser/source-data-point-chooser.ts#10"
+          },
+          {
+            "location": "src/app/source-data-point-chooser/source-data-point-chooser.ts#11"
+          },
+          {
+            "location": "src/app/terms-page/terms-page.ts#9"
+          },
+          {
+            "location": "src/app/third-party-licenses-page/third-party-licenses-page.ts#9"
+          },
+          {
+            "location": "src/app/unit-chooser/unit-chooser.ts#7"
+          },
+          {
+            "location": "src/app/unit-chooser/unit-chooser.ts#10"
+          },
+          {
+            "location": "src/app/data-point-editor/data-point-editor.ts#7"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#18"
+          },
+          {
+            "location": "src/app/faq/faq.ts#7"
+          },
+          {
+            "location": "src/app/license-page/license-page.ts#9"
+          },
+          {
+            "location": "src/app/privacy-policy-page/privacy-policy-page.ts#9"
+          },
+          {
+            "location": "src/app/terms-page/terms-page.ts#9"
+          },
+          {
+            "location": "src/app/third-party-licenses-page/third-party-licenses-page.ts#9"
+          },
+          {
+            "location": "src/app/data-point-editor/data-point-editor.ts#9"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#47"
+          },
+          {
+            "location": "src/app/header-toolbar/header-toolbar.ts#10"
+          },
+          {
+            "location": "src/app/data-point-editor/data-point-editor.ts#11"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#46"
+          },
+          {
+            "location": "src/app/source-data-point-chooser/source-data-point-chooser.ts#10"
+          },
+          {
+            "location": "src/app/unit-chooser/unit-chooser.ts#10"
+          },
+          {
+            "location": "src/app/data-point-editor/data-point-editor.ts#12"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#15"
+          },
+          {
+            "location": "src/app/entry-consent/entry-consent.ts#8"
+          },
+          {
+            "location": "src/app/header-toolbar/header-toolbar.ts#9"
+          },
+          {
+            "location": "src/app/data-point-editor/data-point-editor.ts#17"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#33"
+          },
+          {
+            "location": "src/app/source-data-point-chooser/source-data-point-chooser.ts#11"
+          },
+          {
+            "location": "src/app/data-point-editor/data-point-editor.ts#19"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#36"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#37"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#39"
+          },
+          {
+            "location": "src/app/entry-consent/entry-consent.ts#7"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#48"
+          },
+          {
+            "location": "src/app/footer-toolbar/footer-toolbar.ts#7"
+          },
+          {
+            "location": "src/app/header-toolbar/header-toolbar.ts#8"
+          },
+          {
+            "location": "src/app/footer-toolbar/footer-toolbar.ts#13"
+          },
+          {
+            "location": "src/app/header-toolbar/header-toolbar.ts#7"
+          },
+          {
+            "location": "src/app/menu-sidebar/menu-sidebar.ts#10"
+          },
+          {
+            "location": "src/app/menu-sidebar/menu-sidebar.ts#7"
+          },
+          {
+            "location": "src/app/menu-sidebar/menu-sidebar.ts#9"
+          },
+          {
+            "location": "src/app/source-data-point-chooser/source-data-point-chooser.ts#9"
+          },
+          {
+            "location": "src/app/unit-chooser/unit-chooser.ts#7"
+          }
+        ]
+      },
+      "tags": [
+        "templates"
+      ]
+    },
+    {
+      "authors": [
+        {
+          "name": "Ben Lesh <ben@benlesh.com>"
+        }
+      ],
+      "group": "",
+      "name": "rxjs",
+      "version": "7.8.2",
+      "description": "Reactive Extensions for modern JavaScript",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "76129ff74dd4fcf41963a6e834db4019d59b1bce5601b8d3ff5c58a19202ec5018d3259aa4e05056c56b0e5e7c5bcebffded55a4c341b5157831a5df74cc9214"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "url": "https://opensource.org/licenses/Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/rxjs@7.8.2",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://rxjs.dev"
+        },
+        {
+          "type": "vcs",
+          "url": "https://github.com/reactivex/rxjs.git"
+        }
+      ],
+      "type": "library",
+      "bom-ref": "pkg:npm/rxjs@7.8.2",
+      "properties": [
+        {
+          "name": "SrcFile",
+          "value": "pnpm-lock.yaml"
+        },
+        {
+          "name": "ImportedModules",
+          "value": "rxjs,catchError,rxjs/catchError,filter,rxjs/filter,Observable,rxjs/Observable,rxjs/of,ReplaySubject,rxjs/ReplaySubject,first,rxjs/first,startWith,rxjs/startWith,rxjs/map,forkJoin,rxjs/forkJoin"
+        }
+      ],
+      "evidence": {
+        "identity": [
+          {
+            "field": "purl",
+            "confidence": 1,
+            "methods": [
+              {
+                "technique": "manifest-analysis",
+                "confidence": 1,
+                "value": "pnpm-lock.yaml"
+              }
+            ],
+            "concludedValue": "pnpm-lock.yaml"
+          }
+        ],
+        "occurrences": [
+          {
+            "location": "src/app/api-source-model-service.ts#9"
+          },
+          {
+            "location": "src/app/app-metadata-service.ts#8"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#40"
+          },
+          {
+            "location": "src/app/footer-toolbar/footer-toolbar.ts#11"
+          },
+          {
+            "location": "src/app/generator-service.ts#22"
+          },
+          {
+            "location": "src/app/notices-service.ts#7"
+          },
+          {
+            "location": "src/app/sample-model.service.ts#7"
+          },
+          {
+            "location": "src/app/source-data-point-service.ts#8"
+          },
+          {
+            "location": "src/app/status-message-service.ts#7"
+          }
+        ]
+      }
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:npm/dcs-pylot-dash-ui@1.0.0",
+      "dependsOn": [
+        "pkg:npm/@angular/cdk@21.0.6",
+        "pkg:npm/@angular/common@21.0.8",
+        "pkg:npm/@angular/core@21.0.8",
+        "pkg:npm/@angular/forms@21.0.8",
+        "pkg:npm/@angular/platform-browser@21.0.8",
+        "pkg:npm/@angular/router@21.0.8",
+        "pkg:npm/dompurify@3.3.0",
+        "pkg:npm/marked@17.0.1",
+        "pkg:npm/primeng@21.0.1",
+        "pkg:npm/rxjs@7.8.2"
+      ]
+    },
+    {
+      "ref": "pkg:npm/@angular/cdk@21.0.6",
+      "dependsOn": [
+        "pkg:npm/@angular/common@21.0.8",
+        "pkg:npm/@angular/core@21.0.8",
+        "pkg:npm/rxjs@7.8.2"
+      ]
+    },
+    {
+      "ref": "pkg:npm/@angular/common@21.0.8",
+      "dependsOn": [
+        "pkg:npm/@angular/core@21.0.8",
+        "pkg:npm/rxjs@7.8.2"
+      ]
+    },
+    {
+      "ref": "pkg:npm/@angular/core@21.0.8",
+      "dependsOn": [
+        "pkg:npm/rxjs@7.8.2"
+      ]
+    },
+    {
+      "ref": "pkg:npm/@angular/forms@21.0.8",
+      "dependsOn": [
+        "pkg:npm/@angular/common@21.0.8",
+        "pkg:npm/@angular/core@21.0.8",
+        "pkg:npm/@angular/platform-browser@21.0.8",
+        "pkg:npm/rxjs@7.8.2"
+      ]
+    },
+    {
+      "ref": "pkg:npm/@angular/platform-browser@21.0.8",
+      "dependsOn": [
+        "pkg:npm/@angular/common@21.0.8",
+        "pkg:npm/@angular/core@21.0.8"
+      ]
+    },
+    {
+      "ref": "pkg:npm/@angular/router@21.0.8",
+      "dependsOn": [
+        "pkg:npm/@angular/common@21.0.8",
+        "pkg:npm/@angular/core@21.0.8",
+        "pkg:npm/@angular/platform-browser@21.0.8",
+        "pkg:npm/rxjs@7.8.2"
+      ]
+    },
+    {
+      "ref": "pkg:npm/dompurify@3.3.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/marked@17.0.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/primeng@21.0.1",
+      "dependsOn": [
+        "pkg:npm/@angular/cdk@21.0.6",
+        "pkg:npm/@angular/common@21.0.8",
+        "pkg:npm/@angular/core@21.0.8",
+        "pkg:npm/@angular/forms@21.0.8",
+        "pkg:npm/@angular/platform-browser@21.0.8",
+        "pkg:npm/@angular/router@21.0.8",
+        "pkg:npm/rxjs@7.8.2"
+      ]
+    },
+    {
+      "ref": "pkg:npm/rxjs@7.8.2",
+      "dependsOn": []
+    }
+  ],
+  "compositions": [
+    {
+      "bom-ref": "pkg:npm/dcs-pylot-dash-ui@1.0.0",
+      "aggregate": "incomplete"
+    }
+  ],
+  "annotations": [
+    {
+      "bom-ref": "metadata-annotations",
+      "subjects": [
+        "pkg:npm/dcs-pylot-dash-ui@1.0.0"
+      ],
+      "annotator": {
+        "component": {
+          "group": "@cyclonedx",
+          "name": "cdxgen",
+          "version": "12.0.0",
+          "purl": "pkg:npm/%40cyclonedx/cdxgen@12.0.0",
+          "type": "application",
+          "bom-ref": "pkg:npm/@cyclonedx/cdxgen@12.0.0",
+          "publisher": "OWASP Foundation",
+          "authors": [
+            {
+              "name": "OWASP Foundation"
+            }
+          ]
+        }
+      },
+      "timestamp": "2026-01-25T12:59:16Z",
+      "text": "This Software Bill-of-Materials (SBOM) document was created on Sunday, January 25, 2026 with cdxgen. The data was captured during the pre-build lifecycle phase without building the application. The document describes an application named 'dcs-pylot-dash-ui' with version '1.0.0'. There are 10 components. The package type in this SBOM is npm with a single purl namespace '@angular' described under components. The components were identified from the source files: pnpm-lock.yaml."
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-# Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
+# Copyright (c) 2026 Kevin Rzepka <kdev@posteo.com>
 # SPDX-License-Identifier: MIT
 # License-Filename: LICENSE
 import logging
@@ -108,6 +108,10 @@ class SBOMComponent(BaseModel):
     @property
     def is_library(self) -> bool:
         return self.component_type == "library"
+
+    @property
+    def is_framework(self) -> bool:
+        return self.component_type == "framework"
 
     @property
     def real_licenses(self) -> list[SBOMLicense]:
@@ -245,5 +249,5 @@ class SBOM(BaseModel):
     components: list[SBOMComponent] = []
 
     @property
-    def library_components(self) -> list[SBOMComponent]:
-        return [c for c in self.components if c.is_library]
+    def library_or_framework_components(self) -> list[SBOMComponent]:
+        return [c for c in self.components if c.is_library or c.is_framework]

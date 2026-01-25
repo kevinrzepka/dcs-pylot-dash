@@ -1,4 +1,4 @@
-# Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
+# Copyright (c) 2026 Kevin Rzepka <kdev@posteo.com>
 # SPDX-License-Identifier: MIT
 # License-Filename: LICENSE
 import asyncio
@@ -100,7 +100,7 @@ if __name__ == "__main__":
         output_versions=namespace.output_versions
     )
     if namespace.output_file_path is not None:
-        attribution_file_path: Path = Path(namespace.output_file_path).resolve(strict=True)
+        attribution_file_path: Path = Path(namespace.output_file_path)
         attribution_text_file_builder.output_to_file(attribution, attribution_file_path)
     else:
         attribution_text: str = attribution_text_file_builder.generate_text(attribution)

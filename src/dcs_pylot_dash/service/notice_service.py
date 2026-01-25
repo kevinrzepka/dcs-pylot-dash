@@ -1,4 +1,4 @@
-# Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
+# Copyright (c) 2026 Kevin Rzepka <kdev@posteo.com>
 # SPDX-License-Identifier: MIT
 # License-Filename: LICENSE
 from typing import ClassVar
@@ -18,7 +18,7 @@ class NoticesContainer(BaseModel):
 
 
 class NoticesSettings(BaseSettings):
-    THIRD_PARTY_LICENSES_FILE_NAME: ClassVar[str] = "third_party_licenses.txt"
+    THIRD_PARTY_LICENSES_FILE_NAME: ClassVar[str] = "third_party_licenses_distributed.txt"
     LICENSE_FILE_NAME: ClassVar[str] = "LICENSE"
     PRIVACY_POLICY_FILE_NAME: ClassVar[str] = "privacy_policy.md"
     TERMS_OF_SERVICE_FILE_NAME: ClassVar[str] = "terms_of_service.md"

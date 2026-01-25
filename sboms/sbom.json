@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
-  "serialNumber": "urn:uuid:8be70e5b-edb2-4b4b-a33d-ce5ff3c4edee",
+  "serialNumber": "urn:uuid:a588617b-4bce-485a-8b29-db69e802c91f",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-01-17T10:51:06Z",
+    "timestamp": "2026-01-25T12:59:19Z",
     "tools": {
       "components": [
         {
@@ -3956,7 +3956,7 @@
         },
         {
           "name": "ImportedModules",
-          "value": "@angular/core,Injectable,@angular/core/Injectable,Component,@angular/core/Component,signal,@angular/core/signal,EventEmitter,@angular/core/EventEmitter,Input,@angular/core/Input,OnInit,@angular/core/OnInit,Output,@angular/core/Output,ViewChild,@angular/core/ViewChild,ChangeDetectorRef,@angular/core/ChangeDetectorRef,ElementRef,@angular/core/ElementRef,AfterViewInit,@angular/core/AfterViewInit,Signal,@angular/core/Signal,@angular/core/rxjs-interop,toSignal,@angular/core/rxjs-interop/toSignal"
+          "value": "@angular/core,Injectable,@angular/core/Injectable,Component,@angular/core/Component,signal,@angular/core/signal,ChangeDetectorRef,@angular/core/ChangeDetectorRef,OnInit,@angular/core/OnInit,EventEmitter,@angular/core/EventEmitter,Input,@angular/core/Input,Output,@angular/core/Output,ViewChild,@angular/core/ViewChild,ElementRef,@angular/core/ElementRef,AfterViewInit,@angular/core/AfterViewInit,Signal,@angular/core/Signal,@angular/core/rxjs-interop,toSignal,@angular/core/rxjs-interop/toSignal"
         }
       ],
       "evidence": {
@@ -3981,6 +3981,9 @@
           },
           {
             "location": "src/app/app.ts#6"
+          },
+          {
+            "location": "src/app/backend-status-messages/backend-status-messages.ts#6"
           },
           {
             "location": "src/app/data-point-editor/data-point-editor.ts#6"
@@ -4029,6 +4032,9 @@
           },
           {
             "location": "src/app/source-data-point-service.ts#6"
+          },
+          {
+            "location": "src/app/status-message-service.ts#6"
           },
           {
             "location": "src/app/terms-page/terms-page.ts#6"
@@ -4102,7 +4108,7 @@
             "location": "src/app/data-point-editor/data-point-editor.ts#8"
           },
           {
-            "location": "src/app/editor-page/editor-page.ts#32"
+            "location": "src/app/editor-page/editor-page.ts#35"
           },
           {
             "location": "src/app/source-data-point-chooser/source-data-point-chooser.ts#12"
@@ -32700,7 +32706,7 @@
         },
         {
           "name": "ImportedModules",
-          "value": "primeng/card,Card,primeng/card/Card,primeng/inputtext,InputText,primeng/inputtext/InputText,primeng/iftalabel,IftaLabel,primeng/iftalabel/IftaLabel,primeng/button,Button,primeng/button/Button,primeng/tooltip,Tooltip,primeng/tooltip/Tooltip,primeng/keyfilter,KeyFilter,primeng/keyfilter/KeyFilter,ButtonDirective,primeng/button/ButtonDirective,primeng/popover,Popover,primeng/popover/Popover,primeng/classnames,ClassNames,primeng/classnames/ClassNames,primeng/dialog,Dialog,primeng/dialog/Dialog,primeng/checkbox,Checkbox,primeng/checkbox/Checkbox,ButtonLabel,primeng/button/ButtonLabel,primeng/toolbar,Toolbar,primeng/toolbar/Toolbar,primeng/tag,primeng/tag/Tag,primeng/api,MenuItem,primeng/api/MenuItem,ButtonModule,primeng/button/ButtonModule,InputTextModule,primeng/inputtext/InputTextModule,primeng/drawer,Drawer,primeng/drawer/Drawer,primeng/menu,Menu,primeng/menu/Menu,primeng/autocomplete,AutoComplete,primeng/autocomplete/AutoComplete,AutoCompleteCompleteEvent,primeng/autocomplete/AutoCompleteCompleteEvent,primeng/select,Select,primeng/select/Select"
+          "value": "primeng/message,Message,primeng/message/Message,primeng/card,Card,primeng/card/Card,primeng/inputtext,InputText,primeng/inputtext/InputText,primeng/iftalabel,IftaLabel,primeng/iftalabel/IftaLabel,primeng/button,Button,primeng/button/Button,primeng/tooltip,Tooltip,primeng/tooltip/Tooltip,primeng/keyfilter,KeyFilter,primeng/keyfilter/KeyFilter,ButtonDirective,primeng/button/ButtonDirective,primeng/popover,Popover,primeng/popover/Popover,primeng/classnames,ClassNames,primeng/classnames/ClassNames,primeng/dialog,Dialog,primeng/dialog/Dialog,primeng/checkbox,Checkbox,primeng/checkbox/Checkbox,ButtonLabel,primeng/button/ButtonLabel,primeng/toolbar,Toolbar,primeng/toolbar/Toolbar,primeng/tag,primeng/tag/Tag,primeng/api,MenuItem,primeng/api/MenuItem,ButtonModule,primeng/button/ButtonModule,InputTextModule,primeng/inputtext/InputTextModule,primeng/drawer,Drawer,primeng/drawer/Drawer,primeng/menu,Menu,primeng/menu/Menu,primeng/autocomplete,AutoComplete,primeng/autocomplete/AutoComplete,AutoCompleteCompleteEvent,primeng/autocomplete/AutoCompleteCompleteEvent,primeng/select,Select,primeng/select/Select"
         }
       ],
       "evidence": {
@@ -32718,25 +32724,10 @@
         },
         "occurrences": [
           {
-            "location": "src/app/data-point-editor/data-point-editor.ts#7"
+            "location": "src/app/backend-status-messages/backend-status-messages.ts#7"
           },
           {
-            "location": "src/app/editor-page/editor-page.ts#18"
-          },
-          {
-            "location": "src/app/faq/faq.ts#7"
-          },
-          {
-            "location": "src/app/license-page/license-page.ts#9"
-          },
-          {
-            "location": "src/app/privacy-policy-page/privacy-policy-page.ts#9"
-          },
-          {
-            "location": "src/app/terms-page/terms-page.ts#9"
-          },
-          {
-            "location": "src/app/third-party-licenses-page/third-party-licenses-page.ts#9"
+            "location": "src/app/backend-status-messages/backend-status-messages.ts#7"
           },
           {
             "location": "src/app/data-point-editor/data-point-editor.ts#7"
@@ -32751,10 +32742,10 @@
             "location": "src/app/data-point-editor/data-point-editor.ts#12"
           },
           {
-            "location": "src/app/data-point-editor/data-point-editor.ts#14"
+            "location": "src/app/data-point-editor/data-point-editor.ts#17"
           },
           {
-            "location": "src/app/data-point-editor/data-point-editor.ts#16"
+            "location": "src/app/data-point-editor/data-point-editor.ts#19"
           },
           {
             "location": "src/app/editor-page/editor-page.ts#15"
@@ -32763,25 +32754,25 @@
             "location": "src/app/editor-page/editor-page.ts#18"
           },
           {
-            "location": "src/app/editor-page/editor-page.ts#30"
-          },
-          {
             "location": "src/app/editor-page/editor-page.ts#33"
-          },
-          {
-            "location": "src/app/editor-page/editor-page.ts#34"
           },
           {
             "location": "src/app/editor-page/editor-page.ts#36"
           },
           {
-            "location": "src/app/editor-page/editor-page.ts#43"
+            "location": "src/app/editor-page/editor-page.ts#37"
           },
           {
-            "location": "src/app/editor-page/editor-page.ts#44"
+            "location": "src/app/editor-page/editor-page.ts#39"
           },
           {
-            "location": "src/app/editor-page/editor-page.ts#45"
+            "location": "src/app/editor-page/editor-page.ts#46"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#47"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#48"
           },
           {
             "location": "src/app/entry-consent/entry-consent.ts#7"
@@ -32847,10 +32838,31 @@
             "location": "src/app/unit-chooser/unit-chooser.ts#10"
           },
           {
+            "location": "src/app/data-point-editor/data-point-editor.ts#7"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#18"
+          },
+          {
+            "location": "src/app/faq/faq.ts#7"
+          },
+          {
+            "location": "src/app/license-page/license-page.ts#9"
+          },
+          {
+            "location": "src/app/privacy-policy-page/privacy-policy-page.ts#9"
+          },
+          {
+            "location": "src/app/terms-page/terms-page.ts#9"
+          },
+          {
+            "location": "src/app/third-party-licenses-page/third-party-licenses-page.ts#9"
+          },
+          {
             "location": "src/app/data-point-editor/data-point-editor.ts#9"
           },
           {
-            "location": "src/app/editor-page/editor-page.ts#44"
+            "location": "src/app/editor-page/editor-page.ts#47"
           },
           {
             "location": "src/app/header-toolbar/header-toolbar.ts#10"
@@ -32859,7 +32871,7 @@
             "location": "src/app/data-point-editor/data-point-editor.ts#11"
           },
           {
-            "location": "src/app/editor-page/editor-page.ts#43"
+            "location": "src/app/editor-page/editor-page.ts#46"
           },
           {
             "location": "src/app/source-data-point-chooser/source-data-point-chooser.ts#10"
@@ -32880,31 +32892,31 @@
             "location": "src/app/header-toolbar/header-toolbar.ts#9"
           },
           {
-            "location": "src/app/data-point-editor/data-point-editor.ts#14"
-          },
-          {
-            "location": "src/app/editor-page/editor-page.ts#30"
-          },
-          {
-            "location": "src/app/source-data-point-chooser/source-data-point-chooser.ts#11"
-          },
-          {
-            "location": "src/app/data-point-editor/data-point-editor.ts#16"
+            "location": "src/app/data-point-editor/data-point-editor.ts#17"
           },
           {
             "location": "src/app/editor-page/editor-page.ts#33"
           },
           {
-            "location": "src/app/editor-page/editor-page.ts#34"
+            "location": "src/app/source-data-point-chooser/source-data-point-chooser.ts#11"
+          },
+          {
+            "location": "src/app/data-point-editor/data-point-editor.ts#19"
           },
           {
             "location": "src/app/editor-page/editor-page.ts#36"
           },
           {
+            "location": "src/app/editor-page/editor-page.ts#37"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#39"
+          },
+          {
             "location": "src/app/entry-consent/entry-consent.ts#7"
           },
           {
-            "location": "src/app/editor-page/editor-page.ts#45"
+            "location": "src/app/editor-page/editor-page.ts#48"
           },
           {
             "location": "src/app/footer-toolbar/footer-toolbar.ts#7"
@@ -34690,7 +34702,7 @@
         },
         {
           "name": "ImportedModules",
-          "value": "rxjs,Observable,rxjs/Observable,ReplaySubject,rxjs/ReplaySubject,first,rxjs/first,startWith,rxjs/startWith,rxjs/map,forkJoin,rxjs/forkJoin"
+          "value": "rxjs,catchError,rxjs/catchError,filter,rxjs/filter,Observable,rxjs/Observable,rxjs/of,ReplaySubject,rxjs/ReplaySubject,first,rxjs/first,startWith,rxjs/startWith,rxjs/map,forkJoin,rxjs/forkJoin"
         }
       ],
       "evidence": {
@@ -34714,7 +34726,7 @@
             "location": "src/app/app-metadata-service.ts#8"
           },
           {
-            "location": "src/app/editor-page/editor-page.ts#37"
+            "location": "src/app/editor-page/editor-page.ts#40"
           },
           {
             "location": "src/app/footer-toolbar/footer-toolbar.ts#11"
@@ -34730,6 +34742,9 @@
           },
           {
             "location": "src/app/source-data-point-service.ts#8"
+          },
+          {
+            "location": "src/app/status-message-service.ts#7"
           }
         ]
       }

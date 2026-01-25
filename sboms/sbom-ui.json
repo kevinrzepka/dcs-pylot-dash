@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
-  "serialNumber": "urn:uuid:46c65700-d2ba-487d-a172-a627938b2507",
+  "serialNumber": "urn:uuid:ecac6a13-3160-4d44-b2b2-6e8cb4f895e3",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-01-17T10:51:05Z",
+    "timestamp": "2026-01-25T12:59:17Z",
     "tools": {
       "components": [
         {
@@ -30,7 +30,7 @@
     ],
     "lifecycles": [
       {
-        "phase": "build"
+        "phase": "pre-build"
       }
     ],
     "component": {
@@ -1026,7 +1026,7 @@
         },
         {
           "name": "ImportedModules",
-          "value": "@angular/core,Injectable,@angular/core/Injectable,Component,@angular/core/Component,signal,@angular/core/signal,EventEmitter,@angular/core/EventEmitter,Input,@angular/core/Input,OnInit,@angular/core/OnInit,Output,@angular/core/Output,ViewChild,@angular/core/ViewChild,ChangeDetectorRef,@angular/core/ChangeDetectorRef,ElementRef,@angular/core/ElementRef,AfterViewInit,@angular/core/AfterViewInit,Signal,@angular/core/Signal,@angular/core/rxjs-interop,toSignal,@angular/core/rxjs-interop/toSignal"
+          "value": "@angular/core,Injectable,@angular/core/Injectable,Component,@angular/core/Component,signal,@angular/core/signal,ChangeDetectorRef,@angular/core/ChangeDetectorRef,OnInit,@angular/core/OnInit,EventEmitter,@angular/core/EventEmitter,Input,@angular/core/Input,Output,@angular/core/Output,ViewChild,@angular/core/ViewChild,ElementRef,@angular/core/ElementRef,AfterViewInit,@angular/core/AfterViewInit,Signal,@angular/core/Signal,@angular/core/rxjs-interop,toSignal,@angular/core/rxjs-interop/toSignal"
         }
       ],
       "evidence": {
@@ -1053,6 +1053,9 @@
           },
           {
             "location": "src/app/app.ts#6"
+          },
+          {
+            "location": "src/app/backend-status-messages/backend-status-messages.ts#6"
           },
           {
             "location": "src/app/data-point-editor/data-point-editor.ts#6"
@@ -1101,6 +1104,9 @@
           },
           {
             "location": "src/app/source-data-point-service.ts#6"
+          },
+          {
+            "location": "src/app/status-message-service.ts#6"
           },
           {
             "location": "src/app/terms-page/terms-page.ts#6"
@@ -1176,7 +1182,7 @@
             "location": "src/app/data-point-editor/data-point-editor.ts#8"
           },
           {
-            "location": "src/app/editor-page/editor-page.ts#32"
+            "location": "src/app/editor-page/editor-page.ts#35"
           },
           {
             "location": "src/app/source-data-point-chooser/source-data-point-chooser.ts#12"
@@ -30936,7 +30942,7 @@
         },
         {
           "name": "ImportedModules",
-          "value": "primeng/card,Card,primeng/card/Card,primeng/inputtext,InputText,primeng/inputtext/InputText,primeng/iftalabel,IftaLabel,primeng/iftalabel/IftaLabel,primeng/button,Button,primeng/button/Button,primeng/tooltip,Tooltip,primeng/tooltip/Tooltip,primeng/keyfilter,KeyFilter,primeng/keyfilter/KeyFilter,ButtonDirective,primeng/button/ButtonDirective,primeng/popover,Popover,primeng/popover/Popover,primeng/classnames,ClassNames,primeng/classnames/ClassNames,primeng/dialog,Dialog,primeng/dialog/Dialog,primeng/checkbox,Checkbox,primeng/checkbox/Checkbox,ButtonLabel,primeng/button/ButtonLabel,primeng/toolbar,Toolbar,primeng/toolbar/Toolbar,primeng/tag,primeng/tag/Tag,primeng/api,MenuItem,primeng/api/MenuItem,ButtonModule,primeng/button/ButtonModule,InputTextModule,primeng/inputtext/InputTextModule,primeng/drawer,Drawer,primeng/drawer/Drawer,primeng/menu,Menu,primeng/menu/Menu,primeng/autocomplete,AutoComplete,primeng/autocomplete/AutoComplete,AutoCompleteCompleteEvent,primeng/autocomplete/AutoCompleteCompleteEvent,primeng/select,Select,primeng/select/Select"
+          "value": "primeng/message,Message,primeng/message/Message,primeng/card,Card,primeng/card/Card,primeng/inputtext,InputText,primeng/inputtext/InputText,primeng/iftalabel,IftaLabel,primeng/iftalabel/IftaLabel,primeng/button,Button,primeng/button/Button,primeng/tooltip,Tooltip,primeng/tooltip/Tooltip,primeng/keyfilter,KeyFilter,primeng/keyfilter/KeyFilter,ButtonDirective,primeng/button/ButtonDirective,primeng/popover,Popover,primeng/popover/Popover,primeng/classnames,ClassNames,primeng/classnames/ClassNames,primeng/dialog,Dialog,primeng/dialog/Dialog,primeng/checkbox,Checkbox,primeng/checkbox/Checkbox,ButtonLabel,primeng/button/ButtonLabel,primeng/toolbar,Toolbar,primeng/toolbar/Toolbar,primeng/tag,primeng/tag/Tag,primeng/api,MenuItem,primeng/api/MenuItem,ButtonModule,primeng/button/ButtonModule,InputTextModule,primeng/inputtext/InputTextModule,primeng/drawer,Drawer,primeng/drawer/Drawer,primeng/menu,Menu,primeng/menu/Menu,primeng/autocomplete,AutoComplete,primeng/autocomplete/AutoComplete,AutoCompleteCompleteEvent,primeng/autocomplete/AutoCompleteCompleteEvent,primeng/select,Select,primeng/select/Select"
         }
       ],
       "evidence": {
@@ -30956,25 +30962,10 @@
         ],
         "occurrences": [
           {
-            "location": "src/app/data-point-editor/data-point-editor.ts#7"
+            "location": "src/app/backend-status-messages/backend-status-messages.ts#7"
           },
           {
-            "location": "src/app/editor-page/editor-page.ts#18"
-          },
-          {
-            "location": "src/app/faq/faq.ts#7"
-          },
-          {
-            "location": "src/app/license-page/license-page.ts#9"
-          },
-          {
-            "location": "src/app/privacy-policy-page/privacy-policy-page.ts#9"
-          },
-          {
-            "location": "src/app/terms-page/terms-page.ts#9"
-          },
-          {
-            "location": "src/app/third-party-licenses-page/third-party-licenses-page.ts#9"
+            "location": "src/app/backend-status-messages/backend-status-messages.ts#7"
           },
           {
             "location": "src/app/data-point-editor/data-point-editor.ts#7"
@@ -30989,10 +30980,10 @@
             "location": "src/app/data-point-editor/data-point-editor.ts#12"
           },
           {
-            "location": "src/app/data-point-editor/data-point-editor.ts#14"
+            "location": "src/app/data-point-editor/data-point-editor.ts#17"
           },
           {
-            "location": "src/app/data-point-editor/data-point-editor.ts#16"
+            "location": "src/app/data-point-editor/data-point-editor.ts#19"
           },
           {
             "location": "src/app/editor-page/editor-page.ts#15"
@@ -31001,25 +30992,25 @@
             "location": "src/app/editor-page/editor-page.ts#18"
           },
           {
-            "location": "src/app/editor-page/editor-page.ts#30"
-          },
-          {
             "location": "src/app/editor-page/editor-page.ts#33"
-          },
-          {
-            "location": "src/app/editor-page/editor-page.ts#34"
           },
           {
             "location": "src/app/editor-page/editor-page.ts#36"
           },
           {
-            "location": "src/app/editor-page/editor-page.ts#43"
+            "location": "src/app/editor-page/editor-page.ts#37"
           },
           {
-            "location": "src/app/editor-page/editor-page.ts#44"
+            "location": "src/app/editor-page/editor-page.ts#39"
           },
           {
-            "location": "src/app/editor-page/editor-page.ts#45"
+            "location": "src/app/editor-page/editor-page.ts#46"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#47"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#48"
           },
           {
             "location": "src/app/entry-consent/entry-consent.ts#7"
@@ -31085,10 +31076,31 @@
             "location": "src/app/unit-chooser/unit-chooser.ts#10"
           },
           {
+            "location": "src/app/data-point-editor/data-point-editor.ts#7"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#18"
+          },
+          {
+            "location": "src/app/faq/faq.ts#7"
+          },
+          {
+            "location": "src/app/license-page/license-page.ts#9"
+          },
+          {
+            "location": "src/app/privacy-policy-page/privacy-policy-page.ts#9"
+          },
+          {
+            "location": "src/app/terms-page/terms-page.ts#9"
+          },
+          {
+            "location": "src/app/third-party-licenses-page/third-party-licenses-page.ts#9"
+          },
+          {
             "location": "src/app/data-point-editor/data-point-editor.ts#9"
           },
           {
-            "location": "src/app/editor-page/editor-page.ts#44"
+            "location": "src/app/editor-page/editor-page.ts#47"
           },
           {
             "location": "src/app/header-toolbar/header-toolbar.ts#10"
@@ -31097,7 +31109,7 @@
             "location": "src/app/data-point-editor/data-point-editor.ts#11"
           },
           {
-            "location": "src/app/editor-page/editor-page.ts#43"
+            "location": "src/app/editor-page/editor-page.ts#46"
           },
           {
             "location": "src/app/source-data-point-chooser/source-data-point-chooser.ts#10"
@@ -31118,31 +31130,31 @@
             "location": "src/app/header-toolbar/header-toolbar.ts#9"
           },
           {
-            "location": "src/app/data-point-editor/data-point-editor.ts#14"
-          },
-          {
-            "location": "src/app/editor-page/editor-page.ts#30"
-          },
-          {
-            "location": "src/app/source-data-point-chooser/source-data-point-chooser.ts#11"
-          },
-          {
-            "location": "src/app/data-point-editor/data-point-editor.ts#16"
+            "location": "src/app/data-point-editor/data-point-editor.ts#17"
           },
           {
             "location": "src/app/editor-page/editor-page.ts#33"
           },
           {
-            "location": "src/app/editor-page/editor-page.ts#34"
+            "location": "src/app/source-data-point-chooser/source-data-point-chooser.ts#11"
+          },
+          {
+            "location": "src/app/data-point-editor/data-point-editor.ts#19"
           },
           {
             "location": "src/app/editor-page/editor-page.ts#36"
           },
           {
+            "location": "src/app/editor-page/editor-page.ts#37"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#39"
+          },
+          {
             "location": "src/app/entry-consent/entry-consent.ts#7"
           },
           {
-            "location": "src/app/editor-page/editor-page.ts#45"
+            "location": "src/app/editor-page/editor-page.ts#48"
           },
           {
             "location": "src/app/footer-toolbar/footer-toolbar.ts#7"
@@ -32990,7 +33002,7 @@
         },
         {
           "name": "ImportedModules",
-          "value": "rxjs,Observable,rxjs/Observable,ReplaySubject,rxjs/ReplaySubject,first,rxjs/first,startWith,rxjs/startWith,rxjs/map,forkJoin,rxjs/forkJoin"
+          "value": "rxjs,catchError,rxjs/catchError,filter,rxjs/filter,Observable,rxjs/Observable,rxjs/of,ReplaySubject,rxjs/ReplaySubject,first,rxjs/first,startWith,rxjs/startWith,rxjs/map,forkJoin,rxjs/forkJoin"
         }
       ],
       "evidence": {
@@ -33016,7 +33028,7 @@
             "location": "src/app/app-metadata-service.ts#8"
           },
           {
-            "location": "src/app/editor-page/editor-page.ts#37"
+            "location": "src/app/editor-page/editor-page.ts#40"
           },
           {
             "location": "src/app/footer-toolbar/footer-toolbar.ts#11"
@@ -33032,6 +33044,9 @@
           },
           {
             "location": "src/app/source-data-point-service.ts#8"
+          },
+          {
+            "location": "src/app/status-message-service.ts#7"
           }
         ]
       }
@@ -43920,8 +43935,8 @@
           ]
         }
       },
-      "timestamp": "2026-01-17T10:51:05Z",
-      "text": "This Software Bill-of-Materials (SBOM) document was created on Saturday, January 17, 2026 with cdxgen. The data was captured during the build lifecycle phase. The document describes an application named 'dcs-pylot-dash-ui' with version '1.0.0'. There are 754 components. The package type in this SBOM is npm with 39 purl namespaces described under components. The components were identified from the source files: pnpm-lock.yaml."
+      "timestamp": "2026-01-25T12:59:17Z",
+      "text": "This Software Bill-of-Materials (SBOM) document was created on Sunday, January 25, 2026 with cdxgen. The data was captured during the pre-build lifecycle phase without building the application. The document describes an application named 'dcs-pylot-dash-ui' with version '1.0.0'. There are 754 components. The package type in this SBOM is npm with 39 purl namespaces described under components. The components were identified from the source files: pnpm-lock.yaml."
     }
   ]
 }
