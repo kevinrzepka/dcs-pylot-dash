@@ -147,7 +147,7 @@ class UnitConverter:
     _init_factors[Unit.MS][Unit.KMH] = 3.6
     _init_factors[Unit.MS][Unit.KNOTS] = 1.94384
     _init_factors[Unit.MS][Unit.FTS] = 3.28084
-    _init_factors[Unit.MS][Unit.FTMIN] = 3.28084 / 60
+    _init_factors[Unit.MS][Unit.FTMIN] = 3.28084 * 60
     _init_factors[Unit.KILOGRAMS][Unit.POUNDS] = 2.20462
     _init_factors[Unit.RADIANS][Unit.DEGREES] = 180 / math.pi
     _init_factors[Unit.NONE][Unit.NONE] = 1

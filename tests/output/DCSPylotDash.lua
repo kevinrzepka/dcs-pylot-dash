@@ -158,10 +158,10 @@ function generate_json_data()
     local engine_info = safe_get(LoGetEngineInfo, {})
     local payload_info = safe_get(LoGetPayloadInfo, {})
     data.ias = {}
-    data.ias.kts = airspeed * 1.9438400000000633
+    data.ias.kts = airspeed * 1.9438400000000629
     data.mach = mach
     data.tas = {}
-    data.tas.kts = tas * 1.9438400000000633
+    data.tas.kts = tas * 1.9438400000000629
     data.heading = {}
     data.heading.degrees = heading * 57.29577951308232
     data.altitude = {}

@@ -14,7 +14,7 @@ The official website of "DCS World" can be found at https://www.digitalcombatsim
 
 This software uses third-party components.
 See [third_party_licenses.txt](./third_party_licenses.txt) for their respective copyright and license notices. <br>
-For the licenses of third-party components that are distributed (superset for operators users),
+For the licenses of third-party components that are distributed (superset for operators and users),
 see [third_party_licenses_distributed.txt](./third_party_licenses_distributed.txt).
 
 # License
@@ -277,7 +277,7 @@ manual steps:
 
 - set GitHub API PAT: ` export GITHUB_LICENSE_API_TOKEN=github_pat_<HEX...>`
 - all components: `./generate-attribution.sh sboms/sbom.json third_party_licenses.txt`
-- distributed (i.e. ui prod) components:
+- distributed (i.e. python prod + ui prod) components:
   `./generate-attribution.sh sboms/sbom-ui-prod.json third_party_licenses_distributed.txt`
 
 When building the UI, angular also generates a file: `dcs-pylot-dash-ui/dist/dcs-pylot-dash-ui/3rdpartylicenses.txt`
