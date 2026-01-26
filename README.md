@@ -154,6 +154,19 @@ to include all groups, not just prod and dev, they must be specified explicitly:
 
 - find updates: `pnpm run ng update`
 
+## Versioning
+
+- Source of truth: `pyproject.toml` -> `uv version --short`
+- Set new version: `uv version <new-version>`
+- Sync versions after upgrade: `./sync-versions.sh` (included in `./build.sh`)
+
+relevant locations:
+
+- [pyproject.toml](pyproject.toml)
+- `dcs_pylot_dash.app_settings.DCSPylotDashAppSettings`
+- [dcs-pylot-dash-ui/package.json](dcs-pylot-dash-ui/package.json)
+- [deployment/dcs-pylot-dash/Chart.yaml](deployment/dcs-pylot-dash/Chart.yaml)
+
 # Building from source
 
 `./build.sh`

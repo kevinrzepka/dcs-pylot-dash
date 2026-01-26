@@ -6,6 +6,9 @@ commit_id=$(git rev-parse HEAD)
 
 echo "starting build: ${commit_id}"
 
+# should be a no-op
+./sync-versions.sh
+
 uv run pytest
 
 ./build-ui.sh

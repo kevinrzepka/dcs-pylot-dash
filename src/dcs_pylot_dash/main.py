@@ -1,4 +1,4 @@
-# Copyright (c) 2025 Kevin Rzepka <kdev@posteo.com>
+# Copyright (c) 2026 Kevin Rzepka <kdev@posteo.com>
 # SPDX-License-Identifier: MIT
 # License-Filename: LICENSE
 
@@ -33,7 +33,7 @@ def main():
     logger.info("Starting DCS Pylot Dash")
     uvicorn_env_settings: UvicornEnvSettings = UvicornEnvSettings()
     app: FastAPI = asyncio.run(DcsPylotDash.create_app())
-    uvicorn.run(app, host=uvicorn_env_settings.uvicorn_host, port=uvicorn_env_settings.uvicorn_port)
+    uvicorn.run(app, host=uvicorn_env_settings.uvicorn_host, port=uvicorn_env_settings.uvicorn_port, log_config=None)
 
 
 if __name__ == "__main__":
