@@ -92,6 +92,10 @@ sudo apt update && sudo apt install trivy -y
 - run all pre-commit hooks: `uv run pre-commit run --all-files`
 - create venv from lockfile: `uv sync --frozen`
 
+## Testing
+
+`uv run pytest` (included in `./build.sh`)
+
 ## UI Development
 
 ### Set up Prettier
