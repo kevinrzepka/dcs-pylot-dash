@@ -19,7 +19,7 @@ import {
   APIExportRow,
 } from './api-model';
 import { ApiRoutes } from './api-routes';
-import { map, Observable } from 'rxjs';
+import { catchError, map, Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -37,7 +37,10 @@ export class GeneratorService {
         responseType: 'blob',
         observe: 'response',
       })
-      .pipe(map((response: HttpResponse<Blob>) => response.body));
+      .pipe(
+        map((response: HttpResponse<Blob>) => response.body),
+        catchError((err, caught) => of(null)),
+      );
   }
 
   protected buildAPIExportModel(

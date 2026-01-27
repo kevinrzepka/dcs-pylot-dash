@@ -37,7 +37,7 @@ import { Popover } from 'primeng/popover';
 import { ClassNames } from 'primeng/classnames';
 import { SampleModelService } from '../sample-model.service';
 import { Dialog } from 'primeng/dialog';
-import { first, ReplaySubject, startWith } from 'rxjs';
+import { finalize, first, ReplaySubject, startWith } from 'rxjs';
 import {
   AdvancedSettingsConstraints,
   AdvancedSettingsDefaults,
@@ -47,6 +47,7 @@ import { IftaLabel } from 'primeng/iftalabel';
 import { InputText } from 'primeng/inputtext';
 import { Checkbox } from 'primeng/checkbox';
 import { BackendStatusMessages } from '../backend-status-messages/backend-status-messages';
+import { StatusMessageService } from '../status-message-service';
 
 @Component({
   selector: 'app-editor-page',
@@ -155,6 +156,7 @@ export class EditorPage implements OnInit {
   constructor(
     private generatorService: GeneratorService,
     private sampleModelService: SampleModelService,
+    private statusMessageService: StatusMessageService,
     private cdr: ChangeDetectorRef,
   ) {}
 
@@ -196,19 +198,28 @@ export class EditorPage implements OnInit {
     const advancedSettings: APIExportModelAdvancedSettings | null = this.overrideAdvancedSettings
       ? this.advancedSettings
       : null;
-    this.generatorService.generate(this.editorModel, advancedSettings).subscribe((blob) => {
-      if (blob) {
-        this.downloadUrl = window.URL.createObjectURL(blob);
-        this.downloadButtonEnabled = true;
-        this.downloadAfterBuildButtonStyleClass = 'display-none';
-        this.downloadPopover.show(null, this.downloadLink.nativeElement);
-      } else {
-        this.enableControlsDependingOnModelEmpty();
-      }
-      this.advancedSettingsDialogVisible = false;
-      this.cdr.detectChanges();
-    });
-    this.cdr.detectChanges();
+    this.generatorService
+      .generate(this.editorModel, advancedSettings)
+      .pipe(
+        finalize(() => {
+          this.advancedSettingsDialogVisible = false;
+          this.cdr.detectChanges();
+        }),
+      )
+      .subscribe((blob) => {
+        if (blob) {
+          this.downloadUrl = window.URL.createObjectURL(blob);
+          this.downloadButtonEnabled = true;
+          this.downloadAfterBuildButtonStyleClass = 'display-none';
+          this.downloadPopover.show(null, this.downloadLink.nativeElement);
+        } else {
+          this.statusMessageService.addMessage({
+            severity: 'warning',
+            content:
+              'Failed to generate model. This may be due to a temporary API error or a bug. Please try again later, or change the model and try again.',
+          });
+        }
+      });
   }
 
   protected removeDataPointRow(dataPointRow: DataPointRow) {
@@ -263,6 +274,7 @@ export class EditorPage implements OnInit {
     if (previousDataPointRow === currentDataPointRow) {
       if (event.previousIndex !== event.currentIndex) {
         moveItemInArray(previousDataPointRow.dataPoints, event.previousIndex, event.currentIndex);
+        this.editorModelChanged();
       }
     } else {
       transferArrayItem(
@@ -271,12 +283,14 @@ export class EditorPage implements OnInit {
         event.previousIndex,
         event.currentIndex,
       );
+      this.editorModelChanged();
     }
   }
 
   protected dataPointRowDropped(event: CdkDragDrop<any, any>) {
     if (event.previousIndex !== event.currentIndex) {
       moveItemInArray(this.editorModel.dataPointRows, event.previousIndex, event.currentIndex);
+      this.editorModelChanged();
     }
   }
 

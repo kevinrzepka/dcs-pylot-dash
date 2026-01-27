@@ -95,7 +95,10 @@ class LuaGenerator:
 
     @staticmethod
     def _add_line(content: str, line: str, settings: LuaExportSettings, *, indent_factor: int = 1) -> str:
-        return content + "\n" + (settings.script_indentation * indent_factor) * " " + line
+        contents_start: str = content
+        if len(content) > 0:
+            contents_start += "\n" + (settings.script_indentation * indent_factor) * " "
+        return contents_start + line
 
     def _add_sc_root_fields(self, export_model: ExportModel, sc: str) -> str:
         for root_field in export_model.internal_root_fields.values():

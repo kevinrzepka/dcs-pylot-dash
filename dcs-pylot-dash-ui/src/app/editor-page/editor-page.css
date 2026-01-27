@@ -12,12 +12,11 @@ License-Filename: LICENSE
 }
 
 app-backend-status-messages {
-  margin-top: 1rem;
   display: flex;
+  flex-direction: column;
 }
 
 .editorControlsFrame {
-  margin-top: 1rem;
   display: flex;
   align-items: flex-end;
 

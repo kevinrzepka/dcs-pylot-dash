@@ -5,7 +5,7 @@
  */
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Message } from 'primeng/message';
-import { StatusMessageService } from '../status-message-service';
+import { StatusMessage, StatusMessageService } from '../status-message-service';
 
 @Component({
   selector: 'app-backend-status-messages',
@@ -14,7 +14,7 @@ import { StatusMessageService } from '../status-message-service';
   styleUrl: './backend-status-messages.css',
 })
 export class BackendStatusMessages implements OnInit {
-  errorMessages: string[] = [];
+  messages: StatusMessage[] = [];
 
   constructor(
     private statusMessageService: StatusMessageService,
@@ -23,8 +23,12 @@ export class BackendStatusMessages implements OnInit {
 
   ngOnInit(): void {
     this.statusMessageService.messages$.subscribe((messages) => {
-      this.errorMessages = messages.map((m) => m.content);
+      this.messages = messages;
       this.cdr.detectChanges();
     });
+  }
+
+  removeMessage(message: any) {
+    this.statusMessageService.removeMessage(message);
   }
 }

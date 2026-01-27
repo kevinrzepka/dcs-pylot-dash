@@ -148,7 +148,6 @@ end
 function generate_json_data()
     local data = {}
 
-
     local airspeed = safe_get(LoGetIndicatedAirSpeed, 0)
     local mach = safe_get(LoGetMachNumber, 0)
     local tas = safe_get(LoGetTrueAirSpeed, 0)

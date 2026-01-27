@@ -3,6 +3,8 @@
 This is a free open-source tool to generate Lua and HTML code that allows showing live plane telemetry data from the
 video game "DCS World" in a web browser.
 
+The live version can be found at: https://pylotdash.eu
+
 # Disclaimer
 
 This private, non-commercial project is not affiliated with, associated with, authorized by, endorsed by, approved by,

@@ -3,6 +3,12 @@ Copyright (c) 2026 Kevin Rzepka <kdev@posteo.com>
 SPDX-License-Identifier: MIT
 License-Filename: LICENSE
 -->
-@for (errorMessage of errorMessages; track errorMessage) {
-  <p-message severity="error" icon="pi pi-exclamation-triangle">{{ errorMessage }}</p-message>
+@for (errorMessage of messages; track errorMessage) {
+  <p-message
+    closable
+    severity="error"
+    icon="pi pi-exclamation-triangle"
+    (onClose)="removeMessage(errorMessage)"
+    >{{ errorMessage.content }}
+  </p-message>
 }
