@@ -1,0 +1,21 @@
+/*
+Copyright (c) 2026 Kevin Rzepka <kdev@posteo.com>
+SPDX-License-Identifier: MIT
+License-Filename: LICENSE
+*/
+.colorScaleEntryContainer {
+  display: flex;
+  flex-direction: row;
+
+  input {
+    max-width: 10rem;
+  }
+
+  p-colorpicker {
+    margin: auto auto auto 1rem;
+  }
+
+  p-message {
+    max-width: 10rem;
+  }
+}

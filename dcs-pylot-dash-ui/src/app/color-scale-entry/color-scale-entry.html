@@ -1,0 +1,47 @@
+<!--
+Copyright (c) 2026 Kevin Rzepka <kdev@posteo.com>
+SPDX-License-Identifier: MIT
+License-Filename: LICENSE
+-->
+<form [formGroup]="fg">
+  <div class="colorScaleEntryContainer">
+    <p-iftalabel>
+      <label for="fcFrom">From (inclusive)</label>
+      <input
+        id="fcFrom"
+        type="number"
+        pKeyFilter="num"
+        pInputText
+        formControlName="fcFrom"
+        pTooltip="Lower bound (inclusive)"
+      />
+      @for (fromError of fromErrors; track fromError) {
+        <p-message
+          severity="error"
+          variant="simple"
+          size="small"
+          [innerText]="fromError"
+        ></p-message>
+      }
+    </p-iftalabel>
+    <p-iftalabel>
+      <label for="fcTo">To (exclusive)</label>
+      <input
+        id="fcTo"
+        type="number"
+        pKeyFilter="num"
+        pInputText
+        formControlName="fcTo"
+        pTooltip="Upper bound (exclusive)"
+      />
+      @for (toError of toErrors; track toError) {
+        <p-message severity="error" variant="simple" size="small" [innerText]="toError"></p-message>
+      }
+    </p-iftalabel>
+    <p-colorpicker
+      inputId="fcColor"
+      formControlName="fcColor"
+      pTooltip="Click to choose color"
+    ></p-colorpicker>
+  </div>
+</form>

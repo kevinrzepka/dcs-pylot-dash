@@ -3,13 +3,21 @@
  * SPDX-License-Identifier: MIT
  * License-Filename: LICENSE
  */
-import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { Card } from 'primeng/card';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputText } from 'primeng/inputtext';
-import { DataPoint, DataPointUnit, SourceDataPoint } from '../editor-model';
+import { ColorScale, DataPoint, DataPointUnit, SourceDataPoint } from '../editor-model';
 import { IftaLabel } from 'primeng/iftalabel';
-import { Button } from 'primeng/button';
+import { Button, ButtonSeverity } from 'primeng/button';
 import {
   SourceDataPointChangedEvent,
   SourceDataPointChooser,
@@ -17,6 +25,10 @@ import {
 import { Tooltip } from 'primeng/tooltip';
 import { UnitChooser } from '../unit-chooser/unit-chooser';
 import { KeyFilter } from 'primeng/keyfilter';
+import { Popover } from 'primeng/popover';
+import { ColorScaleEditor } from '../color-scale-editor/color-scale-editor';
+import { AsyncPipe } from '@angular/common';
+import { ReplaySubject } from 'rxjs';
 
 @Component({
   selector: 'app-data-point-editor',
@@ -31,6 +43,9 @@ import { KeyFilter } from 'primeng/keyfilter';
     UnitChooser,
     ReactiveFormsModule,
     KeyFilter,
+    Popover,
+    ColorScaleEditor,
+    AsyncPipe,
   ],
   templateUrl: './data-point-editor.html',
   styleUrl: './data-point-editor.css',
@@ -41,6 +56,14 @@ export class DataPointEditor implements OnInit {
 
   @ViewChild(UnitChooser)
   unitChooser!: UnitChooser;
+
+  @ViewChild('colorScaleButton')
+  colorScaleButton!: Button;
+
+  @ViewChild(ColorScaleEditor)
+  colorScaleEditor!: ColorScaleEditor;
+
+  colorScaleButtonSeverity$: ReplaySubject<ButtonSeverity> = new ReplaySubject(1);
 
   fcDisplayName: FormControl<string | null> = new FormControl();
 
@@ -53,7 +76,9 @@ export class DataPointEditor implements OnInit {
   protected displayNameRegex: RegExp = /^[\w\s.()]+$/;
   protected displayNameMaxLength: number = 50;
 
-  constructor() {}
+  constructor(private cdr: ChangeDetectorRef) {
+    this.colorScaleButtonSeverity$.next('secondary');
+  }
 
   ngOnInit(): void {
     this.fcDisplayName.setValue(this.dataPoint.displayName);
@@ -82,5 +107,16 @@ export class DataPointEditor implements OnInit {
 
   protected handleUnitChange(unit: DataPointUnit | null) {
     this.onChangeDataPoint.emit(this.dataPoint);
+  }
+
+  protected handleColorScaleChanged(colorScale: ColorScale) {
+    if (this.colorScaleButton !== undefined) {
+      this.colorScaleButtonSeverity$.next(colorScale.isEmpty() ? 'secondary' : 'info');
+      this.cdr.detectChanges();
+    }
+  }
+
+  protected handleColorScalePopoverHidden($event: any) {
+    this.colorScaleEditor.resetRangeFormControls();
   }
 }

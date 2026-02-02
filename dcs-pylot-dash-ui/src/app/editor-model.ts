@@ -51,15 +51,18 @@ export class DataPoint {
   displayName: string;
   sourceDataPoint: SourceDataPoint;
   outputUnit: DataPointUnit;
+  colorScale: ColorScale;
 
   constructor(
     displayName: string,
     sourceDataPoint: SourceDataPoint,
     outputUnit: DataPointUnit | null = null,
+    colorScale: ColorScale | null = null,
   ) {
     this.displayName = displayName;
     this.sourceDataPoint = sourceDataPoint;
-    this.outputUnit = outputUnit ? outputUnit : sourceDataPoint.defaultUnit;
+    this.outputUnit = outputUnit ?? sourceDataPoint.defaultUnit;
+    this.colorScale = colorScale ?? new ColorScale();
   }
 
   setOutputUnit(unit: DataPointUnit) {
@@ -68,6 +71,10 @@ export class DataPoint {
 
   copy() {
     return new DataPoint(this.displayName, this.sourceDataPoint, this.outputUnit);
+  }
+
+  hasColorScale(): boolean {
+    return !this.colorScale.isEmpty();
   }
 }
 
@@ -99,5 +106,45 @@ export class DataPointUnit {
     this.displayName = displayName;
     this.unitId = unitId;
     this.symbol = symbol;
+  }
+}
+
+export class ColorScaleRange {
+  static readonly DEFAULT_COLOR: string = '#ABCDEF';
+
+  valueFrom: number | null;
+  valueTo: number | null;
+  color: string;
+
+  constructor(
+    valueFrom: number | null = null,
+    valueTo: number | null = null,
+    color: string = ColorScaleRange.DEFAULT_COLOR,
+  ) {
+    this.valueFrom = valueFrom;
+    this.valueTo = valueTo;
+    this.color = color;
+  }
+
+  copy(): ColorScaleRange {
+    return new ColorScaleRange(this.valueFrom, this.valueTo, this.color);
+  }
+
+  isEmpty(): boolean {
+    return this.valueFrom === null && this.valueTo === null;
+  }
+}
+
+export class ColorScale {
+  ranges: ColorScaleRange[] = [];
+
+  copy(): ColorScale {
+    const instance = new ColorScale();
+    instance.ranges = this.ranges.map((range: ColorScaleRange) => range.copy());
+    return instance;
+  }
+
+  isEmpty(): boolean {
+    return this.ranges.every((r) => r.isEmpty());
   }
 }

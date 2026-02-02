@@ -238,6 +238,7 @@ License-Filename: LICENSE
           id="fcBindPort"
           type="number"
           pInputText
+          pKeyFilter="num"
           [min]="AdvancedSettingsConstraints.LUA_BIND_PORT_MIN"
           [max]="AdvancedSettingsConstraints.LUA_BIND_PORT_MAX"
           [formControl]="fcBindPort"
@@ -254,6 +255,7 @@ License-Filename: LICENSE
           id="fcPollIntervalMs"
           type="number"
           pInputText
+          pKeyFilter="num"
           [min]="AdvancedSettingsConstraints.POLL_INTERVAL_MS_MIN"
           [max]="AdvancedSettingsConstraints.POLL_INTERVAL_MS_MAX"
           [formControl]="fcPollIntervalMs"

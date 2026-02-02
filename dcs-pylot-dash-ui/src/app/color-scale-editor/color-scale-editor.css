@@ -1,0 +1,34 @@
+/*
+Copyright (c) 2026 Kevin Rzepka <kdev@posteo.com>
+SPDX-License-Identifier: MIT
+License-Filename: LICENSE
+*/
+.header {
+  p-button {
+    margin-left: 1rem;
+  }
+}
+
+.colorScaleRow {
+  display: flex;
+  flex-direction: row;
+
+  p-button {
+    margin: auto;
+  }
+
+  app-color-scale-entry {
+    margin-left: 1rem;
+  }
+}
+
+.bottomButtons {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .applyButton {
+    align-self: flex-end;
+  }
+}

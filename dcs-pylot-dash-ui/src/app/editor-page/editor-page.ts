@@ -48,6 +48,7 @@ import { InputText } from 'primeng/inputtext';
 import { Checkbox } from 'primeng/checkbox';
 import { BackendStatusMessages } from '../backend-status-messages/backend-status-messages';
 import { StatusMessageService } from '../status-message-service';
+import { KeyFilter } from 'primeng/keyfilter';
 
 @Component({
   selector: 'app-editor-page',
@@ -71,6 +72,7 @@ import { StatusMessageService } from '../status-message-service';
     InputText,
     Checkbox,
     BackendStatusMessages,
+    KeyFilter,
   ],
   templateUrl: './editor-page.html',
   styleUrl: './editor-page.css',

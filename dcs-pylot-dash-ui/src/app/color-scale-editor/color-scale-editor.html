@@ -1,0 +1,49 @@
+<!--
+Copyright (c) 2026 Kevin Rzepka <kdev@posteo.com>
+SPDX-License-Identifier: MIT
+License-Filename: LICENSE
+-->
+<h4 class="header">
+  Edit Color Scale of {{ dataPoint.displayName }}
+  <p-button
+    icon="pi pi-info"
+    pTooltip="You don't have to specify both From and To values for each range. You could just specify only To or only From values. For values that are not covered by any of your defined ranges, the default color will be used. It's also ok to leave the last range empty, it's just there to add a new range if desired."
+    severity="secondary"
+    size="small"
+    [rounded]="true"
+    [disabled]="true"
+  />
+</h4>
+@for (range of ranges; track range) {
+  <div class="colorScaleRow">
+    <p-button
+      icon="pi pi-trash"
+      severity="danger"
+      pTooltip="Remove this range"
+      (click)="removeRange(range, $index, $first)"
+      [disabled]="$first"
+    />
+    <app-color-scale-entry
+      [range]="range"
+      (rangeChanged)="handleRangeChanged($event, $index, $first, $last)"
+    ></app-color-scale-entry>
+  </div>
+}
+<div class="bottomButtons">
+  <p-button
+    icon="pi pi-trash"
+    severity="danger"
+    pTooltip="Clear all ranges for this data point"
+    (click)="clear()"
+    [disabled]="!dataPoint.hasColorScale()"
+    label="Clear"
+  />
+  <p-button
+    class="applyButton"
+    icon="pi pi-check"
+    severity="secondary"
+    pTooltip="Apply and close"
+    (click)="apply()"
+    label="Close"
+  />
+</div>

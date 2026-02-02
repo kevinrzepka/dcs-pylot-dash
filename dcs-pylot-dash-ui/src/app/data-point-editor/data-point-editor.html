@@ -36,5 +36,22 @@ License-Filename: LICENSE
       (onUnitChange)="handleUnitChange($event)"
       pTooltip="Change the output unit for this data point"
     />
+    <div class="bottomButtons">
+      <p-popover #colorScalePopover (onHide)="handleColorScalePopoverHidden($event)">
+        <app-color-scale-editor
+          [dataPoint]="dataPoint"
+          (colorScaleChanged)="handleColorScaleChanged($event)"
+          (closeDesired)="colorScalePopover.hide()"
+        ></app-color-scale-editor>
+      </p-popover>
+
+      <p-button
+        #colorScaleButton
+        icon="pi pi-palette"
+        [severity]="colorScaleButtonSeverity$ | async"
+        pTooltip="Edit color scale"
+        (click)="colorScalePopover.show($event)"
+      />
+    </div>
   </ng-template>
 </p-card>
