@@ -1,3 +1,4 @@
+-- BEGIN DCSPylotDash
 local lfs = require('lfs')
 local success, error = pcall(function()
     log.write(%log_prefix%, log.INFO, "Loading script: %output_script_name%")
@@ -7,3 +8,4 @@ end)
 if not success then
     log.write(%log_prefix%, log.ERROR, "Failed to load script %output_script_name%: " .. tostring(error))
 end
+-- END DCSPylotDash

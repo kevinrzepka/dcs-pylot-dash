@@ -56,11 +56,11 @@ export class Faq {
     },
     {
       q: 'Does using the dashboards generated with this tool affect the DCS integrity check (IC)?',
-      a: 'No, but whether they work or not depend on the server settings. Most servers do allow exporting ownship data though, which is the only requirement for these dashboards to work.',
+      a: 'No, but whether they work or not depend on the server settings. Most servers do "Allow player export" (listed under "Permissions") though, which is the only requirement for these dashboards to work.',
     },
     {
       q: 'Can I also show Radar, RWR and/or target data?',
-      a: 'No, this would require the server to allow exporting of sensor and/or world data, which most servers do not allow (for a very good reason, since this would facilitate "hacking").',
+      a: 'No, this would require the server to allow exporting of sensor and/or world data, which most servers do not allow (for a very good reason, since this would facilitate gaining unfair advantages).',
     },
     {
       q: 'Can I use the Lua HTTP server directly, without using the generated HTML UI?',
@@ -104,11 +104,11 @@ export class Faq {
     },
     {
       q: "I don't see any data after starting to fly around in a mission, what might be the issue?",
-      a: 'Please check the following: 1) DCS logs, usually at "C:\\Users\\<username>\\Saved Games\\DCS\\Logs\\dcs.log 2) Your browser console, which is usually opened by pressing F12 to show the dev tools.',
+      a: 'First, ensure the server has "Allow player export" listed under "Permissions:". Also, please check the following: 1) DCS logs, usually at "C:\\Users\\<username>\\Saved Games\\DCS\\Logs\\dcs.log" 2) Your browser console, which is usually opened by pressing F12 to show the dev tools.',
     },
     {
       q: 'Do I have to restart DCS after making changes to my dashboard?',
-      a: 'No. You do have to restart a mission though. Please note that everytime you change the model, you must build and download the generated files again, and place them in the appropriate locations as instructed by the readme.txt file.',
+      a: 'No. You do have to restart a mission though. Please note that everytime you change the model, you must build and download the generated files again, and place them in the appropriate locations as instructed by the readme.txt file. The adjustments done to Export.lua must only be done once though (unless instructed otherwise by the readme.txt).',
     },
   ];
 }
