@@ -8,11 +8,11 @@ from logging import Logger
 from typing import Final
 from zipfile import PyZipFile
 
-from dcs_pylot_dash.api.api_model import APIExportModel, APIExportModelAdvancedSettings
+from dcs_pylot_dash.api.api_model import APIExportModel, APIExportModelAdvancedSettings, APIExportField
 from dcs_pylot_dash.app_settings import DCSPylotDashAppSettings
 from dcs_pylot_dash.exceptions import DCSPylotDashInvalidInputException
 from dcs_pylot_dash.service.dcs_model_internal import InternalModelField
-from dcs_pylot_dash.service.export_model import ExportModel, ExportModelField, LuaGeneratorOutput
+from dcs_pylot_dash.service.export_model import ExportModel, ExportModelField, LuaGeneratorOutput, ColorScaleEntry
 from dcs_pylot_dash.service.html_ui_generator import HtmlUIGenerator, HtmlUiGeneratorSettings, HtmlUIGeneratorOutput
 from dcs_pylot_dash.service.lua_generator import LuaGenerator, LuaGeneratorSettings
 from dcs_pylot_dash.service.notice_service import NoticesService
@@ -127,6 +127,7 @@ class GeneratorService:
                     raise DCSPylotDashInvalidInputException(f"no such unit {field.unit_id} for field {field.field_id}")
 
                 internal_field_name: str = f"val_{i_row}_{i_col}_{internal_field.name}"
+                color_scale_entries: list[ColorScaleEntry] = self._build_color_scale_entries(field)
                 export_model_field: ExportModelField = ExportModelField(
                     name=internal_field_name,
                     internal_field_name=internal_field.dotted_name,
@@ -135,10 +136,26 @@ class GeneratorService:
                     row=i_row,
                     col=i_col,
                     decimal_digits=internal_field.default_decimal_digits,
+                    color_scale=color_scale_entries,
                 )
                 export_model.fields.append(export_model_field)
 
         return export_model
+
+    @staticmethod
+    def _build_color_scale_entries(field: APIExportField) -> list[ColorScaleEntry]:
+        color_scale_entries: list[ColorScaleEntry] = []
+        if field.color_scale is not None:
+            for c in field.color_scale.ranges:
+                color_scale_entries.append(ColorScaleEntry(from_value=c.from_value, to_value=c.to_value, color=c.color))
+
+        for i, c in enumerate(color_scale_entries):
+            if c.from_value is None and i > 0:
+                c.from_value = color_scale_entries[i - 1].to_value
+            if c.to_value is None and i < len(color_scale_entries) - 1:
+                c.to_value = color_scale_entries[i + 1].from_value
+
+        return color_scale_entries
 
     @staticmethod
     def _fill_readme(template: str, template_var: ReadmeTemplateVar, value: str) -> str:

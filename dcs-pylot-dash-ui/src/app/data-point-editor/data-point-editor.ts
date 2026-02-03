@@ -71,7 +71,7 @@ export class DataPointEditor implements OnInit {
   onDeleteDataPoint: EventEmitter<DataPoint> = new EventEmitter<DataPoint>();
 
   @Output()
-  onChangeDataPoint: EventEmitter<DataPoint> = new EventEmitter<DataPoint>();
+  dataPointChanged: EventEmitter<DataPoint> = new EventEmitter<DataPoint>();
 
   protected displayNameRegex: RegExp = /^[\w\s.()]+$/;
   protected displayNameMaxLength: number = 50;
@@ -84,7 +84,7 @@ export class DataPointEditor implements OnInit {
     this.fcDisplayName.setValue(this.dataPoint.displayName);
     this.fcDisplayName.valueChanges.subscribe((value: string | null) => {
       this.dataPoint.displayName = value ?? '';
-      this.onChangeDataPoint.emit(this.dataPoint);
+      this.dataPointChanged.emit(this.dataPoint);
     });
   }
 
@@ -101,12 +101,12 @@ export class DataPointEditor implements OnInit {
         this.fcDisplayName.setValue(sourceDataPoint.displayName);
       }
       this.unitChooser.handleSourceDataPointChange(sourceDataPoint);
-      this.onChangeDataPoint.emit(this.dataPoint);
+      this.dataPointChanged.emit(this.dataPoint);
     }
   }
 
   protected handleUnitChange(unit: DataPointUnit | null) {
-    this.onChangeDataPoint.emit(this.dataPoint);
+    this.dataPointChanged.emit(this.dataPoint);
   }
 
   protected handleColorScaleChanged(colorScale: ColorScale) {
@@ -114,6 +114,7 @@ export class DataPointEditor implements OnInit {
       this.colorScaleButtonSeverity$.next(colorScale.isEmpty() ? 'secondary' : 'info');
       this.cdr.detectChanges();
     }
+    this.dataPointChanged.emit(this.dataPoint);
   }
 
   protected handleColorScalePopoverHidden($event: any) {

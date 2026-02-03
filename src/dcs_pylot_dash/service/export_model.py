@@ -2,8 +2,10 @@
 # SPDX-License-Identifier: MIT
 # License-Filename: LICENSE
 import logging
+import re
 from enum import StrEnum, auto
 from pathlib import Path
+from re import Pattern
 from typing import ClassVar, Self, Annotated
 
 from pydantic import BaseModel, model_validator, Field, PositiveInt, NonNegativeInt
@@ -79,16 +81,20 @@ class Color(StrEnum):
 
 
 class ColorScaleEntry(BaseModel):
-    min: int | None = None
-    max: int | None = None
-    color: Color
+    COLOR_PATTERN: ClassVar[Pattern] = re.compile(r"^#[0-9A-Fa-f]{6}$")
+
+    from_value: float | None = None
+    to_value: float | None = None
+    color: Annotated[str, Field(pattern=COLOR_PATTERN)]
 
     @model_validator(mode="after")
     def validate_color(self) -> Self:
-        if self.min is None and self.max is None:
-            raise InvalidExportModelError("Invalid colorscale entry: min and max are both None")
-        if self.min is not None and self.max is not None and self.min >= self.max:
-            raise InvalidExportModelError(f"Invalid colorscale entry: min={self.min} > max={self.max}")
+        if self.from_value is None and self.to_value is None:
+            raise InvalidExportModelError("Invalid colorscale entry: value_from and value_to are both None")
+        if self.from_value is not None and self.to_value is not None and self.from_value >= self.to_value:
+            raise InvalidExportModelError(
+                f"Invalid colorscale entry: value_from={self.from_value} > value_to={self.to_value}"
+            )
         return self
 
 

@@ -9,10 +9,11 @@ License-Filename: LICENSE
 
   input {
     max-width: 10rem;
+    margin-left: 0.5rem;
   }
 
   p-colorpicker {
-    margin: auto auto auto 1rem;
+    margin: auto auto auto 0.5rem;
   }
 
   p-message {

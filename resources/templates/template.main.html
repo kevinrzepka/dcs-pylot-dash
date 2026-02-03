@@ -174,11 +174,8 @@ License-Filename: LICENSE
      * Key: Dotted field name. Value: Array of: {min: number, max: number, color: string}
      * @type {Map<any, any>}
      */
-    const colorscaleMap = new Map();
-    //%colorscale_map_entries%
-
-    const colorscaleClasses = [];
-    //%colorscale_classes_entries%
+    const colorScaleMap = new Map();
+    //%color_scale_map_entries%
 
     let busy = false;
     let firstDataReceived = false;
@@ -321,26 +318,28 @@ License-Filename: LICENSE
     }
 
     function getColorscaleColor(fieldName, fieldValue) {
-        if (!colorscaleMap.has(fieldName)) {
+        if (!colorScaleMap.has(fieldName)) {
             return null;
         }
         if (fieldValue === null || fieldValue === undefined || !fieldValue instanceof Number) {
             console.warn(`Field value ${fieldValue} is not a valid colorscale value for field ${fieldName}`);
             return null;
         }
-        const colorscale = colorscaleMap.get(fieldName);
+        const colorscale = colorScaleMap.get(fieldName);
         for (const entry of colorscale) {
             const min = entry.min;
             const max = entry.max;
-            if (isEmpty(min) && fieldValue < max) {
+            if (!isEmpty(min) && !isEmpty(max) && fieldValue >= min && fieldValue < max) {
                 return entry.color;
-            } else if (isEmpty(max) && fieldValue >= min) {
+            }
+            if (!isEmpty(min) && isEmpty(max) && fieldValue >= min) {
                 return entry.color;
-            } else if (!isEmpty(min) && !isEmpty(max) && fieldValue >= min && fieldValue < max) {
+            }
+            if (isEmpty(min) && !isEmpty(max) && fieldValue < max) {
                 return entry.color;
             }
         }
-        return colorscale[0].color;
+        return null;
     }
 
     function processData(data) {
@@ -398,12 +397,12 @@ License-Filename: LICENSE
                     }
                     element.innerText = `${finalValue}`;
                     const color = getColorscaleColor(leafFullName, finalValue);
-                    colorscaleClasses.forEach(c => element.classList.remove(c));
-                    let colorClassName = 'text-body-primary';
-                    if (!isEmpty(color)) {
-                        colorClassName = `text-${color}`;
+                    if (color !== null) {
+                        element.classList.remove('text-success');
+                    } else {
+                        element.classList.add('text-success');
                     }
-                    element.classList.add(colorClassName);
+                    element.style.color = color;
                 } else {
                     console.warn(`Element with id ${fullName} not found`);
                 }

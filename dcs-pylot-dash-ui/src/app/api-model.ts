@@ -34,10 +34,21 @@ export type APIAppMetadata = {
   build_commit: string;
 };
 
+export type APIColorScaleRange = {
+  from_value: number | null;
+  to_value: number | null;
+  color: string;
+};
+
+export type APIColorScale = {
+  ranges: APIColorScaleRange[];
+};
+
 export type APIExportField = {
   display_name: string;
   field_id: string;
   unit_id: string;
+  color_scale: APIColorScale | null;
 };
 
 export type APIExportRow = {

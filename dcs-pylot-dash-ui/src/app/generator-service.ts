@@ -6,6 +6,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import {
+  ColorScale,
   DataPoint,
   DataPointRow,
   DataPointUnit,
@@ -13,6 +14,8 @@ import {
   SourceDataPoint,
 } from './editor-model';
 import {
+  APIColorScale,
+  APIColorScaleRange,
   APIExportField,
   APIExportModel,
   APIExportModelAdvancedSettings,
@@ -57,15 +60,31 @@ export class GeneratorService {
       };
       apiExportModel.rows.push(apiRow);
       for (const field of row.dataPoints) {
+        const apiColorScale: APIColorScale | null = this.buildApiColorScale(field.colorScale);
         const apiField: APIExportField = {
           display_name: field.displayName,
           field_id: field.sourceDataPoint.internalName,
           unit_id: field.outputUnit.unitId,
+          color_scale: apiColorScale,
         };
         apiRow.fields.push(apiField);
       }
     }
     return apiExportModel;
+  }
+
+  buildApiColorScale(colorScale: ColorScale): APIColorScale | null {
+    if (colorScale.isEmpty()) {
+      return null;
+    }
+    const ranges: APIColorScaleRange[] = colorScale.ranges
+      .filter((r) => !r.isEmpty())
+      .map((r) => ({
+        from_value: r.fromValue,
+        to_value: r.toValue,
+        color: r.color,
+      }));
+    return { ranges: ranges };
   }
 
   buildEditorModel(

@@ -8,7 +8,7 @@ from typing import ClassVar
 from pydantic import BaseModel
 
 from dcs_pylot_dash.service.dcs_common_data_types import LoReturnType
-from dcs_pylot_dash.service.export_model import ExportModel, Color
+from dcs_pylot_dash.service.export_model import ExportModel
 from dcs_pylot_dash.service.notice_service import NoticesService
 from dcs_pylot_dash.service.units import UnitFormatters
 from dcs_pylot_dash.utils.resource_provider import ResourceProvider
@@ -32,7 +32,6 @@ class HtmlTemplateVar(StrEnum):
     DECIMAL_DIGITS_MAP_ENTRIES = auto()
     POSITION_MAP_ENTRIES = auto()
     COLOR_SCALE_MAP_ENTRIES = auto()
-    COLOR_SCALE_CLASSES_ENTRIES = auto()
 
 
 class HtmlUIGeneratorOutput(BaseModel):
@@ -52,7 +51,6 @@ class HtmlUiGeneratorSettings(BaseModel):
     DECIMAL_DIGITS_MAP_VAR_NAME_DEFAULT: ClassVar[str] = "decimalDigitsMap"
     POSITION_MAP_VAR_NAME_DEFAULT: ClassVar[str] = "positionMap"
     COLOR_SCALE_MAP_VAR_NAME_DEFAULT: ClassVar[str] = "colorScaleMap"
-    COLOR_SCALE_CLASSES_VAR_NAME_DEFAULT: ClassVar[str] = "colorScaleClasses"
 
     main_template_name: str = MAIN_TEMPLATE_NAME_DEFAULT
     template_var_delimiter: str = TEMPLATE_VAR_DELIMITER_DEFAULT
@@ -62,7 +60,6 @@ class HtmlUiGeneratorSettings(BaseModel):
     decimal_digits_map_var_name: str = DECIMAL_DIGITS_MAP_VAR_NAME_DEFAULT
     position_map_var_name: str = POSITION_MAP_VAR_NAME_DEFAULT
     color_scale_map_var_name: str = COLOR_SCALE_MAP_VAR_NAME_DEFAULT
-    color_scale_classes_var_name: str = COLOR_SCALE_CLASSES_VAR_NAME_DEFAULT
     app_name: str = "DCSPylotDash"
     app_version: str = "v0.0.0"
 
@@ -139,17 +136,10 @@ class HtmlUIGenerator:
             if field.has_color_scale:
                 content = self._add_line(content, f"{var_name}.set('data.{field.name}', []);")
                 for c in field.color_scale:
-                    min_value = c.min if c.min is not None else "null"
-                    max_value = c.max if c.max is not None else "null"
+                    min_value = c.from_value if c.from_value is not None else "null"
+                    max_value = c.to_value if c.to_value is not None else "null"
                     list_entry: str = f"{{min: {min_value}, max: {max_value}, color: '{c.color}'}}"
                     content = self._add_line(content, f"{var_name}.get('data.{field.name}').push({list_entry});")
-        return content
-
-    def create_color_scale_classes_entries(self, export_model: ExportModel) -> str:
-        var_name: str = self._settings.color_scale_classes_var_name
-        content: str = ""
-        for c in Color:
-            content = self._add_line(content, f"{var_name}.push('text-{c}');")
         return content
 
     def generate(self, export_model: ExportModel) -> HtmlUIGeneratorOutput:
@@ -158,7 +148,6 @@ class HtmlUIGenerator:
         decimal_digits_map_entries: str = self._create_decimal_digits_map_entries(export_model)
         position_map_entries: str = self._create_position_map_entries(export_model)
         color_scale_map_entries: str = self._create_color_scale_map_entries(export_model)
-        color_scale_classes_entries: str = self.create_color_scale_classes_entries(export_model)
 
         html: str = self._main_template
         http_settings = export_model.http_server_settings
@@ -172,7 +161,6 @@ class HtmlUIGenerator:
         html = self._fill(html, HtmlTemplateVar.DECIMAL_DIGITS_MAP_ENTRIES, decimal_digits_map_entries, comment=True)
         html = self._fill(html, HtmlTemplateVar.POSITION_MAP_ENTRIES, position_map_entries, comment=True)
         html = self._fill(html, HtmlTemplateVar.COLOR_SCALE_MAP_ENTRIES, color_scale_map_entries, comment=True)
-        html = self._fill(html, HtmlTemplateVar.COLOR_SCALE_CLASSES_ENTRIES, color_scale_classes_entries, comment=True)
 
         html = self._fill(
             html,

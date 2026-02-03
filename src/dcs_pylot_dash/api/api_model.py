@@ -29,14 +29,27 @@ class APISourceModel(BaseModel):
     fields: list[APISourceField] = []
 
 
+class APIColorScaleRange(BaseModel):
+    COLOR_PATTERN: ClassVar[Pattern] = re.compile(r"^#[0-9A-Fa-f]{6}$")
+
+    from_value: float | None = None
+    to_value: float | None = None
+    color: Annotated[str, Field(pattern=COLOR_PATTERN)]
+
+
+class APIColorScale(BaseModel):
+    ranges: list[APIColorScaleRange] = []
+
+
 class APIExportField(BaseModel):
     MAX_FIELD_VALUE_LENGTH: ClassVar[int] = 50
     DISPLAY_NAME_PATTERN: ClassVar[Pattern] = re.compile(r"^[\w\s.()]+$")
     FIELD_ID_PATTERN: ClassVar[Pattern] = re.compile(r"^[\w.]+$")
 
-    display_name: str = Field(max_length=MAX_FIELD_VALUE_LENGTH, pattern=DISPLAY_NAME_PATTERN)
-    field_id: str = Field(max_length=MAX_FIELD_VALUE_LENGTH, pattern=FIELD_ID_PATTERN)
+    display_name: Annotated[str, Field(max_length=MAX_FIELD_VALUE_LENGTH, pattern=DISPLAY_NAME_PATTERN)]
+    field_id: Annotated[str, Field(max_length=MAX_FIELD_VALUE_LENGTH, pattern=FIELD_ID_PATTERN)]
     unit_id: Unit
+    color_scale: APIColorScale | None = None
 
 
 class APIExportRow(BaseModel):

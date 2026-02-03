@@ -37,7 +37,8 @@ export class ColorScaleEntry implements OnInit {
   fg: FormGroup = new FormGroup({
     fcFrom: new FormControl<number | null>(null),
     fcTo: new FormControl<number | null>(null),
-    fcColor: new FormControl<string>('#000000'),
+    fcColorHex: new FormControl<string>(ColorScaleRange.DEFAULT_COLOR.slice(1)),
+    fcColor: new FormControl<string>(ColorScaleRange.DEFAULT_COLOR.slice(1)),
   });
 
   protected nextRange: ColorScaleRange | null = null;
@@ -49,15 +50,24 @@ export class ColorScaleEntry implements OnInit {
   ngOnInit(): void {
     this.setValuesFromModel();
 
-    this.fg.valueChanges.subscribe(() => {
+    this.fcColorHex.valueChanges.subscribe((value) => {
+      this.fcColor.setValue(`#${value}`, { emitEvent: false });
+    });
+
+    this.fcColor.valueChanges.subscribe((value) => {
+      this.fcColorHex.setValue(value.slice(1).toUpperCase(), { emitEvent: false });
+    });
+
+    this.fg.valueChanges.subscribe((e) => {
       const valid: boolean = this.validate();
       if (valid) {
         const fromValue: number | null = this.fcFromValue;
         const toValue: number | null = this.fcToValue;
         const colorValue: string = this.fcColorValue;
+        const colorHexValue: string = this.fcColorHexValue;
 
-        this.range.valueFrom = fromValue;
-        this.range.valueTo = toValue;
+        this.range.fromValue = fromValue;
+        this.range.toValue = toValue;
         this.range.color = colorValue;
         this.rangeChanged.emit(this.range);
       }
@@ -67,8 +77,8 @@ export class ColorScaleEntry implements OnInit {
   }
 
   setValuesFromModel() {
-    this.fcFrom.setValue(this.range.valueFrom);
-    this.fcTo.setValue(this.range.valueTo);
+    this.fcFrom.setValue(this.range.fromValue);
+    this.fcTo.setValue(this.range.toValue);
     this.fcColor.setValue(this.range.color);
     this.validate();
   }
@@ -77,10 +87,10 @@ export class ColorScaleEntry implements OnInit {
     const fromValue: number | null = this.fcFromValue;
     const toValue: number | null = this.fcToValue;
 
-    const previousFromValue: number | null = this.previousRange?.valueFrom ?? null;
-    const previousToValue: number | null = this.previousRange?.valueTo ?? null;
-    const nextFromValue: number | null = this.nextRange?.valueFrom ?? null;
-    const nextToValue: number | null = this.nextRange?.valueTo ?? null;
+    const previousFromValue: number | null = this.previousRange?.fromValue ?? null;
+    const previousToValue: number | null = this.previousRange?.toValue ?? null;
+    const nextFromValue: number | null = this.nextRange?.fromValue ?? null;
+    const nextToValue: number | null = this.nextRange?.toValue ?? null;
     const fromErrors: string[] = [];
     const toErrors: string[] = [];
 
@@ -157,6 +167,10 @@ export class ColorScaleEntry implements OnInit {
     return this.fg.get('fcTo')! as FormControl;
   }
 
+  get fcColorHex(): FormControl<string> {
+    return this.fg.get('fcColorHex')! as FormControl;
+  }
+
   get fcColor(): FormControl<string> {
     return this.fg.get('fcColor')! as FormControl;
   }
@@ -171,5 +185,9 @@ export class ColorScaleEntry implements OnInit {
 
   get fcColorValue(): string {
     return this.fcColor.value;
+  }
+
+  get fcColorHexValue(): string {
+    return this.fcColorHex.value;
   }
 }

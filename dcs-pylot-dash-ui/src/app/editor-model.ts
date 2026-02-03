@@ -70,7 +70,12 @@ export class DataPoint {
   }
 
   copy() {
-    return new DataPoint(this.displayName, this.sourceDataPoint, this.outputUnit);
+    return new DataPoint(
+      this.displayName,
+      this.sourceDataPoint,
+      this.outputUnit,
+      this.colorScale.copy(),
+    );
   }
 
   hasColorScale(): boolean {
@@ -110,10 +115,10 @@ export class DataPointUnit {
 }
 
 export class ColorScaleRange {
-  static readonly DEFAULT_COLOR: string = '#ABCDEF';
+  static readonly DEFAULT_COLOR: string = '#04AF2B';
 
-  valueFrom: number | null;
-  valueTo: number | null;
+  fromValue: number | null;
+  toValue: number | null;
   color: string;
 
   constructor(
@@ -121,17 +126,17 @@ export class ColorScaleRange {
     valueTo: number | null = null,
     color: string = ColorScaleRange.DEFAULT_COLOR,
   ) {
-    this.valueFrom = valueFrom;
-    this.valueTo = valueTo;
+    this.fromValue = valueFrom;
+    this.toValue = valueTo;
     this.color = color;
   }
 
   copy(): ColorScaleRange {
-    return new ColorScaleRange(this.valueFrom, this.valueTo, this.color);
+    return new ColorScaleRange(this.fromValue, this.toValue, this.color);
   }
 
   isEmpty(): boolean {
-    return this.valueFrom === null && this.valueTo === null;
+    return this.fromValue === null && this.toValue === null;
   }
 }
 

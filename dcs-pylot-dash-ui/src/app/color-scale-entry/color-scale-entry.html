@@ -38,6 +38,19 @@ License-Filename: LICENSE
         <p-message severity="error" variant="simple" size="small" [innerText]="toError"></p-message>
       }
     </p-iftalabel>
+    <p-iftalabel>
+      <label for="fcColorHex">Color Hex Code</label>
+      <input
+        id="fcColorHex"
+        pKeyFilter="hex"
+        pInputText
+        minlength="6"
+        maxlength="6"
+        formControlName="fcColorHex"
+        placeholder="FF0123"
+        pTooltip="Hex code of the color, e.g. FF0123"
+      />
+    </p-iftalabel>
     <p-colorpicker
       inputId="fcColor"
       formControlName="fcColor"

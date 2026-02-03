@@ -101,7 +101,7 @@ export class ColorScaleEditor implements OnInit {
   ) {
     const numRanges: number = this.ranges.length;
     const lastRange: ColorScaleRange = this.ranges[numRanges - 1];
-    if (!(lastRange.valueFrom === null && lastRange.valueTo === null)) {
+    if (!(lastRange.fromValue === null && lastRange.toValue === null)) {
       this.ranges.push(new ColorScaleRange());
       this.cdr.detectChanges();
     }
