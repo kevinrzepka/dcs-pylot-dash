@@ -22,11 +22,14 @@ License-Filename: LICENSE
   }
 }
 
-.bottomButtons {
+.bottomControls {
   margin-top: 1rem;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+
+  p-button {
+    margin: auto;
+  }
 
   .applyButton {
     align-self: flex-end;

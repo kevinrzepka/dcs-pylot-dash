@@ -31,7 +31,7 @@ License-Filename: LICENSE
     ></app-color-scale-entry>
   </div>
 }
-<div class="bottomButtons">
+<div class="bottomControls">
   <p-button
     icon="pi pi-trash"
     severity="danger"
@@ -40,12 +40,39 @@ License-Filename: LICENSE
     [disabled]="!dataPoint.hasColorScale()"
     label="Clear"
   />
+  <p-iftalabel>
+    <p-autocomplete
+      inputId="copyFromDataPoint"
+      [formControl]="fcCopyFromDataPoint"
+      [dropdown]="true"
+      [forceSelection]="true"
+      [suggestions]="copyFromDataPointSuggestions"
+      (completeMethod)="searchDataPointsWithColorScale($event)"
+      optionLabel="displayName"
+    >
+      <ng-template let-item #item>
+        <div [style]="{ width: '100%' }">
+          <span [innerText]="item.displayName"></span>
+        </div>
+      </ng-template>
+    </p-autocomplete>
+    <label for="inputSourceDataPoint">Copy from data point</label>
+  </p-iftalabel>
+  <p-button
+    class="copyButton"
+    icon="pi pi-copy"
+    severity="secondary"
+    pTooltip="Copy the color scale from the selected data point"
+    (click)="copyFromSelectedDataPoint()"
+    [disabled]="!fcCopyFromDataPoint.value"
+    label="Copy"
+  />
   <p-button
     class="applyButton"
     icon="pi pi-check"
     severity="secondary"
     pTooltip="Apply and close"
     (click)="apply()"
-    label="Close"
+    label="Apply"
   />
 </div>

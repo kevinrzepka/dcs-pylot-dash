@@ -40,7 +40,35 @@
           "display_name": "True Airspeed",
           "field_id": "tas",
           "unit_id": "knots",
-          "color_scale": null
+          "color_scale": {
+            "ranges": [
+              {
+                "from_value": null,
+                "to_value": 200,
+                "color": "#f2340f"
+              },
+              {
+                "from_value": null,
+                "to_value": 300,
+                "color": "#f2990a"
+              },
+              {
+                "from_value": null,
+                "to_value": 400,
+                "color": "#f0cc05"
+              },
+              {
+                "from_value": null,
+                "to_value": 500,
+                "color": "#04AF2B"
+              },
+              {
+                "from_value": 500,
+                "to_value": null,
+                "color": "#0eb2e8"
+              }
+            ]
+          }
         },
         {
           "display_name": "Mach number",
@@ -112,7 +140,35 @@
           "display_name": "Gun Rounds",
           "field_id": "payload_info.Cannon.shells",
           "unit_id": "none",
-          "color_scale": null
+          "color_scale": {
+            "ranges": [
+              {
+                "from_value": null,
+                "to_value": 200,
+                "color": "#f2340f"
+              },
+              {
+                "from_value": null,
+                "to_value": 300,
+                "color": "#f2990a"
+              },
+              {
+                "from_value": null,
+                "to_value": 400,
+                "color": "#f0cc05"
+              },
+              {
+                "from_value": null,
+                "to_value": 500,
+                "color": "#04AF2B"
+              },
+              {
+                "from_value": 500,
+                "to_value": null,
+                "color": "#0eb2e8"
+              }
+            ]
+          }
         },
         {
           "display_name": "Latitude",

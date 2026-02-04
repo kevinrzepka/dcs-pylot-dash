@@ -16,10 +16,14 @@ import { ColorScale, ColorScaleRange, DataPoint } from '../editor-model';
 import { ColorScaleEntry } from '../color-scale-entry/color-scale-entry';
 import { Button } from 'primeng/button';
 import { Tooltip } from 'primeng/tooltip';
+import { AutoComplete, AutoCompleteCompleteEvent } from 'primeng/autocomplete';
+import { IftaLabel } from 'primeng/iftalabel';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { EditorModelService } from '../editor-model-service';
 
 @Component({
   selector: 'app-color-scale-editor',
-  imports: [ColorScaleEntry, Button, Tooltip],
+  imports: [ColorScaleEntry, Button, Tooltip, AutoComplete, IftaLabel, ReactiveFormsModule],
   templateUrl: './color-scale-editor.html',
   styleUrl: './color-scale-editor.css',
 })
@@ -39,7 +43,13 @@ export class ColorScaleEditor implements OnInit {
   @ViewChildren(ColorScaleEntry)
   colorScaleEntries: ColorScaleEntry[] = [];
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  protected fcCopyFromDataPoint: FormControl<DataPoint | null> = new FormControl(null);
+  protected copyFromDataPointSuggestions: DataPoint[] = [];
+
+  constructor(
+    private editorModelService: EditorModelService,
+    private cdr: ChangeDetectorRef,
+  ) {}
 
   ngOnInit(): void {
     this.ranges.push(new ColorScaleRange());
@@ -92,5 +102,25 @@ export class ColorScaleEditor implements OnInit {
 
   resetRangeFormControls(): void {
     this.sortedColorScaleEntries.forEach((c: ColorScaleEntry) => c.setValuesFromModel());
+  }
+
+  protected searchDataPointsWithColorScale(event: AutoCompleteCompleteEvent) {
+    let query: string | undefined = event.query;
+    if (!query) {
+      query = '';
+    }
+    this.copyFromDataPointSuggestions = this.editorModelService.editorModel.dataPointRows
+      .flatMap((r) => r.dataPoints)
+      .filter((dp: DataPoint) => !dp.colorScale.isEmpty())
+      .filter((dp: DataPoint) => dp !== this.dataPoint)
+      .filter(
+        (dp: DataPoint) =>
+          dp.displayName.toLowerCase().includes(query.toLowerCase()) ||
+          dp.sourceDataPoint.internalName.toLowerCase().includes(query?.toLowerCase()),
+      );
+  }
+
+  protected copyFromSelectedDataPoint() {
+    this.dataPoint.colorScale = this.fcCopyFromDataPoint.value!.colorScale;
   }
 }

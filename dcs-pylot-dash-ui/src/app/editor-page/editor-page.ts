@@ -35,7 +35,6 @@ import { GeneratorService } from '../generator-service';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Popover } from 'primeng/popover';
 import { ClassNames } from 'primeng/classnames';
-import { SampleModelService } from '../sample-model.service';
 import { Dialog } from 'primeng/dialog';
 import { finalize, first, ReplaySubject, startWith } from 'rxjs';
 import {
@@ -49,6 +48,7 @@ import { Checkbox } from 'primeng/checkbox';
 import { BackendStatusMessages } from '../backend-status-messages/backend-status-messages';
 import { StatusMessageService } from '../status-message-service';
 import { KeyFilter } from 'primeng/keyfilter';
+import { EditorModelService } from '../editor-model-service';
 
 @Component({
   selector: 'app-editor-page',
@@ -94,9 +94,6 @@ export class EditorPage implements OnInit {
   protected downloadButtonEnabled: boolean = false;
   protected downloadUrl: string | null = null;
   protected downloadFilename: string | null = 'dcs-pylot-dash-generated.zip';
-
-  protected editorModel: EditorModel = new EditorModel();
-  protected sampleModel: EditorModel | null = null;
 
   readonly maxRows: number = 10;
   readonly maxDataPointsPerRow: number = 6;
@@ -157,18 +154,17 @@ export class EditorPage implements OnInit {
 
   constructor(
     private generatorService: GeneratorService,
-    private sampleModelService: SampleModelService,
+    private editorModelService: EditorModelService,
     private statusMessageService: StatusMessageService,
     private cdr: ChangeDetectorRef,
   ) {}
 
   ngOnInit(): void {
-    this.sampleModelService.sampleModel$.subscribe((next) => {
-      this.sampleModel = next;
-      if (!this.sampleModel.isEmpty()) {
+    this.editorModelService.sampleModel$.subscribe((sampleModel: EditorModel) => {
+      if (!sampleModel.isEmpty()) {
         this.loadSampleModelButtonEnabled = true;
       }
-      this.userConsentGiven$.pipe(first()).subscribe(() => this.showTutorialPopovers());
+      this.userConsentGiven$.pipe(first()).subscribe(() => this.showTutorialPopovers(sampleModel));
     });
 
     this.fcOverrideDefaults.valueChanges
@@ -182,8 +178,12 @@ export class EditorPage implements OnInit {
       });
   }
 
+  protected get editorModel(): EditorModel {
+    return this.editorModelService.editorModel;
+  }
+
   confirmLoadSampleModel() {
-    this.editorModel = this.sampleModel!.copy();
+    this.editorModelService.loadSampleModel();
     this.editorModelChanged();
     this.loadSampleModelDialogVisible = false;
   }
@@ -344,8 +344,8 @@ export class EditorPage implements OnInit {
     this.userConsentGiven$.next(true);
   }
 
-  protected showTutorialPopovers(): void {
-    if (this.sampleModel !== null && !this.sampleModel.isEmpty()) {
+  protected showTutorialPopovers(sampleModel: EditorModel): void {
+    if (!sampleModel.isEmpty()) {
       this.sampleModelPopover.show(null, this.loadSampleModelButton.el.nativeElement);
     }
 
