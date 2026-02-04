@@ -110,10 +110,8 @@ export class DataPointEditor implements OnInit {
   }
 
   protected handleColorScaleChanged(colorScale: ColorScale) {
-    if (this.colorScaleButton !== undefined) {
-      this.colorScaleButtonSeverity$.next(colorScale.isEmpty() ? 'secondary' : 'info');
-      this.cdr.detectChanges();
-    }
+    this.colorScaleButtonSeverity$.next(colorScale.isEmpty() ? 'secondary' : 'info');
+    this.cdr.detectChanges();
     this.dataPointChanged.emit(this.dataPoint);
   }
 

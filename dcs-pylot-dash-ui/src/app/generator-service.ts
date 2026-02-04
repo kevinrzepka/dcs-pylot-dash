@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import {
   ColorScale,
+  ColorScaleRange,
   DataPoint,
   DataPointRow,
   DataPointUnit,
@@ -101,11 +102,13 @@ export class GeneratorService {
         const dataPointUnit: DataPointUnit | undefined = sourceDataPoint?.availableUnits.find(
           (u) => u.unitId === apiField.unit_id,
         );
+        const colorScale: ColorScale = this.buildColorScale(apiField.color_scale);
         if (sourceDataPoint !== undefined && dataPointUnit !== undefined) {
           const dataPoint: DataPoint = new DataPoint(
             apiField.display_name,
             sourceDataPoint,
             dataPointUnit,
+            colorScale,
           );
           dataPointRow.addDataPoint(dataPoint);
         }
@@ -115,5 +118,15 @@ export class GeneratorService {
       }
     }
     return editorModel;
+  }
+
+  buildColorScale(apiColorScale: APIColorScale | null): ColorScale {
+    if (apiColorScale === null) {
+      return new ColorScale([]);
+    }
+    const ranges: ColorScaleRange[] = apiColorScale.ranges.map(
+      (r) => new ColorScaleRange(r.from_value, r.to_value, r.color),
+    );
+    return new ColorScale(ranges);
   }
 }

@@ -61,62 +61,21 @@ export class ColorScaleEditor implements OnInit {
       .filter((entry) => entry !== undefined);
   }
 
-  protected removeRange(range: ColorScaleRange, index: number, first: boolean) {
+  protected removeRange(range: ColorScaleRange) {
     this.ranges = this.ranges.filter((r: ColorScaleRange) => r !== range);
     let numRanges: number = this.ranges.length;
     if (numRanges === 0) {
       return;
     }
-
-    const sortedColorScaleEntries: ColorScaleEntry[] = this.sortedColorScaleEntries;
-    const thisRange: ColorScaleRange = this.ranges[index]; // not the removed one, but the one after it
-    if (first) {
-      sortedColorScaleEntries[0].handlePreviousRangeChanged(null);
-    } else {
-      const previousRange = this.ranges[index - 1];
-      const previousRangeEntry = sortedColorScaleEntries[index - 1];
-      if (index < numRanges - 1) {
-        // we did not delete the second to last one, so there is a next one
-        const thisRangeEntry: ColorScaleEntry = sortedColorScaleEntries[index];
-        const nextRange: ColorScaleRange = this.ranges[index + 1];
-        const nextRangeEntry: ColorScaleEntry = sortedColorScaleEntries[index + 1];
-        previousRangeEntry.handleNextRangeChanged(thisRange);
-        thisRangeEntry.handlePreviousRangeChanged(previousRange);
-        thisRangeEntry.handleNextRangeChanged(nextRange);
-        nextRangeEntry.handlePreviousRangeChanged(thisRange);
-      } else {
-        // we deleted the last one, so there is no next one
-        // since the first one cannot be deleted, there will always be a previous one
-        sortedColorScaleEntries[index - 1].handleNextRangeChanged(null);
-      }
-    }
     this.colorScaleChanged.emit(this.dataPoint.colorScale);
   }
 
-  protected handleRangeChanged(
-    range: ColorScaleRange,
-    index: number,
-    first: boolean,
-    last: boolean,
-  ) {
+  protected handleRangeChanged(range: ColorScaleRange) {
     const numRanges: number = this.ranges.length;
     const lastRange: ColorScaleRange = this.ranges[numRanges - 1];
     if (!(lastRange.fromValue === null && lastRange.toValue === null)) {
       this.ranges.push(new ColorScaleRange());
       this.cdr.detectChanges();
-    }
-
-    const sortedColorScaleEntries: ColorScaleEntry[] = this.sortedColorScaleEntries;
-    if (!first) {
-      sortedColorScaleEntries[index - 1].handleNextRangeChanged(range);
-      if (index < sortedColorScaleEntries.length - 1) {
-        sortedColorScaleEntries[index].handlePreviousRangeChanged(this.ranges[index - 1]);
-      }
-    }
-
-    if (!last) {
-      sortedColorScaleEntries[index + 1].handlePreviousRangeChanged(range);
-      sortedColorScaleEntries[index].handleNextRangeChanged(this.ranges[index + 1]);
     }
 
     this.colorScaleChanged.emit(this.dataPoint.colorScale);

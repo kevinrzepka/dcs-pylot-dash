@@ -119,15 +119,18 @@ export class ColorScaleRange {
 
   fromValue: number | null;
   toValue: number | null;
+  /**
+   * Hex color code, e.g. #04AF2B.
+   */
   color: string;
 
   constructor(
-    valueFrom: number | null = null,
-    valueTo: number | null = null,
+    fromValue: number | null = null,
+    toValue: number | null = null,
     color: string = ColorScaleRange.DEFAULT_COLOR,
   ) {
-    this.fromValue = valueFrom;
-    this.toValue = valueTo;
+    this.fromValue = fromValue;
+    this.toValue = toValue;
     this.color = color;
   }
 
@@ -143,13 +146,16 @@ export class ColorScaleRange {
 export class ColorScale {
   ranges: ColorScaleRange[] = [];
 
+  constructor(ranges: ColorScaleRange[] = []) {
+    this.ranges = [...ranges];
+  }
+
   copy(): ColorScale {
-    const instance = new ColorScale();
-    instance.ranges = this.ranges.map((range: ColorScaleRange) => range.copy());
-    return instance;
+    const ranges: ColorScaleRange[] = this.ranges.map((range: ColorScaleRange) => range.copy());
+    return new ColorScale(ranges);
   }
 
   isEmpty(): boolean {
-    return this.ranges.every((r) => r.isEmpty());
+    return this.ranges.every((r: ColorScaleRange) => r.isEmpty());
   }
 }

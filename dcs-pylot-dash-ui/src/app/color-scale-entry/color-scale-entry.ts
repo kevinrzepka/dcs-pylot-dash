@@ -3,7 +3,15 @@
  * SPDX-License-Identifier: MIT
  * License-Filename: LICENSE
  */
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { IftaLabel } from 'primeng/iftalabel';
 import { InputText } from 'primeng/inputtext';
@@ -27,12 +35,18 @@ import { Message } from 'primeng/message';
   templateUrl: './color-scale-entry.html',
   styleUrl: './color-scale-entry.css',
 })
-export class ColorScaleEntry implements OnInit {
+export class ColorScaleEntry implements OnInit, OnChanges {
   @Output()
   rangeChanged: EventEmitter<ColorScaleRange> = new EventEmitter<ColorScaleRange>();
 
   @Input()
   range!: ColorScaleRange;
+
+  @Input()
+  previousRange: ColorScaleRange | null = null;
+
+  @Input()
+  nextRange: ColorScaleRange | null = null;
 
   fg: FormGroup = new FormGroup({
     fcFrom: new FormControl<number | null>(null),
@@ -41,22 +55,19 @@ export class ColorScaleEntry implements OnInit {
     fcColor: new FormControl<string>(ColorScaleRange.DEFAULT_COLOR.slice(1)),
   });
 
-  protected nextRange: ColorScaleRange | null = null;
-  protected previousRange: ColorScaleRange | null = null;
-
   protected fromErrors: string[] = [];
   protected toErrors: string[] = [];
 
   ngOnInit(): void {
-    this.setValuesFromModel();
-
     this.fcColorHex.valueChanges.subscribe((value) => {
       this.fcColor.setValue(`#${value}`, { emitEvent: false });
     });
-
     this.fcColor.valueChanges.subscribe((value) => {
       this.fcColorHex.setValue(value.slice(1).toUpperCase(), { emitEvent: false });
     });
+
+    this.setValuesFromModel();
+    this.rangeChanged.emit(this.range);
 
     this.fg.valueChanges.subscribe((e) => {
       const valid: boolean = this.validate();
@@ -64,7 +75,6 @@ export class ColorScaleEntry implements OnInit {
         const fromValue: number | null = this.fcFromValue;
         const toValue: number | null = this.fcToValue;
         const colorValue: string = this.fcColorValue;
-        const colorHexValue: string = this.fcColorHexValue;
 
         this.range.fromValue = fromValue;
         this.range.toValue = toValue;
@@ -72,8 +82,12 @@ export class ColorScaleEntry implements OnInit {
         this.rangeChanged.emit(this.range);
       }
     });
+  }
 
-    this.rangeChanged.emit(this.range);
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['previousRange'] || changes['nextRange'] || changes['range']) {
+      this.validate();
+    }
   }
 
   setValuesFromModel() {
@@ -185,9 +199,5 @@ export class ColorScaleEntry implements OnInit {
 
   get fcColorValue(): string {
     return this.fcColor.value;
-  }
-
-  get fcColorHexValue(): string {
-    return this.fcColorHex.value;
   }
 }

@@ -5,17 +5,48 @@
         {
           "display_name": "Indicated Airspeed",
           "field_id": "airspeed",
-          "unit_id": "knots"
+          "unit_id": "knots",
+          "color_scale": {
+            "ranges": [
+              {
+                "from_value": null,
+                "to_value": 200,
+                "color": "#f2340f"
+              },
+              {
+                "from_value": null,
+                "to_value": 300,
+                "color": "#f2990a"
+              },
+              {
+                "from_value": null,
+                "to_value": 400,
+                "color": "#f0cc05"
+              },
+              {
+                "from_value": null,
+                "to_value": 500,
+                "color": "#04AF2B"
+              },
+              {
+                "from_value": 500,
+                "to_value": null,
+                "color": "#0eb2e8"
+              }
+            ]
+          }
         },
         {
           "display_name": "True Airspeed",
           "field_id": "tas",
-          "unit_id": "knots"
+          "unit_id": "knots",
+          "color_scale": null
         },
         {
           "display_name": "Mach number",
           "field_id": "mach",
-          "unit_id": "none"
+          "unit_id": "none",
+          "color_scale": null
         }
       ]
     },
@@ -24,17 +55,20 @@
         {
           "display_name": "Altitude (MSL)",
           "field_id": "altitude_msl",
-          "unit_id": "feet"
+          "unit_id": "feet",
+          "color_scale": null
         },
         {
           "display_name": "Altitude (AGL)",
           "field_id": "altitude_agl",
-          "unit_id": "feet"
+          "unit_id": "feet",
+          "color_scale": null
         },
         {
           "display_name": "Vertical Speed",
           "field_id": "vertical_speed",
-          "unit_id": "ftmin"
+          "unit_id": "ftmin",
+          "color_scale": null
         }
       ]
     },
@@ -43,22 +77,26 @@
         {
           "display_name": "Heading",
           "field_id": "self.Heading",
-          "unit_id": "degrees"
+          "unit_id": "degrees",
+          "color_scale": null
         },
         {
           "display_name": "Mag. Heading",
           "field_id": "mag_heading",
-          "unit_id": "degrees"
+          "unit_id": "degrees",
+          "color_scale": null
         },
         {
           "display_name": "Latitude",
           "field_id": "self.LatLongAlt.Lat",
-          "unit_id": "lat_min_dec"
+          "unit_id": "lat_min_dec",
+          "color_scale": null
         },
         {
           "display_name": "Longitude",
           "field_id": "self.LatLongAlt.Long",
-          "unit_id": "lon_min_dec"
+          "unit_id": "lon_min_dec",
+          "color_scale": null
         }
       ]
     },
@@ -67,22 +105,26 @@
         {
           "display_name": "Fuel (total)",
           "field_id": "engine_info.fuel_internal",
-          "unit_id": "pounds"
+          "unit_id": "pounds",
+          "color_scale": null
         },
         {
           "display_name": "Gun Rounds",
           "field_id": "payload_info.Cannon.shells",
-          "unit_id": "none"
+          "unit_id": "none",
+          "color_scale": null
         },
         {
           "display_name": "Latitude",
           "field_id": "self.LatLongAlt.Lat",
-          "unit_id": "lat_sec_precise"
+          "unit_id": "lat_sec_precise",
+          "color_scale": null
         },
         {
           "display_name": "Longitude",
           "field_id": "self.LatLongAlt.Long",
-          "unit_id": "lon_sec_precise"
+          "unit_id": "lon_sec_precise",
+          "color_scale": null
         }
       ]
     }

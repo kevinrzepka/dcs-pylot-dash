@@ -20,12 +20,14 @@ License-Filename: LICENSE
       icon="pi pi-trash"
       severity="danger"
       pTooltip="Remove this range"
-      (click)="removeRange(range, $index, $first)"
+      (click)="removeRange(range)"
       [disabled]="$first"
     />
     <app-color-scale-entry
       [range]="range"
-      (rangeChanged)="handleRangeChanged($event, $index, $first, $last)"
+      [previousRange]="$index > 0 ? ranges[$index - 1] : null"
+      [nextRange]="$index < ranges.length - 1 ? ranges[$index + 1] : null"
+      (rangeChanged)="handleRangeChanged($event)"
     ></app-color-scale-entry>
   </div>
 }
