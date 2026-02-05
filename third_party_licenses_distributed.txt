@@ -35,7 +35,7 @@ License text:
 
 The MIT License
 
-Copyright (c) 2010-2025 Google LLC. https://angular.dev/license
+Copyright (c) 2010-2026 Google LLC. https://angular.dev/license
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -64,7 +64,7 @@ License text:
 
 The MIT License
 
-Copyright (c) 2010-2025 Google LLC. https://angular.dev/license
+Copyright (c) 2010-2026 Google LLC. https://angular.dev/license
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -93,7 +93,7 @@ License text:
 
 The MIT License
 
-Copyright (c) 2010-2025 Google LLC. https://angular.dev/license
+Copyright (c) 2010-2026 Google LLC. https://angular.dev/license
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -122,7 +122,7 @@ License text:
 
 The MIT License
 
-Copyright (c) 2010-2025 Google LLC. https://angular.dev/license
+Copyright (c) 2010-2026 Google LLC. https://angular.dev/license
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -151,7 +151,7 @@ License text:
 
 The MIT License
 
-Copyright (c) 2010-2025 Google LLC. https://angular.dev/license
+Copyright (c) 2010-2026 Google LLC. https://angular.dev/license
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -3480,7 +3480,7 @@ Homepage:                   https://rxjs.dev
 Authors:                    Ben Lesh <ben@benlesh.com>
 License text:
 
-                               Apache Licenserxjs
+                               Apache License
                          Version 2.0, January 2004
                       http://www.apache.org/licenses/
 

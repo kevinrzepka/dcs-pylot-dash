@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
-  "serialNumber": "urn:uuid:ad7d4a8c-7527-477d-9039-b676e205bfa9",
+  "serialNumber": "urn:uuid:66afec48-ac54-40e6-9b07-5fe8c4550b1a",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-01-25T12:59:18Z",
+    "timestamp": "2026-02-05T14:59:25Z",
     "tools": {
       "components": [
         {
@@ -2324,18 +2324,18 @@
     },
     {
       "type": "framework",
-      "bom-ref": "pkg:npm/@angular/cdk@21.0.6",
+      "bom-ref": "pkg:npm/@angular/cdk@21.1.2",
       "group": "@angular",
       "name": "cdk",
-      "version": "21.0.6",
+      "version": "21.1.2",
       "scope": "required",
       "hashes": [
         {
           "alg": "SHA-512",
-          "content": "e46c3c997b4a5ef72f0cc5847223cb45807a25ae6fb2290b022759b1d084205e81739d469a8a93e5393f29ef9c8827791eaf40728fc8707c53d510b7e3bd2566"
+          "content": "d2af8f8412a68ca3b4622df9dd50a93314f483bf3b72594b85da72c61d348b7b70c4d5af164419832d88875f3b657c9dbd6faef661642bdf9418bce7710d329e"
         }
       ],
-      "purl": "pkg:npm/%40angular/cdk@21.0.6",
+      "purl": "pkg:npm/%40angular/cdk@21.1.2",
       "properties": [
         {
           "name": "SrcFile",
@@ -2371,18 +2371,18 @@
     },
     {
       "type": "framework",
-      "bom-ref": "pkg:npm/@angular/common@21.0.8",
+      "bom-ref": "pkg:npm/@angular/common@21.1.2",
       "group": "@angular",
       "name": "common",
-      "version": "21.0.8",
+      "version": "21.1.2",
       "scope": "required",
       "hashes": [
         {
           "alg": "SHA-512",
-          "content": "a27d41e2873fa5fec89646c6d3c12dfdc083497f1da59cfd8b0a77ccc14dff426fa2bb29c8be583a8bc525f8dda668dd96b222f93a06226c3222463d3fc31b97"
+          "content": "34adba386d7eff71172c35acb523e67466e4a6df1b3fd02c4fd27b101a2b9ccb305239900db8f26fce4dfdeb0a8d18c3324c38a7f68aa41a36e1e095e6e52604"
         }
       ],
-      "purl": "pkg:npm/%40angular/common@21.0.8",
+      "purl": "pkg:npm/%40angular/common@21.1.2",
       "properties": [
         {
           "name": "SrcFile",
@@ -2423,6 +2423,9 @@
             "location": "src/app/sample-model.service.ts#9"
           },
           {
+            "location": "src/app/data-point-editor/data-point-editor.ts#30"
+          },
+          {
             "location": "src/app/footer-toolbar/footer-toolbar.ts#12"
           }
         ]
@@ -2433,18 +2436,18 @@
     },
     {
       "type": "framework",
-      "bom-ref": "pkg:npm/@angular/core@21.0.8",
+      "bom-ref": "pkg:npm/@angular/core@21.1.2",
       "group": "@angular",
       "name": "core",
-      "version": "21.0.8",
+      "version": "21.1.2",
       "scope": "required",
       "hashes": [
         {
           "alg": "SHA-512",
-          "content": "f1d368948427f161eb0f73eca86b8faee8f10d7e618e931b8a889f201ca38d7f72689cbda27ec07b05466fc9bf0c7570590d5e1950069af5bdc2dfa1fa79732e"
+          "content": "5b6c7145bee7a0e0f50dd33029a6777211618a2ea7bad68d217b7b75f5ac316a2e8e0dcaaa9767d6e91ec96e5a1ca419bc2253206af87f7c2167c4a3ff5eda08"
         }
       ],
-      "purl": "pkg:npm/%40angular/core@21.0.8",
+      "purl": "pkg:npm/%40angular/core@21.1.2",
       "properties": [
         {
           "name": "SrcFile",
@@ -2452,7 +2455,7 @@
         },
         {
           "name": "ImportedModules",
-          "value": "@angular/core,Injectable,@angular/core/Injectable,Component,@angular/core/Component,signal,@angular/core/signal,ChangeDetectorRef,@angular/core/ChangeDetectorRef,OnInit,@angular/core/OnInit,EventEmitter,@angular/core/EventEmitter,Input,@angular/core/Input,Output,@angular/core/Output,ViewChild,@angular/core/ViewChild,ElementRef,@angular/core/ElementRef,AfterViewInit,@angular/core/AfterViewInit,Signal,@angular/core/Signal,@angular/core/rxjs-interop,toSignal,@angular/core/rxjs-interop/toSignal"
+          "value": "@angular/core,Injectable,@angular/core/Injectable,Component,@angular/core/Component,signal,@angular/core/signal,ChangeDetectorRef,@angular/core/ChangeDetectorRef,OnInit,@angular/core/OnInit,EventEmitter,@angular/core/EventEmitter,Input,@angular/core/Input,Output,@angular/core/Output,ViewChildren,@angular/core/ViewChildren,OnChanges,@angular/core/OnChanges,SimpleChanges,@angular/core/SimpleChanges,ViewChild,@angular/core/ViewChild,ElementRef,@angular/core/ElementRef,AfterViewInit,@angular/core/AfterViewInit,Signal,@angular/core/Signal,@angular/core/rxjs-interop,toSignal,@angular/core/rxjs-interop/toSignal"
         }
       ],
       "evidence": {
@@ -2482,7 +2485,16 @@
             "location": "src/app/backend-status-messages/backend-status-messages.ts#6"
           },
           {
-            "location": "src/app/data-point-editor/data-point-editor.ts#6"
+            "location": "src/app/color-scale-editor/color-scale-editor.ts#14"
+          },
+          {
+            "location": "src/app/color-scale-entry/color-scale-entry.ts#14"
+          },
+          {
+            "location": "src/app/data-point-editor/data-point-editor.ts#14"
+          },
+          {
+            "location": "src/app/editor-model-service.ts#6"
           },
           {
             "location": "src/app/editor-page/editor-page.ts#14"
@@ -2564,18 +2576,18 @@
     },
     {
       "type": "framework",
-      "bom-ref": "pkg:npm/@angular/forms@21.0.8",
+      "bom-ref": "pkg:npm/@angular/forms@21.1.2",
       "group": "@angular",
       "name": "forms",
-      "version": "21.0.8",
+      "version": "21.1.2",
       "scope": "required",
       "hashes": [
         {
           "alg": "SHA-512",
-          "content": "1f4dc0e747a56b05cee77c64cf4032b5aaf99184f5e062de6a3e9d2ca73591c47936abd7f58fd1ef3ddb639dadbf2a4074847c0a63d3eda774ed3953e0ef6592"
+          "content": "758e7a16ea0112f7cb32d6ad286835bcc152c20c92cd6266dd445a063dc6a454e3867b81c87a311f82dbe6ee7496bad573d550b7f0599aade60d95e3971e9083"
         }
       ],
-      "purl": "pkg:npm/%40angular/forms@21.0.8",
+      "purl": "pkg:npm/%40angular/forms@21.1.2",
       "properties": [
         {
           "name": "SrcFile",
@@ -2583,7 +2595,7 @@
         },
         {
           "name": "ImportedModules",
-          "value": "@angular/forms,FormControl,@angular/forms/FormControl,FormsModule,@angular/forms/FormsModule,ReactiveFormsModule,@angular/forms/ReactiveFormsModule,FormGroup,@angular/forms/FormGroup"
+          "value": "@angular/forms,FormControl,@angular/forms/FormControl,ReactiveFormsModule,@angular/forms/ReactiveFormsModule,FormGroup,@angular/forms/FormGroup,FormsModule,@angular/forms/FormsModule"
         }
       ],
       "evidence": {
@@ -2601,7 +2613,13 @@
         },
         "occurrences": [
           {
-            "location": "src/app/data-point-editor/data-point-editor.ts#8"
+            "location": "src/app/color-scale-editor/color-scale-editor.ts#21"
+          },
+          {
+            "location": "src/app/color-scale-entry/color-scale-entry.ts#15"
+          },
+          {
+            "location": "src/app/data-point-editor/data-point-editor.ts#16"
           },
           {
             "location": "src/app/editor-page/editor-page.ts#35"
@@ -2620,18 +2638,18 @@
     },
     {
       "type": "framework",
-      "bom-ref": "pkg:npm/@angular/platform-browser@21.0.8",
+      "bom-ref": "pkg:npm/@angular/platform-browser@21.1.2",
       "group": "@angular",
       "name": "platform-browser",
-      "version": "21.0.8",
+      "version": "21.1.2",
       "scope": "required",
       "hashes": [
         {
           "alg": "SHA-512",
-          "content": "e6b3f2acfea7e8294ed191145e7752dbf5dbee766b6e38d858ec607c26fe6530a253b7b237ace14a689c2a4d9d2d0c44d4cd79c1b4daf3b74debf62dbaadaebe"
+          "content": "f2f9c26d0871ba043799e190d18952a74b8d058523a455d88c59c64345eae63bf373d597eca4a2c7af80c9d12366d41f7356d645eb414ce961429aa7c18a79de"
         }
       ],
-      "purl": "pkg:npm/%40angular/platform-browser@21.0.8",
+      "purl": "pkg:npm/%40angular/platform-browser@21.1.2",
       "properties": [
         {
           "name": "SrcFile",
@@ -2667,18 +2685,18 @@
     },
     {
       "type": "framework",
-      "bom-ref": "pkg:npm/@angular/router@21.0.8",
+      "bom-ref": "pkg:npm/@angular/router@21.1.2",
       "group": "@angular",
       "name": "router",
-      "version": "21.0.8",
+      "version": "21.1.2",
       "scope": "required",
       "hashes": [
         {
           "alg": "SHA-512",
-          "content": "2cf47ae70c96052c91e3a7c6790b43f76f9333adf9a34961f8de64f6a3d974c69ca20c15893aed04758f7ca601b415172d61165d72897d26d7be1877c37b8bc7"
+          "content": "00f978b644c922ba5e8e550b2eb1ad21d2ee26435cb4fcb4a675628eb24b479da7115d315f5eb9ba55e4dd7acbf509cc9348b2f79d1a4d8b684da97868cc35e9"
         }
       ],
-      "purl": "pkg:npm/%40angular/router@21.0.8",
+      "purl": "pkg:npm/%40angular/router@21.1.2",
       "properties": [
         {
           "name": "SrcFile",
@@ -2723,7 +2741,7 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/dompurify@3.3.0",
+      "bom-ref": "pkg:npm/dompurify@3.3.1",
       "authors": [
         {
           "name": "Dr.-Ing. Mario Heiderich"
@@ -2734,13 +2752,13 @@
       ],
       "group": "",
       "name": "dompurify",
-      "version": "3.3.0",
+      "version": "3.3.1",
       "description": "DOMPurify is a DOM-only, super-fast, uber-tolerant XSS sanitizer for HTML, MathML and SVG. It\u0027s written in JavaScript and works in all modern browsers (Safari, Opera (15\u002B), Internet Explorer (10\u002B), Firefox and Chrome - as well as almost anything else using Blink or WebKit). DOMPurify is written by security people who have vast background in web attacks and XSS. Fear not.",
       "scope": "required",
       "hashes": [
         {
           "alg": "SHA-512",
-          "content": "afe7fa318475806375789bf44d541b840ee27ff53b3fcedc74f9771cde6b8a4a9a0520712e209bfdbf4efb6786d1cc73d2087253e994d5091bb0ec0444c62559"
+          "content": "aa47422b32cdb6b80f14fd55a3ef7c151cc99c14467b87dfc8279af48c070757f2c4f39e3531e92ca606778524f71bcda07d19a0e8f0671369b72330aab21dd5"
         }
       ],
       "licenses": [
@@ -2748,7 +2766,7 @@
           "expression": "(MPL-2.0 OR Apache-2.0)"
         }
       ],
-      "purl": "pkg:npm/dompurify@3.3.0",
+      "purl": "pkg:npm/dompurify@3.3.1",
       "externalReferences": [
         {
           "url": "https://github.com/cure53/DOMPurify",
@@ -2870,7 +2888,7 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/primeng@21.0.1",
+      "bom-ref": "pkg:npm/primeng@21.1.1",
       "authors": [
         {
           "name": "PrimeTek Informatics"
@@ -2878,13 +2896,13 @@
       ],
       "group": "",
       "name": "primeng",
-      "version": "21.0.1",
+      "version": "21.1.1",
       "description": "PrimeNG is an open source UI library for Angular featuring a rich set of 80\u002B components, a theme designer, various theme alternatives such as Material, Bootstrap, Tailwind, premium templates and professional support. In addition, it integrates with PrimeBlock, which has 370\u002B ready to use UI blocks to build spectacular applications in no time.",
       "scope": "required",
       "hashes": [
         {
           "alg": "SHA-512",
-          "content": "94298ca6bd9c80be2bfc73c1c8c9eb2933e0c182404213036edbbfbbc54bdceb67cecf0a48a63b6e64a71fa72abee72c93c96bfd548a253c5bb2c6fd82d98e56"
+          "content": "02b5f95fea6c2632f7effe6647321b79e7583adc43c232eb6c1a134f0f6157afa442de2ff312b2f51d5d2ae888146f4e7904d0c3321a27be0e4440402499afa0"
         }
       ],
       "licenses": [
@@ -2892,7 +2910,7 @@
           "expression": "SEE LICENSE IN LICENSE.md"
         }
       ],
-      "purl": "pkg:npm/primeng@21.0.1",
+      "purl": "pkg:npm/primeng@21.1.1",
       "externalReferences": [
         {
           "url": "https://primeng.org/",
@@ -2910,7 +2928,7 @@
         },
         {
           "name": "ImportedModules",
-          "value": "primeng/message,Message,primeng/message/Message,primeng/card,Card,primeng/card/Card,primeng/inputtext,InputText,primeng/inputtext/InputText,primeng/iftalabel,IftaLabel,primeng/iftalabel/IftaLabel,primeng/button,Button,primeng/button/Button,primeng/tooltip,Tooltip,primeng/tooltip/Tooltip,primeng/keyfilter,KeyFilter,primeng/keyfilter/KeyFilter,ButtonDirective,primeng/button/ButtonDirective,primeng/popover,Popover,primeng/popover/Popover,primeng/classnames,ClassNames,primeng/classnames/ClassNames,primeng/dialog,Dialog,primeng/dialog/Dialog,primeng/checkbox,Checkbox,primeng/checkbox/Checkbox,ButtonLabel,primeng/button/ButtonLabel,primeng/toolbar,Toolbar,primeng/toolbar/Toolbar,primeng/tag,primeng/tag/Tag,primeng/api,MenuItem,primeng/api/MenuItem,ButtonModule,primeng/button/ButtonModule,InputTextModule,primeng/inputtext/InputTextModule,primeng/drawer,Drawer,primeng/drawer/Drawer,primeng/menu,Menu,primeng/menu/Menu,primeng/autocomplete,AutoComplete,primeng/autocomplete/AutoComplete,AutoCompleteCompleteEvent,primeng/autocomplete/AutoCompleteCompleteEvent,primeng/select,Select,primeng/select/Select"
+          "value": "primeng/message,Message,primeng/message/Message,primeng/button,Button,primeng/button/Button,primeng/tooltip,Tooltip,primeng/tooltip/Tooltip,primeng/autocomplete,AutoComplete,primeng/autocomplete/AutoComplete,AutoCompleteCompleteEvent,primeng/autocomplete/AutoCompleteCompleteEvent,primeng/iftalabel,IftaLabel,primeng/iftalabel/IftaLabel,primeng/inputtext,InputText,primeng/inputtext/InputText,primeng/colorpicker,ColorPickerModule,primeng/colorpicker/ColorPickerModule,primeng/keyfilter,KeyFilter,primeng/keyfilter/KeyFilter,primeng/card,Card,primeng/card/Card,ButtonSeverity,primeng/button/ButtonSeverity,primeng/popover,Popover,primeng/popover/Popover,ButtonDirective,primeng/button/ButtonDirective,primeng/classnames,ClassNames,primeng/classnames/ClassNames,primeng/dialog,Dialog,primeng/dialog/Dialog,primeng/checkbox,Checkbox,primeng/checkbox/Checkbox,ButtonLabel,primeng/button/ButtonLabel,primeng/toolbar,Toolbar,primeng/toolbar/Toolbar,primeng/tag,primeng/tag/Tag,primeng/api,MenuItem,primeng/api/MenuItem,ButtonModule,primeng/button/ButtonModule,InputTextModule,primeng/inputtext/InputTextModule,primeng/drawer,Drawer,primeng/drawer/Drawer,primeng/menu,Menu,primeng/menu/Menu,primeng/select,Select,primeng/select/Select"
         }
       ],
       "evidence": {
@@ -2931,25 +2949,61 @@
             "location": "src/app/backend-status-messages/backend-status-messages.ts#7"
           },
           {
+            "location": "src/app/color-scale-entry/color-scale-entry.ts#22"
+          },
+          {
             "location": "src/app/backend-status-messages/backend-status-messages.ts#7"
           },
           {
-            "location": "src/app/data-point-editor/data-point-editor.ts#7"
+            "location": "src/app/color-scale-editor/color-scale-editor.ts#17"
           },
           {
-            "location": "src/app/data-point-editor/data-point-editor.ts#9"
+            "location": "src/app/color-scale-editor/color-scale-editor.ts#18"
           },
           {
-            "location": "src/app/data-point-editor/data-point-editor.ts#11"
+            "location": "src/app/color-scale-editor/color-scale-editor.ts#19"
           },
           {
-            "location": "src/app/data-point-editor/data-point-editor.ts#12"
+            "location": "src/app/color-scale-editor/color-scale-editor.ts#20"
+          },
+          {
+            "location": "src/app/color-scale-entry/color-scale-entry.ts#16"
+          },
+          {
+            "location": "src/app/color-scale-entry/color-scale-entry.ts#17"
+          },
+          {
+            "location": "src/app/color-scale-entry/color-scale-entry.ts#18"
+          },
+          {
+            "location": "src/app/color-scale-entry/color-scale-entry.ts#19"
+          },
+          {
+            "location": "src/app/color-scale-entry/color-scale-entry.ts#21"
+          },
+          {
+            "location": "src/app/color-scale-entry/color-scale-entry.ts#22"
+          },
+          {
+            "location": "src/app/data-point-editor/data-point-editor.ts#15"
           },
           {
             "location": "src/app/data-point-editor/data-point-editor.ts#17"
           },
           {
             "location": "src/app/data-point-editor/data-point-editor.ts#19"
+          },
+          {
+            "location": "src/app/data-point-editor/data-point-editor.ts#20"
+          },
+          {
+            "location": "src/app/data-point-editor/data-point-editor.ts#25"
+          },
+          {
+            "location": "src/app/data-point-editor/data-point-editor.ts#27"
+          },
+          {
+            "location": "src/app/data-point-editor/data-point-editor.ts#28"
           },
           {
             "location": "src/app/editor-page/editor-page.ts#15"
@@ -2967,7 +3021,10 @@
             "location": "src/app/editor-page/editor-page.ts#37"
           },
           {
-            "location": "src/app/editor-page/editor-page.ts#39"
+            "location": "src/app/editor-page/editor-page.ts#38"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#45"
           },
           {
             "location": "src/app/editor-page/editor-page.ts#46"
@@ -2976,7 +3033,7 @@
             "location": "src/app/editor-page/editor-page.ts#47"
           },
           {
-            "location": "src/app/editor-page/editor-page.ts#48"
+            "location": "src/app/editor-page/editor-page.ts#50"
           },
           {
             "location": "src/app/entry-consent/entry-consent.ts#7"
@@ -3042,7 +3099,85 @@
             "location": "src/app/unit-chooser/unit-chooser.ts#10"
           },
           {
-            "location": "src/app/data-point-editor/data-point-editor.ts#7"
+            "location": "src/app/color-scale-editor/color-scale-editor.ts#17"
+          },
+          {
+            "location": "src/app/data-point-editor/data-point-editor.ts#20"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#15"
+          },
+          {
+            "location": "src/app/entry-consent/entry-consent.ts#8"
+          },
+          {
+            "location": "src/app/header-toolbar/header-toolbar.ts#9"
+          },
+          {
+            "location": "src/app/color-scale-editor/color-scale-editor.ts#18"
+          },
+          {
+            "location": "src/app/color-scale-entry/color-scale-entry.ts#18"
+          },
+          {
+            "location": "src/app/data-point-editor/data-point-editor.ts#25"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#33"
+          },
+          {
+            "location": "src/app/source-data-point-chooser/source-data-point-chooser.ts#11"
+          },
+          {
+            "location": "src/app/color-scale-editor/color-scale-editor.ts#19"
+          },
+          {
+            "location": "src/app/source-data-point-chooser/source-data-point-chooser.ts#9"
+          },
+          {
+            "location": "src/app/color-scale-editor/color-scale-editor.ts#20"
+          },
+          {
+            "location": "src/app/color-scale-entry/color-scale-entry.ts#16"
+          },
+          {
+            "location": "src/app/data-point-editor/data-point-editor.ts#19"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#45"
+          },
+          {
+            "location": "src/app/source-data-point-chooser/source-data-point-chooser.ts#10"
+          },
+          {
+            "location": "src/app/unit-chooser/unit-chooser.ts#10"
+          },
+          {
+            "location": "src/app/color-scale-entry/color-scale-entry.ts#17"
+          },
+          {
+            "location": "src/app/data-point-editor/data-point-editor.ts#17"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#46"
+          },
+          {
+            "location": "src/app/header-toolbar/header-toolbar.ts#10"
+          },
+          {
+            "location": "src/app/color-scale-entry/color-scale-entry.ts#19"
+          },
+          {
+            "location": "src/app/color-scale-entry/color-scale-entry.ts#21"
+          },
+          {
+            "location": "src/app/data-point-editor/data-point-editor.ts#27"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#50"
+          },
+          {
+            "location": "src/app/data-point-editor/data-point-editor.ts#15"
           },
           {
             "location": "src/app/editor-page/editor-page.ts#18"
@@ -3063,49 +3198,7 @@
             "location": "src/app/third-party-licenses-page/third-party-licenses-page.ts#9"
           },
           {
-            "location": "src/app/data-point-editor/data-point-editor.ts#9"
-          },
-          {
-            "location": "src/app/editor-page/editor-page.ts#47"
-          },
-          {
-            "location": "src/app/header-toolbar/header-toolbar.ts#10"
-          },
-          {
-            "location": "src/app/data-point-editor/data-point-editor.ts#11"
-          },
-          {
-            "location": "src/app/editor-page/editor-page.ts#46"
-          },
-          {
-            "location": "src/app/source-data-point-chooser/source-data-point-chooser.ts#10"
-          },
-          {
-            "location": "src/app/unit-chooser/unit-chooser.ts#10"
-          },
-          {
-            "location": "src/app/data-point-editor/data-point-editor.ts#12"
-          },
-          {
-            "location": "src/app/editor-page/editor-page.ts#15"
-          },
-          {
-            "location": "src/app/entry-consent/entry-consent.ts#8"
-          },
-          {
-            "location": "src/app/header-toolbar/header-toolbar.ts#9"
-          },
-          {
-            "location": "src/app/data-point-editor/data-point-editor.ts#17"
-          },
-          {
-            "location": "src/app/editor-page/editor-page.ts#33"
-          },
-          {
-            "location": "src/app/source-data-point-chooser/source-data-point-chooser.ts#11"
-          },
-          {
-            "location": "src/app/data-point-editor/data-point-editor.ts#19"
+            "location": "src/app/data-point-editor/data-point-editor.ts#28"
           },
           {
             "location": "src/app/editor-page/editor-page.ts#36"
@@ -3114,13 +3207,13 @@
             "location": "src/app/editor-page/editor-page.ts#37"
           },
           {
-            "location": "src/app/editor-page/editor-page.ts#39"
+            "location": "src/app/editor-page/editor-page.ts#38"
           },
           {
             "location": "src/app/entry-consent/entry-consent.ts#7"
           },
           {
-            "location": "src/app/editor-page/editor-page.ts#48"
+            "location": "src/app/editor-page/editor-page.ts#47"
           },
           {
             "location": "src/app/footer-toolbar/footer-toolbar.ts#7"
@@ -3142,9 +3235,6 @@
           },
           {
             "location": "src/app/menu-sidebar/menu-sidebar.ts#9"
-          },
-          {
-            "location": "src/app/source-data-point-chooser/source-data-point-chooser.ts#9"
           },
           {
             "location": "src/app/unit-chooser/unit-chooser.ts#7"
@@ -3200,7 +3290,7 @@
         },
         {
           "name": "ImportedModules",
-          "value": "rxjs,catchError,rxjs/catchError,filter,rxjs/filter,Observable,rxjs/Observable,rxjs/of,ReplaySubject,rxjs/ReplaySubject,first,rxjs/first,startWith,rxjs/startWith,rxjs/map,forkJoin,rxjs/forkJoin"
+          "value": "rxjs,catchError,rxjs/catchError,filter,rxjs/filter,Observable,rxjs/Observable,rxjs/of,ReplaySubject,rxjs/ReplaySubject,finalize,rxjs/finalize,first,rxjs/first,startWith,rxjs/startWith,rxjs/map,forkJoin,rxjs/forkJoin"
         }
       ],
       "evidence": {
@@ -3224,13 +3314,19 @@
             "location": "src/app/app-metadata-service.ts#8"
           },
           {
-            "location": "src/app/editor-page/editor-page.ts#40"
+            "location": "src/app/data-point-editor/data-point-editor.ts#31"
+          },
+          {
+            "location": "src/app/editor-model-service.ts#9"
+          },
+          {
+            "location": "src/app/editor-page/editor-page.ts#39"
           },
           {
             "location": "src/app/footer-toolbar/footer-toolbar.ts#11"
           },
           {
-            "location": "src/app/generator-service.ts#22"
+            "location": "src/app/generator-service.ts#26"
           },
           {
             "location": "src/app/notices-service.ts#7"
@@ -3249,11 +3345,11 @@
     },
     {
       "type": "application",
-      "bom-ref": "pkg:npm/dcs-pylot-dash-ui@1.0.0",
+      "bom-ref": "pkg:npm/dcs-pylot-dash-ui@1.1.0",
       "group": "",
       "name": "dcs-pylot-dash-ui",
-      "version": "1.0.0",
-      "purl": "pkg:npm/dcs-pylot-dash-ui@1.0.0"
+      "version": "1.1.0",
+      "purl": "pkg:npm/dcs-pylot-dash-ui@1.1.0"
     }
   ],
   "dependencies": [
@@ -3553,68 +3649,69 @@
       "ref": "webcolors==25.10.0"
     },
     {
-      "ref": "pkg:npm/dcs-pylot-dash-ui@1.0.0",
+      "ref": "pkg:npm/dcs-pylot-dash-ui@1.1.0",
       "dependsOn": [
-        "pkg:npm/@angular/cdk@21.0.6",
-        "pkg:npm/@angular/common@21.0.8",
-        "pkg:npm/@angular/core@21.0.8",
-        "pkg:npm/@angular/forms@21.0.8",
-        "pkg:npm/@angular/platform-browser@21.0.8",
-        "pkg:npm/@angular/router@21.0.8",
-        "pkg:npm/dompurify@3.3.0",
+        "pkg:npm/@angular/cdk@21.1.2",
+        "pkg:npm/@angular/common@21.1.2",
+        "pkg:npm/@angular/core@21.1.2",
+        "pkg:npm/@angular/forms@21.1.2",
+        "pkg:npm/@angular/platform-browser@21.1.2",
+        "pkg:npm/@angular/router@21.1.2",
+        "pkg:npm/dompurify@3.3.1",
         "pkg:npm/marked@17.0.1",
-        "pkg:npm/primeng@21.0.1",
+        "pkg:npm/primeng@21.1.1",
         "pkg:npm/rxjs@7.8.2"
       ]
     },
     {
-      "ref": "pkg:npm/@angular/cdk@21.0.6",
+      "ref": "pkg:npm/@angular/cdk@21.1.2",
       "dependsOn": [
-        "pkg:npm/@angular/common@21.0.8",
-        "pkg:npm/@angular/core@21.0.8",
+        "pkg:npm/@angular/common@21.1.2",
+        "pkg:npm/@angular/core@21.1.2",
+        "pkg:npm/@angular/platform-browser@21.1.2",
         "pkg:npm/rxjs@7.8.2"
       ]
     },
     {
-      "ref": "pkg:npm/@angular/common@21.0.8",
+      "ref": "pkg:npm/@angular/common@21.1.2",
       "dependsOn": [
-        "pkg:npm/@angular/core@21.0.8",
+        "pkg:npm/@angular/core@21.1.2",
         "pkg:npm/rxjs@7.8.2"
       ]
     },
     {
-      "ref": "pkg:npm/@angular/core@21.0.8",
+      "ref": "pkg:npm/@angular/core@21.1.2",
       "dependsOn": [
         "pkg:npm/rxjs@7.8.2"
       ]
     },
     {
-      "ref": "pkg:npm/@angular/forms@21.0.8",
+      "ref": "pkg:npm/@angular/forms@21.1.2",
       "dependsOn": [
-        "pkg:npm/@angular/common@21.0.8",
-        "pkg:npm/@angular/core@21.0.8",
-        "pkg:npm/@angular/platform-browser@21.0.8",
+        "pkg:npm/@angular/common@21.1.2",
+        "pkg:npm/@angular/core@21.1.2",
+        "pkg:npm/@angular/platform-browser@21.1.2",
         "pkg:npm/rxjs@7.8.2"
       ]
     },
     {
-      "ref": "pkg:npm/@angular/platform-browser@21.0.8",
+      "ref": "pkg:npm/@angular/platform-browser@21.1.2",
       "dependsOn": [
-        "pkg:npm/@angular/common@21.0.8",
-        "pkg:npm/@angular/core@21.0.8"
+        "pkg:npm/@angular/common@21.1.2",
+        "pkg:npm/@angular/core@21.1.2"
       ]
     },
     {
-      "ref": "pkg:npm/@angular/router@21.0.8",
+      "ref": "pkg:npm/@angular/router@21.1.2",
       "dependsOn": [
-        "pkg:npm/@angular/common@21.0.8",
-        "pkg:npm/@angular/core@21.0.8",
-        "pkg:npm/@angular/platform-browser@21.0.8",
+        "pkg:npm/@angular/common@21.1.2",
+        "pkg:npm/@angular/core@21.1.2",
+        "pkg:npm/@angular/platform-browser@21.1.2",
         "pkg:npm/rxjs@7.8.2"
       ]
     },
     {
-      "ref": "pkg:npm/dompurify@3.3.0",
+      "ref": "pkg:npm/dompurify@3.3.1",
       "dependsOn": []
     },
     {
@@ -3622,14 +3719,14 @@
       "dependsOn": []
     },
     {
-      "ref": "pkg:npm/primeng@21.0.1",
+      "ref": "pkg:npm/primeng@21.1.1",
       "dependsOn": [
-        "pkg:npm/@angular/cdk@21.0.6",
-        "pkg:npm/@angular/common@21.0.8",
-        "pkg:npm/@angular/core@21.0.8",
-        "pkg:npm/@angular/forms@21.0.8",
-        "pkg:npm/@angular/platform-browser@21.0.8",
-        "pkg:npm/@angular/router@21.0.8",
+        "pkg:npm/@angular/cdk@21.1.2",
+        "pkg:npm/@angular/common@21.1.2",
+        "pkg:npm/@angular/core@21.1.2",
+        "pkg:npm/@angular/forms@21.1.2",
+        "pkg:npm/@angular/platform-browser@21.1.2",
+        "pkg:npm/@angular/router@21.1.2",
         "pkg:npm/rxjs@7.8.2"
       ]
     },
@@ -3641,7 +3738,7 @@
   "compositions": [
     {
       "aggregate": "incomplete",
-      "bom-ref": "pkg:npm/dcs-pylot-dash-ui@1.0.0"
+      "bom-ref": "pkg:npm/dcs-pylot-dash-ui@1.1.0"
     }
   ]
 }

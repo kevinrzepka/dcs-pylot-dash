@@ -366,15 +366,17 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
         for (const entry of colorscale) {
             const min = entry.min;
             const max = entry.max;
-            if (isEmpty(min) && fieldValue < max) {
+            if (!isEmpty(min) && !isEmpty(max) && fieldValue >= min && fieldValue < max) {
                 return entry.color;
-            } else if (isEmpty(max) && fieldValue >= min) {
+            }
+            if (!isEmpty(min) && isEmpty(max) && fieldValue >= min) {
                 return entry.color;
-            } else if (!isEmpty(min) && !isEmpty(max) && fieldValue >= min && fieldValue < max) {
+            }
+            if (isEmpty(min) && !isEmpty(max) && fieldValue < max) {
                 return entry.color;
             }
         }
-        return colorscale[0].color;
+        return null;
     }
 
     function processData(data) {
@@ -431,7 +433,13 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
                         finalValue = value.toFixed(decimalDigitsMap.get(leafFullName));
                     }
                     element.innerText = `${finalValue}`;
-                    element.style.color = getColorscaleColor(leafFullName, finalValue);
+                    const color = getColorscaleColor(leafFullName, finalValue);
+                    if (color !== null) {
+                        element.classList.remove('text-success');
+                    } else {
+                        element.classList.add('text-success');
+                    }
+                    element.style.color = color;
                 } else {
                     console.warn(`Element with id ${fullName} not found`);
                 }

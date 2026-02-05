@@ -145,9 +145,14 @@ Must add the following to the CSP:
 
 ## Upgrading dependencies
 
-After upgrading dependencies, update the SBOM and run the vulnerability scan:
+After upgrading dependencies, increment and sync the versions, generate the SBOMs, generate the attributions, and run
+the vulnerability scan:
 
+- `uv self update`
+- Update [`Dockerfile`](./Dockerfile)
+- `./sync-versions.sh`
 - `./generate-sboms.sh`
+- `./generate-attributions.sh`
 - `trivy sbom --disable-telemetry sboms/sbom.json`
 
 ### Python
@@ -158,7 +163,9 @@ to include all groups, not just prod and dev, they must be specified explicitly:
 
 ### Node
 
-- find updates: `pnpm run ng update`
+- Find Angular updates, but this includes versions that may not satisfy pnpm constraints: `pnpm run ng update`
+- Update all packages (ensure appropriate version syntax in [
+  `dcs-pylot-dash-ui/package.json`](dcs-pylot-dash-ui/package.json) : `pnpm update`
 
 ## Versioning
 

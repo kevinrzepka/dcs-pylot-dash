@@ -2,10 +2,10 @@
 #  SPDX-License-Identifier: MIT
 #  License-Filename: LICENSE
 
-ARG UV_VERSION=0.9.16
+ARG UV_VERSION=0.9.30
 
-# https://hub.docker.com/layers/library/python/3.14.2-slim/images/sha256-c1250d34ec4f97c87c5f95dda74be3f8eeb8d91649e621df7bfbb3dd5f946262
-FROM python@sha256:c1250d34ec4f97c87c5f95dda74be3f8eeb8d91649e621df7bfbb3dd5f946262 AS base
+# https://hub.docker.com/layers/library/python/3.14.2-slim/images/sha256-51f5baff157fee39a31e5b32394dde7ed2977bcea7a0b16a8978a8d23c270f85
+FROM python@sha256:51f5baff157fee39a31e5b32394dde7ed2977bcea7a0b16a8978a8d23c270f85 AS base
 RUN apt update \
     && apt install -y curl \
     && curl -LsSf https://astral.sh/uv/${UV_VERSION}/install.sh | sh
@@ -22,7 +22,7 @@ COPY ./pyproject.toml ./
 COPY ./uv.lock ./
 RUN $HOME/.local/bin/uv sync --frozen --no-group dev --no-group cyclonedx
 
-FROM python@sha256:c1250d34ec4f97c87c5f95dda74be3f8eeb8d91649e621df7bfbb3dd5f946262 AS runner
+FROM python@sha256:51f5baff157fee39a31e5b32394dde7ed2977bcea7a0b16a8978a8d23c270f85 AS runner
 WORKDIR /app
 
 ARG BUILD_VERSION
