@@ -95,6 +95,7 @@ class MissingConverterError(Exception):
 class UnitFormatters:
     """
     A Unit with a formatter has no unit label. This is the job of the formatter.
+    If a formatter is present, no conversion factor is base value is applied. This has to be done by the formatter.
     """
 
     _convertable_units: ClassVar[list[set[Unit]]] = [

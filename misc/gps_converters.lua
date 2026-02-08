@@ -16,43 +16,59 @@ Altitude: 45 m / 148 feet
 -- internal functions
 
 local function to_deg_min_sec(deg_dec)
-   local deg = math.floor(deg_dec)
-   local min_dec = (deg_dec - deg) * 60
+   local deg = deg_dec > 0 and math.floor(deg_dec) or math.ceil(deg_dec)
+   local min_dec = math.abs(deg_dec - deg) * 60
    local min = math.floor(min_dec)
    local sec_dec = (min_dec - min) * 60
    return deg, min_dec, min, sec_dec
 end
 
 local function to_dcml_str(nesw, deg, min_dec)
-    return nesw .. " " .. string.format("%02d",deg) .. "°" .. string.format("%06.3f'", min_dec)
+    return nesw .. " " .. string.format("%02d", math.abs(deg)) .. "°" .. string.format("%06.3f'", min_dec)
 end
 
 local function to_sec_str(nesw, deg, min, sec_dec, precise)
     local sec_str = precise and string.format("%05.2f\"", sec_dec) or string.format("%02d", math.floor(sec_dec + 0.5)) .. "\""
-    return nesw .. " " .. string.format("%02d",deg) .. "°" .. string.format("%02d",min) .. "'" .. sec_str
+    return nesw .. " " .. string.format("%02d", math.abs(deg)) .. "°" .. string.format("%02d",min) .. "'" .. sec_str
+end
+
+local function is_number(n)
+    return type(n) == "number"
 end
 
 -- public functions for single values
 
 local function to_lat_dcml_str(lat_dec)
+    if not is_number(lat_dec) then
+        return ""
+    end
     local lat_deg, lat_min_dec, _, _ = to_deg_min_sec(lat_dec)
     local ns = lat_deg > 0 and "N" or "S"
     return to_dcml_str(ns, lat_deg, lat_min_dec)
 end
 
 local function to_lon_dcml_str(lon_dec)
+    if not is_number(lon_dec) then
+        return ""
+    end
     local lon_deg, lon_min_dec, _, _ = to_deg_min_sec(lon_dec)
     local ew = lon_deg > 0 and "E" or "W"
     return to_dcml_str(ew, lon_deg, lon_min_dec)
 end
 
 local function to_lat_sec_str(lat_dec, precise)
+    if not is_number(lat_dec) then
+        return ""
+    end
     local lat_deg, _, lat_min, lat_sec_dec = to_deg_min_sec(lat_dec)
     local ns = lat_deg > 0 and "N" or "S"
     return to_sec_str(ns, lat_deg, lat_min, lat_sec_dec, precise)
 end
 
 local function to_lon_sec_str(lon_dec, precise)
+    if not is_number(lon_dec) then
+        return ""
+    end
     local lon_deg, _, lon_min, lon_sec_dec = to_deg_min_sec(lon_dec)
     local ew = lon_deg > 0 and "E" or "W"
     return to_sec_str(ew, lon_deg, lon_min, lon_sec_dec, precise)
@@ -61,6 +77,7 @@ end
 local to_lat_sec_precise_str = function(lat_dec)
     return to_lat_sec_str(lat_dec, true)
 end
+
 local to_lon_sec_precise_str = function(lon_dec)
     return to_lon_sec_str(lon_dec, true)
 end

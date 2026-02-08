@@ -212,7 +212,15 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
      * @type {Map<any, any>}
      */
     const colorScaleMap = new Map();
-
+    colorScaleMap.set('data.ias.kts', []);
+    colorScaleMap.get('data.ias.kts').push({min: null, max: 400.0, color: '#F2340F'});
+    colorScaleMap.get('data.ias.kts').push({min: 400.0, max: 420.0, color: '#F0CC05'});
+    colorScaleMap.get('data.ias.kts').push({min: 420.0, max: 460.0, color: '#04AF2B'});
+    colorScaleMap.get('data.ias.kts').push({min: 460.0, max: null, color: '#0EB2E8'});
+    colorScaleMap.set('data.fuel.internal.lbs', []);
+    colorScaleMap.get('data.fuel.internal.lbs').push({min: null, max: 2000.0, color: '#F2340F'});
+    colorScaleMap.get('data.fuel.internal.lbs').push({min: 2000.0, max: 4000.0, color: '#F0CC05'});
+    colorScaleMap.get('data.fuel.internal.lbs').push({min: 4000.0, max: null, color: '#04AF2B'});
 
     let busy = false;
     let firstDataReceived = false;

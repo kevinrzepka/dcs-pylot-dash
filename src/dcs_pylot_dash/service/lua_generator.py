@@ -128,7 +128,12 @@ class LuaGenerator:
                     formatter_function: str | None = UnitFormatters.get_formatter(node.export_field.effective_unit)
                     line += f"{formatter_function}({internal_field.dotted_name})"
                 else:
-                    line = f"{self._data_var}.{node.name} = {internal_field.dotted_name}"
+                    line = f"{self._data_var}.{node.name} = "
+                    if internal_field.return_type == LoReturnType.NUMBER:
+                        line += f"({internal_field.dotted_name} or 0)"
+                    else:
+                        line += f"{internal_field.dotted_name}"
+
                     if internal_field.abs_base_value is not None:
                         line += f" * {internal_field.abs_base_value}"
                     if node.export_field.output_unit_override is not None:
@@ -136,7 +141,7 @@ class LuaGenerator:
                             internal_field.unit, node.export_field.output_unit_override
                         )
                         if factor is not None and factor != 1.0:
-                            line = f"{line} * {factor}"
+                            line += f" * {factor}"
                 sc = self._add_line(sc, line, settings)
         else:
             sc = self._add_line(sc, f"{self._data_var}.{node.name} = {{}}", settings)
@@ -148,7 +153,7 @@ class LuaGenerator:
         tree: ExportModelTreeNode = self._build_export_tree(export_model)
         for node in tree.nodes.values():
             sc = self._add_sc_node(node, sc, export_model.lua_export_settings)
-        return sc  # TODO
+        return sc
 
     def _build_script_content(self, export_model: ExportModel) -> str:
         sc: str = ""
@@ -174,7 +179,7 @@ class LuaGenerator:
         - for each field: apply the unit conversion factor (and abs factors) to exported data
         :param internal_model:
         :param export_model:
-        :return:
+        :return: LuaGeneratorOutput
         """
         for f in export_model.fields:
             self._resolve_field(internal_model, f)

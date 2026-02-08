@@ -7,24 +7,24 @@
       "display_name_override": "Airspeed",
       "row": 0,
       "col": 0,
-      "colorscale": [
+      "color_scale": [
         {
-          "max": 400,
-          "color": "danger"
+          "to_value": 400,
+          "color": "#F2340F"
         },
         {
-          "min": 400,
-          "max": 420,
-          "color": "warning"
+          "from_value": 400,
+          "to_value": 420,
+          "color": "#F0CC05"
         },
         {
-          "min": 420,
-          "max": 460,
-          "color": "success"
+          "from_value": 420,
+          "to_value": 460,
+          "color": "#04AF2B"
         },
         {
-          "min": 460,
-          "color": "info"
+          "from_value": 460,
+          "color": "#0EB2E8"
         }
       ]
     },
@@ -74,19 +74,19 @@
       "display_name_override": "Fuel (total)",
       "row": 3,
       "col": 0,
-      "colorscale": [
+      "color_scale": [
         {
-          "max": 2000,
-          "color": "danger"
+          "to_value": 2000,
+          "color": "#F2340F"
         },
         {
-          "min": 2000,
-          "max": 4000,
-          "color": "warning"
+          "from_value": 2000,
+          "to_value": 4000,
+          "color": "#F0CC05"
         },
         {
-          "min": 4000,
-          "color": "success"
+          "from_value": 4000,
+          "color": "#04AF2B"
         }
       ]
     },
