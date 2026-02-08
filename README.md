@@ -169,9 +169,10 @@ to include all groups, not just prod and dev, they must be specified explicitly:
 
 ## Versioning
 
-- Source of truth: `pyproject.toml` -> `uv version --short`
+- Source of truth: `pyproject.toml`: `uv version --short`
 - Set new version: `uv version <new-version>`
 - Sync versions after upgrade: `./sync-versions.sh` (included in `./build.sh`)
+- Since the version has changed, the SBOMs must be regenerated: `./generate-sboms.sh`
 
 relevant locations:
 

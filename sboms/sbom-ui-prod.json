@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
-  "serialNumber": "urn:uuid:c5980189-7efc-4bd2-9ca1-b08cddd3e9c0",
+  "serialNumber": "urn:uuid:a4a8e4ee-bc2d-4d11-8c87-fc6cf385dcf9",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-02-05T14:59:21Z",
+    "timestamp": "2026-02-08T13:20:24Z",
     "tools": {
       "components": [
         {
@@ -36,9 +36,9 @@
     "component": {
       "name": "dcs-pylot-dash-ui",
       "group": "",
-      "version": "1.1.0",
-      "purl": "pkg:npm/dcs-pylot-dash-ui@1.1.0",
-      "bom-ref": "pkg:npm/dcs-pylot-dash-ui@1.1.0",
+      "version": "1.1.1",
+      "purl": "pkg:npm/dcs-pylot-dash-ui@1.1.1",
+      "bom-ref": "pkg:npm/dcs-pylot-dash-ui@1.1.1",
       "type": "application"
     },
     "properties": [
@@ -1101,7 +1101,7 @@
   ],
   "dependencies": [
     {
-      "ref": "pkg:npm/dcs-pylot-dash-ui@1.1.0",
+      "ref": "pkg:npm/dcs-pylot-dash-ui@1.1.1",
       "dependsOn": [
         "pkg:npm/@angular/cdk@21.1.2",
         "pkg:npm/@angular/common@21.1.2",
@@ -1189,7 +1189,7 @@
   ],
   "compositions": [
     {
-      "bom-ref": "pkg:npm/dcs-pylot-dash-ui@1.1.0",
+      "bom-ref": "pkg:npm/dcs-pylot-dash-ui@1.1.1",
       "aggregate": "incomplete"
     }
   ],
@@ -1197,7 +1197,7 @@
     {
       "bom-ref": "metadata-annotations",
       "subjects": [
-        "pkg:npm/dcs-pylot-dash-ui@1.1.0"
+        "pkg:npm/dcs-pylot-dash-ui@1.1.1"
       ],
       "annotator": {
         "component": {
@@ -1215,8 +1215,8 @@
           ]
         }
       },
-      "timestamp": "2026-02-05T14:59:21Z",
-      "text": "This Software Bill-of-Materials (SBOM) document was created on Thursday, February 5, 2026 with cdxgen. The data was captured during the pre-build lifecycle phase without building the application. The document describes an application named 'dcs-pylot-dash-ui' with version '1.1.0'. There are 10 components. The package type in this SBOM is npm with a single purl namespace '@angular' described under components. The components were identified from the source files: pnpm-lock.yaml."
+      "timestamp": "2026-02-08T13:20:25Z",
+      "text": "This Software Bill-of-Materials (SBOM) document was created on Sunday, February 8, 2026 with cdxgen. The data was captured during the pre-build lifecycle phase without building the application. The document describes an application named 'dcs-pylot-dash-ui' with version '1.1.1'. There are 10 components. The package type in this SBOM is npm with a single purl namespace '@angular' described under components. The components were identified from the source files: pnpm-lock.yaml."
     }
   ]
 }

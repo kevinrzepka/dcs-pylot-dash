@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
-  "serialNumber": "urn:uuid:0fe25b45-9099-4cfe-9b39-b5fed72be862",
+  "serialNumber": "urn:uuid:93aeabe2-540d-4b39-a2fb-2b1ae0d01873",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-02-05T14:59:23Z",
+    "timestamp": "2026-02-08T13:20:27Z",
     "tools": {
       "components": [
         {
@@ -36,9 +36,9 @@
     "component": {
       "name": "dcs-pylot-dash-ui",
       "group": "",
-      "version": "1.1.0",
-      "purl": "pkg:npm/dcs-pylot-dash-ui@1.1.0",
-      "bom-ref": "pkg:npm/dcs-pylot-dash-ui@1.1.0",
+      "version": "1.1.1",
+      "purl": "pkg:npm/dcs-pylot-dash-ui@1.1.1",
+      "bom-ref": "pkg:npm/dcs-pylot-dash-ui@1.1.1",
       "type": "application"
     },
     "properties": [
@@ -38114,7 +38114,7 @@
   ],
   "dependencies": [
     {
-      "ref": "pkg:npm/dcs-pylot-dash-ui@1.1.0",
+      "ref": "pkg:npm/dcs-pylot-dash-ui@1.1.1",
       "dependsOn": [
         "pkg:npm/@angular/cdk@21.1.2",
         "pkg:npm/@angular/common@21.1.2",
@@ -42476,7 +42476,7 @@
     {
       "bom-ref": "metadata-annotations",
       "subjects": [
-        "pkg:npm/dcs-pylot-dash-ui@1.1.0"
+        "pkg:npm/dcs-pylot-dash-ui@1.1.1"
       ],
       "annotator": {
         "component": {
@@ -42494,8 +42494,8 @@
           ]
         }
       },
-      "timestamp": "2026-02-05T14:59:23Z",
-      "text": "This Software Bill-of-Materials (SBOM) document was created on Thursday, February 5, 2026 with cdxgen. The data was captured during the pre-build lifecycle phase without building the application. The document describes an application named 'dcs-pylot-dash-ui' with version '1.1.0'. There are 724 components. The package type in this SBOM is npm with 39 purl namespaces described under components. The components were identified from the source files: pnpm-lock.yaml."
+      "timestamp": "2026-02-08T13:20:27Z",
+      "text": "This Software Bill-of-Materials (SBOM) document was created on Sunday, February 8, 2026 with cdxgen. The data was captured during the pre-build lifecycle phase without building the application. The document describes an application named 'dcs-pylot-dash-ui' with version '1.1.1'. There are 724 components. The package type in this SBOM is npm with 39 purl namespaces described under components. The components were identified from the source files: pnpm-lock.yaml."
     }
   ]
 }
