@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
-  "serialNumber": "urn:uuid:4bc2a384-7e4e-489d-ba9a-ad41824f0eab",
+  "serialNumber": "urn:uuid:bcd7acde-3584-41e5-b52e-9fe7692c3bb2",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-02-08T13:20:28Z",
+    "timestamp": "2026-07-16T15:11:35Z",
     "tools": {
       "components": [
         {
@@ -685,9 +685,9 @@
     },
     {
       "type": "library",
-      "bom-ref": "fastapi==0.128.0",
+      "bom-ref": "fastapi==0.138.1",
       "name": "fastapi",
-      "version": "0.128.0",
+      "version": "0.138.1",
       "description": "FastAPI framework, high performance, easy to learn, fast to code, ready for production",
       "licenses": [
         {
@@ -697,7 +697,7 @@
           }
         }
       ],
-      "purl": "pkg:pypi/fastapi@0.128.0",
+      "purl": "pkg:pypi/fastapi@0.138.1",
       "externalReferences": [
         {
           "url": "https://fastapi.tiangolo.com/",
@@ -1565,9 +1565,9 @@
     },
     {
       "type": "library",
-      "bom-ref": "pydantic-settings==2.12.0",
+      "bom-ref": "pydantic-settings==2.14.2",
       "name": "pydantic-settings",
-      "version": "2.12.0",
+      "version": "2.14.2",
       "description": "Settings management using Pydantic",
       "licenses": [
         {
@@ -1577,7 +1577,7 @@
           }
         }
       ],
-      "purl": "pkg:pypi/pydantic-settings@2.12.0",
+      "purl": "pkg:pypi/pydantic-settings@2.14.2",
       "externalReferences": [
         {
           "url": "https://docs.pydantic.dev/dev-v2/concepts/pydantic_settings/",
@@ -2029,9 +2029,9 @@
     },
     {
       "type": "library",
-      "bom-ref": "starlette==0.50.0",
+      "bom-ref": "starlette==1.3.1",
       "name": "starlette",
-      "version": "0.50.0",
+      "version": "1.3.1",
       "description": "The little ASGI library that shines.",
       "licenses": [
         {
@@ -2041,7 +2041,7 @@
           }
         }
       ],
-      "purl": "pkg:pypi/starlette@0.50.0",
+      "purl": "pkg:pypi/starlette@1.3.1",
       "externalReferences": [
         {
           "url": "https://starlette.dev/",
@@ -2246,9 +2246,9 @@
     },
     {
       "type": "library",
-      "bom-ref": "uvicorn==0.40.0",
+      "bom-ref": "uvicorn==0.51.0",
       "name": "uvicorn",
-      "version": "0.40.0",
+      "version": "0.51.0",
       "description": "The lightning-fast ASGI server.",
       "licenses": [
         {
@@ -2258,7 +2258,7 @@
           }
         }
       ],
-      "purl": "pkg:pypi/uvicorn@0.40.0",
+      "purl": "pkg:pypi/uvicorn@0.51.0",
       "externalReferences": [
         {
           "url": "https://github.com/Kludex/uvicorn",
@@ -2324,18 +2324,18 @@
     },
     {
       "type": "framework",
-      "bom-ref": "pkg:npm/@angular/cdk@21.1.2",
+      "bom-ref": "pkg:npm/@angular/cdk@21.2.14",
       "group": "@angular",
       "name": "cdk",
-      "version": "21.1.2",
+      "version": "21.2.14",
       "scope": "required",
       "hashes": [
         {
           "alg": "SHA-512",
-          "content": "d2af8f8412a68ca3b4622df9dd50a93314f483bf3b72594b85da72c61d348b7b70c4d5af164419832d88875f3b657c9dbd6faef661642bdf9418bce7710d329e"
+          "content": "f34e9112afc22dfdfb9c486699df10f882cdf33fd1546daf9369fc619ff84dd1e97010a2e6ec780312dba4c99db8bc063ceccf6a027a8204731397e75f4ae671"
         }
       ],
-      "purl": "pkg:npm/%40angular/cdk@21.1.2",
+      "purl": "pkg:npm/%40angular/cdk@21.2.14",
       "properties": [
         {
           "name": "SrcFile",
@@ -2371,18 +2371,18 @@
     },
     {
       "type": "framework",
-      "bom-ref": "pkg:npm/@angular/common@21.1.2",
+      "bom-ref": "pkg:npm/@angular/common@21.2.18",
       "group": "@angular",
       "name": "common",
-      "version": "21.1.2",
+      "version": "21.2.18",
       "scope": "required",
       "hashes": [
         {
           "alg": "SHA-512",
-          "content": "34adba386d7eff71172c35acb523e67466e4a6df1b3fd02c4fd27b101a2b9ccb305239900db8f26fce4dfdeb0a8d18c3324c38a7f68aa41a36e1e095e6e52604"
+          "content": "819ba067c817fca900088677fde9282262eee73f1ad08bbd3b96fce2487c7befbe5548e6926775f48ca006cabff3f7c5def29fd1470829cc773fa03f81bd8327"
         }
       ],
-      "purl": "pkg:npm/%40angular/common@21.1.2",
+      "purl": "pkg:npm/%40angular/common@21.2.18",
       "properties": [
         {
           "name": "SrcFile",
@@ -2436,18 +2436,18 @@
     },
     {
       "type": "framework",
-      "bom-ref": "pkg:npm/@angular/core@21.1.2",
+      "bom-ref": "pkg:npm/@angular/core@21.2.18",
       "group": "@angular",
       "name": "core",
-      "version": "21.1.2",
+      "version": "21.2.18",
       "scope": "required",
       "hashes": [
         {
           "alg": "SHA-512",
-          "content": "5b6c7145bee7a0e0f50dd33029a6777211618a2ea7bad68d217b7b75f5ac316a2e8e0dcaaa9767d6e91ec96e5a1ca419bc2253206af87f7c2167c4a3ff5eda08"
+          "content": "006e1b6fa194d3eaa9faf5418dcfc88523e381c457f10b026fc8f337c743ca19e3b32bae1bf2e522253497a9fae4123d486284f66e937ec27539b92402213929"
         }
       ],
-      "purl": "pkg:npm/%40angular/core@21.1.2",
+      "purl": "pkg:npm/%40angular/core@21.2.18",
       "properties": [
         {
           "name": "SrcFile",
@@ -2576,18 +2576,18 @@
     },
     {
       "type": "framework",
-      "bom-ref": "pkg:npm/@angular/forms@21.1.2",
+      "bom-ref": "pkg:npm/@angular/forms@21.2.18",
       "group": "@angular",
       "name": "forms",
-      "version": "21.1.2",
+      "version": "21.2.18",
       "scope": "required",
       "hashes": [
         {
           "alg": "SHA-512",
-          "content": "758e7a16ea0112f7cb32d6ad286835bcc152c20c92cd6266dd445a063dc6a454e3867b81c87a311f82dbe6ee7496bad573d550b7f0599aade60d95e3971e9083"
+          "content": "4eb46e88d8c8cebacdb508292551f982e96d42bbc195ac1afad4f3229c417c8a8ba641eb4cf64bb58bb5d7c11493a8e15b381184a614a2b2278c97beb12c42fb"
         }
       ],
-      "purl": "pkg:npm/%40angular/forms@21.1.2",
+      "purl": "pkg:npm/%40angular/forms@21.2.18",
       "properties": [
         {
           "name": "SrcFile",
@@ -2638,18 +2638,18 @@
     },
     {
       "type": "framework",
-      "bom-ref": "pkg:npm/@angular/platform-browser@21.1.2",
+      "bom-ref": "pkg:npm/@angular/platform-browser@21.2.18",
       "group": "@angular",
       "name": "platform-browser",
-      "version": "21.1.2",
+      "version": "21.2.18",
       "scope": "required",
       "hashes": [
         {
           "alg": "SHA-512",
-          "content": "f2f9c26d0871ba043799e190d18952a74b8d058523a455d88c59c64345eae63bf373d597eca4a2c7af80c9d12366d41f7356d645eb414ce961429aa7c18a79de"
+          "content": "ce5b45fb71eb960b596d883c53df0b846d1dc869b56874f73f1f3fffdc23aa2fd3518f14947b18281c8bd7ded0b555830637ff75e9335ddcf973e8b256d6a72d"
         }
       ],
-      "purl": "pkg:npm/%40angular/platform-browser@21.1.2",
+      "purl": "pkg:npm/%40angular/platform-browser@21.2.18",
       "properties": [
         {
           "name": "SrcFile",
@@ -2685,18 +2685,18 @@
     },
     {
       "type": "framework",
-      "bom-ref": "pkg:npm/@angular/router@21.1.2",
+      "bom-ref": "pkg:npm/@angular/router@21.2.18",
       "group": "@angular",
       "name": "router",
-      "version": "21.1.2",
+      "version": "21.2.18",
       "scope": "required",
       "hashes": [
         {
           "alg": "SHA-512",
-          "content": "00f978b644c922ba5e8e550b2eb1ad21d2ee26435cb4fcb4a675628eb24b479da7115d315f5eb9ba55e4dd7acbf509cc9348b2f79d1a4d8b684da97868cc35e9"
+          "content": "5e2c75f6e1b562d842f08b258562927cf761b1c556444046549656d8e9d198b79ff05ec3be1178f52eaf3b2c1a068f946a17b47a09268160cda44c31033b202f"
         }
       ],
-      "purl": "pkg:npm/%40angular/router@21.1.2",
+      "purl": "pkg:npm/%40angular/router@21.2.18",
       "properties": [
         {
           "name": "SrcFile",
@@ -2741,7 +2741,7 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/dompurify@3.3.1",
+      "bom-ref": "pkg:npm/dompurify@3.4.12",
       "authors": [
         {
           "name": "Dr.-Ing. Mario Heiderich"
@@ -2752,13 +2752,13 @@
       ],
       "group": "",
       "name": "dompurify",
-      "version": "3.3.1",
-      "description": "DOMPurify is a DOM-only, super-fast, uber-tolerant XSS sanitizer for HTML, MathML and SVG. It\u0027s written in JavaScript and works in all modern browsers (Safari, Opera (15\u002B), Internet Explorer (10\u002B), Firefox and Chrome - as well as almost anything else using Blink or WebKit). DOMPurify is written by security people who have vast background in web attacks and XSS. Fear not.",
+      "version": "3.4.12",
+      "description": "DOMPurify is a DOM-only, super-fast, uber-tolerant XSS sanitizer for HTML, MathML and SVG. It runs as JavaScript and works in all modern browsers, as well as in Node.js (via jsdom). DOMPurify is written by security people who have vast background in web attacks and XSS. Fear not.",
       "scope": "required",
       "hashes": [
         {
           "alg": "SHA-512",
-          "content": "aa47422b32cdb6b80f14fd55a3ef7c151cc99c14467b87dfc8279af48c070757f2c4f39e3531e92ca606778524f71bcda07d19a0e8f0671369b72330aab21dd5"
+          "content": "cd0bc67adf19dac59b4210a67c5cff4f94161f6a019a39ea2b7aaf3a36aa68d2eb2c417dd7659a994fa88674e9d1309ea7f305547a5d26e09911d14e7539c416"
         }
       ],
       "licenses": [
@@ -2766,7 +2766,7 @@
           "expression": "(MPL-2.0 OR Apache-2.0)"
         }
       ],
-      "purl": "pkg:npm/dompurify@3.3.1",
+      "purl": "pkg:npm/dompurify@3.4.12",
       "externalReferences": [
         {
           "url": "https://github.com/cure53/DOMPurify",
@@ -2816,7 +2816,7 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/marked@17.0.1",
+      "bom-ref": "pkg:npm/marked@17.0.6",
       "authors": [
         {
           "name": "Christopher Jeffrey"
@@ -2824,13 +2824,13 @@
       ],
       "group": "",
       "name": "marked",
-      "version": "17.0.1",
+      "version": "17.0.6",
       "description": "A markdown parser built for speed",
       "scope": "required",
       "hashes": [
         {
           "alg": "SHA-512",
-          "content": "6e87817624b4821a56712c28366fe3241c1da4568c9d9591ce303a4a450c61be3449568dd71ee699f18aa748ef7b119cc7eef2d8b6b9cd166c605648e90a72a6"
+          "content": "801d2090d69f9e89cec34a1b4931066534fce88ba120bb7659fc749961ffd40bbcde4c9b4dacaba19fd5ea74b6e6637bbbc012cbee5f321801dd73cdace65d98"
         }
       ],
       "licenses": [
@@ -2841,7 +2841,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/marked@17.0.1",
+      "purl": "pkg:npm/marked@17.0.6",
       "externalReferences": [
         {
           "url": "https://marked.js.org",
@@ -2888,7 +2888,7 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/primeng@21.1.1",
+      "bom-ref": "pkg:npm/primeng@21.1.9",
       "authors": [
         {
           "name": "PrimeTek Informatics"
@@ -2896,13 +2896,13 @@
       ],
       "group": "",
       "name": "primeng",
-      "version": "21.1.1",
+      "version": "21.1.9",
       "description": "PrimeNG is an open source UI library for Angular featuring a rich set of 80\u002B components, a theme designer, various theme alternatives such as Material, Bootstrap, Tailwind, premium templates and professional support. In addition, it integrates with PrimeBlock, which has 370\u002B ready to use UI blocks to build spectacular applications in no time.",
       "scope": "required",
       "hashes": [
         {
           "alg": "SHA-512",
-          "content": "02b5f95fea6c2632f7effe6647321b79e7583adc43c232eb6c1a134f0f6157afa442de2ff312b2f51d5d2ae888146f4e7904d0c3321a27be0e4440402499afa0"
+          "content": "67be8fb45d3c5f43cd49308d3286daa3c426ef5bc2e7a9ad652754b57fe0b27e3eab8c7435b514b6478ad69737ddafa4c559b6ce498ec3350810699bf5576820"
         }
       ],
       "licenses": [
@@ -2910,7 +2910,7 @@
           "expression": "SEE LICENSE IN LICENSE.md"
         }
       ],
-      "purl": "pkg:npm/primeng@21.1.1",
+      "purl": "pkg:npm/primeng@21.1.9",
       "externalReferences": [
         {
           "url": "https://primeng.org/",
@@ -3345,11 +3345,11 @@
     },
     {
       "type": "application",
-      "bom-ref": "pkg:npm/dcs-pylot-dash-ui@1.1.1",
+      "bom-ref": "pkg:npm/dcs-pylot-dash-ui@1.1.2",
       "group": "",
       "name": "dcs-pylot-dash-ui",
-      "version": "1.1.1",
-      "purl": "pkg:npm/dcs-pylot-dash-ui@1.1.1"
+      "version": "1.1.2",
+      "purl": "pkg:npm/dcs-pylot-dash-ui@1.1.2"
     }
   ],
   "dependencies": [
@@ -3421,16 +3421,17 @@
       "ref": "defusedxml==0.7.1"
     },
     {
-      "ref": "fastapi==0.128.0",
+      "ref": "fastapi==0.138.1",
       "dependsOn": [
         "PyYAML==6.0.3",
         "annotated-doc==0.0.4",
         "httpx==0.28.1",
-        "pydantic-settings==2.12.0",
+        "pydantic-settings==2.14.2",
         "pydantic==2.12.5",
-        "starlette==0.50.0",
+        "starlette==1.3.1",
+        "typing-inspection==0.4.2",
         "typing_extensions==4.15.0",
-        "uvicorn==0.40.0"
+        "uvicorn==0.51.0"
       ]
     },
     {
@@ -3540,7 +3541,7 @@
       ]
     },
     {
-      "ref": "pydantic-settings==2.12.0",
+      "ref": "pydantic-settings==2.14.2",
       "dependsOn": [
         "PyYAML==6.0.3",
         "pydantic==2.12.5",
@@ -3612,7 +3613,7 @@
       "ref": "sortedcontainers==2.4.0"
     },
     {
-      "ref": "starlette==0.50.0",
+      "ref": "starlette==1.3.1",
       "dependsOn": [
         "PyYAML==6.0.3",
         "anyio==4.12.0",
@@ -3636,7 +3637,7 @@
       "ref": "uri-template==1.3.0"
     },
     {
-      "ref": "uvicorn==0.40.0",
+      "ref": "uvicorn==0.51.0",
       "dependsOn": [
         "PyYAML==6.0.3",
         "click==8.3.1",
@@ -3649,84 +3650,84 @@
       "ref": "webcolors==25.10.0"
     },
     {
-      "ref": "pkg:npm/dcs-pylot-dash-ui@1.1.1",
+      "ref": "pkg:npm/dcs-pylot-dash-ui@1.1.2",
       "dependsOn": [
-        "pkg:npm/@angular/cdk@21.1.2",
-        "pkg:npm/@angular/common@21.1.2",
-        "pkg:npm/@angular/core@21.1.2",
-        "pkg:npm/@angular/forms@21.1.2",
-        "pkg:npm/@angular/platform-browser@21.1.2",
-        "pkg:npm/@angular/router@21.1.2",
-        "pkg:npm/dompurify@3.3.1",
-        "pkg:npm/marked@17.0.1",
-        "pkg:npm/primeng@21.1.1",
+        "pkg:npm/@angular/cdk@21.2.14",
+        "pkg:npm/@angular/common@21.2.18",
+        "pkg:npm/@angular/core@21.2.18",
+        "pkg:npm/@angular/forms@21.2.18",
+        "pkg:npm/@angular/platform-browser@21.2.18",
+        "pkg:npm/@angular/router@21.2.18",
+        "pkg:npm/dompurify@3.4.12",
+        "pkg:npm/marked@17.0.6",
+        "pkg:npm/primeng@21.1.9",
         "pkg:npm/rxjs@7.8.2"
       ]
     },
     {
-      "ref": "pkg:npm/@angular/cdk@21.1.2",
+      "ref": "pkg:npm/@angular/cdk@21.2.14",
       "dependsOn": [
-        "pkg:npm/@angular/common@21.1.2",
-        "pkg:npm/@angular/core@21.1.2",
-        "pkg:npm/@angular/platform-browser@21.1.2",
+        "pkg:npm/@angular/common@21.2.18",
+        "pkg:npm/@angular/core@21.2.18",
+        "pkg:npm/@angular/platform-browser@21.2.18",
         "pkg:npm/rxjs@7.8.2"
       ]
     },
     {
-      "ref": "pkg:npm/@angular/common@21.1.2",
+      "ref": "pkg:npm/@angular/common@21.2.18",
       "dependsOn": [
-        "pkg:npm/@angular/core@21.1.2",
+        "pkg:npm/@angular/core@21.2.18",
         "pkg:npm/rxjs@7.8.2"
       ]
     },
     {
-      "ref": "pkg:npm/@angular/core@21.1.2",
+      "ref": "pkg:npm/@angular/core@21.2.18",
       "dependsOn": [
         "pkg:npm/rxjs@7.8.2"
       ]
     },
     {
-      "ref": "pkg:npm/@angular/forms@21.1.2",
+      "ref": "pkg:npm/@angular/forms@21.2.18",
       "dependsOn": [
-        "pkg:npm/@angular/common@21.1.2",
-        "pkg:npm/@angular/core@21.1.2",
-        "pkg:npm/@angular/platform-browser@21.1.2",
+        "pkg:npm/@angular/common@21.2.18",
+        "pkg:npm/@angular/core@21.2.18",
+        "pkg:npm/@angular/platform-browser@21.2.18",
         "pkg:npm/rxjs@7.8.2"
       ]
     },
     {
-      "ref": "pkg:npm/@angular/platform-browser@21.1.2",
+      "ref": "pkg:npm/@angular/platform-browser@21.2.18",
       "dependsOn": [
-        "pkg:npm/@angular/common@21.1.2",
-        "pkg:npm/@angular/core@21.1.2"
+        "pkg:npm/@angular/common@21.2.18",
+        "pkg:npm/@angular/core@21.2.18"
       ]
     },
     {
-      "ref": "pkg:npm/@angular/router@21.1.2",
+      "ref": "pkg:npm/@angular/router@21.2.18",
       "dependsOn": [
-        "pkg:npm/@angular/common@21.1.2",
-        "pkg:npm/@angular/core@21.1.2",
-        "pkg:npm/@angular/platform-browser@21.1.2",
+        "pkg:npm/@angular/common@21.2.18",
+        "pkg:npm/@angular/core@21.2.18",
+        "pkg:npm/@angular/platform-browser@21.2.18",
         "pkg:npm/rxjs@7.8.2"
       ]
     },
     {
-      "ref": "pkg:npm/dompurify@3.3.1",
+      "ref": "pkg:npm/dompurify@3.4.12",
       "dependsOn": []
     },
     {
-      "ref": "pkg:npm/marked@17.0.1",
+      "ref": "pkg:npm/marked@17.0.6",
       "dependsOn": []
     },
     {
-      "ref": "pkg:npm/primeng@21.1.1",
+      "ref": "pkg:npm/primeng@21.1.9",
       "dependsOn": [
-        "pkg:npm/@angular/cdk@21.1.2",
-        "pkg:npm/@angular/common@21.1.2",
-        "pkg:npm/@angular/core@21.1.2",
-        "pkg:npm/@angular/forms@21.1.2",
-        "pkg:npm/@angular/platform-browser@21.1.2",
-        "pkg:npm/@angular/router@21.1.2",
+        "pkg:npm/@angular/cdk@21.2.14",
+        "pkg:npm/@angular/common@21.2.18",
+        "pkg:npm/@angular/core@21.2.18",
+        "pkg:npm/@angular/forms@21.2.18",
+        "pkg:npm/@angular/platform-browser@21.2.18",
+        "pkg:npm/@angular/router@21.2.18",
         "pkg:npm/rxjs@7.8.2"
       ]
     },
@@ -3738,7 +3739,7 @@
   "compositions": [
     {
       "aggregate": "incomplete",
-      "bom-ref": "pkg:npm/dcs-pylot-dash-ui@1.1.1"
+      "bom-ref": "pkg:npm/dcs-pylot-dash-ui@1.1.2"
     }
   ]
 }

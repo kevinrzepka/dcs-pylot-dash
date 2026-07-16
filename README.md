@@ -149,6 +149,7 @@ After upgrading dependencies, increment and sync the versions, generate the SBOM
 the vulnerability scan:
 
 - `uv self update`
+- `pnpm self-update`
 - Update [`Dockerfile`](./Dockerfile)
 - `./sync-versions.sh`
 - `./generate-sboms.sh`

@@ -4,8 +4,8 @@
 
 ARG UV_VERSION=0.9.30
 
-# https://hub.docker.com/layers/library/python/3.14.2-slim/images/sha256-51f5baff157fee39a31e5b32394dde7ed2977bcea7a0b16a8978a8d23c270f85
-FROM python@sha256:51f5baff157fee39a31e5b32394dde7ed2977bcea7a0b16a8978a8d23c270f85 AS base
+# https://hub.docker.com/layers/library/python/3.14-slim/images/sha256-d4fea6e20c09820028eea3f5c17f5b8ebd2ecb9c2bf28e561681a74a96090e4f
+FROM python@sha256:d4fea6e20c09820028eea3f5c17f5b8ebd2ecb9c2bf28e561681a74a96090e4f AS base
 RUN apt update \
     && apt install -y curl \
     && curl -LsSf https://astral.sh/uv/${UV_VERSION}/install.sh | sh
@@ -22,7 +22,7 @@ COPY ./pyproject.toml ./
 COPY ./uv.lock ./
 RUN $HOME/.local/bin/uv sync --frozen --no-group dev --no-group cyclonedx
 
-FROM python@sha256:51f5baff157fee39a31e5b32394dde7ed2977bcea7a0b16a8978a8d23c270f85 AS runner
+FROM python@sha256:d4fea6e20c09820028eea3f5c17f5b8ebd2ecb9c2bf28e561681a74a96090e4f AS runner
 WORKDIR /app
 
 ARG BUILD_VERSION

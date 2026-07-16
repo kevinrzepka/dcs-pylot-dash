@@ -179,7 +179,7 @@
       "version": "25.4.0"
     },
     {
-      "bom-ref": "black==26.1.0",
+      "bom-ref": "black==26.5.1",
       "description": "The uncompromising code formatter.",
       "externalReferences": [
         {
@@ -212,9 +212,9 @@
         }
       ],
       "name": "black",
-      "purl": "pkg:pypi/black@26.1.0",
+      "purl": "pkg:pypi/black@26.5.1",
       "type": "library",
-      "version": "26.1.0"
+      "version": "26.5.1"
     },
     {
       "bom-ref": "boolean.py==5.0",
@@ -376,13 +376,13 @@
       "version": "8.3.1"
     },
     {
-      "bom-ref": "coverage==7.13.2",
+      "bom-ref": "coverage==7.15.2",
       "description": "Code coverage measurement for Python",
       "externalReferences": [
         {
           "comment": "from packaging metadata Project-URL: Documentation",
           "type": "documentation",
-          "url": "https://coverage.readthedocs.io/en/7.13.2"
+          "url": "https://coverage.readthedocs.io/en/7.15.2"
         },
         {
           "comment": "from packaging metadata Project-URL: Issues",
@@ -419,9 +419,9 @@
         }
       ],
       "name": "coverage",
-      "purl": "pkg:pypi/coverage@7.13.2",
+      "purl": "pkg:pypi/coverage@7.15.2",
       "type": "library",
-      "version": "7.13.2"
+      "version": "7.15.2"
     },
     {
       "bom-ref": "cyclonedx-bom==7.2.1",
@@ -1254,7 +1254,7 @@
       "version": "1.0.4"
     },
     {
-      "bom-ref": "pip==25.3",
+      "bom-ref": "pip==26.1.2",
       "description": "The PyPA recommended tool for installing Python packages.",
       "externalReferences": [
         {
@@ -1287,9 +1287,9 @@
         }
       ],
       "name": "pip",
-      "purl": "pkg:pypi/pip@25.3",
+      "purl": "pkg:pypi/pip@26.1.2",
       "type": "library",
-      "version": "25.3"
+      "version": "26.1.2"
     },
     {
       "bom-ref": "pip-requirements-parser==32.0.1",
@@ -1418,7 +1418,7 @@
       "version": "1.6.0"
     },
     {
-      "bom-ref": "pre_commit==4.5.1",
+      "bom-ref": "pre_commit==4.6.0",
       "description": "A framework for managing and maintaining multi-language pre-commit hooks.",
       "externalReferences": [
         {
@@ -1447,9 +1447,9 @@
         }
       ],
       "name": "pre_commit",
-      "purl": "pkg:pypi/pre-commit@4.5.1",
+      "purl": "pkg:pypi/pre-commit@4.6.0",
       "type": "library",
-      "version": "4.5.1"
+      "version": "4.6.0"
     },
     {
       "bom-ref": "py-serializable==2.1.0",
@@ -1519,7 +1519,7 @@
       "version": "3.2.5"
     },
     {
-      "bom-ref": "pytest==9.0.2",
+      "bom-ref": "pytest==9.1.1",
       "description": "pytest: simple powerful testing with Python",
       "externalReferences": [
         {
@@ -1562,12 +1562,12 @@
         }
       ],
       "name": "pytest",
-      "purl": "pkg:pypi/pytest@9.0.2",
+      "purl": "pkg:pypi/pytest@9.1.1",
       "type": "library",
-      "version": "9.0.2"
+      "version": "9.1.1"
     },
     {
-      "bom-ref": "pytest-asyncio==1.3.0",
+      "bom-ref": "pytest-asyncio==1.4.0",
       "description": "Pytest support for asyncio",
       "externalReferences": [
         {
@@ -1588,7 +1588,7 @@
         {
           "comment": "from packaging metadata Project-URL: Changelog",
           "type": "release-notes",
-          "url": "https://pytest-asyncio.readthedocs.io/en/latest/reference/changelog.html"
+          "url": "https://pytest-asyncio.readthedocs.io/en/stable/reference/changelog.html"
         },
         {
           "comment": "from packaging metadata Project-URL: Homepage",
@@ -1605,9 +1605,9 @@
         }
       ],
       "name": "pytest-asyncio",
-      "purl": "pkg:pypi/pytest-asyncio@1.3.0",
+      "purl": "pkg:pypi/pytest-asyncio@1.4.0",
       "type": "library",
-      "version": "1.3.0"
+      "version": "1.4.0"
     },
     {
       "bom-ref": "python-dateutil==2.9.0.post0",
@@ -1670,11 +1670,11 @@
       "version": "2.9.0.post0"
     },
     {
-      "bom-ref": "pytokens==0.3.0",
+      "bom-ref": "pytokens==0.4.1",
       "description": "A Fast, spec compliant Python 3.14+ tokenizer that runs on older Pythons.",
       "externalReferences": [
         {
-          "comment": "from packaging metadata: Home-page",
+          "comment": "from packaging metadata Project-URL: Homepage",
           "type": "website",
           "url": "https://github.com/tusharsadhwani/pytokens"
         }
@@ -1685,12 +1685,22 @@
             "acknowledgement": "declared",
             "id": "MIT"
           }
+        },
+        {
+          "license": {
+            "acknowledgement": "declared",
+            "name": "declared license of 'pytokens'",
+            "text": {
+              "content": "MIT License\n\nCopyright (c) 2024 Tushar Sadhwani\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+              "contentType": "text/plain"
+            }
+          }
         }
       ],
       "name": "pytokens",
-      "purl": "pkg:pypi/pytokens@0.3.0",
+      "purl": "pkg:pypi/pytokens@0.4.1",
       "type": "library",
-      "version": "0.3.0"
+      "version": "0.4.1"
     },
     {
       "bom-ref": "referencing==0.37.0",
@@ -2139,8 +2149,8 @@
     },
     {
       "dependsOn": [
-        "pre_commit==4.5.1",
-        "pytest==9.0.2",
+        "pre_commit==4.6.0",
+        "pytest==9.1.1",
         "python-dateutil==2.9.0.post0",
         "tzdata==2025.2"
       ],
@@ -2156,14 +2166,14 @@
         "packaging==25.0",
         "pathspec==1.0.4",
         "platformdirs==4.5.1",
-        "pytokens==0.3.0"
+        "pytokens==0.4.1"
       ],
-      "ref": "black==26.1.0"
+      "ref": "black==26.5.1"
     },
     {
       "dependsOn": [
-        "black==26.1.0",
-        "pytest==9.0.2"
+        "black==26.5.1",
+        "pytest==9.1.1"
       ],
       "ref": "boolean.py==5.0"
     },
@@ -2177,7 +2187,7 @@
       "ref": "click==8.3.1"
     },
     {
-      "ref": "coverage==7.13.2"
+      "ref": "coverage==7.15.2"
     },
     {
       "dependsOn": [
@@ -2218,7 +2228,7 @@
     },
     {
       "dependsOn": [
-        "pytest==9.0.2"
+        "pytest==9.1.1"
       ],
       "ref": "idna==3.11"
     },
@@ -2264,7 +2274,7 @@
     {
       "dependsOn": [
         "boolean.py==5.0",
-        "pytest==9.0.2"
+        "pytest==9.1.1"
       ],
       "ref": "license-expression==30.4.4"
     },
@@ -2279,8 +2289,8 @@
     },
     {
       "dependsOn": [
-        "black==26.1.0",
-        "pytest==9.0.2"
+        "black==26.5.1",
+        "pytest==9.1.1"
       ],
       "ref": "packageurl-python==0.17.6"
     },
@@ -2289,33 +2299,33 @@
     },
     {
       "dependsOn": [
-        "pytest==9.0.2"
+        "pytest==9.1.1"
       ],
       "ref": "pathspec==1.0.4"
     },
     {
       "dependsOn": [
-        "black==26.1.0",
+        "black==26.5.1",
         "packaging==25.0",
         "pyparsing==3.2.5",
-        "pytest==9.0.2"
+        "pytest==9.1.1"
       ],
       "ref": "pip-requirements-parser==32.0.1"
     },
     {
-      "ref": "pip==25.3"
+      "ref": "pip==26.1.2"
     },
     {
       "dependsOn": [
-        "pytest==9.0.2"
+        "pytest==9.1.1"
       ],
       "ref": "platformdirs==4.5.1"
     },
     {
       "dependsOn": [
-        "coverage==7.13.2",
-        "pre_commit==4.5.1",
-        "pytest==9.0.2"
+        "coverage==7.15.2",
+        "pre_commit==4.6.0",
+        "pytest==9.1.1"
       ],
       "ref": "pluggy==1.6.0"
     },
@@ -2327,7 +2337,7 @@
         "nodeenv==1.9.1",
         "virtualenv==20.35.4"
       ],
-      "ref": "pre_commit==4.5.1"
+      "ref": "pre_commit==4.6.0"
     },
     {
       "dependsOn": [
@@ -2340,10 +2350,10 @@
     },
     {
       "dependsOn": [
-        "coverage==7.13.2",
-        "pytest==9.0.2"
+        "coverage==7.15.2",
+        "pytest==9.1.1"
       ],
-      "ref": "pytest-asyncio==1.3.0"
+      "ref": "pytest-asyncio==1.4.0"
     },
     {
       "dependsOn": [
@@ -2353,7 +2363,7 @@
         "packaging==25.0",
         "pluggy==1.6.0"
       ],
-      "ref": "pytest==9.0.2"
+      "ref": "pytest==9.1.1"
     },
     {
       "dependsOn": [
@@ -2363,10 +2373,10 @@
     },
     {
       "dependsOn": [
-        "black==26.1.0",
-        "pytest==9.0.2"
+        "black==26.5.1",
+        "pytest==9.1.1"
       ],
-      "ref": "pytokens==0.3.0"
+      "ref": "pytokens==0.4.1"
     },
     {
       "dependsOn": [
@@ -2387,7 +2397,7 @@
     {
       "dependsOn": [
         "lark==1.3.1",
-        "pytest==9.0.2"
+        "pytest==9.1.1"
       ],
       "ref": "rfc3987-syntax==1.1.0"
     },
@@ -2408,12 +2418,12 @@
     },
     {
       "dependsOn": [
-        "coverage==7.13.2",
+        "coverage==7.15.2",
         "distlib==0.4.0",
         "filelock==3.20.0",
         "packaging==25.0",
         "platformdirs==4.5.1",
-        "pytest==9.0.2"
+        "pytest==9.1.1"
       ],
       "ref": "virtualenv==20.35.4"
     },
@@ -2422,7 +2432,7 @@
     }
   ],
   "metadata": {
-    "timestamp": "2026-02-08T13:20:18.967772+00:00",
+    "timestamp": "2026-07-16T15:11:23.332630+00:00",
     "tools": {
       "components": [
         {
@@ -2526,7 +2536,7 @@
       ]
     }
   },
-  "serialNumber": "urn:uuid:ff438f10-23ac-4c09-a692-9245bfa22a4b",
+  "serialNumber": "urn:uuid:aa611ff9-077e-4706-9c30-4564b4006954",
   "version": 1,
   "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
   "bomFormat": "CycloneDX",

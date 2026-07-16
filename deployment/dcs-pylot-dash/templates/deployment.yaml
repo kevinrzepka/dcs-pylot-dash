@@ -30,6 +30,7 @@ spec:
           securityContext:
             privileged: false
             allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
             appArmorProfile:
               type: RuntimeDefault
             seccompProfile:
